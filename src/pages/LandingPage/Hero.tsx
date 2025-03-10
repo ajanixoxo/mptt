@@ -53,11 +53,7 @@ const HeroSection = () => {
         },
     }
 
-    const lineVariants = {
-        hidden: { width: "0%" },
-        visible: { width: "100%", transition: { duration: 0.6 } },
-        exit: { width: "0%", transition: { duration: 0.6 } },
-    }
+
 
     return (
         <motion.section
@@ -120,18 +116,18 @@ const HeroSection = () => {
 
                         </div>
                         <motion.h1
-                            className="text-4xl md:text-5xl  lg:text-6xl text-center font-bold mb-4 leading-tight"
+                            className="text-4xl md:text-5xl  lg:text-6xl text-center font-bold mb-4 realtive leading-tight"
                             variants={itemVariants}
                         >
-                            Level Up Your 
+                            Level Up Your
                             <span className="iniline-flex items-center    justify-center text-white px-2 py-1 rounded ">
-                                <img src="/rec.png" className="absolute child top-5 -right-5  z-10 " /> 
-                                <span className="relative z-20">Tech Skills</span>
-                                </span>
+                                <img src="/rec.png" className="absolute child top-5 -right-14  z-10 " />
+                                <span className="relative z-20 -right-6">Tech Skills</span>
+                            </span>
                             <br />
-                        <div className="mt-5"></div>                            with{" "}
+                            <div className="mt-5"></div>                            with{" "}
                             <span
-                                className="relative inline-block"
+                                className="relative inline-block z-40"
                                 onMouseEnter={() => setIsHovered(true)}
                                 onMouseLeave={() => setIsHovered(false)}
                             >
@@ -144,9 +140,29 @@ const HeroSection = () => {
                                 )}
                             </span>
                         </motion.h1>
+                        <Star classes="66" style="absolute top-[60%] -left-20" />
+                        <motion.p className="text-gray-700 inline-block mb-8 text-[17px] max-w-lg text-center relative z-20" variants={itemVariants}>
+                            Join Mypath2tech's awesome 3-month program and kickstart
 
-                        <motion.p className="text-gray-700 mb-8 max-w-lg text-center" variants={itemVariants}>
-                            Join MagentaTech's supportive tech community and accelerate your career journey!
+                            <div className="absolute  w-full -top-20 -right-[400px] z-5">
+
+                                <svg width="378" height="241" viewBox="0 0 378 241" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M324.348 234.173C322.888 237.564 318.066 236.27 318.518 233.375C319.84 224.448 315.488 211.757 307.771 204.012C307.733 203.973 307.706 203.927 307.691 203.878C307.676 203.829 307.674 203.779 307.685 203.731C307.697 203.683 307.721 203.638 307.756 203.601C307.792 203.564 307.837 203.536 307.888 203.518C308.054 203.449 308.237 203.413 308.425 203.413C308.613 203.413 308.802 203.448 308.978 203.516C314.451 205.643 323.548 213.965 322.802 218.635C333.06 154.252 281.933 124.82 217.446 111.113C184.436 103.239 150.835 99.0772 129.423 90.785C108.011 82.4928 50.0252 31.2344 38.6784 1.20679C38.632 1.13102 38.6069 1.04758 38.6051 0.963813C38.6034 0.880047 38.6251 0.798493 38.6683 0.726374C38.7116 0.654256 38.7751 0.593787 38.8532 0.550259C38.9314 0.506731 39.0217 0.481473 39.1164 0.476727C39.282 0.46281 39.4517 0.494563 39.6024 0.567614C39.7532 0.640666 39.8776 0.7515 39.9586 0.884932C53.6831 29.3029 111.253 81.2713 132.732 88.336C154.211 95.4008 185.43 100.387 218.787 107.661C287.3 119.873 343.57 150.24 326.304 218.59C326.813 216.595 338.241 210.184 345.796 211.678C346.013 211.721 346.208 211.832 346.346 211.99C346.483 212.148 346.552 212.341 346.539 212.532L346.533 212.557C346.525 212.666 346.468 212.765 346.376 212.833C346.283 212.902 346.162 212.934 346.037 212.924C337.431 212.431 327.273 227.346 324.348 234.173Z" fill="url(#paint0_linear_83_888)" />
+                                    <path d="M203.598 117.93C230.745 123.419 269.942 135.892 290.666 152.523C290.735 152.563 290.815 152.582 290.894 152.577C290.973 152.573 291.047 152.545 291.103 152.498C291.158 152.451 291.193 152.387 291.201 152.318C291.21 152.249 291.191 152.177 291.148 152.116C271.945 133.256 231.598 120.327 203.683 117.346C203.605 117.35 203.534 117.376 203.479 117.421C203.424 117.466 203.388 117.527 203.379 117.594C203.369 117.661 203.385 117.731 203.425 117.792C203.465 117.853 203.526 117.901 203.598 117.93Z" fill="#373737" />
+                                    <path d="M195.57 117.668C195.681 117.641 195.778 117.583 195.847 117.504C195.917 117.425 195.956 117.327 195.96 117.224C195.963 117.121 195.931 117.017 195.867 116.927C195.804 116.836 195.711 116.763 195.603 116.717C195.272 116.639 194.936 116.559 194.598 116.51C193.489 116.31 192.373 116.164 191.253 116.072C190.133 115.978 189.012 115.942 187.896 115.963C187.551 115.97 187.211 115.983 186.87 116.001C186.757 116.028 186.658 116.085 186.587 116.165C186.515 116.244 186.475 116.343 186.471 116.447C186.468 116.552 186.501 116.656 186.566 116.748C186.631 116.839 186.725 116.912 186.835 116.958C187.177 117.039 187.514 117.118 187.858 117.164C190.078 117.566 192.326 117.749 194.561 117.71C194.921 117.713 195.257 117.693 195.57 117.668Z" fill="#373737" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_83_888" x1="271.643" y1="159.689" x2="83.1882" y2="55.4398" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0.557948" stop-color="#373737" />
+                                            <stop offset="0.799114" stop-color="#FEFBEA" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+
+
+
+                            </div>
+                            your tech journey!
                         </motion.p>
 
                         <motion.button

@@ -35,7 +35,7 @@ const cards = [
 
 const FindYourPlace = () => {
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, threshold: 0.2 })
+    const isInView = useInView(ref, { once: true })
 
     const containerVariants = {
         hidden: { opacity: 0 },

@@ -64,7 +64,7 @@ const events = [
 
 const EventsSection = () => {
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, threshold: 0.1 })
+    const isInView = useInView(ref, { once: true })
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -85,14 +85,7 @@ const EventsSection = () => {
         },
     }
 
-    const decorationVariants = {
-        hidden: { opacity: 0, scale: 0 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: { duration: 0.5, ease: "easeOut" },
-        },
-    }
+   
 
     const getTagColor = (tag: string) => {
         switch (tag) {
