@@ -1,3 +1,4 @@
+In the following code there are some part i want you to modify which i already commented the functionlity and pls help me modify it and dont tamper with anything else that will spoil the inital layout 
 "use client"
 
 import { useRef, useState } from "react"
