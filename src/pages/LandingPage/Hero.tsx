@@ -103,9 +103,9 @@ const HeroSection = () => {
 
             <div className="container mx-auto max-w-6xl">
 
-                <div className="flex justify-center flex-col items-center">
-
-                    <div className="order-2 lg:order-1 flex flex-col items-center relative">
+                <div className="flex justify-center flex-col flex-1  items-center">
+                            
+                    <div className="order-1 lg:order-1 flex flex-col items-center relative">
                         <div className="flex justify-between w-full ">
                             <motion.div
                                 className=" top-20 left-10 text-purple-600 text-3xl"
@@ -116,12 +116,12 @@ const HeroSection = () => {
 
                         </div>
                         <motion.h1
-                            className="text-4xl md:text-5xl  lg:text-6xl text-center font-bold mb-4 realtive leading-tight"
+                            className="text-2xl md:text-5xl  lg:text-6xl text-center font-bold mb-4 realtive leading-tight"
                             variants={itemVariants}
                         >
                             Level Up Your
                             <span className="iniline-flex items-center    justify-center text-white px-2 py-1 rounded ">
-                                <img src="/rec.png" className="absolute child top-5 -right-14  z-10 " />
+                                <img src="/rec.png" className="lg:w-auto w-40  absolute child lg:top-5 top-10 right-0 lg:-right-14  z-10 " />
                                 <span className="relative z-20 -right-6">Tech Skills</span>
                             </span>
                             <br />
@@ -143,7 +143,7 @@ const HeroSection = () => {
                         <Star classes="66" style="absolute top-[60%] -left-20" />
                         <motion.p className="text-gray-700 inline-block mb-8 text-[17px] max-w-lg text-center relative z-20" variants={itemVariants}>
                             Join Mypath2tech's awesome 3-month program and kickstart
-
+                      
                             <div className="absolute  w-full -top-20 -right-[400px] z-5">
 
                                 <svg width="378" height="241" viewBox="0 0 378 241" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -166,7 +166,7 @@ const HeroSection = () => {
                         </motion.p>
 
                         <motion.button
-                            className="bg-yellow-400 hover:bg-yellow-500 button font-semibold text-gray-900 px-6 py-3 rounded-full  flex items-center space-x-2"
+                            className="bg-[#def134] hover:bg-yellow-500 button font-semibold text-gray-900 px-6 py-3 rounded-full  flex items-center space-x-2"
                             variants={itemVariants}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -176,7 +176,7 @@ const HeroSection = () => {
                         </motion.button>
                     </div>
 
-                    <div className="order-1 lg:order-2 relative">
+                    <div className="order-2 lg:order-2 relative">
                         <motion.div className="relative  flex justify-center items-center z-10" variants={itemVariants}>
                             <motion.img
                                 src={Hero2}
@@ -203,7 +203,7 @@ const HeroSection = () => {
                         />
                     </div>
                 </div>
-            </div>
+             </div>
         </motion.section>
     )
 }
