@@ -41,3 +41,17 @@
   color: #888;
 } */
 
+@font-face {
+  font-family:"Light";
+  src: url('/public/fonts/light.ttf');
+}
+@font-face {
+  font-family: "Bold" ;
+  src: url('/public/fonts/bold.ttf');
+}
+.main_text{
+  font-family: "Bold";
+}
+.sec_text{
+  font-family: "Light";
+}

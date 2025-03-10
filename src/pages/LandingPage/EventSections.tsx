@@ -135,11 +135,11 @@ const EventsSection = () => {
                         className="text-center flex justify-center items-center mb-12 relative z-20 top-5"
                     >
                         <div className="text-center mb-12 relative z-20 top-5">
-                            <motion.h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center" variants={itemVariants}>
+                            <motion.h2 className=" main_text text-3xl md:text-4xl font-bold mb-4 inline-flex items-center" variants={itemVariants}>
 
                                 Upcoming Events
                             </motion.h2>
-                            <motion.p className="text-gray-700 max-w-2xl mx-auto" variants={itemVariants}>
+                            <motion.p className="sec_text  text-gray-700 max-w-2xl mx-auto" variants={itemVariants}>
                                 Join us at these awesome events to learn more,meet our  <br/>team, and connect with other tech enthusiasts!
                             </motion.p></div>
 
@@ -197,7 +197,7 @@ const EventsSection = () => {
                                     <span className="text-sm">{event.date}</span>
                                 </div>
                                 <div className="absolute bg-black w-full h-[2px] left-0 "></div>
-                                <p className="text-gray-700 mb-4 text-sm mt-5">{event.description}</p>   <div className="flex items-center text-gray-600 mb-1">
+                                <p className="text-gray-700 sec_text mb-4 text-sm mt-5">{event.description}</p>   <div className="flex items-center text-gray-600 mb-1">
                                     <svg
                                         className="w-4 h-4 mr-2"
                                         fill="none"
@@ -212,7 +212,7 @@ const EventsSection = () => {
                                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                    <span className="text-sm">{event.time}</span>
+                                    <span className="text-sm sec_text">{event.time}</span>
                                 </div>
                                 <div className="flex items-center text-gray-600 mb-4">
                                     <svg
@@ -235,7 +235,7 @@ const EventsSection = () => {
                                             d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                                         />
                                     </svg>
-                                    <span className="text-sm">{event.location}</span>
+                                    <span className="text-sm  sec_text">{event.location}</span>
                                 </div>
                                 <Button text="Register Now" bg="bg-[#DED6E8]" />
                             </motion.div>

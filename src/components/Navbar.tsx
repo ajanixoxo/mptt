@@ -30,7 +30,7 @@ const Navbar = () => {
                 <img src={Logo} alt="logo" className="w-" />
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-8">
+                <nav className="hidden md:flex items-center space-x-8 sec_text">
                     <a href="#events" className="text-black font-semibold hover:text-black transition-colors">
                         &gt; Home
                     </a>
@@ -60,7 +60,7 @@ const Navbar = () => {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <nav className="flex flex-col space-y-4">
+                    <nav className="flex flex-col space-y-4 sec_text">
                         <a
                             href="#events"
                             className="text-black hover:text-purple-600 transition-colors py-2"

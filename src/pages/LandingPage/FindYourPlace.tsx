@@ -92,11 +92,11 @@ const FindYourPlace = () => {
                     animate={isInView ? "visible" : "hidden"}
                     className="text-center mb-12 relative"
                 >
-                    <motion.h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center" variants={itemVariants}>
+                    <motion.h2 className="text-3xl main_text md:text-4xl font-bold mb-4 inline-flex items-center" variants={itemVariants}>
                      
                         Find Your Place in Tech
                     </motion.h2>
-                    <motion.p className="text-gray-700 max-w-2xl mx-auto" variants={itemVariants}>
+                    <motion.p className="text-gray-700 max-w-2xl mx-auto sec_text" variants={itemVariants}>
                         Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!
                     </motion.p>
 
@@ -139,8 +139,8 @@ const FindYourPlace = () => {
 
                                 </div>
                             </div>
-                            <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-                            <p className="text-[#6A6464] text-center">{card.description}</p>
+                            <h3 className="text-xl font-bold mb-2 main_text">{card.title}</h3>
+                            <p className="text-[#6A6464] text-center sec_text">{card.description}</p>
 
                             {/* Background Pattern */}
                             <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full opacity-10 bg-black"></div>
