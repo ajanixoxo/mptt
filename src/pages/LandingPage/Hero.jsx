@@ -174,7 +174,7 @@ const HeroSection = () => {
       transition: {
         duration: 4,
         repeat: Number.POSITIVE_INFINITY,
-        repeatType: "reverse" as const, // Type assertion to fix the error
+        repeatType: "reverse" , // Type assertion to fix the error
       },
     },
   }
