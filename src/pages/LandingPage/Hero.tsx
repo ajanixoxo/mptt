@@ -163,19 +163,17 @@ const HeroSection = () => {
               </motion.div>
             </div>
             <motion.h1
-              className="text-3xl md:text-5xl main_text lg:text-6xl text-center font-bold mb-4 realtive leading-tight"
+              className="inline-flex flex-col text-3xl  md:text-5xl main_text lg:text-6xl text-center font-bold mb-4 realtive leading-tight"
               variants={itemVariants}
             >
+              <div className="flex flex-col md:flex-row justify-center items-center">
               Level Up Your
-              <span className="iniline-flex items-center justify-center text-white px-2 py-1 rounded ">
+             
                 <img
-                  src="/rec.png"
-                  className="lg:w-[57%] w-48 absolute child lg:top-5 top-3 -right-4 lg:-right-16 z-10 "
-                />
-                <span className="relative z-20 -right-2 lg:-right-6">Tech Skills</span>
-              </span>
-              <br />
-              <div className="mt-5"></div> with{" "}
+                  src="/skills.png"
+                  className="lg:w-[33%] w-36  z-10 "
+                /></div>
+              <div className=""> with{" "}
               <span
                 className="relative inline-block z-40"
                 onMouseEnter={() => setIsHovered(true)}
@@ -203,7 +201,7 @@ const HeroSection = () => {
                     </motion.svg>
                   </div>
                 )}
-              </span>
+              </span></div>
             </motion.h1>
 
             <img src={Star || "/placeholder.svg"} className="absolute top-[60%] -left-20" />
