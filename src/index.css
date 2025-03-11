@@ -85,6 +85,62 @@ video {
   height: 100%;
 }
 
+/* Add these styles to your global CSS file */
 
-/* HTML: <div class="curved-rectangle"></div> */
-/* HTML: <div class="curved-rectangle"></div> */
+/* For the blur effect at the bottom of sections */
+.blur-bottom {
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+/* For the animated SVG path */
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes reversePath {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+  }
+}
+
+.path-animation {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 2s forwards;
+}
+
+.path-animation-reverse {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  animation: reversePath 2s forwards;
+}
+
+/* Add these styles to your global CSS file if needed */
+@keyframes drawSVG {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillSVG {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+/* Ensure SVG paths are initially invisible */
+.svg-path-animation {
+  fill-opacity: 0;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
