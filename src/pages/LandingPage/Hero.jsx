@@ -213,6 +213,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto max-w-6xl">
         <div className="flex justify-center flex-col flex-1 items-center">
+          
           <div className="order-1 lg:order-1 flex flex-col items-center relative">
             <div className="flex justify-between w-full ">
               <motion.div
