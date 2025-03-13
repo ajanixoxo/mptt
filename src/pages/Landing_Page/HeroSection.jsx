@@ -191,7 +191,7 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="pt-32 pb-16 px-4 relative overflow-hidden">
+    <section className="pt-32  h-max px-4 relative overflow-hidden">
       {/* Animated stars */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -211,16 +211,10 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Code symbol */}
-      <motion.div
-        initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        className="absolute top-40 left-[10%] text-purple-500/30"
-      >
-        <Code size={32} />
-      </motion.div>
+     
+     
 
-      <div className="container mx-auto max-w-6xl">
+      <div className="container  mx-auto max-w-6xl">
 
         <div className="text-center mb-16">
           <div className="flex justify-between w-full ">
@@ -234,7 +228,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
           <motion.h1
-            className="inline-flex flex-col items-center justify-center text-3xl  md:text-5xl main_text lg:text-6xl text-center font-bold mb-4 realtive leading-tight"
+            className="inline-flex main_text flex-col items-center justify-center text-3xl  md:text-5xl main_text lg:text-6xl text-center font-bold mb-4 realtive leading-tight"
             variants={itemVariants}
           >
               Level Up Your
@@ -262,7 +256,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.button
-            className="bg-[#def134] sec_text hover:bg-yellow-500 button font-semibold text-gray-900 px-6 py-3 rounded-full  flex items-center space-x-2"
+            className="bg-[#def134] sec_text mx-auto hover:bg-yellow-500 button font-semibold text-gray-900 px-6 py-3 rounded-full  flex items-center space-x-2"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -272,11 +266,11 @@ const HeroSection = () => {
           </motion.button>
         </div>
 
-        <motion.div className="relative flex justify-center items-end z-10" variants={itemVariants}>
+        <motion.div className="relative flex w-full justify-center items-end z-10" variants={itemVariants}>
           <motion.img
             src={Hero2}
             alt="Students with tech devices"
-            className="w-1/2 lg:w-full h-auto object-contain"
+            className="w-1/2 lg:w-auto h-auto object-contain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -284,15 +278,15 @@ const HeroSection = () => {
           <motion.img
             src={Hero1}
             alt="Students with tech devices"
-            className="w-[70%] lg:w-full h-auto object-contain"
+            className="w-[70%] lg:w-auto h-auto object-contain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           />
         </motion.div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent z-20 pointer-events-none"></div>
-
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
+b
       </div>
     </section>
   )

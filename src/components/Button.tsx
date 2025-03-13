@@ -7,7 +7,7 @@ interface ButtonProps {
 function Button({ text, bg }: ButtonProps) {
     return (
         <div>    <motion.button
-            className={`${bg} button text-black px-4 py-2 rounded-full flex items-center justify-center space-x-2 w-full`}
+            className={`${bg} button text-black px-4 py-2 rounded-xl flex items-center justify-center space-x-2 w-full`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
         >

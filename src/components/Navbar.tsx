@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import Logo from "/Logo.png"
+import Logo from "/Logow.png"
 import Button from "./Button"
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <motion.header
-            className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${scrolled ? "bg-cream/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+            className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${scrolled ? "b/95 backdrop-blur-sm !text-black shadow-sm" : "bg-transparent"
                 }`}
             initial={{ y: -100 }}
             animate={{ y: 0 }}
@@ -31,13 +31,13 @@ const Navbar = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-8 sec_text">
-                    <a href="#events" className="text-black font-semibold hover:text-black transition-colors">
+                    <a href="#events" className="text-white font-semibold hover:text-black transition-colors">
                         &gt; Home
                     </a>
-                    <a href="#about" className="text-gray-400 hover:text-black transition-colors">
+                    <a href="#about" className="text-gray-200 hover:text-black transition-colors">
                         About
                     </a>
-                    <a href="#blog" className="text-gray-400 hover:text-black transition-colors">
+                    <a href="#blog" className="text-gray-200 hover:text-black transition-colors">
                         Program
                     </a>
 
@@ -63,31 +63,31 @@ const Navbar = () => {
                     <nav className="flex flex-col space-y-4 sec_text">
                         <a
                             href="#events"
-                            className="text-black hover:text-purple-600 transition-colors py-2"
+                            className="text-white hover:text-purple-600 transition-colors py-2"
                             onClick={() => setIsOpen(false)}
                         >
                             Events
                         </a>
                         <a
                             href="#about"
-                            className="text-gray-800 hover:text-purple-600 transition-colors py-2"
+                            className="text-gray-200 hover:text-purple-600 transition-colors py-2"
                             onClick={() => setIsOpen(false)}
                         >
                             About
                         </a>
                         <a
                             href="#blog"
-                            className="text-gray-800 hover:text-purple-600 transition-colors py-2"
+                            className="text-gray-200 hover:text-purple-600 transition-colors py-2"
                             onClick={() => setIsOpen(false)}
                         >
                             Blog
                         </a>
                         <motion.button
-                            className=" text-black rounded-full flex  s w-full"
+                            className=" text-white rounded-full flex  s w-full"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                             <Button text="Apply Now" bg="bg-[#DED6E8]" />
+                             <Button text="Apply Now" bg="bg-[#7d7dfd]" />
                         </motion.button>
                     </nav>
                 </motion.div>
