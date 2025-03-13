@@ -22,6 +22,9 @@ const Footer = () => {
         </motion.div>
       </div>
       <div className="container mx-auto max-w-7xl relative rounded-2xl bg-[#1C1C1C] px-4 py-7">
+       
+       <img src="/y_star.png" className="absolute left-0 bottom-0" />
+       <img src="/y_star.png" className="absolute right-0 top-0 rotate-180" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1">

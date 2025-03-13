@@ -35,7 +35,7 @@ const WhyChooseSection = () => {
               Why Choose{" "}
               <span className="inline-block">
                 <motion.span
-                  className="inline-block bg-blue-600 text-white px-4 py-1 rounded-md"
+                  className="inline-block  text-white px-4 py-1 rounded-md"
                   animate={{
                     scale: [1, 1.02, 1],
                     rotate: [0, 1, 0],
@@ -46,7 +46,8 @@ const WhyChooseSection = () => {
                     repeatType: "reverse",
                   }}
                 >
-                  Hack-A-Path?
+                             <img src="/d-skills.png" className="lg:w-[67%]   w-44  z-10 " />
+
                 </motion.span>
               </span>
             </h1>
