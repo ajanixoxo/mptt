@@ -62,7 +62,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               <FooterLink href="#events">Home</FooterLink>
               <FooterLink href="#about">About Us</FooterLink>
@@ -76,7 +76,7 @@ const Footer = () => {
 
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-2">
               <FooterLink href="">info@mypath2tech.com</FooterLink>
               <FooterLink href="">123 Tech Street, San Francisco, CA 94122</FooterLink>
@@ -86,7 +86,7 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Stay Updated</h3>
             <p className="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates.</p>
             <form className="space-y-2">
               <input

@@ -25,9 +25,12 @@ const About = () => {
         {/* Content */}
         <div className="relative z-10">
           <WhyChooseSection />
-          <VisionSection />
-          <ProblemSection />
-          <MissionSection />
+            <ProblemSection />
+            <MissionSection />
+            
+            <VisionSection />
+        
+          
           <TeamSection />
           <PartnersSection />
           <Footer />

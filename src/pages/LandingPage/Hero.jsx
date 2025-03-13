@@ -174,7 +174,7 @@ const HeroSection = () => {
       transition: {
         duration: 4,
         repeat: Number.POSITIVE_INFINITY,
-        repeatType: "reverse" , // Type assertion to fix the error
+        repeatType: "reverse", // Type assertion to fix the error
       },
     },
   }
@@ -213,7 +213,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto max-w-6xl">
         <div className="flex justify-center flex-col flex-1 items-center">
-          
+
           <div className="order-1 lg:order-1 flex flex-col items-center relative">
             <div className="flex justify-between w-full ">
               <motion.div

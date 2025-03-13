@@ -35,8 +35,10 @@ body {
   font-family: "Light";
 }
 
-
-
+h1, h2{
+  font-family: "Bricolage Grotesque";
+}
+ 
 .bg-cream {
   background-color: var(--cream);
 }
@@ -66,6 +68,15 @@ body {
   background-position: top right;
   background-size: 25% auto;
   background-color: #1b1a1c;
+}
+.about_hero{
+  box-shadow: 18px 10px 1px  #F9C23A;
+  border-radius: 50%;
+  background-position: top right;
+  background-size: 25% auto;
+  background-color: #f0ed30;
+  border-color: rgb(241, 231, 231);
+  border: 3px;
 }
 
 /* Additional CSS for video background optimization */

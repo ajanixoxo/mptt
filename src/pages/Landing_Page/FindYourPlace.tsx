@@ -109,10 +109,10 @@ const FindYourPlace = () => {
                             <div className="mb-4 text-4xl relative">
                                 <div className="absolute top-0 left-0">
                                     <svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 11L8.71539 14.4111" stroke="black" stroke-width="2" stroke-linecap="round" />
-                                        <path d="M4.71533 21.895L8.60809 14.4111" stroke="black" stroke-width="2" stroke-linecap="round" />
-                                        <path d="M9 9L16.7154 12.4111" stroke="black" stroke-width="2" stroke-linecap="round" />
-                                        <path d="M9 8.48389L12.8928 0.999934" stroke="black" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1 11L8.71539 14.4111" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M4.71533 21.8951L8.60809 14.4112" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M9 8.99994L16.7154 12.4111" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M9 8.48395L12.8928 0.999995" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
                                     </svg>
 
                                 </div>
@@ -121,10 +121,10 @@ const FindYourPlace = () => {
 
                                 <div className="absolute bottom-0 right-0">
                                     <svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 11L8.71539 14.4111" stroke="black" stroke-width="2" stroke-linecap="round" />
-                                        <path d="M4.71533 21.895L8.60809 14.4111" stroke="black" stroke-width="2" stroke-linecap="round" />
-                                        <path d="M9 9L16.7154 12.4111" stroke="black" stroke-width="2" stroke-linecap="round" />
-                                        <path d="M9 8.48389L12.8928 0.999934" stroke="black" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M1 11L8.71539 14.4111" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M4.71533 21.8951L8.60809 14.4112" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M9 8.99994L16.7154 12.4111" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M9 8.48395L12.8928 0.999995" stroke="#F9C23A" stroke-width="2" stroke-linecap="round" />
                                     </svg>
 
                                 </div>

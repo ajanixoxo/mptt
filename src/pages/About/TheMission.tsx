@@ -14,28 +14,38 @@ const MissionSection = () => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:flex flex-row-reverse gap-12 items-center">
+
+
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="order-2 lg:order-1 relative z-10"
           >
-            <img src="https://placehold.co/600x400" alt="Mission illustration" className="rounded-lg shadow-2xl" />
-
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute -bottom-6 -right-6 bg-gray-900 rounded-lg p-4 shadow-xl"
+              className="absolute -bottom-12 w-max z-10 h-20  lg:-left-10 border-2 border-black bg-white rounded-2xl p-2 px-4 shadow-lg"
+              whileHover={{ scale: 1.05 }}
             >
-              <div className="flex items-center space-x-3">
+              <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-purple-500">12k+</span>
+                <span className="text-gray-400">Students Launched</span>
+
+              </div>
+            </motion.div>
+            <motion.div
+              className="absolute -bottom-10 w-max z-20 lg:-left-10 border-2 border-black bg-white rounded-2xl p-2 px-4 shadow-lg"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="flex i flex-col space-x-2">
+              <span className="text-3xl font-bold text-black">12k+</span>
                 <span className="text-gray-400">Students Launched</span>
               </div>
             </motion.div>
+
+            <img src="https://placehold.co/600x400" alt="Problem illustration" className="rounded-2xl shadow-2xl" />
           </motion.div>
 
           <motion.div
