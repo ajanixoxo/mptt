@@ -46,23 +46,26 @@ const TestimonialsSection = () => {
               whileHover={{ y: -5 }}
               className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6"
             >
-              <div className="flex items-center mb-4">
-                <img
-                  src={testimonial.image || "/placeholder.svg"}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4"
-                />
-                <div>
-                  <h3 className="font-semibold">{testimonial.name}</h3>
-                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
+              <div className="justify-between flex">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="text-yellow-400 fill-current" size={16} />
+                  ))}
                 </div>
-              </div>
+                <div className="flex items-center mb-4">
+                  <img
+                    src={testimonial.image || "/placeholder.svg"}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full mr-4"
+                  />
+                  <div>
+                    <h3 className="font-semibold">{testimonial.name}</h3>
+                    <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                  </div>
+                </div></div>
 
-              <div className="flex mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="text-yellow-400 fill-current" size={16} />
-                ))}
-              </div>
+
+
 
               <p className="text-gray-300 italic">"{testimonial.quote}"</p>
             </motion.div>

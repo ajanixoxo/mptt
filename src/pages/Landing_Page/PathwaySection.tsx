@@ -1,39 +1,51 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Monitor, Code, Database, Shield } from "lucide-react"
+import { motion, useInView } from "framer-motion"
+import { Monitor, Code, Database, Shield, CircleArrowUp } from "lucide-react"
+import { useRef } from "react"
 
 const pathways = [
   {
     title: "UI/UX Design",
     description: "Learn modern design principles and tools.",
     icon: Monitor,
-    image: "https://placehold.co/600x400",
+    image: "/course (1).png",
   },
   {
     title: "Software Engineering",
     description: "Master coding and software development.",
     icon: Code,
-    image: "https://placehold.co/600x400",
+    image: "/course (2).png",
   },
   {
     title: "DevOps",
     description: "Bridge development and operations.",
     icon: Database,
-    image: "https://placehold.co/600x400",
+    image: "/course (3).png",
   },
   {
     title: "Cybersecurity",
-    description: "Protect systems and networks.",
+    description: "Protect Computer systems and networks.",
     icon: Shield,
-    image: "https://placehold.co/600x400",
+    image: "/course (4).png",
   },
 ]
 
 const PathwaysSection = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  }
   return (
     <section className="py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +68,7 @@ const PathwaysSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden"
+              className="bg-[#1b1a1c] backdrop-blur-sm  rounded-xl overflow-hidden"
             >
               <div className="relative h-48">
                 <img
@@ -64,7 +76,7 @@ const PathwaysSection = () => {
                   alt={pathway.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" /> */}
                 <div className="absolute bottom-4 left-4">
                   <pathway.icon className="text-purple-400" size={24} />
                 </div>
@@ -72,13 +84,23 @@ const PathwaysSection = () => {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{pathway.title}</h3>
                 <p className="text-gray-400 mb-4">{pathway.description}</p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors"
+                <motion.div
+                  className="mt-12 text-center"
+                  variants={itemVariants}
+                  initial="visible"
+                  animate={isInView ? "visible" : "visible"}
                 >
-                  Explore Path
-                </motion.button>
+                  <motion.button
+                    className="bg-[#2B2B2B] w-full text-center  hover:bg-gray-300 text-white px-6 py-3 rounded-2xl font-medium inline-flex items-center space-x-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span>Explore Path</span>
+
+                    <CircleArrowUp className="rotate-45" />
+                  </motion.button>
+                  {/* <Button text="Register Now" bg="bg-[#2B2B2B]" /> */}
+                </motion.div>
               </div>
             </motion.div>
           ))}

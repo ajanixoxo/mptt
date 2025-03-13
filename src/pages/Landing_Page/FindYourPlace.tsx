@@ -59,11 +59,8 @@ const FindYourPlace = () => {
 
     return (
         <section ref={ref} className="py-16 px-4 md:px-6 lg:px-8 bg-black relative">
-
-
-
             <div className="absolute flex justify-between w-full -mt-10 lg:mt-10 right-0">
-                <img src='/w_star.png' className="w-12 md:w-15" />
+                <img src='/s_half.png' className="w-12 rotate-180 md:w-15" />
 
                 <div className=" right-20">
                     <motion.div
