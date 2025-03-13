@@ -344,7 +344,9 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Blur effect at the bottom of the section */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent z-20 pointer-events-none"></div>
+            {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent z-20 pointer-events-none"></div> */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[rgba(1,1,1,1)] to-transparent z-20 pointer-events-none"></div>
+
           </div>
         </div>
         <div className="hidden">{isHovered}</div>

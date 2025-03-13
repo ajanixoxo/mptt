@@ -1,10 +1,10 @@
 import EventsSection from "./EventSections"
 import FindYourPlace from "./FindYourPlace"
-import HeroSection from "./Hero"
+// import HeroSection from "./Hero"
 function Landing_Page() {
   return (
     <div>
-        <HeroSection />
+        {/* <HeroSection /> */}
         <FindYourPlace />
         <EventsSection />
     </div>

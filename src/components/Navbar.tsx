@@ -47,7 +47,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button className="md:hidden text-gray-800" onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
                 </button>
             </div>
 
@@ -87,7 +87,7 @@ const Navbar = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                             <Button text="Apply Now" bg="bg-[#7d7dfd]" />
+                             <Button text="Apply Now" bg="bg-[#DED6E8]" />
                         </motion.button>
                     </nav>
                 </motion.div>
