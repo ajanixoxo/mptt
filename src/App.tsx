@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import Landing_Page from './pages/Landing_Page/Landing_Page'
 import About from './pages/About/About'
 function App() {
-const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     // Simulate loading time
@@ -22,10 +22,16 @@ const [isLoading, setIsLoading] = useState(true)
     <>
       <AnimatePresence>{isLoading && <LoadingScreen />}</AnimatePresence>
 
-      <Navbar />
+
       <Routes>
-        <Route path="/" element={<Landing_Page />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={
+          <> <Navbar />
+            <Landing_Page />
+          </>} />
+        <Route path="/about" element={<>
+          <Navbar />
+          <About />
+        </>} />
       </Routes>
     </>
   )

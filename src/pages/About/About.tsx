@@ -7,6 +7,7 @@ import ProblemSection from "./TheProblem"
 import MissionSection from "./TheMission"
 import PartnersSection from "./Partners"
 import WhyChooseSection from "./HeroSection"
+import Footer from "../Landing_Page/Footer"
 
 const About = () => {
  
@@ -29,6 +30,7 @@ const About = () => {
           <MissionSection />
           <TeamSection />
           <PartnersSection />
+          <Footer />
         </div>
       </main>
     </>
