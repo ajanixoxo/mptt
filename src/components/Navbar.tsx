@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import Logo from "/Logow.png"
@@ -31,15 +32,15 @@ const Navbar = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-8 sec_text">
-                    <a href="#events" className="text-white font-semibold hover:text-black transition-colors">
+                    <Link to="/" className="text-white font-semibold hover:text-black transition-colors">
                         &gt; Home
-                    </a>
-                    <a href="#about" className="text-gray-200 hover:text-black transition-colors">
+                    </Link>
+                    <Link to="/about" className="text-gray-200 hover:text-black transition-colors">
                         About
-                    </a>
-                    <a href="#blog" className="text-gray-200 hover:text-black transition-colors">
+                    </Link>
+                    <Link to="/blog" className="text-gray-200 hover:text-black transition-colors">
                         Program
-                    </a>
+                    </Link>
 
                 </nav>
                 <div className="hidden md:block">                <Button text="Apply Now" bg="bg-[#DED6E8]" /></div>
@@ -61,27 +62,27 @@ const Navbar = () => {
                     transition={{ duration: 0.3 }}
                 >
                     <nav className="flex flex-col space-y-4 sec_text">
-                        <a
-                            href="#events"
+                        <Link
+                            to="/events"
                             className="text-white hover:text-purple-600 transition-colors py-2"
                             onClick={() => setIsOpen(false)}
                         >
                             Events
-                        </a>
-                        <a
-                            href="#about"
+                        </Link>
+                        <Link
+                            to="/about"
                             className="text-gray-200 hover:text-purple-600 transition-colors py-2"
                             onClick={() => setIsOpen(false)}
                         >
                             About
-                        </a>
-                        <a
-                            href="#blog"
+                        </Link>
+                        <Link
+                            to="/blog"
                             className="text-gray-200 hover:text-purple-600 transition-colors py-2"
                             onClick={() => setIsOpen(false)}
                         >
                             Blog
-                        </a>
+                        </Link>
                         <motion.button
                             className=" text-white rounded-full flex  s w-full"
                             whileHover={{ scale: 1.05 }}

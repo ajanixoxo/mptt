@@ -115,7 +115,7 @@ const EventsSection = () => {
 
                     <div
                         className=" -ml-10 text-purple-400">
-                        <FloatingShape color='from-[#1F22CA] to-transparent' size='w-60 h-60' position="" top='35%' left='18%' delay={0} />
+                        <FloatingShape color='from-[#1F22CA] to-transparent' size='lg:w-60 w-32 h-32 lg:h-60' position="" top='35%' left='18%' delay={0} />
 
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -231,7 +231,7 @@ const EventsSection = () => {
                                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                    <span className="text-sm sec_text">{event.time}</span>
+                                    <span className="text-sm sec_text text-[#979292]">{event.time}</span>
                                 </div>
                                 <div className="flex items-center text-gray-600 mb-4">
                                     <svg
@@ -254,7 +254,7 @@ const EventsSection = () => {
                                             d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                                         />
                                     </svg>
-                                    <span className="text-sm  sec_text ext-[#979292]">{event.location}</span>
+                                    <span className="text-sm  sec_text text-[#979292]">{event.location}</span>
                                 </div>
                                 <Button text="Register Now" bg="bg-[#989BAE]" />
                             </motion.div>
