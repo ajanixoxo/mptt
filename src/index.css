@@ -48,24 +48,24 @@ body {
 
 .f1{
   box-shadow: 8px 10px 2px black ;
-  background: url("/fbg (2).png") no-repeat;
+  background: url("/fd (3).png") no-repeat;
   background-position: top right;
   background-size: 25% auto;
-  background-color: #e9d9ff;
+  background-color: #1b1a1c;
 }
 .f2{
   box-shadow: 8px 10px 2px black ;
-  background: url("/fbg (3).png") no-repeat;
+  background: url("/fd (2).png") no-repeat;
   background-position: top right;
   background-size: 20% auto;
-  background-color: #fff9ac;
+  background-color: #1b1a1c;
 }
 .f3{
   box-shadow: 8px 10px 2px black;
-  background: url("/fbg (1).png") no-repeat;
+  background: url("/fd (1).png") no-repeat;
   background-position: top right;
   background-size: 25% auto;
-  background-color: #ffe4e4;
+  background-color: #1b1a1c;
 }
 
 /* Additional CSS for video background optimization */

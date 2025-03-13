@@ -2,10 +2,11 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import F1 from '/f (1).png'
-import F2 from '/f (2).png'
-import F3 from '/f (3).png'
-import Star from "../../components/Star"
+import F1 from '/fdc (1).png'
+import F2 from '/fdc.png'
+import F3 from '/fdc (2).png'
+
+import Shining_Star from '/s-star.png'
 const cards = [
     {
         title: "Join a Cohort",
@@ -56,32 +57,24 @@ const FindYourPlace = () => {
         },
     }
 
-    const starVariants = {
-        hidden: { opacity: 0, scale: 0 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: { duration: 0.5, ease: "easeOut" },
-        },
-    }
-
     return (
-        <section ref={ref} className="py-16 px-4 md:px-6 lg:px-8 bg-cream relative">
-          
+        <section ref={ref} className="py-16 px-4 md:px-6 lg:px-8 bg-black relative">
 
-            <motion.div
-                className="absolute bottom-10 right-10 w-6 h-6 bg-yellow-400 rounded-sm rotate-45"
-                variants={starVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                custom={2}
-            />
+
+
             <div className="absolute flex justify-between w-full -mt-10 lg:mt-10 right-0">
-                <Star classes="52" style="" />
-                <div className="absolute right-20"><svg width="55" height="49" viewBox="0 0 55 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M51.183 21.4372C52.8897 23.0232 52.8851 25.7264 51.1732 27.3066L41.7135 36.0384L32.9501 45.4687C31.3641 47.1754 28.6609 47.1709 27.0807 45.4589L18.3489 35.9992L8.91859 27.2358C7.21192 25.6499 7.21645 22.9467 8.92843 21.3664L18.3881 12.6347L27.1515 3.20434C28.7375 1.49767 31.4406 1.50219 33.0209 3.21417L41.7527 12.6738L51.183 21.4372Z" fill="black" />
-                    <path d="M45.4689 21.4372C47.1756 23.0232 47.171 25.7264 45.459 27.3066L35.9994 36.0384L27.236 45.4687C25.65 47.1754 22.9468 47.1709 21.3666 45.4589L12.6348 35.9992L3.20448 27.2358C1.49781 25.6499 1.50234 22.9467 3.21432 21.3664L12.674 12.6347L21.4374 3.20434C23.0234 1.49766 25.7265 1.50219 27.3068 3.21417L36.0385 12.6738L45.4689 21.4372Z" fill="#CEED12" />
-                </svg></div>
+                <img src='/w_star.png' className="w-12 md:w-15" />
+
+                <div className=" right-20">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: [0, 1, 0] }}
+                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
+                        className="absolute top-[40%] right-[5%] text-blue-400"
+                    >
+                        <img src={Shining_Star} className="w-7 md:w-12" />
+                    </motion.div>
+                </div>
 
 
             </div>
@@ -93,10 +86,10 @@ const FindYourPlace = () => {
                     className="text-center mb-12 relative"
                 >
                     <motion.h2 className="text-3xl main_text md:text-4xl font-bold mb-4 inline-flex items-center" variants={itemVariants}>
-                     
+
                         Find Your Place in Tech
                     </motion.h2>
-                    <motion.p className="text-gray-700 max-w-2xl mx-auto sec_text" variants={itemVariants}>
+                    <motion.p className="text-[#6a6464] max-w-2xl mx-auto sec_text" variants={itemVariants}>
                         Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!
                     </motion.p>
 

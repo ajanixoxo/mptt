@@ -8,19 +8,11 @@ import Hero1 from "/2.png"
 import Hero2 from "/4.png"
 import { CircleArrowUp } from "lucide-react"
 import Tag from "/tag.png"
-import Star from "/star.png"
 import FloatingShape from "../../components/FloatingShape"
 import Shining_Star from '/s-star.png'
-import Blue from '/blue-light.png'
+
 // Star SVG component
-const StarIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M12 0L14.59 8.26L23 9.27L17.5 15.47L18.9 24L12 19.77L5.1 24L6.5 15.47L1 9.27L9.41 8.26L12 0Z"
-      fill="currentColor"
-    />
-  </svg>
-)
+
 
 const HeroSection = () => {
 
@@ -69,94 +61,7 @@ const HeroSection = () => {
     animateTag()
   }, [tagControls])
 
-  // // Animation for the SVG path using Anime.js
-  // useEffect(() => {
-  //   if (!pathRef.current || !isInView) return
-
-  //   // Set up the path for animation
-  //   const path = pathRef.current
-
-  //   // Get the total length of the path for accurate drawing
-  //   const pathLength = path.getTotalLength ? path.getTotalLength() : 1000
-
-  //   // Set initial styles
-  //   path.style.strokeDasharray = pathLength
-  //   path.style.strokeDashoffset = pathLength
-  //   path.style.fillOpacity = "0"
-  //   path.style.stroke = "#F9C23A"
-  //   path.style.strokeWidth = "1"
-
-  //   // Initial drawing animation
-  //   const drawAnimation = anime({
-  //     targets: path,
-  //     strokeDashoffset: 0,
-  //     fillOpacity: 1,
-  //     easing: "easeInOutSine",
-  //     duration: 2000,
-  //     complete: () => {
-  //       // Remove stroke after fill is complete for cleaner look
-  //       anime({
-  //         targets: path,
-  //         strokeWidth: 0,
-  //         duration: 300,
-  //       })
-  //     },
-  //   })
-
-  //   return () => {
-  //     drawAnimation.pause()
-  //   }
-  // }, [isInView])
-
-  // Handle hover effect for the path
-  // const handleMouseEnter = () => {
-  //   setIsHovered(true)
-  //   if (!pathRef.current) return
-
-  //   const path = pathRef.current
-  //   const pathLength = path.getTotalLength ? path.getTotalLength() : 1000
-
-  //   // Reset for animation
-  //   path.style.strokeWidth = "1"
-  //   path.style.stroke = "#F9C23A"
-
-  //   // Reverse drawing animation
-  //   anime({
-  //     targets: path,
-  //     strokeDashoffset: [0, pathLength],
-  //     fillOpacity: [1, 0],
-  //     easing: "easeInOutSine",
-  //     duration: 1500,
-  //     complete: () => {
-  //       // Start drawing animation again
-  //       anime({
-  //         targets: path,
-  //         strokeDashoffset: 0,
-  //         fillOpacity: 1,
-  //         easing: "easeInOutSine",
-  //         duration: 1500,
-  //         complete: () => {
-  //           // Remove stroke after fill is complete
-  //           anime({
-  //             targets: path,
-  //             strokeWidth: 0,
-  //             duration: 300,
-  //           })
-  //         },
-  //       })
-  //     },
-  //   })
-  // }
-
-  // const containerVariants = {
-  //   hidden: { opacity: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       staggerChildren: 0.2,
-  //     },
-  //   },
-  // }
+  
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },

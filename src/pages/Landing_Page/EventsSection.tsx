@@ -2,7 +2,7 @@
 import Button from "../../components/Button"
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import VideoBG from '/vids.mp4'
+// import VideoBG from '/vids.mp4'
 import Star from "../../components/Star"
 
 const events = [
@@ -104,7 +104,7 @@ const EventsSection = () => {
 
     return (
         <div className="relative">
-            <div className="absolute inset-0 w-full h-full z-0">
+            {/* <div className="absolute inset-0 w-full h-full z-0">
                 <video
                     className="absolute inset-0 min-w-full min-h-full object-cover w-full h-full"
                     autoPlay
@@ -114,9 +114,9 @@ const EventsSection = () => {
 
                 >
                     <source src={VideoBG} type="video/mp4" />
-                    {/* Fallback message for browsers that don't support video */}
+               
                     Your browser does not support the video tag.
-                </video></div>
+                </video></div> */}
             <section
                 id="events"
                 ref={ref}
