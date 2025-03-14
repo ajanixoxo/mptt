@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar"
 import HeroSection from "./HeroSection"
 import FindYourPlace from "./FindYourPlace"
 import EventsSection from "./EventsSection"
-import SponsorsSection from "./SponsorsSection"
+// import SponsorsSection from "./SponsorsSection"
 import PathwaysSection from "./PathwaySection.js"
 import TestimonialsSection from "./TestimonialsSection"
 import Footer from "./Footer"
@@ -34,7 +34,7 @@ function Landing_Page() {
                     <HeroSection />
                     <FindYourPlace />
                     <EventsSection />
-                    <SponsorsSection />
+                    {/* <SponsorsSection /> */}
                     <PathwaysSection />
                     <TestimonialsSection />
                 </main>

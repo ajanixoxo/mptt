@@ -5,7 +5,7 @@ import VisionSection from "./Vision"
 import TeamSection from "./Team"
 import ProblemSection from "./TheProblem"
 import MissionSection from "./TheMission"
-import PartnersSection from "./Partners"
+// import PartnersSection from "./Partners"
 import WhyChooseSection from "./HeroSection"
 import Footer from "../Landing_Page/Footer"
 
@@ -32,7 +32,7 @@ const About = () => {
 
 
           <TeamSection />
-          <PartnersSection />
+          {/* <PartnersSection /> */}
           <Footer />
         </div>
       </main>
