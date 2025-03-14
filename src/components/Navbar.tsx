@@ -1,100 +1,116 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import Logo from "/Logow.png"
 import Button from "./Button"
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false)
-    const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 10)
-        }
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location.pathname])
 
-    return (
-        <motion.header
-            className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${scrolled ? "b/95 backdrop-blur-sm !text-black shadow-sm" : "bg-transparent"
-                }`}
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  return (
+    <motion.header
+      className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${
+        scrolled ? "b/95 backdrop-blur-sm !text-black shadow-sm" : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to="/">
+          <img src={Logo || "/placeholder.svg"} alt="logo" className="w-" />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8 sec_text">
+          <Link
+            to="/"
+            className={`${location.pathname === "/" ? "text-white font-semibold" : "text-gray-200"} hover:text-black transition-colors`}
+          >
+            &gt; Home
+          </Link>
+          <Link
+            to="/about"
+            className={`${location.pathname === "/about" ? "text-white font-semibold" : "text-gray-200"} hover:text-black transition-colors`}
+          >
+            About
+          </Link>
+          <Link
+            to="/program"
+            className={`${location.pathname === "/program" ? "text-white font-semibold" : "text-gray-200"} hover:text-black transition-colors`}
+          >
+            Program
+          </Link>
+        </nav>
+
+        <div className="hidden md:block">
+          <Button text="Apply Now" bg="bg-[#DED6E8]" />
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-gray-800"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-            <div className="container mx-auto flex justify-between items-center">
-                <img src={Logo} alt="logo" className="w-" />
+          {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
+        </button>
+      </div>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-8 sec_text">
-                    <Link to="/" className="text-white font-semibold hover:text-black transition-colors">
-                        &gt; Home
-                    </Link>
-                    <Link to="/about" className="text-gray-200 hover:text-black transition-colors">
-                        About
-                    </Link>
-                    <Link to="/blog" className="text-gray-200 hover:text-black transition-colors">
-                        Program
-                    </Link>
-
-                </nav>
-                <div className="hidden md:block">                <Button text="Apply Now" bg="bg-[#DED6E8]" /></div>
-
-
-                {/* Mobile Menu Button */}
-                <button className="md:hidden text-gray-800" onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
-                </button>
-            </div>
-
-            {/* Mobile Navigation */}
-            {isOpen && (
-                <motion.div
-                    className="md:hidden absolute top-full left-0 right-0 bg-cream shadow-md py-4 px-6"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    <nav className="flex flex-col space-y-4 sec_text">
-                        <Link
-                            to="/events"
-                            className="text-white hover:text-purple-600 transition-colors py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Events
-                        </Link>
-                        <Link
-                            to="/about"
-                            className="text-gray-200 hover:text-purple-600 transition-colors py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            About
-                        </Link>
-                        <Link
-                            to="/blog"
-                            className="text-gray-200 hover:text-purple-600 transition-colors py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Blog
-                        </Link>
-                        <motion.button
-                            className=" text-white rounded-full flex  s w-full"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                             <Button text="Apply Now" bg="bg-[#DED6E8]" />
-                        </motion.button>
-                    </nav>
-                </motion.div>
-            )}
-        </motion.header>
-    )
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <motion.div
+          className="md:hidden absolute top-full left-0 right-0 bg-cream shadow-md py-4 px-6"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+        >
+          <nav className="flex flex-col space-y-4 sec_text">
+            <Link
+              to="/"
+              className={`${location.pathname === "/" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className={`${location.pathname === "/about" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
+            >
+              About
+            </Link>
+            <Link
+              to="/program"
+              className={`${location.pathname === "/program" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
+            >
+              Program
+            </Link>
+            <motion.div className="w-full" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button text="Apply Now" bg="bg-[#DED6E8]" />
+            </motion.div>
+          </nav>
+        </motion.div>
+      )}
+    </motion.header>
+  )
 }
 
 export default Navbar

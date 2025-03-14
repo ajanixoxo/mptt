@@ -234,6 +234,6 @@ html {
   background-color: var(--cream);
 }
 .hero{
-  background:url(hero-bg.png) ;
+  background:url(/hero-bg.png) ;
 }
 

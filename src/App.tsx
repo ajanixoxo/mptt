@@ -6,6 +6,7 @@ import LoadingScreen from "./components/LoadingScreen"
 import { Routes, Route } from 'react-router-dom'
 import Landing_Page from './pages/Landing_Page/Landing_Page'
 import About from './pages/About/About'
+import Program from './pages/Program/Program'
 function App() {
   const [isLoading, setIsLoading] = useState(true)
 
@@ -25,13 +26,23 @@ function App() {
 
       <Routes>
         <Route path="/" element={
-          <> <Navbar />
-            <Landing_Page />
-          </>} />
-        <Route path="/about" element={<>
+          <> 
+          <Navbar />
+          <Landing_Page />
+          </>
+        } />
+        <Route path="/about" element={
+          <>
           <Navbar />
           <About />
-        </>} />
+        </>
+      } />
+        <Route path="/program" element={
+          <>
+          <Navbar />
+          <Program />
+        </>
+      } />
       </Routes>
     </>
   )
