@@ -237,3 +237,21 @@ html {
   background:url(/hero-bg.png) ;
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scrolling-carousel {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.scrolling-carousel:hover {
+  animation-play-state: paused;
+}

@@ -32,12 +32,12 @@ function App() {
             <Landing_Page />
 
           } />
-          <Route path="/about" element={
+          <Route path="about" element={
 
             <About />
 
           } />
-          <Route path="/program" element={
+          <Route path="program" element={
 
             <Program />
 
