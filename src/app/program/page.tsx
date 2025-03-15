@@ -1,6 +1,6 @@
 "use client"
 
-import ProgramHero from "@/components/program/Program"
+import ProgramHero from "@/components/program/ProgramHero"
 import CoursesTabs from "@/components/program/CoursesTabs"
 import ProgramFeatures from "@/components/program/ProgramFeatures"
 import UpcomingEvents from "@/components/program/UpcomingEvents"
@@ -21,8 +21,8 @@ const Program = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                    <ProgramHero />
-                    <ProgramFeatures />
+                   <ProgramHero />
+                     <ProgramFeatures />
                     <CoursesTabs />
                     <UpcomingEvents />
                     <CareerWorkshops />

@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="svg" href="./favicon.svg" />
+        <link rel="svg" href="/favicon.svg" />
       </head>
       <body className={` text-white`}>
         <div className="">
