@@ -1,22 +1,21 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { usePathname } from 'next/navigation'
+import { Link, useLocation } from "react-router-dom"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import Logo from "../../public/Logow.png"
+import Logo from "/Logow.png"
 import Button from "./Button"
-import Image from 'next/image'
-import Link from "next/link"
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const location = usePathname()
+  const location = useLocation()
 
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false)
-  }, [location])
+  }, [location.pathname])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +27,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50  py-4 px-6 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${
         scrolled ? "bg-[#0e032ccc] backdrop-blur-sm !text-black shadow-sm" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
@@ -36,27 +35,27 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/">
-          <Image src={Logo || "/placeholder.svg"} alt="logo" className="w-" />
+        <Link to="/">
+          <img src={Logo || "/placeholder.svg"} alt="logo" className="w-" />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 sec_text">
           <Link
-            href="/"
-            className={`${location === "/" ? "text-white font-semibold" : "text-gray-200"} hover:text-gray300 transition-colors`}
+            to="/"
+            className={`${location.pathname === "/" ? "text-white font-semibold" : "text-gray-200"} hover:text-black transition-colors`}
           >
             &gt; Home
           </Link>
           <Link
-            href="/about"
-            className={`${location === "/about" ? "text-white font-semibold" : "text-gray-200"} hover:text-gray300 transition-colors`}
+            to="/about"
+            className={`${location.pathname === "/about" ? "text-white font-semibold" : "text-gray-200"} hover:text-black transition-colors`}
           >
             About
           </Link>
           <Link
-            href="/program"
-            className={`${location === "/program" ? "text-white font-semibold" : "text-gray-200"} hover:text-gray300  transition-colors`}
+            to="/program"
+            className={`${location.pathname === "/program" ? "text-white font-semibold" : "text-gray-200"} hover:text-black transition-colors`}
           >
             Program
           </Link>
@@ -87,20 +86,20 @@ const Navbar = () => {
         >
           <nav className="flex flex-col space-y-4 sec_text">
             <Link
-              href="/"
-              className={`${location === "/" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
+              to="/"
+              className={`${location.pathname === "/" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
             >
               Home
             </Link>
             <Link
-              href="/about"
-              className={`${location === "/about" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
+              to="/about"
+              className={`${location.pathname === "/about" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
             >
               About
             </Link>
             <Link
-              href="/program"
-              className={`${location === "/program" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
+              to="/program"
+              className={`${location.pathname === "/program" ? "text-white font-semibold" : "text-gray-200"} hover:text-purple-600 transition-colors py-2`}
             >
               Program
             </Link>

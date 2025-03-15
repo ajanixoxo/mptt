@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+@import "tailwindcss";
+:root {
+  --cream: #1E1E1E;
+  --purple: #8b5cf6;
+  --yellow: #fbbf24;
+  --pink: #ec4899;
+}
+
+body {
+ 
+  
+  background-color: var(--cream);
+}
+
+
+
+@font-face {
+  font-family:"Light";
+  src: url('/fonts/light.ttf');
+}
+@font-face {
+  font-family: "Bold" ;
+  src: url('/fonts/bold.ttf');
+}
+.main_text{
+  font-family: "Bricolage Grotesque";
+}
+.sec_text{
+  font-family: "Light";
+}
+
+h1, h2{
+  font-family: "Bricolage Grotesque";
+}
+ 
+.bg-cream {
+  background-color: var(--cream);
+}
+
+.button{
+  box-shadow: 5px 6px 2px black ;
+  
+}
+
+.f1{
+  box-shadow: 8px 10px 2px black ;
+  background: url("/fd (3).png") no-repeat;
+  background-position: top right;
+  background-size: 25% auto;
+  background-color: #1b1a1c;
+}
+.f2{
+  box-shadow: 8px 10px 2px black ;
+  background: url("/fd (2).png") no-repeat;
+  background-position: top right;
+  background-size: 20% auto;
+  background-color: #1b1a1c;
+}
+.f3{
+  box-shadow: 8px 10px 2px black;
+  background: url("/fd (1).png") no-repeat;
+  background-position: top right;
+  background-size: 25% auto;
+  background-color: #1b1a1c;
+}
+.about_hero{
+  box-shadow: 18px 10px 1px  #F9C23A;
+  border-radius: 50%;
+  background-position: top right;
+  background-size: 25% auto;
+  background-color: #f0ed30;
+  border-color: rgb(241, 231, 231);
+  border: 3px;
+}
+
+/* Additional CSS for video background optimization */
+/* You can include this in your global CSS or as a separate file */
+
+/* Ensure video is hidden on very small devices to save bandwidth */
+@media (max-width: 640px) {
+  .video-background-mobile-hidden video {
+    display: none;
+  }
+}
+
+/* Optimize video rendering */
+video {
+  /* Improve performance by hinting to the browser */
+  will-change: transform;
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+  /* Prevent flickering on some browsers */
+  backface-visibility: hidden;
+}
+
+/* Ensure proper aspect ratio maintenance */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Add these styles to your global CSS file */
+
+/* For the blur effect at the bottom of sections */
+.blur-bottom {
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+/* For the animated SVG path */
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes reversePath {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+  }
+}
+
+.path-animation {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 2s forwards;
+}
+
+.path-animation-reverse {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  animation: reversePath 2s forwards;
+}
+
+/* Add these styles to your global CSS file if needed */
+@keyframes drawSVG {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillSVG {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+/* Ensure SVG paths are initially invisible */
+.svg-path-animation {
+  fill-opacity: 0;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+.bg-grid-white {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles */
+/* body {
+  background-color: #0a0a0b;
+  color: white;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+} */
+
+/* Animation utilities */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  background: linear-gradient(to right, #a855f7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-cream {
+  background-color: var(--cream);
+}
+.hero{
+  background:url(/hero-bg.png) ;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scrolling-carousel {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.scrolling-carousel:hover {
+  animation-play-state: paused;
+}

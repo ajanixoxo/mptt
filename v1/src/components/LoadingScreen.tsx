@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-
+import Logo from "/Logow.png"
 const LoadingScreen = () => {
   return (
     <motion.div
@@ -19,7 +19,7 @@ const LoadingScreen = () => {
         }}
         className="relative"
       >
-        <img src='/Logow.png' alt="logo" className="w-" />
+        <img src={Logo} alt="logo" className="w-" />
         <motion.div
           className="absolute -inset-4 border-2 border-purple-500 rounded-full"
           initial={{ scale: 0.5, opacity: 0 }}
