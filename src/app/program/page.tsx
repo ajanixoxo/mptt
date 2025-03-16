@@ -21,13 +21,13 @@ const Program = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                   <ProgramHero />
-                     <ProgramFeatures />
+                    <ProgramHero />
+                    <ProgramFeatures />
                     <CoursesTabs />
                     <UpcomingEvents />
                     <CareerWorkshops />
                     <ProgramCTA />
-                   
+
                 </div>
             </main>
         </>

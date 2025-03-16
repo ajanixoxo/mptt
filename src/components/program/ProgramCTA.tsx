@@ -35,8 +35,8 @@ const ProgramCTA = () => {
             </motion.div>
 
             {/* Half star */}
-            <div className="absolute left-10 bottom-20">
-                <img src="/s_half.png" className="w-7 md:w-12" />
+            <div className="absolute left-0 bottom-20">
+                <img src="/s_half.png" className="w-7 md:w-12 rotate-180" />
             </div>
 
             <div className="container mx-auto max-w-4xl">

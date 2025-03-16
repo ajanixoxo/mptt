@@ -89,7 +89,7 @@ const UpcomingEvents = () => {
       </motion.div>
 
       {/* Half star */}
-      <div className="absolute right-10 bottom-20">
+      <div className="absolute right-0 bottom-20">
         <img src="/s_half.png" className="w-7 md:w-12" />
       </div>
 

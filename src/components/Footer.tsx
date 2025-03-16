@@ -5,11 +5,11 @@ import { ElementType } from "react";
 
 import { motion } from "framer-motion"
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
-import Image from "next/image"
+
 
 const Footer = () => {
   return (
-    <footer className="mt-20">
+    <footer className="relative">
       <div
         className=" text-purple-400">
 
@@ -17,16 +17,17 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          className="z-20 absolute left-10 top-10"
 
         >
 
-          <Image width={0} height={0}   src='/s-star.png' alt="" className="w-7 md:w-12 ml-40 --" />
+          <img   src='/s-star.png' alt="" className="w-7 md:w-12 ml-40 --" />
         </motion.div>
       </div>
-      <div className="container mx-auto w-full relative rounded-2xl bg-[#1C1C1C] px-4 py-7">
+      <div className=" w-full relative rounded-2xl bg-[#1C1C1C] px-4 py-7">
 
-        <Image width={0} height={0}   src="/y_star.png" alt="" className="absolute left-0 bottom-0" />
-        <Image width={0} height={0}   src="/y_star.png" alt="" className="absolute right-0 top-0 rotate-180" />
+        <img    src="/y_star.png" alt="" className="absolute left-0 bottom-0" />
+        <img    src="/y_star.png" alt="" className="absolute right-0 top-0 rotate-180" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1">
