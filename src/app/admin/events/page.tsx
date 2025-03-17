@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { PlusCircle, Search, Filter, ChevronDown, Calendar, MapPin, Users, Trash, Edit } from "lucide-react";
+import { PlusCircle, Calendar, MapPin, Users, Trash, Edit } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 
 // Define TypeScript interfaces
@@ -23,7 +23,7 @@ export default function EventsPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [showFilters, setShowFilters] = useState<boolean>(false);
+
 
   useEffect(() => {
     fetchEvents();
@@ -37,6 +37,8 @@ export default function EventsPage() {
       
       const data: Event[] = await response.json();
       setEvents(data);
+      setSearchQuery("none")
+      setStatusFilter("non3")
     } catch (error) {
       console.error("Error fetching events:", error);
     } finally {
@@ -61,13 +63,6 @@ export default function EventsPage() {
     }
   };
 
-  const formatDate = (dateString: string) => {
-    return new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    }).format(new Date(dateString));
-  };
 
   const filteredEvents = events.filter((event) =>
     event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
