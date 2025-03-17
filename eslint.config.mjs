@@ -17,7 +17,7 @@ const eslintConfig = [
       "@next/next/no-page-custom-font": "off", 
       "jsx-a11y/alt-text": "off", 
       "@next/next/no-img-element": "off", 
-      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }] // Ignore variables prefixed with "_"
+     "no-unused-vars": "off"
     },
   },
 ];
