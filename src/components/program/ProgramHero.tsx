@@ -46,7 +46,7 @@ const ProgramHero = () => {
                 />
             </motion.div>
 
-            <div className="container mx-auto max-w-8xl">
+            <div className="container mx-auto max-w-8xl relative">
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

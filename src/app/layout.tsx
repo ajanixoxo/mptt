@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import "./globals.css";
-
-
 
 export const metadata: Metadata = {
   title: "Hack-A-Path | Tech Community",
@@ -21,10 +17,11 @@ export default function RootLayout({
         <link rel="svg" href="/favicon.svg" />
       </head>
       <body className={` text-white`}>
+         
         <div className="">
-          <Navbar />
+        
           <div className="flex-grow">{children}</div>
-          <Footer />
+         
         </div>
       </body>
     </html>

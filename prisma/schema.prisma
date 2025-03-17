@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  admin     Admin?
+
+  @@map("users")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  userId    String   @unique @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  email     String   @unique
+  role      String   // "admin" or "super_admin"
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  events    Event[]
+
+  @@map("admins")
+}
+
+model Event {
+  id           String         @id @default(uuid())
+  title        String
+  description  String
+  location     String?
+  eventDate    DateTime?      @map("event_date")
+  isOnline     Boolean        @default(false) @map("is_online")
+  status       String         // "active" or "closed"
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+  createdById  String         @map("created_by_id")
+  createdBy    Admin          @relation(fields: [createdById], references: [id])
+  registrations Registration[]
+
+  @@map("events")
+}
+
+model Registration {
+  id            String   @id @default(uuid())
+  eventId       String   @map("event_id")
+  event         Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  userName      String   @map("user_name")
+  userEmail     String   @map("user_email")
+  userPhone     String?  @map("user_phone")
+  additionalInfo Json?   @map("additional_info")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("registrations")
+}

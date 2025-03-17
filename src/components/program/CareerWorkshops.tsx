@@ -117,8 +117,8 @@ const CareerWorkshops = () => {
             </motion.div>
 
             {/* Half star */}
-            <div className="absolute left-10 top-40">
-                <img src="/s_half.png" className="w-7 md:w-12" />
+            <div className="absolute left-0 top-40">
+                <img src="/s_half.png" className="w-7 md:w-12 rotate-180" />
             </div>
 
             <div className="container mx-auto max-w-6xl">

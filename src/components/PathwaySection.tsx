@@ -44,7 +44,7 @@ const PathwaysSection = () => {
   }
   return (
     <section className="py-20 px-4">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-8xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ const PathwaysSection = () => {
               whileHover={{ y: -5 }}
               className="bg-[#1b1a1c] backdrop-blur-sm  rounded-xl overflow-hidden"
             >
-              <div className="relative h-48">
+              <div className="relative h-48 p-1">
                 <img
                   src={pathway.image || "/placeholder.svg"}
                   alt={pathway.title}

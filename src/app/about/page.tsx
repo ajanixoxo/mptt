@@ -14,7 +14,7 @@ const About = () => {
 
   return (
     <>
-
+ <Navbar />
      <main className="bg-[#0A0A0B] min-h-screen ">
             {/* Grid Background */}
             {/* <div className="fixed inset-0 z-0">
@@ -30,7 +30,7 @@ const About = () => {
               <VisionSection />
               <TeamSection />
               <PartnersSection />
-     
+      <Footer />
             </div>
           </main>
     </>

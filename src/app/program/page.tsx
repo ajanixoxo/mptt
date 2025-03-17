@@ -6,6 +6,8 @@ import ProgramFeatures from "@/components/program/ProgramFeatures"
 import UpcomingEvents from "@/components/program/UpcomingEvents"
 import CareerWorkshops from "@/components/program/CareerWorkshops"
 import ProgramCTA from "@/components/program/ProgramCTA"
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 
 
 const Program = () => {
@@ -14,22 +16,23 @@ const Program = () => {
     return (
         <>
 
-
+<Navbar />
             <main className="bg-[#0A0A0B] min-h-screen hero-bg">
 
 
 
                 {/* Content */}
                 <div className="relative z-10">
-                   <ProgramHero />
-                     <ProgramFeatures />
+                    <ProgramHero />
+                    <ProgramFeatures />
                     <CoursesTabs />
                     <UpcomingEvents />
                     <CareerWorkshops />
                     <ProgramCTA />
-                   
+
                 </div>
             </main>
+            <Footer />
         </>
     )
 }
