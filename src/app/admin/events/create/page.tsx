@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Calendar, Clock, MapPin, Globe, Save, ArrowLeft } from "lucide-react";
+import {  ArrowLeft } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 
 export default function CreateEventPage() {
@@ -11,25 +11,32 @@ export default function CreateEventPage() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    location: "",
     event_date: "",
     event_time: "",
     is_online: false,
+    location: "",
+    meeting_app: "",
     status: "active",
   });
+
   const [errors, setErrors] = useState<{ [key: string]: string | null }>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
-
+    const { name, value, type } = e.target;
+  
+    // Only access `checked` if it's an <input type="checkbox" | type="radio">
+    const checked = (e.target as HTMLInputElement).checked;
+  
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === "checkbox" || type === "radio" ? checked : value,
+    }));
+  
     if (errors[name]) {
-      setErrors({ ...errors, [name]: null });
+      setErrors(prev => ({ ...prev, [name]: null }));
     }
   };
+  
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -41,6 +48,9 @@ export default function CreateEventPage() {
     if (!formData.is_online && !formData.location.trim()) {
       newErrors.location = "Location is required for in-person events";
     }
+    if (formData.is_online && !formData.meeting_app.trim()) {
+      newErrors.meeting_app = "Meeting app is required for online events";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -49,27 +59,27 @@ export default function CreateEventPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-  
+
     setLoading(true);
     try {
-      const response = await fetch("/api/events", {
+      const response = await fetch("/api/admin/events", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title: formData.title,
           description: formData.description,
-          location: formData.location,
           eventDate: `${formData.event_date}T${formData.event_time}`,
           isOnline: formData.is_online,
+          location: formData.is_online ? formData.meeting_app : formData.location,
           status: formData.status,
         }),
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || "Failed to create event");
       }
-  
+
       router.push("/admin/events");
     } catch (error) {
       console.error("Error creating event:", error);
@@ -78,7 +88,6 @@ export default function CreateEventPage() {
       setLoading(false);
     }
   };
-  
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -103,7 +112,7 @@ export default function CreateEventPage() {
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border text-black  ${errors.title ? "border-red-500" : "border-gray-300"} rounded-md`}
+                  className={`w-full px-4 py-2 border ${errors.title ? "border-red-500" : "border-gray-300"} rounded-md`}
                   placeholder="Enter event title"
                 />
                 {errors.title && <p className="mt-1 text-sm text-red-500">{errors.title}</p>}
@@ -150,17 +159,68 @@ export default function CreateEventPage() {
                 </div>
               </div>
 
+              {/* Event Type: Online or In-Person */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Event Type*</label>
+                <div className="flex space-x-4">
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="is_online"
+                      value="true"
+                      checked={formData.is_online}
+                      onChange={handleChange}
+                      className="text-purple-600"
+                    />
+                    <span>Online</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="is_online"
+                      value="false"
+                      checked={!formData.is_online}
+                      onChange={handleChange}
+                      className="text-purple-600"
+                    />
+                    <span>Meet in Person</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Conditional Inputs */}
+              {formData.is_online ? (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Meeting App*</label>
+                  <input
+                    type="text"
+                    name="meeting_app"
+                    value={formData.meeting_app}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    placeholder="Google Meet, Zoom, etc."
+                  />
+                  {errors.meeting_app && <p className="mt-1 text-sm text-red-500">{errors.meeting_app}</p>}
+                </div>
+              ) : (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Location*</label>
+                  <input
+                    type="text"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    placeholder="Enter event location"
+                  />
+                  {errors.location && <p className="mt-1 text-sm text-red-500">{errors.location}</p>}
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="flex justify-end">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white py-2 px-6 rounded-md disabled:opacity-50"
-                >
-                  {loading ? <span>Saving...</span> : <>
-                    <Save size={18} />
-                    <span>Create Event</span>
-                  </>}
+                <button type="submit" disabled={loading} className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-6 rounded-md disabled:opacity-50">
+                  {loading ? "Saving..." : "Create Event"}
                 </button>
               </div>
             </div>

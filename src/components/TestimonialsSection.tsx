@@ -104,12 +104,13 @@ const TestimonialsSection = () => {
 
 
               <p className="text-gray-300 inline-flex gap-2 italic mt-3 relative">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 12.3501H7.79999C9.32999 12.3501 10.38 13.5101 10.38 14.9301V18.1501C10.38 19.5701 9.32999 20.7301 7.79999 20.7301H4.58002C3.16002 20.7301 2 19.5701 2 18.1501V12.3501" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M2 12.35C2 6.29998 3.13003 5.30003 6.53003 3.28003" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M13.6299 12.3501H19.4299C20.9599 12.3501 22.0099 13.5101 22.0099 14.9301V18.1501C22.0099 19.5701 20.9599 20.7301 19.4299 20.7301H16.2099C14.7899 20.7301 13.6299 19.5701 13.6299 18.1501V12.3501" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M13.6299 12.35C13.6299 6.29998 14.7599 5.30003 18.1599 3.28003" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <svg width={28} height={28} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 12.3501H7.79999C9.32999 12.3501 10.38 13.5101 10.38 14.9301V18.1501C10.38 19.5701 9.32999 20.7301 7.79999 20.7301H4.58002C3.16002 20.7301 2 19.5701 2 18.1501V12.3501" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 12.35C2 6.29998 3.13003 5.30003 6.53003 3.28003" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M13.6299 12.3501H19.4299C20.9599 12.3501 22.0099 13.5101 22.0099 14.9301V18.1501C22.0099 19.5701 20.9599 20.7301 19.4299 20.7301H16.2099C14.7899 20.7301 13.6299 19.5701 13.6299 18.1501V12.3501" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M13.6299 12.35C13.6299 6.29998 14.7599 5.30003 18.1599 3.28003" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
+
 
 
                 {testimonial.quote}
@@ -120,7 +121,10 @@ const TestimonialsSection = () => {
                   <path d="M22.0002 11.6499C22.0002 17.6999 20.8702 18.6998 17.4702 20.7198" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M10.3702 11.65H4.57023C3.04023 11.65 1.99023 10.49 1.99023 9.07001V5.84998C1.99023 4.42998 3.04023 3.27002 4.57023 3.27002H7.80023C9.22023 3.27002 10.3802 4.42998 10.3802 5.84998V11.65" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M10.3703 11.6499C10.3703 17.6999 9.24033 18.6998 5.84033 20.7198" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-                </svg></div>
+                </svg>
+
+
+              </div>
 
 
 
