@@ -1,43 +1,55 @@
 import { NextResponse } from "next/server"
 import { PrismaClient } from "@prisma/client"
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/lib/auth"
+import { verify } from "jsonwebtoken"
+import { cookies } from "next/headers"
+import type { NextRequest } from "next/server"
 
 const prisma = new PrismaClient()
 
-// Get a specific event
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+// Reusable function to check authentication
+async function checkAuth(request: NextRequest) {
   try {
-    // Check if user is authenticated and is an admin
-    const session = await getServerSession(authOptions)
+    const cookie = await cookies()
+    const token = cookie.get("admin-token")?.value
 
-    if (!session?.user) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
+    if (!token) {
+      return { error: "Unauthorized", status: 401 }
     }
-    if (!session.user.email) {
-      return NextResponse.json({ message: "Unauthorized - Missing email" }, { status: 401 })
+
+    const decoded = verify(token, process.env.JWT_SECRET || "your-secret-key")
+
+    if (!decoded || typeof decoded !== "object") {
+      return { error: "Invalid token", status: 401 }
     }
-    // Check if user is an admin
-    const admin = await prisma.admin.findFirst({
-      where: {
-        email: session.user.email,
-      },
+
+    const admin = await prisma.admin.findUnique({
+      where: { id: decoded.id },
     })
 
     if (!admin) {
-      return NextResponse.json({ message: "Unauthorized - Admin access required" }, { status: 403 })
+      return { error: "Forbidden - Admin access required", status: 403 }
     }
 
-    // Get event
+    return { admin }
+  } catch (error) {
+    console.error("Auth check error:", error)
+    return { error: "Unauthorized", status: 401 }
+  }
+}
+
+// Get a specific event
+export async function GET(request: NextRequest, context: { params: { id: string } }) {
+  const auth = await checkAuth(request)
+  if (auth.error) return NextResponse.json({ message: auth.error }, { status: auth.status })
+
+  try {
+    const { params } = context
+
     const event = await prisma.event.findUnique({
       where: { id: params.id },
       include: {
-        registrations: {
-          orderBy: { createdAt: "desc" },
-        },
-        createdBy: {
-          select: { name: true, email: true },
-        },
+        registrations: { orderBy: { createdAt: "desc" } },
+        createdBy: { select: { name: true, email: true } },
       },
     })
 
@@ -53,30 +65,14 @@ export async function GET(request: Request, { params }: { params: { id: string }
 }
 
 // Update an event
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, context: { params: { id: string } }) {
+  const auth = await checkAuth(request)
+  if (auth.error) return NextResponse.json({ message: auth.error }, { status: auth.status })
+
   try {
-    // Check if user is authenticated and is an admin
-    const session = await getServerSession(authOptions)
-
-    if (!session?.user) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
-    }
-
-    // Check if user is an admin
-    const admin = await prisma.admin.findFirst({
-      where: {
-        email: session.user.email,
-      },
-    })
-
-    if (!admin) {
-      return NextResponse.json({ message: "Unauthorized - Admin access required" }, { status: 403 })
-    }
-
-    // Get event data from request
+    const { params } = context
     const eventData = await request.json()
 
-    // Update event
     const event = await prisma.event.update({
       where: { id: params.id },
       data: {
@@ -97,27 +93,13 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 }
 
 // Delete an event
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, context: { params: { id: string } }) {
+  const auth = await checkAuth(request)
+  if (auth.error) return NextResponse.json({ message: auth.error }, { status: auth.status })
+
   try {
-    // Check if user is authenticated and is an admin
-    const session = await getServerSession(authOptions)
+    const { params } = context
 
-    if (!session?.user) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
-    }
-
-    // Check if user is an admin
-    const admin = await prisma.admin.findFirst({
-      where: {
-        email: session.user.email,
-      },
-    })
-
-    if (!admin) {
-      return NextResponse.json({ message: "Unauthorized - Admin access required" }, { status: 403 })
-    }
-
-    // Delete event (this will cascade delete registrations due to our schema)
     await prisma.event.delete({
       where: { id: params.id },
     })
@@ -128,4 +110,3 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     return NextResponse.json({ message: "Internal server error" }, { status: 500 })
   }
 }
-
