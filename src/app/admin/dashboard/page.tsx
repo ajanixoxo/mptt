@@ -11,8 +11,18 @@ import LoadingScreen from "@/components/LoadingScreen"
 
 interface Event {
   id: string;
-  name: string; // Add other properties if needed
+  title: string;
+  description: string;
+  status: "active" | "closed";
+  eventDate?: string | null;
+  createdAt: string;
+  location?: string | null;
+  _count?: {
+    registrations?: number;
+  };
 }
+
+
 
 export default function AdminDashboard() {
   const router = useRouter()
@@ -45,26 +55,37 @@ export default function AdminDashboard() {
   }, [router])
 
   const fetchDashboardData = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      // Fetch dashboard data from API
-      const response = await fetch("/api/admin/dashboard")
-      const data = await response.json()
-
-      if (!response.ok) throw new Error(data.message || "Failed to fetch dashboard data")
-
-      setActiveEvents(data.activeEvents || 0)
-      setClosedEvents(data.closedEvents || 0)
-      setTotalRegistrations(data.totalRegistrations || 0)
-      setRecentEvents(data.recentEvents || [])
-      setRecentUsers(data.recentUsers || [])
-      setAdmin(data.user.name)
+      // Fetch dashboard statistics
+      const dashboardResponse = await fetch("/api/admin/dashboard");
+      const dashboardData = await dashboardResponse.json();
+  
+      if (!dashboardResponse.ok) {
+        throw new Error(dashboardData.message || "Failed to fetch dashboard data");
+      }
+  
+      // Fetch events from the events API
+      const eventsResponse = await fetch("/api/admin/events");
+      const eventsData = await eventsResponse.json();
+  
+      if (!eventsResponse.ok) {
+        throw new Error(eventsData.message || "Failed to fetch events");
+      }
+  
+      setActiveEvents(dashboardData.activeEvents || 0);
+      setClosedEvents(dashboardData.closedEvents || 0);
+      setTotalRegistrations(dashboardData.totalRegistrations || 0);
+      setRecentEvents(eventsData || []); // Assuming eventsData is an array of events
+      setRecentUsers(dashboardData.recentUsers || []);
+      setAdmin(dashboardData.user.name);
     } catch (error) {
-      console.error("Error fetching dashboard data:", error)
+      console.error("Error fetching dashboard data:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
+  
 
   if (loading) {
     return <LoadingScreen />

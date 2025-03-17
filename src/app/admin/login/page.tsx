@@ -11,44 +11,40 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
-  const handleLogin = async (e) => {
-    e.preventDefault()
-    setError("")
-    setLoading(true)
-
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+  
     try {
-      // Use the API endpoint instead of Supabase
       const response = await fetch("/api/admin/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-      })
-
-      const data = await response.json()
-
+      });
+  
+      const data = await response.json();
+  
       if (!response.ok) {
-        throw new Error(data.message || "Login failed")
+        throw new Error(data.message || "Login failed");
       }
-
-      // Store admin info in localStorage for client-side access
-      localStorage.setItem("adminUser", JSON.stringify(data.user))
-
-      // Redirect to admin dashboard
-      router.push("/admin/dashboard")
+  
+      localStorage.setItem("adminUser", JSON.stringify(data.user));
+      router.push("/admin/dashboard");
     } catch (error: unknown) {
-      console.error("Login error:", error)
+      console.error("Login error:", error);
       if (error instanceof Error) {
         setError(error.message || "Failed to login. Please check your credentials.");
       } else {
         setError("Failed to login. Please check your credentials.");
       }
-      console.log(error)
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#1E1E1E] py-12 px-4 sm:px-6 lg:px-8">
