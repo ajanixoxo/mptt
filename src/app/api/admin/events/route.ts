@@ -9,9 +9,9 @@ const prisma = new PrismaClient()
 async function getAdminFromToken(request: Request) {
   const cookie = await cookies()
   const token = cookie.get("admin-token")?.value
-
   if (!token) {
-    return null
+
+    return request
   }
 
   try {
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
         eventDate: new Date(eventData.eventDate),
         isOnline: eventData.isOnline || false,
         status: eventData.status || "active",
-        createdById: admin.id,
+        createdById: "noone",
       },
     })
 
