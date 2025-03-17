@@ -7,7 +7,8 @@ const prisma = new PrismaClient()
 
 // Helper function to get admin from token
 async function getAdminFromToken(request: Request) {
-  const token = cookies().get("admin-token")?.value
+  const cookie = await cookies()
+  const token = cookie.get("admin-token")?.value
 
   if (!token) {
     return null

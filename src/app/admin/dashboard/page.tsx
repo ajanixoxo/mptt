@@ -9,13 +9,19 @@ import StatsCard from "@/components/admin/StatsCard"
 import RecentUsersList from "@/components/admin/RecentUsersList"
 import LoadingScreen from "@/components/LoadingScreen"
 
+interface Event {
+  id: string;
+  name: string; // Add other properties if needed
+}
+
 export default function AdminDashboard() {
   const router = useRouter()
   const [activeEvents, setActiveEvents] = useState(0)
   const [totalRegistrations, setTotalRegistrations] = useState(0)
   const [closedEvents, setClosedEvents] = useState(0)
-  const [recentEvents, setRecentEvents] = useState([])
+  const [recentEvents, setRecentEvents] = useState<Event[]>([]);
   const [recentUsers, setRecentUsers] = useState([])
+  const [admin, setAdmin] = useState("")
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -52,6 +58,7 @@ export default function AdminDashboard() {
       setTotalRegistrations(data.totalRegistrations || 0)
       setRecentEvents(data.recentEvents || [])
       setRecentUsers(data.recentUsers || [])
+      setAdmin(data.user.name)
     } catch (error) {
       console.error("Error fetching dashboard data:", error)
     } finally {
@@ -70,7 +77,7 @@ export default function AdminDashboard() {
       <div className="flex-1 p-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
-          <p className="text-gray-600">Welcome back, Admin!</p>
+          <p className="text-gray-600">Welcome back, {admin}!</p>
         </div>
 
         {/* Stats Cards */}

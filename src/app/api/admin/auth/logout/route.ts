@@ -4,7 +4,8 @@ import { cookies } from "next/headers"
 export async function POST() {
   try {
     // Clear the admin token cookie
-    cookies().delete("admin-token")
+    const cookie = await cookies()
+    cookie.delete("admin-token")
 
     return NextResponse.json({ message: "Logged out successfully" })
   } catch (error) {
@@ -12,4 +13,5 @@ export async function POST() {
     return NextResponse.json({ message: "Internal server error" }, { status: 500 })
   }
 }
+
 

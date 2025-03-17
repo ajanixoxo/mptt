@@ -8,7 +8,8 @@ const prisma = new PrismaClient()
 export async function GET() {
   try {
     // Get token from cookies
-    const token = cookies().get("admin-token")?.value
+    const cookie = await cookies()
+    const token = cookie.get("admin-token")?.value
 
     if (!token) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })

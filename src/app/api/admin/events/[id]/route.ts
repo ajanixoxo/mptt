@@ -14,7 +14,9 @@ export async function GET(request: Request, { params }: { params: { id: string }
     if (!session?.user) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
     }
-
+    if (!session.user.email) {
+      return NextResponse.json({ message: "Unauthorized - Missing email" }, { status: 401 })
+    }
     // Check if user is an admin
     const admin = await prisma.admin.findFirst({
       where: {

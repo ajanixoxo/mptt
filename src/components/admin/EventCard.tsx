@@ -1,16 +1,33 @@
-import Link from "next/link"
-import { Calendar, MapPin, Users } from "lucide-react"
+import Link from "next/link";
+import { Calendar, MapPin, Users } from "lucide-react";
 
-export default function EventCard({ event }) {
-  // Format date
-  const formatDate = (dateString) => {
-    const date = new Date(dateString)
+interface Event {
+  id: string;
+  title: string;
+  description: string;
+  status: "active" | "closed";
+  eventDate?: string | null;
+  createdAt: string;
+  location?: string | null;
+  _count?: {
+    registrations?: number;
+  };
+}
+
+interface EventCardProps {
+  event: Event;
+}
+
+export default function EventCard({ event }: EventCardProps) {
+  // Format date function
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
     return new Intl.DateTimeFormat("en-US", {
       month: "short",
       day: "numeric",
       year: "numeric",
-    }).format(date)
-  }
+    }).format(date);
+  };
 
   return (
     <Link href={`/admin/events/${event.id}`}>
@@ -19,7 +36,9 @@ export default function EventCard({ event }) {
           <h3 className="font-semibold text-gray-800">{event.title}</h3>
           <span
             className={`text-xs px-2 py-1 rounded-full ${
-              event.status === "active" ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"
+              event.status === "active"
+                ? "bg-green-100 text-green-800"
+                : "bg-gray-100 text-gray-800"
             }`}
           >
             {event.status === "active" ? "Active" : "Closed"}
@@ -48,6 +67,5 @@ export default function EventCard({ event }) {
         </div>
       </div>
     </Link>
-  )
+  );
 }
-

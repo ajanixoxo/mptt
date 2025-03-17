@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { PrismaClient } from "@prisma/client"
-import { compare } from "bcrypt"
+import { compare } from "bcryptjs"
 import { sign } from "jsonwebtoken"
 import { cookies } from "next/headers"
 
@@ -37,17 +37,16 @@ export async function POST(request: Request) {
       process.env.JWT_SECRET || "your-secret-key",
       { expiresIn: "1d" },
     )
-
+    const cookie = await cookies()
     // Set cookie
-    const cookieStore = await cookies();
-    cookieStore.set({
+    cookie.set({
       name: "admin-token",
       value: token,
       httpOnly: true,
       path: "/",
       secure: process.env.NODE_ENV === "production",
       maxAge: 60 * 60 * 24, // 1 day
-    });
+    })
 
     return NextResponse.json({
       message: "Login successful",

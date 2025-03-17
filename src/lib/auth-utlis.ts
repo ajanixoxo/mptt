@@ -16,8 +16,9 @@ export function verifyToken(token: string) {
   }
 }
 
-export function setAuthCookie(token: string) {
-  cookies().set({
+export async function setAuthCookie(token: string) {
+  const cookie = await cookies()
+  cookie.set({
     name: 'admin-token',
     value: token,
     httpOnly: true,
@@ -27,10 +28,12 @@ export function setAuthCookie(token: string) {
   })
 }
 
-export function getAuthCookie() {
-  return cookies().get('admin-token')?.value
+export  async  function getAuthCookie() {
+  const cookie = await cookies()
+  return cookie.get('admin-token')?.value
 }
 
-export function removeAuthCookie() {
-  cookies().delete('admin-token')
+export  async  function removeAuthCookie() {
+  const cookie = await cookies()
+  cookie.delete('admin-token')
 }
