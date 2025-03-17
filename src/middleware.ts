@@ -32,6 +32,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.next()
     } catch (error) {
       // Token is invalid, redirect to login
+      console.log(error)
       const url = new URL("/admin/login", request.url)
       url.searchParams.set("callbackUrl", encodeURI(pathname))
       return NextResponse.redirect(url)
