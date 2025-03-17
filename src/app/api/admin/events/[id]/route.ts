@@ -13,7 +13,7 @@ async function checkAuth(request: NextRequest) {
     const token = cookie.get("admin-token")?.value
 
     if (!token) {
-      return { error: "Unauthorized", status: 401 }
+      return { error: "Unauthorized", status: 401,request }
     }
 
     const decoded = verify(token, process.env.JWT_SECRET || "your-secret-key")
