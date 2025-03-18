@@ -19,9 +19,9 @@ interface Event {
 
 export default function EventsPage() {
   const router = useRouter();
-  const [events, setEvents] = useState<Event[]>([]);
+  const [recentEvents, setRecentEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  
   const [statusFilter, setStatusFilter] = useState<string>("all");
 
 
@@ -32,12 +32,13 @@ export default function EventsPage() {
   const fetchEvents = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/admin/events");
-      if (!response.ok) throw new Error("Failed to fetch events");
-      
-      const data: Event[] = await response.json();
-      setEvents(data);
-      setSearchQuery("none")
+      const eventsResponse = await fetch("/api/admin/events");
+      const eventsData = await eventsResponse.json();
+
+  if (!eventsResponse.ok) throw new Error("Failed to fetch events");  
+
+      setRecentEvents(eventsData || []); // Assuming eventsData is an array of events
+
       setStatusFilter("non3")
     } catch (error) {
       console.error("Error fetching events:", error);
@@ -64,11 +65,7 @@ export default function EventsPage() {
   };
 
 
-  const filteredEvents = events.filter((event) =>
-    event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    event.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    event.location.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -89,9 +86,9 @@ export default function EventsPage() {
           <div className="flex justify-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
           </div>
-        ) : filteredEvents.length > 0 ? (
+        ) : recentEvents.length > 0 ? (
           <div className="grid grid-cols-1 gap-4">
-            {filteredEvents.map((event) => (
+            { recentEvents.map((event) => (
               <div
                 key={event.id}
                 onClick={() => router.push(`/admin/events/${event.id}`)}

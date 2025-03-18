@@ -1,157 +1,184 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, CircleArrowUp } from "lucide-react";
-import FloatingShape from "@/components/FloatingShape";
 
 interface Event {
   id: string;
   title: string;
-  date: string;
-  time: string;
+  eventDate: string;
   location: string;
   description: string;
-  type: "Virtual" | "In-Person" | "Hybrid";
+  isOnline: boolean;
+  status: string;
 }
 
 const UpcomingEvents = () => {
   const [events, setEvents] = useState<Event[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [formData, setFormData] = useState({
+    userName: "",
+    userEmail: "",
+    userPhone: "",
+    additionalInfo: "",
+  });
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("/api/admin/events");
-        if (!response.ok) throw new Error("Failed to fetch events");
-        const data = await response.json();
-        setEvents(data);
-      } catch (err) {
-        setError((err as Error).message);
-      } finally {
-        setLoading(false);
+        const response = await fetch("/api/events");
+        const data: Event[] = await response.json();
+        setEvents(data.filter((event) => event.status === "active")); // Only show active events
+      } catch (error) {
+        console.error("Error fetching events:", error);
       }
     };
-
     fetchEvents();
   }, []);
 
-  if (loading) return <p className="text-center text-white">Loading events...</p>;
-  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
+  const handleRegister = async () => {
+    if (!selectedEvent) return;
+    try {
+      await fetch("/api/admin/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          eventId: selectedEvent.id,
+          ...formData,
+        }),
+      });
+      alert("Registration successful!");
+      setSelectedEvent(null);
+    } catch (error) {
+      console.error("Error registering for event:", error);
+    }
+  };
 
   return (
-    <section className="py-20 px-4 relative">
-      <FloatingShape
-        size="w-96 h-96"
-        color="bg-gradient-to-r from-blue-500/20 to-purple-500/20"
-        position="absolute"
-        delay={0.3}
-        top=""
-        left=""
-      />
+    <div className="relative">
+      <section id="events">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div className="text-center mb-12">
+            <h2 className="main_text text-3xl font-bold mb-4">Upcoming Events</h2>
+            <p className="sec_text text-[#a09c9c] max-w-2xl mx-auto">
+              Join us at these awesome events to learn, meet our team, and connect!
+            </p>
+          </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-20 left-20"
-      >
-        <motion.img
-          src="/s-star.png"
-          alt="Shining star"
-          className="w-8 h-8"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-        />
-      </motion.div>
-
-      <div className="absolute right-0 bottom-20">
-        <img src="/s_half.png" className="w-7 md:w-12" />
-      </div>
-
-      <div className="container mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Upcoming Events</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Join us at these awesome events to learn more, meet our team, and connect with other tech enthusiasts!
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event, index) => (
-            <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl overflow-hidden"
-            >
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-white">{event.title}</h3>
-                  <span
-                    className={`text-xs px-3 py-1 rounded-full ${
-                      event.type === "Virtual"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {events.map((event, index) => (
+              <motion.div
+                key={event.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl overflow-hidden relative"
+              > 
+              <div className="w-full h-[1px] absolute top-21 bg-gray-300 my-2"></div>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-1">
+                    <h3 className="text-xl font-bold text-white">{event.title}</h3>
+                    <span
+                      className={`text-xs px-3 py-1 rounded-full ${event.isOnline
                         ? "bg-blue-500/20 text-blue-300"
-                        : event.type === "In-Person"
-                        ? "bg-green-500/20 text-green-300"
-                        : "bg-purple-500/20 text-purple-300"
-                    }`}
+                        : "bg-green-500/20 text-green-300"
+                        }`}
+                    >
+                      {event.isOnline ? "Online" : "In-person"}
+                    </span>
+                  </div>
+
+                  <div className=" text-gray-400 mb-2">
+                    <div className="flex items-center">
+                      <Calendar size={16} className="mr-2" />
+                      <span>{new Date(event.eventDate).toDateString()}</span>
+                    </div>
+                  </div>
+                 
+                  <p className="text-gray-300 my-6">{event.description}</p>
+                  <div className="space-y-2 mb-4 text-gray-400">
+                    <div className="flex items-center">
+                      <Clock size={16} className="mr-2" />
+                      <span>{new Date(event.eventDate).toLocaleTimeString()}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <MapPin size={16} className="mr-2" />
+                      <span>{event.location}</span>
+                    </div>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedEvent(event)}
+                    className="w-full bg-[#989BAE] text-white border border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                   >
-                    {event.type}
-                  </span>
+                    <span>Register Now</span>
+                    <CircleArrowUp className="rotate-45" size={20} />
+                  </motion.button>
                 </div>
+              </motion.div>
+            ))}
+          </div>
 
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center text-gray-400">
-                    <Calendar size={16} className="mr-2" />
-                    <span>{event.date}</span>
-                  </div>
-                  <div className="flex items-center text-gray-400">
-                    <Clock size={16} className="mr-2" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-center text-gray-400">
-                    <MapPin size={16} className="mr-2" />
-                    <span>{event.location}</span>
-                  </div>
+          {selectedEvent && (
+            <div className="fixed inset-0 z-40 bg-black bg-opacity-50 flex justify-center items-center">
+              <div className="bg-[#2B2B2B]/90 p-6 rounded-lg w-96 text-white shadow-lg">
+                <h3 className="text-xl lg:text-2xl font-bold mb-4 text-center">Register for <br /> {selectedEvent.title}</h3>
+
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={formData.userName}
+                  onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
+                  className="bg-[#3B3B3B] text-white border border-gray-600 p-2 w-full mt-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  value={formData.userEmail}
+                  onChange={(e) => setFormData({ ...formData, userEmail: e.target.value })}
+                  className="bg-[#3B3B3B] text-white border border-gray-600 p-2 w-full mt-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Phone (optional)"
+                  value={formData.userPhone}
+                  onChange={(e) => setFormData({ ...formData, userPhone: e.target.value })}
+                  className="bg-[#3B3B3B] text-white border border-gray-600 p-2 w-full mt-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
+                />
+
+                <textarea
+                  placeholder="Additional Info (optional)"
+                  value={formData.additionalInfo}
+                  onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
+                  className="bg-[#3B3B3B] text-white border border-gray-600 p-2 w-full mt-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
+                />
+
+                <div className="flex justify-between mt-4">
+                  <button
+                    onClick={handleRegister}
+                    className="bg-[#989BAE] text-white px-4 py-2 rounded w-1/2 hover:bg-gray-500"
+                  >
+                    Submit
+                  </button>
+                  <button
+                    onClick={() => setSelectedEvent(null)}
+                    className="text-red-400 w-1/2 ml-4 hover:text-red-600"
+                  >
+                    Cancel
+                  </button>
                 </div>
-
-                <p className="text-gray-300 mb-6">{event.description}</p>
-
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-[#989BAE] text-white border border-gray-700 px-6 py-3 rounded-full font-medium flex items-center justify-center space-x-2"
-                >
-                  <span>Register Now</span>
-                  <CircleArrowUp className="rotate-45" size={20} />
-                </motion.button>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          )}
 
-        <div className="mt-12 text-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#2B2B2B] text-white border border-gray-700 px-8 py-3 rounded-full font-medium inline-flex items-center space-x-2"
-          >
-            <span>View All Events</span>
-            <CircleArrowUp className="rotate-45" size={20} />
-          </motion.button>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

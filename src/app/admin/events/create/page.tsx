@@ -1,13 +1,15 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import {  ArrowLeft } from "lucide-react";
-import AdminSidebar from "@/components/admin/AdminSidebar";
+import type React from "react"
+
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { ArrowLeft, LinkIcon } from "lucide-react"
+import AdminSidebar from "@/components/admin/AdminSidebar"
 
 export default function CreateEventPage() {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -17,50 +19,56 @@ export default function CreateEventPage() {
     location: "",
     meeting_app: "",
     status: "active",
-  });
+    thirdPartyLink: "", // New field for third-party link
+    thirdPartyEventId: "", // New field for third-party event ID
+  })
 
-  const [errors, setErrors] = useState<{ [key: string]: string | null }>({});
+  const [errors, setErrors] = useState<{ [key: string]: string | null }>({})
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-  
+    const { name, value, type } = e.target
+
     // Only access `checked` if it's an <input type="checkbox" | type="radio">
-    const checked = (e.target as HTMLInputElement).checked;
-  
-    setFormData(prev => ({
+    const checked = (e.target as HTMLInputElement).checked
+
+    setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" || type === "radio" ? checked : value,
-    }));
-  
+    }))
+
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: null }));
+      setErrors((prev) => ({ ...prev, [name]: null }))
     }
-  };
-  
+  }
 
   const validateForm = () => {
-    const newErrors: { [key: string]: string } = {};
+    const newErrors: { [key: string]: string } = {}
 
-    if (!formData.title.trim()) newErrors.title = "Title is required";
-    if (!formData.description.trim()) newErrors.description = "Description is required";
-    if (!formData.event_date) newErrors.event_date = "Event date is required";
-    if (!formData.event_time) newErrors.event_time = "Event time is required";
+    if (!formData.title.trim()) newErrors.title = "Title is required"
+    if (!formData.description.trim()) newErrors.description = "Description is required"
+    if (!formData.event_date) newErrors.event_date = "Event date is required"
+    if (!formData.event_time) newErrors.event_time = "Event time is required"
     if (!formData.is_online && !formData.location.trim()) {
-      newErrors.location = "Location is required for in-person events";
+      newErrors.location = "Location is required for in-person events"
     }
     if (formData.is_online && !formData.meeting_app.trim()) {
-      newErrors.meeting_app = "Meeting app is required for online events";
+      newErrors.meeting_app = "Meeting app is required for online events"
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    // Validate third-party link if provided
+    if (formData.thirdPartyLink && !formData.thirdPartyLink.startsWith("http")) {
+      newErrors.thirdPartyLink = "Please enter a valid URL starting with http:// or https://"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
+    e.preventDefault()
+    if (!validateForm()) return
 
-    setLoading(true);
+    setLoading(true)
     try {
       const response = await fetch("/api/admin/events", {
         method: "POST",
@@ -72,22 +80,24 @@ export default function CreateEventPage() {
           isOnline: formData.is_online,
           location: formData.is_online ? formData.meeting_app : formData.location,
           status: formData.status,
+          thirdPartyLink: formData.thirdPartyLink || null,
+          thirdPartyEventId: formData.thirdPartyEventId || null,
         }),
-      });
+      })
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to create event");
+        const errorData = await response.json()
+        throw new Error(errorData.message || "Failed to create event")
       }
 
-      router.push("/admin/events");
+      router.push("/admin/events")
     } catch (error) {
-      console.error("Error creating event:", error);
-      alert("Failed to create event. Please try again.");
+      console.error("Error creating event:", error)
+      alert("Failed to create event. Please try again.")
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -217,9 +227,60 @@ export default function CreateEventPage() {
                 </div>
               )}
 
+              {/* Third-Party Integration Section */}
+              <div className="border-t pt-6 mt-6">
+                <h3 className="text-lg font-medium text-gray-800 mb-4">Third-Party Integration</h3>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Third-Party Registration Link
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <LinkIcon size={16} className="text-gray-400" />
+                      </div>
+                      <input
+                        type="url"
+                        name="thirdPartyLink"
+                        value={formData.thirdPartyLink}
+                        onChange={handleChange}
+                        className={`w-full pl-10 px-4 py-2 border ${errors.thirdPartyLink ? "border-red-500" : "border-gray-300"} rounded-md`}
+                        placeholder="https://example.com/register"
+                      />
+                    </div>
+                    {errors.thirdPartyLink && <p className="mt-1 text-sm text-red-500">{errors.thirdPartyLink}</p>}
+                    <p className="mt-1 text-xs text-gray-500">
+                      Users will be redirected to this link after registering on our platform
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Third-Party Event ID (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      name="thirdPartyEventId"
+                      value={formData.thirdPartyEventId}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                      placeholder="External event identifier"
+                    />
+                    <p className="mt-1 text-xs text-gray-500">
+                      For reference only - store the event ID from the third-party platform
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Submit Button */}
               <div className="flex justify-end">
-                <button type="submit" disabled={loading} className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-6 rounded-md disabled:opacity-50">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-6 rounded-md disabled:opacity-50"
+                >
                   {loading ? "Saving..." : "Create Event"}
                 </button>
               </div>
@@ -228,5 +289,6 @@ export default function CreateEventPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
+

@@ -12,7 +12,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = usePathname()
-
+ const handleClick =() => {
+  
+ }
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false)
@@ -63,7 +65,7 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Button text="Apply Now" bg="bg-[#DED6E8]" />
+          <Button text="Apply Now" bg="bg-[#DED6E8]" onClick={handleClick}/>
         </div>
 
         {/* Mobile Menu Button */}
@@ -105,7 +107,7 @@ const Navbar = () => {
               Program
             </Link>
             <motion.div className="w-full" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button text="Apply Now" bg="bg-[#DED6E8]" />
+              <Button text="Apply Now" bg="bg-[#DED6E8]" onClick={handleClick} />
             </motion.div>
           </nav>
         </motion.div>

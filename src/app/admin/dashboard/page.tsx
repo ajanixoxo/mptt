@@ -33,7 +33,6 @@ export default function AdminDashboard() {
   const [recentUsers, setRecentUsers] = useState([])
   const [admin, setAdmin] = useState("")
   const [loading, setLoading] = useState(true)
-
   useEffect(() => {
     // Check if user is authenticated
     const checkAuth = async () => {
@@ -79,6 +78,7 @@ export default function AdminDashboard() {
       setRecentEvents(eventsData || []); // Assuming eventsData is an array of events
       setRecentUsers(dashboardData.recentUsers || []);
       setAdmin(dashboardData.user.name);
+   
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
     } finally {
@@ -105,7 +105,7 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatsCard
             title="Active Events"
-            value={activeEvents}
+            value={recentEvents.length}
             icon={<Calendar className="h-8 w-8 text-blue-500" />}
             bgColor="bg-blue-50"
           />
