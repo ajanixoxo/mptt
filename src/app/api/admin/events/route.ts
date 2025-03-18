@@ -6,12 +6,13 @@ import { cookies } from "next/headers"
 const prisma = new PrismaClient()
 
 // Helper function to get admin from token
-async function getAdminFromToken(request: Request) {
+// Helper function to get admin from token
+// Helper function to get admin from token
+async function getAdminFromToken() {
   const cookie = await cookies()
   const token = cookie.get("admin-token")?.value
   if (!token) {
-
-    return request
+    return null
   }
 
   try {
@@ -27,15 +28,15 @@ async function getAdminFromToken(request: Request) {
 
     return admin
   } catch (error) {
+    console.log(error)
     return null
   }
 }
-
 // Get all events
 export async function GET(request: Request) {
   try {
     // Check if user is authenticated and is an admin
-    const admin = await getAdminFromToken(request)
+    const admin = await getAdminFromToken()
 
     if (!admin) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
@@ -70,7 +71,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     // Check if user is authenticated and is an admin
-    const admin = await getAdminFromToken(request)
+    const admin = await getAdminFromToken()
 
     if (!admin) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
@@ -88,7 +89,9 @@ export async function POST(request: Request) {
         eventDate: new Date(eventData.eventDate),
         isOnline: eventData.isOnline || false,
         status: eventData.status || "active",
-        createdById: "noone",
+        thirdPartyLink: eventData.thirdPartyLink || null, // Add third-party link
+        thirdPartyEventId: eventData.thirdPartyEventId || null, // Add third-party event ID
+        createdById: admin.id || "noone",
       },
     })
 

@@ -6,45 +6,26 @@ import { CircleArrowUp } from "lucide-react"
 const WhyChooseSection = () => {
   const tagControls = useAnimation()
   useEffect(() => {
-    // Start the animation sequence for the tag
+    let mounted = true;
+    
     const animateTag = async () => {
-      while (true) {
-        // Blink out and rotate
-        await tagControls.start({
-          opacity: 0,
-          rotate: 45,
-          transition: { duration: 0.2 },
-        })
-        // Pause briefly
-        await new Promise((resolve) => setTimeout(resolve, 300))
-        // Blink in with new rotation
-        await tagControls.start({
-          opacity: 1,
-          rotate: 45,
-          transition: { duration: 0.2 },
-        })
-        // Pause at rotated position
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        // Blink out again
-        await tagControls.start({
-          opacity: 0,
-          transition: { duration: 0.2 },
-        })
-        // Pause briefly
-        await new Promise((resolve) => setTimeout(resolve, 300))
-        // Return to original position and blink in
-        await tagControls.start({
-          opacity: 1,
-          rotate: 0,
-          transition: { duration: 0.2 },
-        })
-        // Pause at original position before repeating
-        await new Promise((resolve) => setTimeout(resolve, 2000))
+      while (mounted) {
+        await tagControls.start({ opacity: 0, rotate: 45, transition: { duration: 0.2 } });
+        await new Promise(resolve => setTimeout(resolve, 300));
+        await tagControls.start({ opacity: 1, rotate: 45, transition: { duration: 0.2 } });
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        await tagControls.start({ opacity: 0, transition: { duration: 0.2 } });
+        await new Promise(resolve => setTimeout(resolve, 300));
+        await tagControls.start({ opacity: 1, rotate: 0, transition: { duration: 0.2 } });
+        await new Promise(resolve => setTimeout(resolve, 2000));
       }
-    }
-
-    animateTag()
-  }, [tagControls])
+    };
+  
+    animateTag();
+  
+    return () => { mounted = false; }; // Cleanup function to stop animations on unmount
+  }, [tagControls]);
+  
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

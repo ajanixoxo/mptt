@@ -30,6 +30,8 @@ export default function AdminLogin() {
       if (!response.ok) {
         throw new Error(data.message || "Login failed");
       }
+
+      alert("Login successful!")
   
       localStorage.setItem("adminUser", JSON.stringify(data.user));
       router.push("/admin/dashboard");

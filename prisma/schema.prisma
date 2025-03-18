@@ -36,31 +36,35 @@ model Admin {
 }
 
 model Event {
-  id           String         @id @default(uuid())
-  title        String
-  description  String
-  location     String?
-  eventDate    DateTime?      @map("event_date")
-  isOnline     Boolean        @default(false) @map("is_online")
-  status       String         // "active" or "closed"
-  createdAt    DateTime       @default(now()) @map("created_at")
-  updatedAt    DateTime       @updatedAt @map("updated_at")
-  createdById  String         @map("created_by_id")
-  createdBy    Admin          @relation(fields: [createdById], references: [id])
-  registrations Registration[]
+  id                String         @id @default(uuid())
+  title             String
+  description       String
+  location          String?
+  eventDate         DateTime?      @map("event_date")
+  isOnline          Boolean        @default(false) @map("is_online")
+  status            String         // "active" or "closed"
+  thirdPartyLink    String?        @map("third_party_link") // New field for third-party registration link
+  thirdPartyEventId String?        @map("third_party_event_id") // Optional field to store the third-party event ID
+  createdAt         DateTime       @default(now()) @map("created_at")
+  updatedAt         DateTime       @updatedAt @map("updated_at")
+  createdById       String         @map("created_by_id")
+  createdBy         Admin          @relation(fields: [createdById], references: [id])
+  registrations     Registration[]
 
   @@map("events")
 }
 
 model Registration {
-  id            String   @id @default(uuid())
-  eventId       String   @map("event_id")
-  event         Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
-  userName      String   @map("user_name")
-  userEmail     String   @map("user_email")
-  userPhone     String?  @map("user_phone")
-  additionalInfo Json?   @map("additional_info")
-  createdAt     DateTime @default(now()) @map("created_at")
+  id             String   @id @default(uuid())
+  eventId        String   @map("event_id")
+  event          Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  userName       String   @map("user_name")
+  userEmail      String   @map("user_email")
+  userPhone      String?  @map("user_phone")
+  additionalInfo Json?    @map("additional_info")
+  redirected     Boolean  @default(false) // Track if user was redirected to third-party
+  createdAt      DateTime @default(now()) @map("created_at")
 
   @@map("registrations")
 }
+
