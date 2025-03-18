@@ -251,3 +251,7 @@ html {
 .scrolling-carousel:hover {
   animation-play-state: paused;
 }
+
+.test{
+  background:#1b1a1c;
+}
