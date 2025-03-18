@@ -7,13 +7,13 @@ import type { NextRequest } from "next/server"
 const prisma = new PrismaClient()
 
 // Reusable function to check authentication
-async function checkAuth(request: NextRequest) {
+async function checkAuth() {
   try {
     const cookie = await cookies()
     const token = cookie.get("admin-token")?.value
 
     if (!token) {
-      return { error: "Unauthorized", status: 401,request }
+      return { error: "Unauthorized", status: 401 }
     }
 
     const decoded = verify(token, process.env.JWT_SECRET || "your-secret-key")
@@ -38,8 +38,8 @@ async function checkAuth(request: NextRequest) {
 }
 
 // Get a specific event
-export async function GET(request: NextRequest, context: { params: { id: string } }) {
-  const auth = await checkAuth(request)
+export async function GET(_: NextRequest, context: { params: { id: string } }) {
+  const auth = await checkAuth()
   if (auth.error) return NextResponse.json({ message: auth.error }, { status: auth.status })
 
   try {
@@ -66,7 +66,7 @@ export async function GET(request: NextRequest, context: { params: { id: string 
 
 // Update an event
 export async function PUT(request: NextRequest, context: { params: { id: string } }) {
-  const auth = await checkAuth(request)
+  const auth = await checkAuth()
   if (auth.error) return NextResponse.json({ message: auth.error }, { status: auth.status })
 
   try {
@@ -93,8 +93,8 @@ export async function PUT(request: NextRequest, context: { params: { id: string 
 }
 
 // Delete an event
-export async function DELETE(request: NextRequest, context: { params: { id: string } }) {
-  const auth = await checkAuth(request)
+export async function DELETE(_: NextRequest, context: { params: { id: string } }) {
+  const auth = await checkAuth()
   if (auth.error) return NextResponse.json({ message: auth.error }, { status: auth.status })
 
   try {
