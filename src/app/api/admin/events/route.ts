@@ -27,6 +27,7 @@ async function getAdminFromToken(request: Request) {
 
     return admin
   } catch (error) {
+console.log(error)
     return null
   }
 }
