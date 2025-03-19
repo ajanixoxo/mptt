@@ -9,7 +9,7 @@ import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 
 const Footer = () => {
   return (
-    <footer className="relative">
+    <footer className="relative p-2">
       <div
         className=" text-purple-400">
 
@@ -17,7 +17,7 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="z-20 absolute left-10 top-10"
+          className="z-20 absolute left-0 lg:left-10  top-10"
 
         >
 

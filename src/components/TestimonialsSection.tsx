@@ -9,14 +9,14 @@ const testimonials = [
   {
     name: "Jake Thompson",
     role: "UI/UX Designer",
-    image: "https://placehold.co/100x100",
+    image: "/test (2).png",
     quote: "Hack-A-Path showed me the power of tech! I built my first website and now I work as a designer.",
     rating: 5,
   },
   {
     name: "Esther Peters",
     role: "Software Engineer",
-    image: "https://placehold.co/100x100",
+    image: "/test (1).png ",
     quote: "The UX/UI track at Hack-A-Path helped me transition from graphic design to product design.",
     rating: 5,
   },

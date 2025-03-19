@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { usePathname } from 'next/navigation'
 import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronRight  } from "lucide-react"
 import Logo from "../../public/Logow.png"
 import Button from "./Button"
 import Image from 'next/image'
@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50  py-4 px-6 transition-all duration-300 ${
-        scrolled ? "bg-[#0e032ccc] backdrop-blur-sm !text-black shadow-sm" : "bg-transparent"
+        scrolled ? "bg-transparent backdrop-blur-sm !text-black shadow-sm" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -46,21 +46,21 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-8 sec_text">
           <Link
             href="/"
-            className={`${location === "/" ? "text-white font-semibold" : "text-gray-200"} hover:text-gray300 transition-colors`}
+            className={`${location === "/" ? "text-white font-semibold" : "text-gray-200"} flex items-center hover:text-gray300 transition-colors`}
           >
-            &gt; Home
+           {`${location}` === "/" ? <ChevronRight /> : ""} Home
           </Link>
           <Link
             href="/about"
-            className={`${location === "/about" ? "text-white font-semibold" : "text-gray-200"} hover:text-gray300 transition-colors`}
+            className={`${location === "/about" ? "text-white font-semibold" : "text-gray-200"} flex items-center hover:text-gray300 transition-colors`}
           >
-            About
+              {`${location}` === "/about" ? <ChevronRight className="w-auto lg:w-1 h-auto" /> : ""}  About
           </Link>
           <Link
             href="/program"
-            className={`${location === "/program" ? "text-white font-semibold" : "text-gray-200"} hover:text-gray300  transition-colors`}
+            className={`${location === "/program" ? "text-white font-semibold" : "text-gray-200"} flex items-center hover:text-gray300  transition-colors`}
           >
-            Program
+              {`${location}` === "/program" ? <ChevronRight /> : ""}  Program
           </Link>
         </nav>
 

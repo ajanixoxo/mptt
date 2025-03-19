@@ -39,7 +39,7 @@ const EventsSection = () => {
     };
 
     fetchEvents();
-    const interval = setInterval(fetchEvents, 5000); // Fetch every 5 seconds
+    const interval = setInterval(fetchEvents, 100000); // Fetch every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);

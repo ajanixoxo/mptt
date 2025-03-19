@@ -18,7 +18,7 @@ const HeroSection = () => {
         // Blink out and rotate
         await tagControls.start({
           opacity: 0,
-          rotate: 45,
+          rotate: 25,
           transition: { duration: 0.2 },
         })
         // Pause briefly
@@ -26,7 +26,7 @@ const HeroSection = () => {
         // Blink in with new rotation
         await tagControls.start({
           opacity: 1,
-          rotate: 45,
+          rotate: 25,
           transition: { duration: 0.2 },
         })
         // Pause at rotated position
@@ -120,17 +120,17 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
-              className="absolute top-40 left-[15%] text-blue-400"
+              className="absolute top-40 left-[20] md:left-[15%] text-blue-400"
             >
               <img src='/s-star.png' className="w-7 md:w-12" />
             </motion.div>
             <motion.div
-              className="top-20 left-10 text-purple-600 text-3xl"
+              className="top-15 lg:top-15 absolute w-[10%] lg:left-[28%] text-purple-600 text-3xl"
               animate={tagControls}
               initial={{ opacity: 1, rotate: 0 }}
             >
               {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
-              <img src='/tag.png' className="w-10 lg:w-auto" />
+              <img src='/tag.png' className="w-8 lg:w-16" />
             </motion.div>
           </div>
           <motion.h1
@@ -154,7 +154,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
-            className="absolute top-[40%] right-[5%] text-blue-400"
+            className="absolute top-[40%] right-0 md:right-[5%] text-blue-400"
           >
             <img src='/s-star.png' className="w-7 md:w-12" />
           </motion.div>
@@ -189,7 +189,7 @@ const HeroSection = () => {
           <motion.img
             src="/2.png"
             alt="Students with tech devices"
-            className="w-[90%] lg:w-[50%] h-auto object-contain"
+            className="w-[80%] lg:w-[50%] h-auto object-contain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
