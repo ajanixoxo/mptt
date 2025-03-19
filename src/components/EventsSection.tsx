@@ -87,7 +87,7 @@ const EventsSection = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl overflow-hidden relative"
                 >
-                  <div className="w-full h-[1px] absolute top-21 bg-gray-300 my-2"></div>
+                 
 
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-1">
@@ -108,10 +108,6 @@ const EventsSection = () => {
                         <Calendar size={16} className="mr-2" />
                         <span>{new Date(event.eventDate).toDateString()}</span>
                       </div>
-                    </div>
-
-                    <p className="text-gray-300 my-6">{event.description}</p>
-                    <div className="space-y-2 mb-4 text-gray-400">
                       <div className="flex items-center">
                         <Clock size={16} className="mr-2" />
                         <span>{new Date(event.eventDate).toLocaleTimeString()}</span>
@@ -121,6 +117,9 @@ const EventsSection = () => {
                         <span>{event.location}</span>
                       </div>
                     </div>
+
+                    <p className="text-gray-300 my-6">{event.description}</p>
+            
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
