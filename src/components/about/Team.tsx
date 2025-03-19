@@ -91,7 +91,7 @@ const TeamSection = () => {
                 <div
                   className={`mt-4 mr-5 rounded-2xl h-36  w-60 ${member.color} z-10`}
                 />
-                <div className="top-0 absolute flex items-center  ml-2 h-36 w-[250px] bg-white rounded-2xl  z-20  h-30 object-contain" >
+                <div className="top-0 absolute flex items-center  ml-2 h-36 w-[250px] bg-white rounded-2xl border border-black  z-20  -30 object-contain" >
                   <div className="relative bottom-0 left-0 right-0 p-4 ">
                     <h3 className="text-xl font-semibold text-black mb-1">{member.name}</h3>
                     <p className="text-gray-800 text-sm">{member.role}</p>

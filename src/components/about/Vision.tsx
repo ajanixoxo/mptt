@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Check } from "lucide-react"
+import { motion } from "framer-motion";
 
 const visionPoints = [
   "Connect with peers in our active Discord community",
   "Get feedback through regular code reviews",
   "Access job search resources and career support",
   "Join a network of ambitious tech professionals",
-]
+];
 
 const VisionSection = () => {
   return (
@@ -21,9 +20,12 @@ const VisionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Our Vision</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Our Vision
+            </h2>
             <p className="text-gray-400 text-lg mb-8">
-              We envision a world where everyone has the opportunity to build a fulfilling career in technology
+              We envision a world where everyone has the opportunity to build a
+              fulfilling career in technology
             </p>
 
             <div className="space-y-4">
@@ -37,7 +39,21 @@ const VisionSection = () => {
                   className="flex items-start space-x-3"
                 >
                   <div className="mt-1">
-                    <Check className="text-purple-500" size={20} />
+                    <svg
+                      width={26}
+                      height={20}
+                      viewBox="0 0 26 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 12L8 18L24 2"
+                        stroke="#704FE6"
+                        strokeWidth={3}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </div>
                   <span className="text-gray-300">{point}</span>
                 </motion.div>
@@ -50,9 +66,7 @@ const VisionSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-8 inline-block bg-gray-900 rounded-lg p-4"
-            >
-             
-            </motion.div>
+            ></motion.div>
           </motion.div>
 
           <motion.div
@@ -69,7 +83,6 @@ const VisionSection = () => {
               <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-purple-500">50+</span>
                 <span className="text-gray-400">Expert Mento</span>
-
               </div>
             </motion.div>
             <motion.div
@@ -77,19 +90,21 @@ const VisionSection = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="flex i flex-col space-x-2">
-              <span className="text-3xl font-bold text-black">50+</span>
+                <span className="text-3xl font-bold text-black">50+</span>
                 <span className="text-gray-400">Expert Mentor</span>
               </div>
             </motion.div>
 
-            <img src="https://placehold.co/600x400" alt="Problem illustration" className="rounded-2xl shadow-2xl" />
+            <img
+              src="/vision.png"
+              alt="Problem illustration"
+              className="rounded-2xl shadow-2xl"
+            />
           </motion.div>
-
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default VisionSection
-
+export default VisionSection;

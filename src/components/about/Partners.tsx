@@ -62,7 +62,7 @@ const PartnersSection = () => {
                 <img
                   src={partner.logo || "https://placehold.co/200x100"}
                   alt={partner.name}
-                  className="max-h-12 w-auto filter grayscale hover:grayscale-0 transition-all"
+                  className="max-h-12 w-auto filter grayscale-50 hover:grayscale-0 transition-all"
                 />
               </div>
             ))}

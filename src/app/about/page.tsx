@@ -29,8 +29,8 @@ const About = () => {
           <ProblemSection />
           <MissionSection />
           <VisionSection />
-          <TeamSection />
           <PartnersSection />
+          <TeamSection />
           <Footer />
         </div>
       </main>

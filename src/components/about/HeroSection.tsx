@@ -59,7 +59,7 @@ const WhyChooseSection = () => {
 
 
   return (
-    <section className="min-h-screen hero  pt-20 px-4 relative overflow-hidden">
+    <section className="min-h-screen hero flex flex-col items-center justify-center pt-20 px-3 lg:px-9 relative overflow-hidden">
       {/* Decorative Elements */}
 
       <FloatingShape color='from-[#1F22CA] to-transparent' size='w-60 h-60' top='70%' position="absolute" left='-5%' delay={0} />
@@ -68,10 +68,11 @@ const WhyChooseSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute bottom-0 left-0"
+        className="absolute -bottom-0 md:-bottom-14 left-0"
       >
 
-        <img src="/s-star.png" className="w-7 md:w-12 ml-28 -mt-32" />
+
+        <img src="/s-star.png" className="w-10 md:w-9 ml-20 lg:ml-28 mt-3" />
       </motion.div>
       <FloatingShape color='from-[#1F22CA] to-transparent' size='w-60 h-60' top='0%' position="absolute" left='95%' delay={0} />
 
@@ -85,8 +86,8 @@ const WhyChooseSection = () => {
         <img src="/s-star.png" className="w-7 md:w-12 " />
       </motion.div>
      
-      <div className="container mx-auto ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto max-w-7xl ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 place-content-center place-items-center items-center">
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
 
             <div className="absolute flex justify-between w-full -mt-10  left-0">
@@ -94,12 +95,11 @@ const WhyChooseSection = () => {
               <div
                 className="-10 text-purple-400">
                 <motion.div
-                  className="top-0  text-purple-600 text-3xl"
-                  animate={tagControls}
-                  initial={{ opacity: 1, rotate: 0 }}
+                  className="top-5 md:-top-20 absolute lg:top-0  text-purple-600 text-3xl"
+                  
                 >
                   {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
-                  <img src="/s-star.png" className="w-10  ml-40 lg:w-auto" />
+                  <img src="/tag.png" className="w-10 ml-10  md:ml-10  lg:w-18" />
                 </motion.div>
 
               </div>
@@ -109,7 +109,7 @@ const WhyChooseSection = () => {
                 custom={1}
                 initial={floatingAnimation.initial}
                 // animate={floatingAnimation.animate}
-                className=" bottom-40 left-20 mt-0 text-blue-400"
+                className=" bottom-28 left-20 mt-0 text-blue-400"
               >
                 <img src='/ws-star.png' className="w-7 md:w-12" />
               </motion.div>
@@ -120,7 +120,7 @@ const WhyChooseSection = () => {
             </div>
 
 
-            <h1 className="main_text text-4xl md:text-8xl font-bold  text-white">
+            <h1 className="main_text text-center md:text-left text-5xl md:text-7xl font-bold  text-white">
               Why Choose{" "}
               <span className="inline-block">
                 <motion.span
@@ -135,16 +135,17 @@ const WhyChooseSection = () => {
                     repeatType: "reverse",
                   }}
                 >
-                  <img src="/d-skills.png" className="lg:w-[100%]   w-44  z-10 " />
+                  <img src="/whychoose.png" className="lg:w-[70%]  z-10 " />
 
                 </motion.span>
               </span>
             </h1>
-            <p className="text-gray-400 text-lg mb-8 max-w-lg">
+            <p className="text-gray-400 text-center md:text-left text-lg mb-8 max-w-lg">
               Many young people want a tech career but don't know where to start. That's where we come in!
             </p>
+
             <motion.button
-              className="bg-[#def134] sec_text hover:bg-yellow-500 button font-semibold text-gray-900 px-6 py-3 rounded-full  flex items-center space-x-2"
+              className="bg-[#def134] sec_text hover:bg-yellow-500 button mx-auto lg:mx-0 font-semibold text-gray-900 px-6 py-3 rounded-full  flex items-center space-x-2"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -163,57 +164,13 @@ const WhyChooseSection = () => {
             {/* Pink Circle */}
             <div className="relative ">
               <img
-                src="/about_hero (2).png"
-                className="  top-0"
+                src="/about_hero.png"
+                className="w-full  top-0"
 
               />
 
               {/* Stats */}
-              <motion.div
-                className="absolute bottom-1/4 w-[155px] left-0 border-2 border-black bg-white rounded-2xl p-4 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="flex items-center space-x-2">
-                  <span className="text-yellow-400">★</span>
-                  <div>
-                    <div className="font-bold text-black text-lg">85%</div>
-                    <div className="text-sm text-gray-600">Success rate</div>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                className="absolute bottom-[26%] w-[155px] h-20 left-0 border-2 border-black bg-white rounded-2xl p-4 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="flex items-center space-x-2">
-                  <span className="text-yellow-400">★</span>
-                  <div>
-                    <div className="font-bold text-black text-lg">85%</div>
-                    <div className="text-sm text-gray-600">Success rate</div>
-                  </div>
-                </div>
-              </motion.div>
-
-
-
-              <motion.div
-                className="absolute top-[27%]  w-[155px] h-20 right-0 border-2 border-black bg-white rounded-2xl p-4 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-              >
-
-              </motion.div>
-              <motion.div
-                className="absolute top-1/4 right-0 border-2 border-black bg-white rounded-2xl p-4 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="flex items-center space-x-2">
-                  <span className="text-yellow-400">★</span>
-                  <div>
-                    <div className="font-bold text-black text-lg">99.24%</div>
-                    <div className="text-sm text-gray-600">User satisfaction</div>
-                  </div>
-                </div>
-              </motion.div>
+          
             </div>
           </motion.div>
         </div>

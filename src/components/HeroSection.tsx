@@ -181,7 +181,7 @@ const HeroSection = () => {
           <motion.img
             src="/4.png"
             alt="Students with tech devices"
-            className="w-[49%] lg:w-[30%] h-auto object-contain"
+            className="w-[50%] lg:w-[30%] h-auto object-contain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -189,7 +189,7 @@ const HeroSection = () => {
           <motion.img
             src="/2.png"
             alt="Students with tech devices"
-            className="w-[80%] lg:w-[50%] h-auto object-contain"
+            className="w-[95%] lg:w-[60%] h-auto object-contain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}

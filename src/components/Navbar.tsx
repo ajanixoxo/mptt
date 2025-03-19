@@ -48,19 +48,19 @@ const Navbar = () => {
             href="/"
             className={`${location === "/" ? "text-white font-semibold" : "text-gray-200"} flex items-center hover:text-gray300 transition-colors`}
           >
-           {`${location}` === "/" ? <ChevronRight /> : ""} Home
+           {`${location}` === "/" ? <ChevronRight className="w-auto lg:w-5 h-auto" /> : ""} Home
           </Link>
           <Link
             href="/about"
             className={`${location === "/about" ? "text-white font-semibold" : "text-gray-200"} flex items-center hover:text-gray300 transition-colors`}
           >
-              {`${location}` === "/about" ? <ChevronRight className="w-auto lg:w-1 h-auto" /> : ""}  About
+              {`${location}` === "/about" ? <ChevronRight className="w-auto lg:w-5 h-auto" /> : ""}  About
           </Link>
           <Link
             href="/program"
             className={`${location === "/program" ? "text-white font-semibold" : "text-gray-200"} flex items-center hover:text-gray300  transition-colors`}
           >
-              {`${location}` === "/program" ? <ChevronRight /> : ""}  Program
+              {`${location}` === "/program" ? <ChevronRight className="w-auto lg:w-5 h-auto" /> : ""}  Program
           </Link>
         </nav>
 

@@ -123,7 +123,7 @@ const EventsSection = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedEvent(event)}
+                      onClick={() => null}
                       className="w-full bg-[#989BAE] text-white border border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                     >
                       <span>Register Now</span>

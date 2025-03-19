@@ -1,23 +1,19 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Check } from "lucide-react"
+import { motion } from "framer-motion";
 
 const missionPoints = [
   "Project-based learning with real-world applications",
   "Mentorship from industry professionals",
   "Flexible learning paths tailored to your goals",
   "Affordable programs with scholarship opportunities",
-]
+];
 
 const MissionSection = () => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:flex flex-row-reverse gap-12 items-center">
-
-
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +28,6 @@ const MissionSection = () => {
               <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-purple-500">12k+</span>
                 <span className="text-gray-400">Students Launched</span>
-
               </div>
             </motion.div>
             <motion.div
@@ -40,12 +35,16 @@ const MissionSection = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="flex i flex-col space-x-2">
-              <span className="text-3xl font-bold text-black">12k+</span>
+                <span className="text-3xl font-bold text-black">12k+</span>
                 <span className="text-gray-400">Students Launched</span>
               </div>
             </motion.div>
 
-            <img src="https://placehold.co/600x400" alt="Problem illustration" className="rounded-2xl shadow-2xl" />
+            <img
+              src="/mission.png"
+              alt="Problem illustration"
+              className="rounded-2xl shadow-2xl"
+            />
           </motion.div>
 
           <motion.div
@@ -54,9 +53,12 @@ const MissionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Our Mission</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Our Mission
+            </h2>
             <p className="text-gray-400 text-lg mb-8">
-              We're democratizing access to tech education through practical, industry-focused learning
+              We're democratizing access to tech education through practical,
+              industry-focused learning
             </p>
 
             <div className="space-y-4">
@@ -70,7 +72,21 @@ const MissionSection = () => {
                   className="flex items-start space-x-3"
                 >
                   <div className="mt-1">
-                    <Check className="text-red-500" size={20} />
+                    <svg
+                      width={26}
+                      height={20}
+                      viewBox="0 0 26 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 12L8 18L24 2"
+                        stroke="#FF6A5C"
+                        strokeWidth={3}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </div>
                   <span className="text-gray-300">{point}</span>
                 </motion.div>
@@ -80,8 +96,7 @@ const MissionSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default MissionSection
-
+export default MissionSection;
