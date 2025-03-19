@@ -1,102 +1,104 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { FileText, Users, Calendar, Award } from "lucide-react"
-import FloatingShape from '@/components/FloatingShape' ;
-const steps = [
-  {
-    icon: FileText,
-    title: "1. Submit Application",
-    description: "Fill out our online application form with your background and goals.",
-  },
-  {
-    icon: Users,
-    title: "2. Interview",
-    description: "Meet with our team to discuss your experience and program fit.",
-  },
-  {
-    icon: Calendar,
-    title: "3. Prep Work",
-    description: "Complete pre-course materials to prepare for your program.",
-  },
-  {
-    icon: Award,
-    title: "4. Begin Your Journey",
-    description: "Start your program and begin building your tech career.",
-  },
-]
+import {  CircleArrowUp } from "lucide-react"
 
-const ApplicationProcess = () => {
+const ApplicationProcessSection = () => {
+  const steps = [
+    {
+      number: "1",
+      title: "Apply",
+      description: "Complete our online application form",
+    },
+    {
+      number: "2",
+      title: "Interview",
+      description: "Virtual interview to discuss your goals",
+    },
+    {
+      number: "3",
+      title: "Career Path",
+      description: "Receive pathway recommendations",
+    },
+    {
+      number: "4",
+      title: "Decision",
+      description: "Receive our admission decision",
+    },
+    {
+      number: "5",
+      title: "Onboarding",
+      description: "Prepare for your Hack-A-Path journey",
+    },
+  ]
+
   return (
-    <section className="py-20 px-4 bg-gray-900/30 relative">
-      {/* Floating shape */}
-      <FloatingShape
-        size="w-80 h-80"
-        top="top-20"
-        left="left-20"
-        color="bg-gradient-to-r from-purple-500/20 to-blue-500/20"
-        // className="top-20 left-20"
-        delay={0.2}
-        position="absolute"
-       
-      />
-
-      {/* Stars */}
-      <motion.div
+    <section className="relative py-20 overflow-hidden">
+       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-40 right-20"
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+        className="absolute top-20 left-10 w-8 h-8 opacity-30"
       >
-        <motion.img
-          src="/s-star.png"
-          alt="Shining star"
-          className="w-8 h-8"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-        />
-      </motion.div>
 
-      <div className="container mx-auto max-w-6xl">
+        <img src='/s-star.png' alt="" className="w-7 md:w-12" />
+
+
+
+      </motion.div>
+      {/* Background decorative elements */}
+ 
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Application Process</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Our straightforward application process is designed to find motivated students who are ready to learn.
-          </p>
+          <h2 className="text-5xl font-bold text-white mb-4">Application Process</h2>
+          <p className="text-gray-400 text-xl">Your journey to joining Hack-A-Path</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16">
           {steps.map((step, index) => (
             <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 20 }}
+              key={step.number}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 relative"
+              className="flex flex-col items-center text-center w-full sm:w-[calc(50%-1rem)] md:w-[calc(20%-1.6rem)]"
             >
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-700"></div>
-              )}
-
-              <div className="bg-[#def134] w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <step.icon className="text-black" size={24} />
+              <div className="w-24 h-24 rounded-full bg-[#1E1E1E] border-2 border-gray-800 flex items-center justify-center mb-6">
+                <span className="text-5xl font-bold text-yellow-400">{step.number}</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-white">{step.title}</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400">{step.description}</p>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="flex justify-center"
+        >
+          <a
+            href="#apply"
+            className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-xl transition-colors"
+          >
+            Start Your Application
+            <CircleArrowUp className="rotate-45" />
+
+          </a>
+        </motion.div>
       </div>
     </section>
   )
 }
 
-export default ApplicationProcess
+export default ApplicationProcessSection
 

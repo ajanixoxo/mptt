@@ -1,15 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Check } from "lucide-react"
-import FloatingShape from "../../components/FloatingShape"
-
+import { motion } from "framer-motion";
+import FloatingShape from "../../components/FloatingShape";
 
 const features = [
   {
     title: "Cohort-Based Learning",
     description: "Join a community of peers on the same journey",
-    image: "https://placehold.co/600x400",
+    image: "/what.png",
     points: [
       "Learn alongside a diverse group of 20-30 students",
       "Build lasting connections with peers in your field",
@@ -20,7 +18,7 @@ const features = [
   {
     title: "Career-Focused Workshops",
     description: "Develop the professional skills employers demand",
-    image: "https://placehold.co/600x400",
+    image: "/what (1).png",
     points: [
       "Resume building and optimization workshops",
       "LinkedIn profile enhancement sessions",
@@ -31,7 +29,7 @@ const features = [
   {
     title: "Industry Mentorship",
     description: "Learn directly from experienced professionals",
-    image: "https://placehold.co/600x400",
+    image: "/what (3).png",
     points: [
       "Weekly 1-on-1 sessions with your dedicated mentor",
       "Personalized guidance tailored to your career goal",
@@ -42,7 +40,7 @@ const features = [
   {
     title: "Networking Events",
     description: "Build connections that launch your career",
-    image: "https://placehold.co/600x400",
+    image: "/what (4).png",
     points: [
       "Tech career fairs with hiring companies",
       "Industry panels featuring tech leaders",
@@ -50,7 +48,7 @@ const features = [
       "Alumni mixers and community gatherings",
     ],
   },
-]
+];
 
 const ProgramFeatures = () => {
   return (
@@ -75,7 +73,6 @@ const ProgramFeatures = () => {
       >
         <motion.img
           src=" /s-star.png"
-
           alt="Shining star"
           className="w-8 h-8"
           animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
@@ -96,10 +93,12 @@ const ProgramFeatures = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">What Makes Hack-A-Path Special</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            What Makes Hack-A-Path Special
+          </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Our comprehensive program combines technical training with career development to prepare you for success in
-            tech
+            Our comprehensive program combines technical training with career
+            development to prepare you for success in tech
           </p>
         </motion.div>
 
@@ -123,7 +122,9 @@ const ProgramFeatures = () => {
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">{feature.title}</h3>
+                    <h3 className="text-xl font-bold text-white">
+                      {feature.title}
+                    </h3>
                     <p className="text-gray-400">{feature.description}</p>
                   </div>
                 </div>
@@ -139,7 +140,28 @@ const ProgramFeatures = () => {
                       className="flex items-start"
                     >
                       <div className="mt-1 mr-3 text-[#def134]">
-                        <Check size={18} />
+                        <svg
+                          width={24}
+                          height={24}
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                            stroke="#22C55E"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M7.75 12L10.58 14.83L16.25 9.17004"
+                            stroke="#22C55E"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </div>
                       <p className="text-gray-300">{point}</p>
                     </motion.div>
@@ -151,8 +173,7 @@ const ProgramFeatures = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ProgramFeatures
-
+export default ProgramFeatures;

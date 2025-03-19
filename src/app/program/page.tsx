@@ -1,13 +1,10 @@
 "use client"
 
 import ProgramHero from "@/components/program/ProgramHero"
-import CoursesTabs from "@/components/program/CoursesTabs"
-import ProgramFeatures from "@/components/program/ProgramFeatures"
-import UpcomingEvents from "@/components/program/UpcomingEvents"
-import CareerWorkshops from "@/components/program/CareerWorkshops"
 import ProgramCTA from "@/components/program/ProgramCTA"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import ProgramInfoSections from "@/components/program/ProgamInfo"
 
 
 const Program = () => {
@@ -24,10 +21,7 @@ const Program = () => {
                 {/* Content */}
                 <div className="relative z-10">
                     <ProgramHero />
-                    <ProgramFeatures />
-                    <CoursesTabs />
-                    <UpcomingEvents />
-                    <CareerWorkshops />
+                    <ProgramInfoSections />
                     <ProgramCTA />
 
                 </div>

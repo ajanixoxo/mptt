@@ -19,7 +19,7 @@ interface Event {
 const dummyEvents: Event[] = [
   {
     id: "dummy-1",
-    title: "Introduction to Web Development",
+    title: "Introduction to Web Deve",
     eventDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 1 week from now
     location: "Tech Hub, Downtown",
     description:

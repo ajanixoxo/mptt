@@ -6,20 +6,29 @@ import FloatingShape from "@/components/FloatingShape"
 
 const ProgramCTA = () => {
     return (
-        <section className="py-20 px-4 relative overflow-hidden">
+        <section className="py-20 px-4 relative overflow-hidden bg-green-600/10">
             {/* Floating shapes */}
             <FloatingShape
                 size="w-96 h-96"
-                color="bg-gradient-to-r from-purple-500/20 to-blue-500/20"
+                color="bg-gradient-to-r from-green-500/20 to-emerald-500/20"
                 // className="-bottom-48 right-0"
                 delay={0.2}
                 top=""
                 left=""
                 position="absolute"
             />
+            <FloatingShape
+                size="w-96 h-96"
+                color="bg-gradient-to-r from-green-500/20 to-emerald-500/20"
+                // className="-bottom-48 right-0"
+                delay={0.2}
+                top="10%"
+                left="80%"
+                position="absolute"
+            />
 
             {/* Stars */}
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
@@ -33,19 +42,33 @@ const ProgramCTA = () => {
                     transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
                 />
             </motion.div>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute bottom-40 right-40"
+            >
+                <motion.img
+                    src="/s-star.png"
+                    alt="Shining star"
+                    className=" w-4 lg:w-8 lg:h-8"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+                />
+            </motion.div> */}
 
             {/* Half star */}
             <div className="absolute left-0 bottom-20">
                 <img src="/s_half.png" className="w-7 md:w-12 rotate-180" />
             </div>
 
-            <div className="container mx-auto max-w-4xl">
+            <div className=" mx-auto max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden"
+                    className=" text-center relative "
                 >
                     <div className="relative z-10">
                         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Tech Journey?</h2>
@@ -57,7 +80,7 @@ const ProgramCTA = () => {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-[#def134] text-black px-8 py-3 rounded-full font-medium flex items-center justify-center space-x-2"
+                                className="bg-[#def134] text-black px-8 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                             >
                                 <span>Apply Now</span>
                                 <CircleArrowUp className="rotate-45" size={20} />
