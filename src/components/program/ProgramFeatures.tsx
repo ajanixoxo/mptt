@@ -81,7 +81,7 @@ const ProgramFeatures = () => {
       </motion.div>
 
       {/* Half star */}
-      <div className="absolute right-10 top-40">
+      <div className="absolute right-0 lg:right-10 top-40">
         <img src="/s_half.png" className="w-7 md:w-12" />
       </div>
 

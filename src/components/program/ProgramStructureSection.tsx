@@ -156,7 +156,7 @@ const ProgramStructureSection = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-8 flex gap-5 relative">
+        <div className="space-y-8 flex flex-col lg:flex-row gap-5 relative">
           <div>
             {" "}
             {weeks.map((week, index) => (
