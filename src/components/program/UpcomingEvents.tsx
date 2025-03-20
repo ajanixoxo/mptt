@@ -266,8 +266,8 @@ const UpcomingEvent = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedEvent(event)}
-                      className="w-full bg-[#989BAE] text-white border border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                      onClick={() => null }
+                      className="w-full bg-[#989BAE] hover:bg-[#7e808f] transition text-white border border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                     >
                       <span>Register Now</span>
                       <CircleArrowUp className="rotate-45" size={20} />
