@@ -168,7 +168,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.button
-            className="bg-[#def134] sec_text mx-auto hover:bg-yellow-500 button font-semibold text-[12px] py-1 px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
+            className="bg-[#def134] sec_text mx-auto hover:bg-yellow-500  transition button font-semibold text-[12px] py-1 px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
