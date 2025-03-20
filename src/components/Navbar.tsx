@@ -65,7 +65,7 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Button text="Apply Now" bg="bg-[#DED6E8]" onClick={handleClick}/>
+          <Button text="Apply Now" bg="bg-[#DED6E8] hover:bg-[#def5f7]" onClick={handleClick}/>
         </div>
 
         {/* Mobile Menu Button */}

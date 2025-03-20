@@ -92,7 +92,7 @@ const EventsSection = () => {
     }
 
     fetchEvents()
-    const interval = setInterval(fetchEvents, 100000) // Fetch every ~1.7 minutes
+    const interval = setInterval(fetchEvents, 5000) // Fetch every ~1.7 minutes
 
     return () => clearInterval(interval) // Cleanup interval on unmount
   }, [])

@@ -130,7 +130,7 @@ const HeroSection = () => {
               <img src="/s-star.png" className="w-7 md:w-12" />
             </motion.div>
             <motion.div
-              className="top-15 lg:top-15 absolute w-[10%] lg:left-[28%] text-purple-600 text-3xl"
+              className="top-15 lg:top-15 absolute w-[10%] lg:left-[24%] text-purple-600 text-3xl"
               animate={tagControls}
               initial={{ opacity: 1, rotate: 0 }}
             >
@@ -139,11 +139,12 @@ const HeroSection = () => {
             </motion.div>
           </div>
           <motion.h1
-            className="inline-flex main_text max-w-2xl flex-col md:flex-row items-center justify-center text-5xl  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
+            className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-5xl  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
             variants={itemVariants}
           >
-            Level Up Your Tech Skills with
+            Level Up Your Tech Skills <span className="lg:hidden">with</span>
             <span className="relative inline-flex items-center justify-center z-40">
+              <span className="hidden lg:flex">with</span>
               <img src="/d-skills.png" className="lg:w-[57%]   w-full  z-10 " />
             </span>
           </motion.h1>

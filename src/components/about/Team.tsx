@@ -6,25 +6,21 @@ import FloatingShape from "@/components/FloatingShape"
 
 const team = [
   {
-    name: "Alex Chen",
-    role: "Founder & CEO",
+    name: "Moshood Saka, ",
+    role: "Co Founder",
     color: "bg-[#F9C23A]",
   },
   {
-    name: "Zoe Rodriguez",
-    role: "Chief Technology Officer",
+    name: "Richard Nonso",
+    role: "Co Founder",
     color: "bg-green-400",
   },
   {
-    name: "Mia Patel",
-    role: "Director of Partnerships",
+    name: "Favour",
+    role: "Operational Volunteer",
     color: "bg-pink-500",
   },
-  {
-    name: "Sarah Johnson",
-    role: "Marketing Director",
-    color: "bg-purple-400",
-  },
+ 
 ]
 
 const TeamSection = () => {

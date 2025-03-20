@@ -8,21 +8,21 @@ import { motion } from "framer-motion"
 
 const Footer = () => {
   return (
-    <footer className="relative p-2">
+    <footer className="relative p-4">
       <div className=" text-purple-400">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="z-20 absolute left-0 lg:left-10  top-10"
+          className="z-20 absolute left-0 lg:left-10  top-10 lg:top-0"
         >
-          <img src="/s-star.png" alt="" className="w-7 md:w-12 ml-40 --" />
+          <img src="/s-star.png" alt="" className="w-5 md:w-12 lg:ml-40 ml-20" />
         </motion.div>
       </div>
       <div className=" w-full relative rounded-2xl bg-[#1C1C1C] px-4 py-7">
-        <img src="/y_star.png" alt="" className="absolute left-0 bottom-0" />
+        <img src="/y_star.png" alt="" className="absolute -left-0 bottom-0" />
         <img src="/y_star.png" alt="" className="absolute right-0 z-10 top-0 rotate-180" />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="col-span-1">
             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2 mb-4">
@@ -91,6 +91,7 @@ const Footer = () => {
             </motion.div>
             <p className="text-gray-400 mb-4">
               Empowering the next generation of tech talent through education and mentorship.
+              <div className="flex gap-4 mt-3">
               <SocialLink
                 href="#"
                 icon={
@@ -124,6 +125,7 @@ const Footer = () => {
                   </svg>
                 }
               />{" "}
+              </div>
             </p>
             <div className="flex space-x-4"></div>
           </div>
@@ -141,8 +143,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-2">
-              <FooterLink href="">info@mypath2tech.com</FooterLink>
-              <FooterLink href="">123 Tech Street, San Francisco, CA 94122</FooterLink>
+              <FooterLink href="">tech@mypath2tech.ca</FooterLink>
+              <FooterLink href="">Windsor Ontario, Canada</FooterLink>
             </ul>
           </div>
         </div>

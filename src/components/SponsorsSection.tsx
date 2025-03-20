@@ -1,14 +1,14 @@
 import {  useRef } from "react";
 
 const sponsors = [
-  { name: "Sponsor 1", logo: "/sp (1).png" },
-  { name: "Sponsor 2", logo: "/sp (2).png" },
-  { name: "Sponsor 3", logo: "/sp (3).png" },
-  { name: "Sponsor 4", logo: "/sp (3).png" },
-  { name: "Sponsor 5", logo: "/sp (1).png" },
-  { name: "Sponsor 6", logo: "/sp (2).png" },
-  { name: "Sponsor 7", logo: "/sp (3).png" },
-  { name: "Sponsor 8", logo: "/sp (1).png" },
+  { name: "Sponsor 1", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
+  { name: "Sponsor 2", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
+  { name: "Sponsor 3", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
+  { name: "Sponsor 4", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
+  { name: "Sponsor 5", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
+  { name: "Sponsor 6", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
+  { name: "Sponsor 7", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
+  { name: "Sponsor 8", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
 ];
 
 const SponsorsSection = () => {
@@ -38,7 +38,7 @@ const SponsorsSection = () => {
                 <img
                   src={sponsor.logo || "https://placehold.co/200x100"}
                   alt={sponsor.name}
-                  className="max-h-12 w-auto filter grayscale hover:grayscale-0 transition-all"
+                  className="max-h-12  filter  w-[130%] h-[100%] transition-all"
                 />
               </div>
             ))}

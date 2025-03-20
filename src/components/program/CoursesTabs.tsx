@@ -216,7 +216,7 @@ const CoursesTabs = () => {
               className="grid grid-cols-1 lg:grid-cols-2 gap-4"
             >
               {/* Main Content - Left Side */}
-              <div className="bg-[#232224] rounded-lg overflow-hidden">
+              <div className="bg-[#232224]/70 rounded-lg overflow-hidden">
                 <div className="flex items-start p-6">
                   <div className="w-20 h-20 mr-4 flex-shrink-0">
                     <img
@@ -299,7 +299,7 @@ const CoursesTabs = () => {
                   </h3>
                 </div>
 
-                <div className="bg-[#232224] p-6 rounded-b-lg">
+                <div className="bg-[#232224]/70 p-6 rounded-b-lg">
                   <div className="mb-8">
                     <h4 className="text-xl font-bold text-white mb-4">
                       Potential Roles
@@ -336,7 +336,7 @@ const CoursesTabs = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full bg-gray-500 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
+                    className="w-full bg-[#74767F] hover:bg-[#64656d] transition text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
                   >
                     <span>Apply for This Pathway</span>
                     <CircleArrowUp className="ml-2" size={20} />
