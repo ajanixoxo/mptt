@@ -1,48 +1,115 @@
-import { NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
-import { verify } from "jsonwebtoken"
-import { cookies } from "next/headers"
+import { NextResponse } from "next/server";
+import { verify } from "jsonwebtoken";
+import { cookies } from "next/headers";
+import prisma from "@/lib/prisma";
 
-const prisma = new PrismaClient()
+// Helper function to get admin from token
+async function getAdminFromToken() {
+  const cookie = await cookies();
+  const token = cookie.get("admin-token")?.value;
 
-export async function GET() {
+  if (!token) {
+    return null;
+  }
+
   try {
-    // Get token from cookies
-    const cookie = await cookies()
-    const token = cookie.get("admin-token")?.value
-
-    if (!token) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
-    }
-
-    // Verify token
-    const decoded = verify(token, process.env.JWT_SECRET || "your-secret-key")
+    const decoded = verify(token, process.env.JWT_SECRET || "your-secret-key");
 
     if (!decoded || typeof decoded !== "object") {
-      return NextResponse.json({ message: "Invalid token" }, { status: 401 })
+      return null;
     }
 
-    // Check if admin exists
     const admin = await prisma.admin.findUnique({
       where: { id: decoded.id },
-    })
+    });
 
     if (!admin) {
-      return NextResponse.json({ message: "Admin not found" }, { status: 401 })
+      return null;
     }
 
-    return NextResponse.json({
-      authenticated: true,
-      user: {
-        id: admin.id,
-        name: admin.name,
-        email: admin.email,
-        role: admin.role,
-      },
-    })
+    return admin;
   } catch (error) {
-    console.error("Auth check error:", error)
-    return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
+    console.log(error)
+    return null;
   }
 }
 
+export async function GET() {
+  try {
+    // Check if user is authenticated and is an admin
+    const admin = await getAdminFromToken();
+
+    if (!admin) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
+
+    // Get dashboard data
+    const [
+      activeEvents,
+      closedEvents,
+      totalRegistrations,
+      recentEvents,
+      recentRegistrations,
+    ] = await Promise.all([
+      // Count active events
+      prisma.event.count({
+        where: { status: "active" },
+      }),
+
+      // Count closed events
+      prisma.event.count({
+        where: { status: "closed" },
+      }),
+
+      // Count total registrations
+      prisma.registration.count(),
+
+      // Get recent events
+      prisma.event.findMany({
+        take: 5,
+        orderBy: { createdAt: "desc" },
+        include: {
+          _count: {
+            select: { registrations: true },
+          },
+        },
+      }),
+
+      // Get recent registrations
+      prisma.registration.findMany({
+        take: 5,
+        orderBy: { createdAt: "desc" },
+        include: {
+          event: {
+            select: { title: true },
+          },
+        },
+      }),
+    ]);
+
+    // Format registrations for the frontend
+    const recentUsers = recentRegistrations.map((reg) => ({
+      id: reg.id,
+      userName: reg.userName,
+      userEmail: reg.userEmail,
+      createdAt: reg.createdAt,
+      event: {
+        title: reg.event?.title || "Unknown event",
+      },
+    }));
+
+    return NextResponse.json({
+      activeEvents,
+      closedEvents,
+      totalRegistrations,
+      recentEvents,
+      recentUsers,
+    });
+  } catch (error) {
+    console.error("Dashboard API error:", error);
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 }
+    );
+  }
+}

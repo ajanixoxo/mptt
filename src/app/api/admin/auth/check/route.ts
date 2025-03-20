@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
 import { verify } from "jsonwebtoken"
 import { cookies } from "next/headers"
-
-const prisma = new PrismaClient()
+import prisma from "@/lib/prisma" // Import the shared instance
 
 export async function GET() {
   try {

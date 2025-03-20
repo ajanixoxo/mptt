@@ -51,14 +51,14 @@ const ProgramDetailsSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-8"
+            className="bg-[#232224B2]/80 backdrop-blur-sm rounded-xl p-8"
           >
-            <h3 className="text-3xl font-bold text-white mb-4">
+            <h3 className="md:text-3xl text-2xl font-bold text-white mb-4">
               Next Cohort: Fall 2025
             </h3>
             <div className="flex items-center text-gray-400">
               <Calendar className="w-5 h-5 mr-2" />
-              <span>September 1 - November 30, 2025</span>
+              <span className="text-sm md:text-base">September 1 - November 30, 2025</span>
             </div>
           </motion.div>
 
@@ -68,9 +68,9 @@ const ProgramDetailsSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-8"
+            className="bg-[#232224B2]/80 backdrop-blur-sm rounded-xl p-8"
           >
-            <h3 className="text-3xl font-bold text-white mb-4">
+            <h3 className="md:text-3xl text-2xl font-bold text-white mb-4">
               Application Deadline
             </h3>
             <div className="flex items-center text-gray-400">
@@ -86,12 +86,12 @@ const ProgramDetailsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="border-2 border-yellow-500  rounded-xl p-8 bg-[#2B2B2B]/30"
+          className="border-2 border-yellow-500  rounded-xl p-7 bg-[#232224B2]"
         >
-          <h3 className="text-3xl font-bold text-white mb-4">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Limited Spots Available!
           </h3>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base lg:text-lg">
             Only 30 spots per pathway. Apply now to secure your place in our
             Fall 2025 cohort.
           </p>

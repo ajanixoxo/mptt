@@ -1,55 +1,36 @@
 import { NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
-import { compare } from "bcryptjs"
-import { sign } from "jsonwebtoken"
+import { verify } from "jsonwebtoken"
 import { cookies } from "next/headers"
+import prisma from "@/lib/prisma" // Import the shared instance
 
-const prisma = new PrismaClient()
-
-export async function POST(request: Request) {
+export async function GET() {
   try {
-    const { email, password } = await request.json()
-
-    // Find admin by email
-    const admin = await prisma.admin.findUnique({
-      where: { email },
-      include: { user: true },
-    })
-
-    if (!admin || !admin.user) {
-      return NextResponse.json({ message: "Invalid email or password" }, { status: 401 })
-    }
-
-    // Verify password
-    const passwordMatch = await compare(password, admin.user.password)
-
-    if (!passwordMatch) {
-      return NextResponse.json({ message: "Invalid email or password" }, { status: 401 })
-    }
-
-    // Create JWT token
-    const token = sign(
-      {
-        id: admin.id,
-        email: admin.email,
-        role: admin.role,
-      },
-      process.env.JWT_SECRET || "your-secret-key",
-      { expiresIn: "1d" },
-    )
+    // Get token from cookies
     const cookie = await cookies()
-    // Set cookie
-    cookie.set({
-      name: "admin-token",
-      value: token,
-      httpOnly: true,
-      path: "/",
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 60 * 60 * 24, // 1 day
+    const token = cookie.get("admin-token")?.value
+
+    if (!token) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
+    }
+
+    // Verify token
+    const decoded = verify(token, process.env.JWT_SECRET || "your-secret-key")
+
+    if (!decoded || typeof decoded !== "object") {
+      return NextResponse.json({ message: "Invalid token" }, { status: 401 })
+    }
+
+    // Check if admin exists
+    const admin = await prisma.admin.findUnique({
+      where: { id: decoded.id },
     })
+
+    if (!admin) {
+      return NextResponse.json({ message: "Admin not found" }, { status: 401 })
+    }
 
     return NextResponse.json({
-      message: "Login successful",
+      authenticated: true,
       user: {
         id: admin.id,
         name: admin.name,
@@ -58,8 +39,8 @@ export async function POST(request: Request) {
       },
     })
   } catch (error) {
-    console.error("Login error:", error)
-    return NextResponse.json({ message: "Internal server error" }, { status: 500 })
+    console.error("Auth check error:", error)
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
   }
 }
 

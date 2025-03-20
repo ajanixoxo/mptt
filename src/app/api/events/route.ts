@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
+import prisma from "@/lib/prisma" // Import the shared instance
 
 export async function GET(request: Request) {
   try {
@@ -23,7 +21,7 @@ export async function GET(request: Request) {
     return NextResponse.json(events)
   } catch (error) {
     console.error("Get public events error:", error)
-    return NextResponse.json({ message: error }, { status: 500 })
+    return NextResponse.json({ message: "Internal server error", error: error }, { status: 500 })
   }
 }
 

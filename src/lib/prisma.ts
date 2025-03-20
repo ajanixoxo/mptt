@@ -1,15 +1,17 @@
 import { PrismaClient } from "@prisma/client"
 
-// PrismaClient is attached to the `global` object in development to prevent
-// exhausting your database connection limit.
-// Learn more: https://pris.ly/d/help/next-js-best-practices
+const globalForPrisma = global as unknown as { prismaGlobal: PrismaClient | undefined }
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient }
+// Create the PrismaClient instance
+export const prisma =
+  globalForPrisma.prismaGlobal ||
+  new PrismaClient({
+    log: ["error", "warn"],
+  })
 
-export const prisma = globalForPrisma.prisma || new PrismaClient({
-  log: ['query', 'info', 'warn', 'error'],
-})
-
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma
+// Save to global in development to prevent duplicate instances
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prismaGlobal = prisma
+}
 
 export default prisma

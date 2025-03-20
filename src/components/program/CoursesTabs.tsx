@@ -1,18 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Code, Database, Shield, Palette, Settings } from "lucide-react"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Code, Database, Shield, Palette, Settings } from "lucide-react";
 // import FloatingShape from "../../components/FloatingShape"
-import { CircleArrowUp } from "lucide-react"
+import { CircleArrowUp } from "lucide-react";
 
 const courses = [
   {
     id: "software",
     title: "Software Engineering",
     icon: Code,
-    description: "Build the apps and websites that shape our digital world",
-    skills: ["JavaScript", "React", "Node.js", "APIs", "Databases", "Git & Github", "Testing"],
+    description:
+      "Learn to design, develop, and deploy web and mobile applications that solve real-world problems. Master modern programming languages and frameworks while building a portfolio of projects.",
+    skills: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "APIs",
+      "Databases",
+      "Git & Github",
+      "Testing",
+    ],
     projects: [
       "Social media application",
       "E-commerce platform",
@@ -20,17 +29,31 @@ const courses = [
       "Mobile app with React Native",
     ],
     careers: {
-      roles: ["Front-End Developer", "Back-End Developer", "Full-Stack Engineer", "Mobile Developer"],
+      roles: [
+        "Front-End Developer",
+        "Back-End Developer",
+        "Full-Stack Engineer",
+        "Mobile Developer",
+      ],
       salary: "$70,000 - $120,000",
       demand: "86%",
     },
+    image: "/course.png",
   },
   {
     id: "data",
     title: "Data Engineering",
     icon: Database,
     description: "Transform raw data into valuable insights and solutions",
-    skills: ["Python", "SQL", "Data Modeling", "ETL", "Big Data", "Data Warehousing", "Analytics"],
+    skills: [
+      "Python",
+      "SQL",
+      "Data Modeling",
+      "ETL",
+      "Big Data",
+      "Data Warehousing",
+      "Analytics",
+    ],
     projects: [
       "Data pipeline automation",
       "Analytics dashboard",
@@ -38,43 +61,89 @@ const courses = [
       "Business intelligence tool",
     ],
     careers: {
-      roles: ["Data Engineer", "Data Analyst", "Business Intelligence Developer", "ETL Developer"],
+      roles: [
+        "Data Engineer",
+        "Data Analyst",
+        "Business Intelligence Developer",
+        "ETL Developer",
+      ],
       salary: "$75,000 - $130,000",
       demand: "92%",
     },
+    image: "/course (5).png",
   },
   {
     id: "cyber",
     title: "Cybersecurity",
     icon: Shield,
     description: "Protect systems and data from digital threats",
-    skills: ["Network Security", "Ethical Hacking", "Security Tools", "Risk Assessment", "Incident Response"],
-    projects: ["Security audit report", "Penetration testing", "Security monitoring system", "Incident response plan"],
+    skills: [
+      "Network Security",
+      "Ethical Hacking",
+      "Security Tools",
+      "Risk Assessment",
+      "Incident Response",
+    ],
+    projects: [
+      "Security audit report",
+      "Penetration testing",
+      "Security monitoring system",
+      "Incident response plan",
+    ],
     careers: {
-      roles: ["Security Analyst", "Security Engineer", "Penetration Tester", "Security Consultant"],
+      roles: [
+        "Security Analyst",
+        "Security Engineer",
+        "Penetration Tester",
+        "Security Consultant",
+      ],
       salary: "$80,000 - $140,000",
       demand: "94%",
     },
+    image: "/course (3).png",
   },
   {
     id: "design",
     title: "UI/UX Design",
     icon: Palette,
     description: "Create beautiful and intuitive user experiences",
-    skills: ["UI Design", "UX Research", "Wireframing", "Prototyping", "Design Systems"],
-    projects: ["Mobile app redesign", "Website prototype", "Design system", "User research study"],
+    skills: [
+      "UI Design",
+      "UX Research",
+      "Wireframing",
+      "Prototyping",
+      "Design Systems",
+    ],
+    projects: [
+      "Mobile app redesign",
+      "Website prototype",
+      "Design system",
+      "User research study",
+    ],
     careers: {
-      roles: ["UI Designer", "UX Designer", "Product Designer", "Interaction Designer"],
+      roles: [
+        "UI Designer",
+        "UX Designer",
+        "Product Designer",
+        "Interaction Designer",
+      ],
       salary: "$65,000 - $110,000",
       demand: "78%",
     },
+    image: "/course (4).png",
   },
   {
     id: "devops",
     title: "DevOps",
     icon: Settings,
     description: "Bridge development and operations for seamless deployment",
-    skills: ["CI/CD", "Docker", "Kubernetes", "Cloud Platforms", "Infrastructure as Code"],
+    skills: [
+      "CI/CD",
+      "Docker",
+      "Kubernetes",
+      "Cloud Platforms",
+      "Infrastructure as Code",
+    ],
     projects: [
       "Automated deployment pipeline",
       "Cloud infrastructure setup",
@@ -82,16 +151,22 @@ const courses = [
       "Container orchestration",
     ],
     careers: {
-      roles: ["DevOps Engineer", "Cloud Engineer", "Site Reliability Engineer", "Infrastructure Engineer"],
+      roles: [
+        "DevOps Engineer",
+        "Cloud Engineer",
+        "Site Reliability Engineer",
+        "Infrastructure Engineer",
+      ],
       salary: "$85,000 - $150,000",
       demand: "90%",
     },
+    image: "/course (4).png",
   },
-]
+];
 
 const CoursesTabs = () => {
-  const [activeTab, setActiveTab] = useState("software")
-  const activeCourse = courses.find((course) => course.id === activeTab)
+  const [activeTab, setActiveTab] = useState("software");
+  const activeCourse = courses.find((course) => course.id === activeTab);
 
   return (
     <section className="py-20 px-4 relative">
@@ -104,25 +179,27 @@ const CoursesTabs = () => {
         delay={0}
      position="absolute"
       /> */}
-        <div className="absolute top-6 left-0 rotate-180">
-                                <img src="/s_half.png" className="w-7 md:w-12" />
-                            </div>
+      <div className="absolute top-6 left-0 rotate-180">
+        <img src="/s_half.png" className="w-7 md:w-12" />
+      </div>
 
       <div className="container mx-auto max-w-7xl">
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center bg-[#2B2B2B] p-1 rounded-2xl gap-4 mb-12">
+        <div className="flex flex-wrap justify-center md:justify-between max-w-7xl bg-[#2B2B2B] p-1 rounded-2xl gap-4 mb-12">
           {courses.map((course) => (
             <motion.button
               key={course.id}
               onClick={() => setActiveTab(course.id)}
-              className={`px-6 py-3 rounded-2xl flex items-center space-x-2 transition-colors ${
-                activeTab === course.id ? "bg-[#def134] text-black" : "bg-[#2B2B2B] text-white hover:bg-gray-700"
+              className={`md:px-6 py-3 rounded-2xl flex items-center space-x-2 transition-colors ${
+                activeTab === course.id
+                  ? "px-1 bg-[#def134] text-black"
+                  : "bg-[#2B2B2B] text-white hover:bg-gray-700"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <course.icon size={18} />
-              <span>{course.title}</span>
+              <span className="text-sm md:text-base">{course.title}</span>
             </motion.button>
           ))}
         </div>
@@ -136,83 +213,133 @@ const CoursesTabs = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-4"
             >
-              {/* Main Content */}
-              <div className="lg:col-span-2 space-y-8">
-                <div className="bg-[#2B2B2B] rounded-xl p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-[#def134] p-3 rounded-lg mr-4">
-                      <activeCourse.icon className="text-black" size={24} />
-                    </div>
-                    <div>
-                      <h2 className="text-2xl font-bold text-white">{activeCourse.title}</h2>
-                      <p className="text-gray-400">{activeCourse.description}</p>
-                    </div>
+              {/* Main Content - Left Side */}
+              <div className="bg-[#232224] rounded-lg overflow-hidden">
+                <div className="flex items-start p-6">
+                  <div className="w-20 h-20 mr-4 flex-shrink-0">
+                    <img
+                      src={
+                        activeCourse.image ||
+                        "/placeholder.svg?height=80&width=80"
+                      }
+                      alt={activeCourse.title}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </div>
+                  <h2 className="text-2xl font-bold text-white">
+                    {activeCourse.title}
+                  </h2>
+                </div>
 
-                  <div className="space-y-6">
+                <div className="p-6 pt-0">
+                  <p className="text-white mb-8">{activeCourse.description}</p>
+
+                  <div className="grid md:grid-cols-2 gap-8">
                     <div>
-                      <h3 className="text-lg font-semibold text-white mb-3">What You'll Learn</h3>
-                      <div className="grid grid-cols-2 gap-2">
+                      <h3 className="text-xl font-bold text-white mb-4">
+                        What You'll Learn
+                      </h3>
+                      <ul className="space-y-2">
                         {activeCourse.skills.map((skill) => (
-                          <div key={skill} className="flex items-center text-gray-300">
-                            <div className="w-2 h-2 bg-[#def134] rounded-full mr-2"></div>
-                            {skill}
-                          </div>
+                          <li key={skill} className="flex items-center">
+                            <div className="w-5 h-5 mr-2 rounded-full flex items-center justify-center flex-shrink-0">
+                              <svg
+                                width={24}
+                                height={24}
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                                  stroke="#F9C23A"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                                <path
+                                  d="M7.75 11.9999L10.58 14.8299L16.25 9.16992"
+                                  stroke="#F9C23A"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </div>
+                            <span className="text-white">{skill}</span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-semibold text-white mb-3">Projects You'll Build</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <h3 className="text-xl font-bold text-white mb-4">
+                        Projects You'll Build
+                      </h3>
+                      <ul className="space-y-2">
                         {activeCourse.projects.map((project) => (
-                          <div key={project} className="bg-gray-800/50 p-4 rounded-lg text-gray-300">
-                            {project}
-                          </div>
+                          <li key={project} className="flex items-center">
+                            <div className="w-4 h-0.5 bg-[#FFBF00] mr-2"></div>
+                            <span className="text-white">{project}</span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Career Outcomes */}
-              <div className="bg-[#2B2B2B] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">Career Outcomes</h3>
+              {/* Career Outcomes - Right Side */}
+              <div>
+                <div className="bg-[#FFBF00] p-6 rounded-t-lg">
+                  <h3 className="text-2xl font-bold text-black">
+                    Career Outcomes
+                  </h3>
+                </div>
 
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg text-white mb-3">Potential Roles</h4>
+                <div className="bg-[#232224] p-6 rounded-b-lg">
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-white mb-4">
+                      Potential Roles
+                    </h4>
                     <ul className="space-y-2">
                       {activeCourse.careers.roles.map((role) => (
-                        <li key={role} className="flex items-center text-gray-300">
-                          <div className="w-2 h-2 bg-[#def134] rounded-full mr-2"></div>
-                          {role}
+                        <li key={role} className="flex items-center">
+                          <div className="w-2 h-2 bg-[#FFBF00] rounded-full mr-2"></div>
+                          <span className="text-white">{role}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div>
-                    <h4 className="text-lg text-white mb-2">Average Salary Range</h4>
-                    <p className="text-2xl font-bold text-[#def134]">{activeCourse.careers.salary}</p>
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-white mb-2">
+                      Average Salary Range
+                    </h4>
+                    <p className="text-2xl font-bold text-[#FFBF00]">
+                      {activeCourse.careers.salary}
+                    </p>
                   </div>
 
-                  <div>
-                    <h4 className="text-lg text-white mb-2">Industry Demand</h4>
-                    <p className="text-2xl font-bold text-[#def134]">{activeCourse.careers.demand}</p>
-                    <p className="text-gray-400 text-sm">High demand across industries</p>
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-white mb-2">
+                      Industry Demand
+                    </h4>
+                    <p className="text-2xl font-bold text-[#FFBF00]">
+                      {activeCourse.careers.demand}
+                    </p>
+                    <p className="text-gray-300 text-sm">from Google</p>
                   </div>
 
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full bg-[#def134] text-black px-6 py-3 rounded-full font-medium flex items-center justify-center space-x-2"
+                    className="w-full bg-gray-500 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
                   >
                     <span>Apply for This Pathway</span>
-                    <CircleArrowUp className="rotate-45" size={20} />
+                    <CircleArrowUp className="ml-2" size={20} />
                   </motion.button>
                 </div>
               </div>
@@ -221,8 +348,7 @@ const CoursesTabs = () => {
         </AnimatePresence>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CoursesTabs
-
+export default CoursesTabs;

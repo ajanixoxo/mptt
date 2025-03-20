@@ -70,7 +70,7 @@ const ApplicationProcessSection = () => {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center w-full sm:w-[calc(50%-1rem)] md:w-[calc(20%-1.6rem)]"
             >
-              <div className="w-24 h-24 rounded-full bg-[#1E1E1E] border-2 border-gray-800 flex items-center justify-center mb-6">
+              <div className="w-24 h-24 rounded-full bg-[#1E1E1E] flex items-center justify-center mb-6">
                 <span className="text-5xl font-bold text-yellow-400">{step.number}</span>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>

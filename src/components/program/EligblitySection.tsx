@@ -38,10 +38,10 @@ const EligibilitySection = () => {
           viewport={{ once: true }}
           className="text-center mb-12 rounded-3xl"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">
             Eligibility Requirements
           </h2>
-          <p className="text-gray-400 text-xl">
+          <p className="text-gray-400 text-base md:text-xl">
             Check if you qualify for the Hack-A-Path program
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ const EligibilitySection = () => {
           viewport={{ once: true }}
           className="bg-[#2B2B2B]/80 backdrop-blur-sm   rounded-xl mb-8"
         >
-          <h3 className="text-3xl font-bold text-white mb-8 bg-[#787881]  rounded-t-2xl p-3">Who Can Apply?</h3>
+          <h3 className="text-xl md:text-3xl font-bold text-white mb-8 bg-[#787881]  rounded-t-2xl p-3">Who Can Apply?</h3>
 
           <div className="space-y-10 p-4">
             {/* Age Requirement */}
@@ -63,7 +63,7 @@ const EligibilitySection = () => {
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-white mb-2">Age</h4>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-400 text-[16px] md:text-lg">
                   You must be between{" "}
                  
                     15-24 years old
@@ -82,7 +82,7 @@ const EligibilitySection = () => {
                 <h4 className="text-xl font-semibold text-white mb-2">
                   Location
                 </h4>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-400 text-[16px] md:text-lg">
                   You must be a resident of{" "}
                   <span className="tex f">Ontario</span> to
                   participate in the program.
@@ -99,7 +99,7 @@ const EligibilitySection = () => {
                 <h4 className="text-xl  text-white mb-2">
                   Commitment
                 </h4>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-400 text-[16px] md:text-lg">
                   You must be able to commit{" "}
                   <span className="text ">
                     15-20 hours per week

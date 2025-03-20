@@ -90,13 +90,13 @@ const ProgramHero = () => {
               mentorship.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex  gap-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#def134] text-black px-6 py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                className="bg-[#def134]  text-black px-6 md:py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
               >
-                <span>Apply Now</span>
+                <span className="w-max">Apply Now</span>
                 <CircleArrowUp className="rotate-45" size={20} />
               </motion.button>
 
@@ -105,7 +105,7 @@ const ProgramHero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#2B2B2B] text-white px-6 py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
               >
-                <span>Explore Paths</span>
+                <span  className="w-max">Explore Paths</span>
                 <CircleArrowUp className="rotate-45" size={20} />
               </motion.button>
             </div>
@@ -115,7 +115,7 @@ const ProgramHero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex-1"
+            className="flex-1 hidden lg:flex"
           >
             <div className="relative">
               <img

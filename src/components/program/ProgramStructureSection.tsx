@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users } from "lucide-react";
 
 const ProgramStructureSection = () => {
   const weeks = [
@@ -171,8 +170,22 @@ const ProgramStructureSection = () => {
                 {/* Week info */}
                 <div className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2d2d2d] flex items-center justify-center">
-                      <Users className="w-5 h-5 text-yellow-400" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#343434] flex items-center justify-center">
+                      <svg
+                        width={24}
+                        height={24}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx={12}
+                          cy="11.998"
+                          r="11.5"
+                          fill="#F9C23A"
+                          stroke="#F9C23A"
+                        />
+                      </svg>
                     </div>
                     <h3 className="text-xl font-bold text-white">
                       Week {week.number}: {week.title}
@@ -253,8 +266,22 @@ const ProgramStructureSection = () => {
                 {/* Week info */}
                 <div className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2d2d2d] flex items-center justify-center">
-                      <Users className="w-5 h-5 text-yellow-400" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#343434] flex items-center justify-center">
+                      <svg
+                        width={24}
+                        height={24}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx={12}
+                          cy="11.998"
+                          r="11.5"
+                          fill="#F9C23A"
+                          stroke="#F9C23A"
+                        />
+                      </svg>
                     </div>
                     <h3 className="text-xl font-bold text-white">
                       Week {week.number}: {week.title}

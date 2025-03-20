@@ -76,13 +76,13 @@ const ProgramCTA = () => {
                             Applications for our next cohort are now open. Spaces fill up quickly, so apply today to secure your spot.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <div className="flex flex-col w-1/2 mx-auto sm:flex-row gap-4 justify-center">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-[#def134] text-black px-8 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                                className="bg-[#def134] text-black md:px-8  p-4 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                             >
-                                <span>Apply Now</span>
+                                <span className="w-max">Apply Now</span>
                                 <CircleArrowUp className="rotate-45" size={20} />
                             </motion.button>
 
