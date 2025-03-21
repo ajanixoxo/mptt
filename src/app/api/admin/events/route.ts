@@ -5,9 +5,6 @@ import { cookies } from "next/headers"
 
 const prisma = new PrismaClient()
 
-// Helper function to get admin from token
-// Helper function to get admin from token
-// Helper function to get admin from token
 async function getAdminFromToken() {
   const cookie = await cookies()
   const token = cookie.get("admin-token")?.value
