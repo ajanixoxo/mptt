@@ -82,7 +82,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-2">
-              <FooterLink href="">tech@mypath2tech.ca</FooterLink>
+              <FooterLink href="">info@mypath2tech.ca</FooterLink>
               <FooterLink href="">Windsor Ontario, Canada</FooterLink>
             </ul>
           </div>

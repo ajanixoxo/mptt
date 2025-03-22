@@ -29,7 +29,7 @@ const ProgramHero = () => {
       <img src="/s_half.png" className="w-7 md:w-12 absolute right-1" />
 
       {/* Animated stars */}
-      <div className="absolute  -top-[10%] lg:-top-[20%] -left-[20%] lg:left-[40%] text-purple-400">
+      <div className="absolute   -top-[10%] lg:-top-[20%] -left-[20%] lg:left-[40%] text-purple-400">
         <FloatingShape
           color="from-[#1F22CA] to-transparent"
           size="w-60 h-60"
