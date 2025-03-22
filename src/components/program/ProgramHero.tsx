@@ -9,24 +9,58 @@ const ProgramHero = () => {
     <section className="pt-20 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden hero">
       {/* Floating shapes */}
       <FloatingShape
-        size="w-96 h-96"
-        color="bg-gradient-to-r from-purple-500/20 to-blue-500/20 -top-48 right-0"
-        // className="-top-48 right-0"
-        delay={0.3}
-        left=""
-        top=""
+        color="from-[#1F22CA] to-transparent"
+        size="w-60 h-60"
+        top="-5%"
         position="absolute"
-      />
-      <FloatingShape
-        size="w-96 h-96"
-        color="bg-gradient-to-r from-purple-500/20 to-blue-500/20  -bottom-40 -left-10"
-        // className="-top-48 right-0"
-        delay={0.3}
-        left=""
-        top=""
-        position="absolute"
+        left="88%"
+        delay={0}
       />
 
+      {/* Animated stars */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+        className="absolute top-20  right-6 md:right-20 text-purple-400"
+      >
+        <img src="/s-star.png" alt="" className="w-7 md:w-12" />
+      </motion.div>
+      <img src="/s_half.png" className="w-7 md:w-12 absolute right-1" />
+
+      {/* Animated stars */}
+      <div className="absolute  -top-[10%] lg:-top-[20%] -left-[20%] lg:left-[40%] text-purple-400">
+        <FloatingShape
+          color="from-[#1F22CA] to-transparent"
+          size="w-60 h-60"
+          position=""
+          top="5%"
+          left="18%"
+          delay={0}
+        />
+
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+        >
+          <img src="/s-star.png" className="w-7 md:w-10 ml-40 -mt-32" />
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{
+          duration: 2,
+          repeat: Number.POSITIVE_INFINITY,
+          delay: 0.5,
+        }}
+        className="absolute bottom-40 left-20 text-blue-400"
+      >
+        <img src="/s-star.png" className="w-7 md:w-12" />
+      </motion.div>
       {/* Stars */}
       <motion.div
         initial={{ opacity: 0 }}

@@ -12,6 +12,9 @@ const missionPoints = [
 const MissionSection = () => {
   return (
     <section className="py-20 px-4">
+      <div className="absolute  left-2">
+        <img src="/s_half.png" className="w-5 rotate-180 md:w-15" />
+      </div>
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:flex flex-row-reverse gap-12 items-center">
           <motion.div

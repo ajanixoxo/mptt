@@ -1,8 +1,10 @@
+
 const SponsorsSection = () => {
   // const carouselRef = useRef<HTMLDivElement>(null);
 
   return (
     <section className="py-3 px-4 relative">
+    
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-2">
           <h2 className="text-3xl md:text-4xl font-bold ">Our Sponsors</h2>

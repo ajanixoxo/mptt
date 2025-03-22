@@ -55,8 +55,8 @@ const ProgramFeatures = () => {
     <section className="py-20 px-4 relative bg-gradient-to-b from-[#0A0A0B] to-[#0F0F1A]">
       {/* Floating shape */}
       <FloatingShape
-        size="w-96 h-96"
-        color="bg-gradient-to-r from-purple-500/20 to-blue-500/20 -top-20 -left-20"
+        size="w-60 h-60"
+        color="bg-gradient-to-r from-[#1F22CA] to-transparent -left-[40%] -top-20 lg:-left-[10%]"
         // className=""
         position="absolute"
         top=""
@@ -93,7 +93,7 @@ const ProgramFeatures = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-4xl relative z-30 md:text-5xl font-bold mb-4 text-white">
             What Makes Hack-A-Path Special
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">

@@ -27,7 +27,13 @@ const pathways = [
     description: "Protect Computer systems and networks.",
     icon: Shield,
     image: "/course (4).png",
-  },
+  }
+  // {
+  //   title: "Data Engineering",
+  //   description: " Work with real data and analytics.",
+  //   icon: Shield,
+  //   image: "/course (5).png",
+  // },
 ]
 
 const PathwaysSection = () => {

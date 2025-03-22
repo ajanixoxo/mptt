@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Calendar, Clock, MapPin, CircleArrowUp, Loader2 } from "lucide-react"
+import FloatingShape from "./FloatingShape"
 
 interface Event {
   id: string
@@ -181,10 +182,37 @@ const EventsSection = () => {
   return (
     <div className="relative">
       <section id="events">
+
+      <div className="absolute flex flex-row-reverse justify-between w-full -mt-10 lg:mt-10 right-0">
+        <img src="/s_half.png" className="w-5 rotate-10 md:w-15" />
+
+        <div className=" left-20">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Number.POSITIVE_INFINITY,
+              delay: 0.5,
+            }}
+            className="absolute top-[0%] left-[5%] text-[#1D1FB175]"
+          >
+            <img src="/s-star.png" className="w-7 md:w-12" />
+          </motion.div>
+          <FloatingShape
+            color="from-[#1F22CA] to-transparent"
+            size="w-60 h-60 "
+            top=""
+            position="absolute left-[-20%] lg:left-0 lg:-top-[30%]"
+            left=""
+            delay={0}
+          />
+        </div>
+      </div>
         <div className="container mx-auto max-w-7xl">
           <motion.div className="text-center mb-12 mt-2">
             <h2 className="main_text text-3xl font-bold mb-4">Upcoming Events</h2>
-            <p className="sec_text text-[#a09c9c] max-w-2xl mx-auto">
+            <p className="sec_text text-[#a09c9c] max-w-2xl mx-auto px-2">
               Join us at these awesome events to learn, meet our team, and connect!
             </p>
           </motion.div>
