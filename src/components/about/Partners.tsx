@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+
+import { motion } from "framer-motion";
 const cards = [
   {
     title: "Partner with Us",
@@ -12,18 +12,7 @@ const cards = [
   },
 ];
 const PartnersSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },

@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Link from "next/link"
 // Remove this line since we're not using ElementType anymore
 // import { ElementType } from "react";
 
@@ -16,7 +17,9 @@ const Footer = () => {
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
           className="z-20 absolute left-0 lg:left-10  top-10 lg:top-0"
         >
-          <img src="/s-star.png" alt="" className="w-5 md:w-12 lg:ml-40 ml-20" />
+          <Link href="/" className="flex gap-2">
+          <img src="/logo.svg"  alt="logo" className="w-5" /><span className="main_text text-xl">Mypath2tech</span>
+        </Link>
         </motion.div>
       </div>
       <div className=" w-full relative rounded-2xl bg-[#1C1C1C] px-4 py-7">
@@ -143,7 +146,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-2">
-              <FooterLink href="">tech@mypath2tech.ca</FooterLink>
+              <FooterLink href="">info@mypath2tech.ca</FooterLink>
               <FooterLink href="">Windsor Ontario, Canada</FooterLink>
             </ul>
           </div>
