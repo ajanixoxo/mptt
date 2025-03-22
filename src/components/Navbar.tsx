@@ -36,8 +36,8 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container  mx-auto flex justify-between items-center">
-        <Link href="/" className="flex gap-2">
-          <img src="/logo.svg"  alt="logo" className="w-5" /><span className="main_text text-xl">Mypath2tech</span>
+        <Link href="/" className="flex items-center justify-center gap-2">
+          <img src="/logo.svg"  alt="logo" className="w-10 md:w-10" /><span className="main_text text-xl">Mypath2tech</span>
         </Link>
 
         {/* Desktop Navigation */}

@@ -33,14 +33,14 @@ const PartnersSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 place-items-center">
+        <div className="grid w-full grid-cols-1 place-items-center">
           {/* Left fade gradient */}
        
           {/* Scrolling carousel */}
           {cards.map((card, index) => (
             <motion.div
               key={index}
-              className={`${card.color} ${card.borderColor} border ${card.bg} rounded-xl p-6 flex flex-col items-center justify-center shadow-sm w-1/2 hover:shadow-md transition-shadow relative overflow-hidden`}
+              className={`${card.color} ${card.borderColor} border ${card.bg} rounded-xl lg:p-6 flex flex-col items-center justify-center shadow-sm p-2 md:w-1/2 hover:shadow-md transition-shadow relative overflow-hidden`}
               variants={itemVariants}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >

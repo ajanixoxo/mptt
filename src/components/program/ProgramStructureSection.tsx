@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import FloatingShape from "../FloatingShape";
 
 const ProgramStructureSection = () => {
   const weeks = [
@@ -129,18 +130,80 @@ const ProgramStructureSection = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-[#1E1E1E] overflow-hidden">
+    <section className="relative py-20  overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute bottom-20 left-10 w-16 h-16 opacity-20">
-        <svg
-          viewBox="0 0 100 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 0L100 0L100 100L0 100L0 0Z" fill="white" />
-        </svg>
+
+      <div className="absolute flex justify-between w-full -mt-10 lg:mt-10 right-0">
+        <img src="/s_half.png" className="w-5 rotate-180 md:w-15" />
+
+        <div className=" right-20">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Number.POSITIVE_INFINITY,
+              delay: 0.5,
+            }}
+            className="absolute top-[40%] right-[5%] text-[#1D1FB175]"
+          >
+            <img src="/s-star.png" className="w-7 md:w-12" />
+          </motion.div>
+          <FloatingShape
+            color="from-[#1F22CA] to-transparent"
+            size="w-60 h-60"
+            top="-5%"
+            position="absolute"
+            left="88%"
+            delay={0}
+          />
+        </div>
       </div>
 
+      
+
+      <div className="absolute left-0 top-[30%]">
+        <FloatingShape
+          color="from-[#1F22CA] to-transparent"
+          size="w-60 h-60"
+          top="-5%"
+          position="absolute"
+          left="88%"
+          delay={0}
+        />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          className="absolute top-20  right-6 md:right-20 text-purple-400"
+        >
+          <img src="/s-star.png" alt="" className="w-7 md:w-12" />
+        </motion.div>
+      </div>
+
+      <div className="absolute left-[90%] top-[85%]">
+        <FloatingShape
+          color="from-[#1F22CA] to-transparent"
+          size="w-60 h-60"
+          top="%"
+          position="absolute"
+          left="%"
+          delay={0}
+        />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          className="absolute left-[90%] top-[85%] md:left-[90%] z-20 text-purple-400"
+        >
+          <img src="/s-star.png" alt="" className="w-7 md:w-12" />
+        </motion.div>
+      </div>
+
+     
+     
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

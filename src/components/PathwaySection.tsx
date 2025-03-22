@@ -81,7 +81,7 @@ const PathwaysSection = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{pathway.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 w-max">{pathway.title}</h3>
                 <p className="text-gray-400 mb-4">{pathway.description}</p>
                 <motion.div
                   className="mt-12 text-center"

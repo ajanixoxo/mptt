@@ -13,7 +13,7 @@ function Button({ text, bg, onClick }: ButtonProps) {
             whileTap={{ scale: 0.95 }}
             onClick={onClick}
         >
-            <span className="font-semibold">{text}</span>
+            <span className="font-normal">{text}</span>
             <CircleArrowUp className="rotate-45" />
         </motion.button></div>
 

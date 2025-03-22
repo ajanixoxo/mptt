@@ -77,7 +77,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20 right-20 text-purple-400"
+        className="absolute top-20  right-6 md:right-20 text-purple-400"
       >
         <img src="/s-star.png" alt="" className="w-7 md:w-12" />
       </motion.div>
@@ -165,7 +165,7 @@ const HeroSection = () => {
               repeat: Number.POSITIVE_INFINITY,
               delay: 0.5,
             }}
-            className="absolute top-[40%] right-0 md:right-[5%] text-blue-400"
+            className="absolute top-[40%] -right-0 md:right-[5%] text-blue-400"
           >
             <img src="/s-star.png" className="w-7 md:w-12" />
           </motion.div>
@@ -184,7 +184,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span className="main_text">Discover Your Path</span>
-            <CircleArrowUp className="rotate-45" />
+            <CircleArrowUp className="rotate-45 w-4 lg:w-auto" />
           </motion.button>
         </div>
 

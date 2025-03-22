@@ -40,7 +40,7 @@ const dummyEvents: Event[] = [
   {
     id: "dummy-3",
     title: "Tech Career Fair",
-    eventDate: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).toISOString(), // 3 weeks from now
+    eventDate: new Date(Date.now() + 21 * 24* 60 * 60 * 1000).toISOString(), // 3 weeks from now
     location: "Community Center",
     description:
       "Connect with top tech companies hiring in your area. Bring your resume and be ready to network with industry professionals.",
@@ -92,7 +92,7 @@ const EventsSection = () => {
     }
 
     fetchEvents()
-    const interval = setInterval(fetchEvents, 1000) // Fetch every ~1.7 minutes
+    const interval = setInterval(fetchEvents, 10000) // Fetch every ~1.7 minutes
 
     return () => clearInterval(interval) // Cleanup interval on unmount
   }, [])

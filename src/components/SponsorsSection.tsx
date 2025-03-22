@@ -19,9 +19,9 @@ const SponsorsSection = () => {
           <div className=" flex items-center justify-center gap-8 py-8">
             <div className="flex items-center justify-center p-8 rounded-xl min-w-[250px] hover:scale-105 transition-transform">
               <img
-                src="/sponsor.jpg"
+                src="/white_sponsor.jpg"
                 alt=""
-                className="max-h-96   w-[50%] transition-all"
+                className="max-h-96  w-full lg:w-[70%] transition-all"
               />
             </div>
           </div>
