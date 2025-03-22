@@ -67,7 +67,7 @@ const PathwaysSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className="bg-[#1b1a1c] backdrop-blur-sm  rounded-xl overflow-hidden"
+              className="bg-[#232224B2] backdrop-blur-sm  rounded-xl overflow-hidden"
             >
               <div className="relative h-48 p-1">
                 <img
@@ -90,7 +90,7 @@ const PathwaysSection = () => {
                   animate={isInView ? "visible" : "visible"}
                 >
                   <motion.button
-                    className="bg-[#2B2B2B] w-full text-center  justify-center  hover:bg-gray-300 text-white px-6 py-3 rounded-2xl font-medium inline-flex items-center space-x-2"
+                    className="bg-[#74767F] hover:bg-[#666870] w-full text-center  justify-center   text-white px-6 py-3 rounded-2xl font-medium inline-flex items-center space-x-2"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

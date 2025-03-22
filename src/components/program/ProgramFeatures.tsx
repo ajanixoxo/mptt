@@ -128,7 +128,9 @@ const ProgramFeatures = () => {
                     <p className="text-gray-400">{feature.description}</p>
                   </div>
                 </div>
+<div className="absolute  left-0 w-full h-[1px] bg-[#716D6D]">
 
+</div>
                 <div className="mt-6 space-y-3">
                   {feature.points.map((point, i) => (
                     <motion.div

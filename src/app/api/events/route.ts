@@ -14,14 +14,20 @@ export async function GET(request: Request) {
     // Get events
     const events = await prisma.event.findMany({
       where,
-      orderBy: { eventDate: "asc" }, // Order by date ascending (upcoming first)
+      orderBy: { createdAt: "desc" }, // Order by date ascending (upcoming first)
       take: limit,
     })
 
     return NextResponse.json(events)
   } catch (error) {
     console.error("Get public events error:", error)
-    return NextResponse.json({ message: "Internal server error", error: error }, { status: 500 })
+    return NextResponse.json(
+      {
+        message: "Internal server error",
+        error: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 },
+    )
   }
 }
 

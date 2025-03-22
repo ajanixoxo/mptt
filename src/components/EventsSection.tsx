@@ -92,7 +92,7 @@ const EventsSection = () => {
     }
 
     fetchEvents()
-    const interval = setInterval(fetchEvents, 5000) // Fetch every ~1.7 minutes
+    const interval = setInterval(fetchEvents, 1000) // Fetch every ~1.7 minutes
 
     return () => clearInterval(interval) // Cleanup interval on unmount
   }, [])
@@ -202,14 +202,14 @@ const EventsSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl overflow-hidden relative"
+                  className="bg-[#232224B2] backdrop-blur-sm rounded-xl overflow-hidden relative"
                 >
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-1">
                       <h3 className="text-xl font-bold text-white">{event.title}</h3>
                       <span
-                        className={`text-xs px-3 py-1 rounded-full ${
-                          event.isOnline ? "bg-blue-500/20 text-blue-300" : "bg-green-500/20 text-green-300"
+                        className={`text-xs px-3 py-1 w-max rounded-full bg-[#2B2B2B] ${
+                          event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
                         }`}
                       >
                         {event.isOnline ? "Online" : "In-person"}
@@ -237,7 +237,7 @@ const EventsSection = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => null}
-                      className="w-full bg-[#989BAE] text-white border hover:bg-[#7e808f] transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                      className="w-full bg-[#74767F] text-white border hover:bg-[#7e808f] transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                     >
                       <span>Register Now</span>
                       <CircleArrowUp className="rotate-45" size={20} />

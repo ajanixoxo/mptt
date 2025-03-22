@@ -1,24 +1,11 @@
-import {  useRef } from "react";
-
-const sponsors = [
-  { name: "Sponsor 1", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-  { name: "Sponsor 2", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-  { name: "Sponsor 3", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-  { name: "Sponsor 4", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-  { name: "Sponsor 5", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-  { name: "Sponsor 6", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-  { name: "Sponsor 7", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-  { name: "Sponsor 8", logo: "https://palacetheatre.ca/wp-content/uploads/2022/11/OTFHORIZwhiteonblack.jpg" },
-];
-
 const SponsorsSection = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  // const carouselRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-20 px-4 relative">
+    <section className="py-3 px-4 relative">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Sponsors</h2>
+        <div className="text-center mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold ">Our Sponsors</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Proud to partner with leading organizations in tech education.
           </p>
@@ -29,19 +16,14 @@ const SponsorsSection = () => {
           <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#0A0A0B] to-transparent pointer-events-none" />
 
           {/* Scrolling carousel */}
-          <div ref={carouselRef} className="scrolling-carousel flex gap-8 py-8">
-            {[...sponsors, ...sponsors].map((sponsor, index) => (
-              <div
-                key={`${sponsor.name}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center p-8 rounded-xl min-w-[250px] hover:scale-105 transition-transform"
-              >
-                <img
-                  src={sponsor.logo || "https://placehold.co/200x100"}
-                  alt={sponsor.name}
-                  className="max-h-12  filter  w-[130%] h-[100%] transition-all"
-                />
-              </div>
-            ))}
+          <div className=" flex items-center justify-center gap-8 py-8">
+            <div className="flex items-center justify-center p-8 rounded-xl min-w-[250px] hover:scale-105 transition-transform">
+              <img
+                src="/sponsor.jpg"
+                alt=""
+                className="max-h-96   w-[50%] transition-all"
+              />
+            </div>
           </div>
 
           {/* Right fade gradient */}

@@ -56,7 +56,7 @@ const MissionSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Our Mission
             </h2>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className="text-[#7A7979] text-lg mb-8">
               We're democratizing access to tech education through practical,
               industry-focused learning
             </p>
@@ -88,7 +88,7 @@ const MissionSection = () => {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-300">{point}</span>
+                  <span className="text-[#6A6464]">{point}</span>
                 </motion.div>
               ))}
             </div>

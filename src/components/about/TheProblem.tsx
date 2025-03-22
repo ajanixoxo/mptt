@@ -73,7 +73,7 @@ const ProblemSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white main_text">
               The Problem
             </h2>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className="text-[#7A7979] text-lg mb-8 sec">
               Traditional tech education isn't working for today's learners
             </p>
 
@@ -104,7 +104,7 @@ const ProblemSection = () => {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-300">{problem}</span>
+                  <span className="text-[#6A6464]">{problem}</span>
                 </motion.div>
               ))}
             </div>

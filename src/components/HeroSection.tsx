@@ -138,16 +138,25 @@ const HeroSection = () => {
               <img src="/tag.png" className="w-8 lg:w-16" />
             </motion.div>
           </div>
-          <motion.h1
-            className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-5xl  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
-            variants={itemVariants}
-          >
-            Level Up Your Tech Skills <span className="lg:hidden">with</span>
-            <span className="relative inline-flex items-center justify-center z-40">
-              <span className="hidden lg:flex">with</span>
-              <img src="/d-skills.png" className="lg:w-[57%]   w-full  z-10 " />
-            </span>
-          </motion.h1>
+          <div className="lg:flex flex-col items-center justify-center">
+            <motion.h1
+              className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
+              variants={itemVariants}
+            >
+              Level Up Your Tech Skills
+             
+            </motion.h1>
+            <div className="relative  z-40 flex justify-center items-center flex-col md:flex-row">
+            <motion.h1
+              className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
+              variants={itemVariants}
+            >
+               with
+             
+            </motion.h1>
+              <img src="/d-skills.png" className="lg:w-[70%]   w-full  z-10 " />
+            </div>
+          </div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
@@ -161,7 +170,7 @@ const HeroSection = () => {
             <img src="/s-star.png" className="w-7 md:w-12" />
           </motion.div>
           <motion.p
-            className="text-[#817e7e] sec_text inline-block mb-3 text-[14px] lg:text-[18px] max-w-lg text-center relative  z-20"
+            className="text-[#817e7e] sec_text font-medium inline-block mb-3 text-[14px] lg:text-[18px] max-w-lg text-center relative  z-20"
             variants={itemVariants}
           >
             Join Mypath2tech's awesome 3-month program and kickstart your tech
@@ -169,12 +178,12 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.button
-            className="bg-[#def134] sec_text mx-auto hover:bg-yellow-500  transition button font-semibold text-[12px] py-1 px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
+            className="bg-[#F9C23A] main_text sec_text mx-auto hover:bg-yellow-500  transition button font-semibold text-[12px] py-1 px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span>Discover Your Path</span>
+            <span className="main_text">Discover Your Path</span>
             <CircleArrowUp className="rotate-45" />
           </motion.button>
         </div>

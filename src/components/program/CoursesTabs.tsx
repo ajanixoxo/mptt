@@ -44,7 +44,7 @@ const courses = [
     id: "data",
     title: "Data Engineering",
     icon: Database,
-    description: "Transform raw data into valuable insights and solutions",
+    description: "Learn to collect, process, and analyze large datasets to extract meaningful insights. Build data pipelines, create visualizations, and develop data-driven applications.",
     skills: [
       "Python",
       "SQL",
@@ -76,7 +76,7 @@ const courses = [
     id: "cyber",
     title: "Cybersecurity",
     icon: Shield,
-    description: "Protect systems and data from digital threats",
+    description: "Learn to identify vulnerabilities, implement security measures, and protect digital assets from cyber threats. Develop skills in ethical hacking, security analysis, and incident response.",
     skills: [
       "Network Security",
       "Ethical Hacking",
@@ -106,7 +106,7 @@ const courses = [
     id: "design",
     title: "UI/UX Design",
     icon: Palette,
-    description: "Create beautiful and intuitive user experiences",
+    description: "Learn to design user interfaces and experiences that are both visually appealing and functional. Master design tools, user research methods, and prototyping techniques.",
     skills: [
       "UI Design",
       "UX Research",
@@ -136,7 +136,7 @@ const courses = [
     id: "devops",
     title: "DevOps",
     icon: Settings,
-    description: "Bridge development and operations for seamless deployment",
+    description: "Learn to streamline development processes and optimize deployment pipelines. Master cloud services, containerization, and automation to ensure reliable and scalable applications.",
     skills: [
       "CI/CD",
       "Docker",

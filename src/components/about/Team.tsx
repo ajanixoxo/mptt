@@ -6,20 +6,26 @@ import FloatingShape from "@/components/FloatingShape"
 
 const team = [
   {
-    name: "Moshood Saka, ",
+    name: "Moshood Saka ",
     role: "Co Founder",
     color: "bg-[#F9C23A]",
+    img:"https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Luis"
   },
   {
     name: "Richard Nonso",
     role: "Co Founder",
     color: "bg-green-400",
+    img:"https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Wyatt"
+
   },
   {
-    name: "Favour",
+    name: " Atere Favour",
     role: "Operational Volunteer",
     color: "bg-pink-500",
+    img:"https://api.dicebear.com/9.x/lorelei-neutral/svg?seed=Jude"
+
   },
+
  
 ]
 
@@ -70,7 +76,7 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 place-items-center lg:grid-cols-4 gap-10 w-full">
+        <div className="grid grid-cols-1  place-items-center lg:grid-cols-3 gap-10 w-full">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -88,8 +94,11 @@ const TeamSection = () => {
                   className={`mt-4 mr-5 rounded-2xl h-36  w-60 ${member.color} z-10`}
                 />
                 <div className="top-0 absolute flex items-center  ml-2 h-36 w-[250px] bg-white rounded-2xl border border-black  z-20  -30 object-contain" >
+                  <div className="p-2">
+                    <img src={member.img} className="rounded-2xl border border-black w-20" />
+                  </div>
                   <div className="relative bottom-0 left-0 right-0 p-4 ">
-                    <h3 className="text-xl font-semibold text-black mb-1">{member.name}</h3>
+                    <h3 className="text-xl font-semibold text-black mb-1 w-max">{member.name}</h3>
                     <p className="text-gray-800 text-sm">{member.role}</p>
                   </div>
                 </div>

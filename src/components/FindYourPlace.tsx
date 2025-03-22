@@ -10,7 +10,7 @@ const cards = [
         title: "Join a Cohort",
         description: "Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!",
         icon: '/fdc (1).png',
-        color: "bg-[#e9d9ff]",
+        color: "bg-[#232224B2]",
         borderColor: "border-black border-2",
         bg: "f1"
     },
@@ -18,7 +18,7 @@ const cards = [
         title: "Find a Mentor",
         description: "Volunteer with Us Passionate about tech and helping others? Join us to mentor, inspire, and make an impact in the next generation of tech leaders!",
         icon: '/fdc (2).png',
-        color: "bg-[#fff9ac]",
+        color: "bg-[#232224B2]",
         borderColor: "border-black border-2",
         bg: "f2"
     },
@@ -26,7 +26,7 @@ const cards = [
         title: "Partner with Us",
         description: "Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!",
         icon: '/fdc.png',
-        color: "bg-[#ffe4e4]",
+        color: "bg-[#232224B2]",
         borderColor: "border-black border-2",
         bg: "f3"
     },

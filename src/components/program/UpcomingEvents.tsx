@@ -238,8 +238,8 @@ const UpcomingEvent = () => {
                     <div className="flex justify-between items-start mb-1">
                       <h3 className="text-xl font-bold text-white">{event.title}</h3>
                       <span
-                        className={`text-xs px-3 py-1 w-max rounded-full ${
-                          event.isOnline ? "bg-blue-500/20 text-blue-300" : "bg-green-500/20 text-green-300"
+                        className={`text-xs px-3 py-1 w-max rounded-full bg-[#2B2B2B] ${
+                          event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
                         }`}
                       >
                         {event.isOnline ? "Online" : "In-person"}
@@ -267,7 +267,7 @@ const UpcomingEvent = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => null }
-                      className="w-full bg-[#989BAE] hover:bg-[#7e808f] transition text-white border border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                      className="w-full bg-[#74767F] hover:bg-[#7e808f] transition text-white border border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                     >
                       <span>Register Now</span>
                       <CircleArrowUp className="rotate-45" size={20} />

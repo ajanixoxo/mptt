@@ -1,28 +1,38 @@
-import {  useRef } from "react";
-
-const partners = [
-  { name: "Partners 1", logo: "/sp (1).png" },
-  { name: "Partners 2", logo: "/sp (2).png" },
-  { name: "Partners 3", logo: "/sp (3).png" },
-  { name: "Partners 4", logo: "/sp (3).png" },
-  { name: "Partners 5", logo: "/sp (1).png" },
-  { name: "Partners 6", logo: "/sp (2).png" },
-  { name: "Partners 7", logo: "/sp (3).png" },
-  { name: "Partners 8", logo: "/sp (1).png" },
-];
-
-const partners2 = [
-  { name: "Partners 1", logo: "/sp (5).png" },
-  { name: "Partners 2", logo: "/sp (6).png" },
-  { name: "Partners 3", logo: "/sp (7).png" },
-  { name: "Partners 4", logo: "/sp (8).png" },
-  { name: "Partners 5", logo: "/sp (8).png" },
-  { name: "Partners 6", logo: "/sp (6).png" },
-  { name: "Partners 7", logo: "/sp (7).png" },
-  { name: "Partners 8", logo: "/sp (5).png" },
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+const cards = [
+  {
+    title: "Partner with Us",
+    description:
+      "Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!",
+    icon: "/fdc.png",
+    color: "bg-[#232224B2]",
+    borderColor: "border-black border-2",
+    bg: "f3",
+  },
 ];
 const PartnersSection = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
   return (
     <section className="py-20 px-4 relative">
@@ -34,42 +44,99 @@ const PartnersSection = () => {
           </p>
         </div>
 
-        <div className="relative overflow-hidden">
+        <div className="grid grid-cols-1 place-items-center">
           {/* Left fade gradient */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#0A0A0B] to-transparent pointer-events-none" />
-
+       
           {/* Scrolling carousel */}
-          <div ref={carouselRef} className="scrolling-carousel flex gap-8 py-8">
-            {[...partners, ...partners].map((partner, index) => (
-              <div
-                key={`${partner.name}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center p-8 rounded-xl min-w-[250px] hover:scale-105 transition-transform"
-              >
-                <img
-                  src={partner.logo || "https://placehold.co/200x100"}
-                  alt={partner.name}
-                  className="max-h-12 w-auto filter grayscale hover:grayscale-0 transition-all"
-                />
-              </div>
-            ))}
-          </div>
-          <div ref={carouselRef} className="scrolling-carousel flex gap-8 py-8">
-            {[...partners2, ...partners2].map((partner, index) => (
-              <div
-                key={`${partner.name}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center p-8 rounded-xl min-w-[250px] hover:scale-105 transition-transform"
-              >
-                <img
-                  src={partner.logo || "https://placehold.co/200x100"}
-                  alt={partner.name}
-                  className="max-h-12 w-auto filter grayscale-50 hover:grayscale-0 transition-all"
-                />
-              </div>
-            ))}
-          </div>
+          {cards.map((card, index) => (
+            <motion.div
+              key={index}
+              className={`${card.color} ${card.borderColor} border ${card.bg} rounded-xl p-6 flex flex-col items-center justify-center shadow-sm w-1/2 hover:shadow-md transition-shadow relative overflow-hidden`}
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
+              <div className="mb-4  text-4xl relative">
+                <div className="absolute top-0 left-0">
+                  <svg
+                    width={18}
+                    height={23}
+                    viewBox="0 0 18 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 11L8.71539 14.4111"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M4.71533 21.8951L8.60809 14.4112"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M9 8.99994L16.7154 12.4111"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M9 8.48395L12.8928 0.999995"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+                <img src={`${card.icon}`} className="" alt="" />
 
-          {/* Right fade gradient */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#0A0A0B] to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 right-0">
+                  <svg
+                    width={18}
+                    height={23}
+                    viewBox="0 0 18 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 11L8.71539 14.4111"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M4.71533 21.8951L8.60809 14.4112"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M9 8.99994L16.7154 12.4111"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M9 8.48395L12.8928 0.999995"
+                      stroke="#F9C23A"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2 main_text">{card.title}</h3>
+              <p className="text-[#6A6464] text-center sec_text">
+                {card.description}
+              </p>
+
+              {/* Background Pattern */}
+              <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full opacity-10 bg-black"></div>
+              <div className="absolute right-10 bottom-10 w-4 h-4 rounded-full opacity-10 bg-black"></div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
