@@ -13,7 +13,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="admin-layout bg-white">
+    <div className="admin-layout bg-white text-black">
       {/* Admin-specific navigation if needed */}
       <main className="flex-grow bg-white">{children}</main>
       {/* Admin-specific footer if needed */}

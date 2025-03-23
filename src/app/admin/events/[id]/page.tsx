@@ -63,7 +63,7 @@ export default function EventDetailPage() {
     if (eventId) {
       fetchEvent();
     }
-  }, [eventId, fetchEvent]);
+  }, [eventId]);
 
   const handleDelete = async () => {
     if (
