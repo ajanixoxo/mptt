@@ -1,10 +1,7 @@
-import type { Metadata } from "next";
+import { defaultMetadata } from "@/lib/metadata";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Hack-A-Path | Tech Community",
-  description: "Join Hack-A-Path, a supportive tech community to level up your skills and accelerate your career journey.",
-};
+export const metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
@@ -17,11 +14,8 @@ export default function RootLayout({
         <link rel="svg" href="/favicon.svg" />
       </head>
       <body className={` text-white`}>
-         
         <div className="">
-        
           <div className="flex-grow">{children}</div>
-         
         </div>
       </body>
     </html>

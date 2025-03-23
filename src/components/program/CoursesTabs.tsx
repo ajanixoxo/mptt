@@ -192,7 +192,7 @@ const CoursesTabs = () => {
               onClick={() => setActiveTab(course.id)}
               className={`md:px-6 py-3 rounded-2xl flex items-center space-x-2 transition-colors ${
                 activeTab === course.id
-                  ? "px-1 bg-[#def134] text-black"
+                  ? "px-1 bg-[#F9C23A] text-black"
                   : "bg-[#2B2B2B] text-white hover:bg-gray-700"
               }`}
               whileHover={{ scale: 1.05 }}
@@ -293,7 +293,7 @@ const CoursesTabs = () => {
 
               {/* Career Outcomes - Right Side */}
               <div>
-                <div className="bg-[#FFBF00] p-6 rounded-t-lg">
+                <div className="bg-[#F9C23A] p-6 rounded-t-lg">
                   <h3 className="text-2xl font-bold text-black">
                     Career Outcomes
                   </h3>
@@ -307,7 +307,7 @@ const CoursesTabs = () => {
                     <ul className="space-y-2">
                       {activeCourse.careers.roles.map((role) => (
                         <li key={role} className="flex items-center">
-                          <div className="w-2 h-2 bg-[#FFBF00] rounded-full mr-2"></div>
+                          <div className="w-2 h-2 bg-[#F9C23A] rounded-full mr-2"></div>
                           <span className="text-white">{role}</span>
                         </li>
                       ))}
@@ -318,7 +318,7 @@ const CoursesTabs = () => {
                     <h4 className="text-xl font-bold text-white mb-2">
                       Average Salary Range
                     </h4>
-                    <p className="text-2xl font-bold text-[#FFBF00]">
+                    <p className="text-2xl font-bold text-[#F9C23A]">
                       {activeCourse.careers.salary}
                     </p>
                   </div>
@@ -327,7 +327,7 @@ const CoursesTabs = () => {
                     <h4 className="text-xl font-bold text-white mb-2">
                       Industry Demand
                     </h4>
-                    <p className="text-2xl font-bold text-[#FFBF00]">
+                    <p className="text-2xl font-bold text-[#F9C23A]">
                       {activeCourse.careers.demand}
                     </p>
                     <p className="text-gray-300 text-sm">from Google</p>

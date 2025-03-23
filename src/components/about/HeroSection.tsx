@@ -164,7 +164,7 @@ const WhyChooseSection = () => {
             </p>
 
             <motion.button
-              className="bg-[#F9C23A] main_text font-semibold hover:bg-yellow-500 button mx-auto lg:mx-0 f text-gray-900 px-6 py-3 rounded-2xl  flex items-center space-x-2"
+              className="bg-[#F9C23A] main_text font-semibold z-20 button mx-auto lg:mx-0 f text-gray-900 px-6 py-3 rounded-2xl  flex items-center space-x-2"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

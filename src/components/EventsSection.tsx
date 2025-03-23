@@ -93,7 +93,7 @@ const EventsSection = () => {
     }
 
     fetchEvents()
-    const interval = setInterval(fetchEvents, 10000) // Fetch every ~1.7 minutes
+    const interval = setInterval(fetchEvents, 5000) // Fetch every ~1.7 minutes
 
     return () => clearInterval(interval) // Cleanup interval on unmount
   }, [])
@@ -265,7 +265,7 @@ const EventsSection = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => null}
-                      className="w-full bg-[#74767F] text-white border hover:bg-[#7e808f] transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                      className="w-full bg-[#74767F] text-white border transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                     >
                       <span>Register Now</span>
                       <CircleArrowUp className="rotate-45" size={20} />

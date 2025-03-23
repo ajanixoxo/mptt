@@ -6,7 +6,7 @@ import { scrapeLumaEvent } from "@/lib/luma_scraper/route"
 
 // Reusable function to check authentication
 async function getAdminFromToken() {
-  const cookie  = await cookies()
+  const cookie = await cookies()
   const token = cookie.get("admin-token")?.value
 
   if (!token) {
@@ -35,7 +35,7 @@ async function getAdminFromToken() {
   }
 }
 
-export async function POST(request: Request, context: { params: Promise<{ id: string }> }) {
+export async function POST(request: Request, context: { params: { id: string } }) {
   try {
     // Check if user is authenticated and is an admin
     const admin = await getAdminFromToken()
@@ -44,9 +44,7 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
     }
 
-    // Get the params asynchronously
-    const params = await context.params
-    const { id } = params
+    const { id } = context.params
 
     // Get the event
     const event = await prisma.event.findUnique({
@@ -68,8 +66,14 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
     let eventDate = null
     if (eventData.eventDate) {
       try {
-        // Try to create a date from whatever eventDate is
-        eventDate = new Date(eventData.eventDate)
+        // Try to create a date from the eventDate
+        const dateStr = eventData.eventDate
+        const timeStr = eventData.eventTime || "00:00"
+
+        // Combine date and time
+        const dateTime = `${dateStr}T${timeStr}`
+        eventDate = new Date(dateTime)
+
         // Check if the date is valid
         if (isNaN(eventDate.getTime())) {
           eventDate = null

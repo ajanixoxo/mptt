@@ -31,9 +31,13 @@ const About = () => {
           <VisionSection />
           <PartnersSection />
           <TeamSection />
-          <Footer />
+         
         </div>
-      </main>
+      </main> 
+      <div className=" bg-[#0A0A0B]">
+      <Footer />
+      </div>
+      
     </>
   )
 }

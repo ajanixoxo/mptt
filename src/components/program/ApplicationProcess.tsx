@@ -84,11 +84,13 @@ const ApplicationProcessSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           className="flex justify-center"
         >
           <a
             href="#apply"
-            className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 bg-[#F9C23A]  text-black font-semibold py-3 px-6 rounded-xl transition-colors"
           >
             Start Your Application
             <CircleArrowUp className="rotate-45" />

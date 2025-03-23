@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 
 const Footer = () => {
   return (
-    <footer className="relative ">
+    <footer className="relative mx-6 ">
       <div className=" text-purple-400">
         <motion.div
           initial={{ opacity: 0 }}
@@ -16,7 +16,7 @@ const Footer = () => {
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
           className="z-20 absolute left-0 lg:left-10  top-10 lg:top-0"
         >
-          <img src="/s-star.png" alt="" className="w-5 md:w-12 lg:ml-40 ml-20" />
+          <img src="/s-star.png" alt="" className="w-5 md:w-7 lg:ml-40 ml-20" />
         </motion.div>
       </div>
       <div className=" w-full  rounded-2xl bg-[#1C1C1C] px-6 py-7">

@@ -23,7 +23,9 @@ export default function Home() {
         <PathwaysSection />
         <TestimonialsSection />
       </div>
+      <div className=" bg-[#0A0A0B]">
       <Footer />
+      </div>
     </>
   );
 }

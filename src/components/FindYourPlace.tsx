@@ -56,7 +56,7 @@ const FindYourPlace = () => {
     }
 
     return (
-        <section ref={ref} className="py-16 px-4 md:px-6 lg:px-8 bg-black relative">
+        <section ref={ref} className="py-16 px-4 md:px-6 lg:px-8 bg- relative">
             <div className="absolute flex justify-between w-full -mt-10 lg:mt-10 right-0">
                 <img src='/s_half.png' className="w-5 rotate-180 md:w-15" />
 
