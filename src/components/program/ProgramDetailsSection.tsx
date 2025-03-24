@@ -86,7 +86,7 @@ const ProgramDetailsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="border-2 border-yellow-500  rounded-xl p-7 bg-[#232224B2]"
+          className="border-2 border-[#F9C23A]  rounded-xl p-7 bg-[#232224B2]"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Limited Spots Available!

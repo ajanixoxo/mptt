@@ -19,7 +19,7 @@ const team = [
 
   },
   {
-    name: " Atere Favour",
+    name: "Favour Atere",
     role: "Operational Volunteer",
     color: "bg-pink-500",
     img:"https://api.dicebear.com/9.x/lorelei-neutral/svg?seed=Jude"
@@ -91,13 +91,13 @@ const TeamSection = () => {
 
 
                 <div
-                  className={`mt-4 mr-5 rounded-2xl h-36  w-60 ${member.color} z-10`}
+                  className={`mt-4 mr-5 rounded-2xl h-20  w-60 ${member.color} z-10`}
                 />
-                <div className="top-0 lg:top-2 absolute flex items-center  ml-1 h-36 w-[250px] bg-white rounded-2xl border border-black  z-20  -30 object-contain" >
-                  <div className="p-2">
-                    <img src={member.img} className="rounded-2xl border border-black w-20" />
+                <div className="top-0 lg:top-2 absolute gap-1  flex items-center justify-start  ml-1 h-20 w-[250px] bg-white rounded-2xl border border-black  z-20  -30 object-contain" >
+                  <div className="pl-2">
+                    <img src={member.img} className="rounded-2xl  border border-black w-16" />
                   </div>
-                  <div className="relative bottom-0 left-0 right-0 p-4 ">
+                  <div className=" flex flex-col text-left justify-start  p-1 ">
                     <h3 className="text-xl font-semibold text-black mb-1 w-max">{member.name}</h3>
                     <p className="text-gray-800 text-sm w-max">{member.role}</p>
                   </div>

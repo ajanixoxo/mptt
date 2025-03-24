@@ -61,7 +61,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="pt-20  lg:pt-28 hero  px-4 relative overflow-hidden">
+    <section className="pt-20  lg:pt-28 hero opacity-65  px-4 relative overflow-hidden">
       {/* <div className="absolute top-0 left-0 right-0 w-32 blur-xl h-32 rounded-full bg-gradient-to-t from-blue-500 to-transparent z-20 pointer-events-none"></div> */}
 
       <FloatingShape

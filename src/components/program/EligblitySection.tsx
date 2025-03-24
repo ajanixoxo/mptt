@@ -59,7 +59,7 @@ const EligibilitySection = () => {
             {/* Age Requirement */}
             <div className="flex items-start gap-6">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#2B2B2B] flex items-center justify-center">
-                <Users className="w-6 h-6 text-yellow-400" />
+                <Users className="w-6 h-6 text-[#F9C23A]" />
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-white mb-2">Age</h4>
@@ -76,7 +76,7 @@ const EligibilitySection = () => {
             {/* Location Requirement */}
             <div className="flex items-start gap-6">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#2B2B2B] flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-yellow-400" />
+                <MapPin className="w-6 h-6 text-[#F9C23A]" />
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-white mb-2">
@@ -93,7 +93,7 @@ const EligibilitySection = () => {
             {/* Commitment Requirement */}
             <div className="flex items-start gap-6">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#2B2B2B] flex items-center justify-center">
-                <Star className="w-6 h-6 text-yellow-400" />
+                <Star className="w-6 h-6 text-[#F9C23A]" />
               </div>
               <div>
                 <h4 className="text-xl  text-white mb-2">

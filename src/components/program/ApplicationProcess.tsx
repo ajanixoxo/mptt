@@ -71,7 +71,7 @@ const ApplicationProcessSection = () => {
               className="flex flex-col items-center text-center w-full sm:w-[calc(50%-1rem)] md:w-[calc(20%-1.6rem)]"
             >
               <div className="w-24 h-24 rounded-full bg-[#1E1E1E] flex items-center justify-center mb-6">
-                <span className="text-5xl font-bold text-yellow-400">{step.number}</span>
+                <span className="text-5xl font-bold text-[#F9C23A]">{step.number}</span>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400">{step.description}</p>
