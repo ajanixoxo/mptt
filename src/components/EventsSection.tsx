@@ -234,9 +234,9 @@ const EventsSection = () => {
                 >
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-xl font-bold text-white">{event.title}</h3>
+                      <h3 className="text-xl font-bold text-white w-max">{event.title}</h3>
                       <span
-                        className={`text-xs px-3 py-1 w-max rounded-full bg-[#2B2B2B] ${
+                        className={`text-xs px-3 py-1  rounded-full bg-[#2B2B2B] w-max ${
                           event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
                         }`}
                       >
@@ -259,7 +259,7 @@ const EventsSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 my-6">{event.description}</p>
+                    <p className="text-gray-300  min-h-24 ">{event.description}</p>
 
                     <motion.button
                       whileHover={{ scale: 1.05 }}

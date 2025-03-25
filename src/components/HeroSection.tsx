@@ -189,13 +189,13 @@ const HeroSection = () => {
         </div>
 
         <motion.div
-          className="relative flex w-full justify-center -mt-10 items-end z-10"
+          className="relative flex w-full justify-center -mt-15 items-center z-10"
           variants={itemVariants}
         >
           <motion.img
             src="/4.png"
             alt="Students with tech devices"
-            className="w-[50%] lg:w-[30%] h-auto object-contain"
+            className="w-[50%] lg:w-[30%] -mt- h-auto object-contain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -210,7 +210,7 @@ const HeroSection = () => {
           />
         </motion.div>
 
-        <div className="absolute -bottom-0 left-0 right-0 z-20 pointer-events-none">
+        <div className="absolute -bottom-2 left-0  w-full z-20 pointer-events-none">
           <img src="/Bg.png" className="w-full" />
         </div>
       </div>

@@ -92,7 +92,7 @@ const PartnersSection = () => {
                     />
                   </svg>
                 </div>
-                <img src={`${card.icon}`} className="" alt="" />
+                {card.icon} 
 
                 <div className="absolute bottom-0 right-0">
                   <svg

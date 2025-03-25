@@ -19,9 +19,9 @@ export default function Home() {
         <HeroSection />
         <FindYourPlace />
         <EventsSection />
-        <SponsorsSection />
         <PathwaysSection />
-        <TestimonialsSection />
+        <TestimonialsSection /> 
+        <SponsorsSection />
       </div>
       <div className=" bg-[#0A0A0B]">
       <Footer />

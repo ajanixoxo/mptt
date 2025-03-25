@@ -261,7 +261,7 @@ const UpcomingEvent = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 my-6">{event.description}</p>
+                    <p className="text-gray-300 my-6  min-h-16 ">{event.description}</p>
 
                     <motion.button
                       whileHover={{ scale: 1.05 }}
