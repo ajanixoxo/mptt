@@ -16,7 +16,7 @@ interface ScrapedEvent {
   isOnline: boolean
   thirdPartyLink: string
   thirdPartyEventId: string | null
-  imageUrl?: string | null
+  imageUrl: string 
 }
 
 export default function CreateEventPage() {
@@ -31,6 +31,7 @@ export default function CreateEventPage() {
     event_date: "",
     event_time: "",
     is_online: false,
+    imageUrl: "",
     location: "",
     meeting_app: "",
     status: "active",
@@ -61,6 +62,7 @@ export default function CreateEventPage() {
 
     if (!formData.title.trim()) newErrors.title = "Title is required"
     if (!formData.description.trim()) newErrors.description = "Description is required"
+     if (!formData.imageUrl.trim()) newErrors.imageUrl = "Image is required"
     if (!formData.event_date) newErrors.event_date = "Event date is required"
     if (!formData.event_time) newErrors.event_time = "Event time is required"
     if (!formData.is_online && !formData.location.trim()) {
@@ -93,6 +95,7 @@ export default function CreateEventPage() {
           description: formData.description,
           eventDate: `${formData.event_date}T${formData.event_time}`,
           isOnline: formData.is_online,
+          imageUrl: formData.imageUrl,
           location: formData.is_online ? formData.meeting_app : formData.location,
           status: formData.status,
           thirdPartyLink: formData.thirdPartyLink || null,
@@ -155,6 +158,7 @@ export default function CreateEventPage() {
           event_date: event.eventDate || formData.event_date,
           event_time: event.eventTime || formData.event_time,
           is_online: event.isOnline !== undefined ? event.isOnline : formData.is_online,
+          imageUrl: event.imageUrl || formData.imageUrl, 
           location: !event.isOnline ? event.location || formData.location : formData.location,
           meeting_app: event.isOnline ? event.location || formData.meeting_app : formData.meeting_app,
           thirdPartyLink: event.thirdPartyLink || formData.thirdPartyLink,
@@ -249,6 +253,9 @@ export default function CreateEventPage() {
                   <p className="text-blue-700">
                     <strong>Event ID:</strong> {scrapedPreview.thirdPartyEventId || "Not found"}
                   </p>
+                  <p className="text-blue-700">
+                    <strong>Image:</strong> {scrapedPreview.imageUrl || "Not found"}
+                  </p>
                 </div>
               </div>
 
@@ -306,6 +313,7 @@ export default function CreateEventPage() {
                     value={formData.event_date}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${errors.event_date ? "border-red-500" : "border-gray-300"} rounded-md`}
+                    placeholder="https"
                   />
                   {errors.event_date && <p className="mt-1 text-sm text-red-500">{errors.event_date}</p>}
                 </div>
@@ -318,6 +326,7 @@ export default function CreateEventPage() {
                     value={formData.event_time}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${errors.event_time ? "border-red-500" : "border-gray-300"} rounded-md`}
+                      placeholder="https"
                   />
                   {errors.event_time && <p className="mt-1 text-sm text-red-500">{errors.event_time}</p>}
                 </div>
@@ -388,6 +397,26 @@ export default function CreateEventPage() {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
+                     Event Image Url
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <LinkIcon size={16} className="text-gray-400" />
+                      </div>
+                      <input
+                        type="url"
+                        name="imageUrl"
+                        value={formData.imageUrl}
+                        onChange={handleChange}
+                        className={`w-full pl-10 px-4 py-2 border ${errors.imageUrl ? "border-red-500" : "border-gray-300"} rounded-md`}
+                        placeholder="https://example.com/register"
+                      />
+                    </div>
+                    {errors.thirdPartyLink && <p className="mt-1 text-sm text-red-500">{errors.imageUrl}</p>}
+                 
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Third-Party Registration Link
                     </label>
                     <div className="relative">
@@ -408,7 +437,6 @@ export default function CreateEventPage() {
                       Users will be redirected to this link after registering on our platform
                     </p>
                   </div>
-
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Third-Party Event ID (Optional)
@@ -426,6 +454,7 @@ export default function CreateEventPage() {
                     </p>
                   </div>
                 </div>
+
               </div>
 
               {/* Submit Button */}

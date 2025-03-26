@@ -125,7 +125,7 @@ const Curriculum = () => {
                         >
                             <motion.button
                                 onClick={() => toggleModule(module.id)}
-                                className="w-full flex items-center justify-between p-6 bg-gray-800/50 text-left"
+                                className="w-full flex items-center justify-between p-6 cursor-pointer  bg-gray-800/50 text-left"
                                 whileHover={{ backgroundColor: "rgba(75, 85, 99, 0.5)" }}
                             >
                                 <div className="flex items-center">

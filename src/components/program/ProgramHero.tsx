@@ -128,7 +128,7 @@ const ProgramHero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#F9C23A]  text-black px-6 md:py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                className="bg-[#F9C23A] cursor-pointer  text-black px-6 md:py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
               >
                 <span className="w-max">Apply Now</span>
                 <CircleArrowUp className="rotate-45" size={20} />
@@ -137,7 +137,7 @@ const ProgramHero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#74767F] text-white px-6 py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                className="bg-[#74767F] cursor-pointer text-white px-6 py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
               >
                 <span  className="w-max">Explore Paths</span>
                 <CircleArrowUp className="rotate-45" size={20} />

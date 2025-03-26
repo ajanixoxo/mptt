@@ -64,6 +64,10 @@ const EventsSection = () => {
   const [success, setSuccess] = useState(false)
   const [redirectCountdown, setRedirectCountdown] = useState(3)
 
+  const truncateTitle = (title: string, wordLimit: number) => {
+    const words = title.split(" ");
+    return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : title;
+  };
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -184,7 +188,7 @@ const EventsSection = () => {
       <section id="events">
 
       <div className="absolute flex flex-row-reverse justify-between w-full -mt-10 lg:mt-10 right-0">
-        <img src="/s_half.png" className="w-5 rotate-10 md:w-15" />
+        <img src="/s_half.png" alt=""  className="w-5 rotate-10 md:w-15" />
 
         <div className=" left-20">
           <motion.div
@@ -197,7 +201,7 @@ const EventsSection = () => {
             }}
             className="absolute top-[0%] left-[5%] text-[#1D1FB175]"
           >
-            <img src="/s-star.png" className="w-7 md:w-12" />
+            <img src="/s-star.png" alt="" className="w-7 md:w-12" />
           </motion.div>
           <FloatingShape
             color="from-[#1F22CA] to-transparent"
@@ -222,7 +226,7 @@ const EventsSection = () => {
               <Loader2 size={40} className="animate-spin text-[#989BAE]" />
             </div>
           ) : events.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-2">
               {events.map((event, index) => (
                 <motion.div
                   key={event.id}
@@ -234,7 +238,7 @@ const EventsSection = () => {
                 >
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-xl font-bold text-white w-max">{event.title}</h3>
+                      <h3 className="text-xl font-bold text-white w-max">{truncateTitle(event.title, 4)}</h3>
                       <span
                         className={`text-xs px-3 py-1  rounded-full bg-[#2B2B2B] w-max ${
                           event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
@@ -251,7 +255,7 @@ const EventsSection = () => {
                       </div>
                       <div className="flex items-center">
                         <Clock size={16} className="mr-2" />
-                        <span>{new Date(event.eventDate).toLocaleTimeString()}</span>
+                        <span>{new Date(event.eventDate).toLocaleTimeString(undefined, {timeStyle:'short'})}</span>
                       </div>
                       <div className="flex items-center">
                         <MapPin size={16} className="mr-2" />
@@ -259,7 +263,7 @@ const EventsSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-300  min-h-24 ">{event.description}</p>
+                    <p className="text-gray-300  min-h-24 m-2 p-2 ">{event.description}</p>
 
                     <motion.button
                       whileHover={{ scale: 1.05 }}

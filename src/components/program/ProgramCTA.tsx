@@ -80,7 +80,7 @@ const ProgramCTA = () => {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-[#def134]  transition text-black md:px-8  p-4 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                                className="bg-[#def134]  transition text-black md:px-8 cursor-pointer  p-4 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
                             >
                                 <span className="w-max">Apply Now</span>
                                 <CircleArrowUp className="rotate-45" size={20} />

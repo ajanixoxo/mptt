@@ -91,6 +91,7 @@ export async function PUT(request: NextRequest, context: { params: Promise<{ id:
         status: eventData.status,
         thirdPartyLink: eventData.thirdPartyLink || null,
         thirdPartyEventId: eventData.thirdPartyEventId || null,
+        imageUrl: eventData.imageUrl
       },
     })
 

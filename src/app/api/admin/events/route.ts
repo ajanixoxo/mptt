@@ -85,6 +85,7 @@ export async function POST(request: Request) {
         location: eventData.location,
         eventDate: new Date(eventData.eventDate),
         isOnline: eventData.isOnline || false,
+        imageUrl: eventData.imageUrl,
         status: eventData.status || "active",
         thirdPartyLink: eventData.thirdPartyLink || null, // Add third-party link
         thirdPartyEventId: eventData.thirdPartyEventId || null, // Add third-party event ID

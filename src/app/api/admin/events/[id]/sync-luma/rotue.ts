@@ -93,6 +93,7 @@ export async function POST(request: Request, context: { params: { id: string } }
         location: eventData.location,
         eventDate: eventDate,
         isOnline: eventData.isOnline,
+        imageUrl: eventData.imageUrl ?? ""
       },
     })
 

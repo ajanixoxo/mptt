@@ -96,7 +96,7 @@ const PathwaysSection = () => {
                   animate={isInView ? "visible" : "visible"}
                 >
                   <motion.button
-                    className="bg-[#74767F]  w-full text-center  justify-center   text-white px-6 py-3 rounded-2xl font-medium inline-flex items-center space-x-2"
+                    className="bg-[#74767F]  w-full text-center cursor-pointer  justify-center   text-white px-6 py-3 rounded-2xl font-medium inline-flex items-center space-x-2"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

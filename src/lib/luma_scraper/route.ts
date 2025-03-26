@@ -9,7 +9,7 @@ export interface LumaEventData {
   isOnline: boolean
   thirdPartyLink: string
   thirdPartyEventId: string | null
-  imageUrl?: string | null
+  imageUrl: string | null
   rawHtml?: string
 }
 
@@ -165,8 +165,86 @@ export async function scrapeLumaEvent(lumaUrl: string, includeRawHtml = false): 
       location.toLowerCase().includes("teams")
   }
 
-  // Extract image URL
-  const imageUrl = $('meta[property="og:image"]').attr("content") || $('img[class*="cover"]').attr("src") || null
+  // Extract image URL using multiple methods
+  let imageUrl: string | null = null
+
+  // Method 1: Check Open Graph meta tags (most reliable)
+  imageUrl = $('meta[property="og:image"]').attr("content") || $('meta[name="twitter:image"]').attr("content") || null
+
+  // Method 2: Look for cover images or hero images
+  if (!imageUrl) {
+    // Look for images with classes that suggest they're cover/hero images
+    const coverImg = $(
+      'img[class*="cover"], img[class*="hero"], img[class*="banner"], div[class*="coverImage"] img',
+    ).first()
+    if (coverImg.length) {
+      imageUrl = coverImg.attr("src") || null
+    }
+  }
+
+  // Method 3: Look for the largest image on the page (often the event image)
+  // if (!imageUrl) {
+  //  let largestImg = null;
+
+  //   let largestArea = 0
+
+  //   $("img").each(function () {
+  //     const width = Number.parseInt($(this).attr("width") || "0", 10)
+  //     const height = Number.parseInt($(this).attr("height") || "0", 10)
+
+  //     if (width && height) {
+  //       const area = width * height
+  //       if (area > largestArea) {
+  //         largestArea = area
+  //         largestImg = $(this)
+  //       }
+  //     }
+  //   })
+
+  //   if (largestImg && largestArea > 10000) {
+  //     // Only use if it's reasonably large
+  //     imageUrl = largestImg.attr("src") || null
+  //   }
+  // }
+
+  // Method 4: Check for structured data
+  if (!imageUrl) {
+    $('script[type="application/ld+json"]').each(function () {
+      try {
+        const data = JSON.parse($(this).text())
+        if (data.image) {
+          imageUrl =
+            typeof data.image === "string"
+              ? data.image
+              : Array.isArray(data.image)
+                ? data.image[0]
+                : data.image.url || null
+        }
+      } catch (e) {
+        // Ignore parsing errors
+        console.log(e)
+      }
+    })
+  }
+
+  // Method 5: Look for any image in the main content area that might be relevant
+  if (!imageUrl) {
+    const contentImages = $("main img, article img, .content img, .event-content img").first()
+    if (contentImages.length) {
+      imageUrl = contentImages.attr("src") || null
+    }
+  }
+
+  // Ensure the image URL is absolute
+  if (imageUrl && !imageUrl.startsWith("http")) {
+    // Handle relative URLs
+    if (imageUrl.startsWith("//")) {
+      imageUrl = "https:" + imageUrl
+    } else {
+      const baseUrl = new URL(lumaUrl).origin
+      imageUrl = new URL(imageUrl, baseUrl).toString()
+    }
+  }
 
   return {
     title,
