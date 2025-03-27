@@ -14,6 +14,7 @@ interface Event {
   isOnline: boolean
   status: string
   thirdPartyLink?: string | null
+  imageUrl: string
 }
 
 // Dummy events data to use when no events are available
@@ -27,6 +28,7 @@ const dummyEvents: Event[] = [
       "Learn the basics of HTML, CSS, and JavaScript in this beginner-friendly workshop. Perfect for those looking to start their journey in web development.",
     isOnline: false,
     status: "active",
+    imageUrl: '',
   },
   {
     id: "dummy-2",
@@ -37,16 +39,18 @@ const dummyEvents: Event[] = [
       "Join our intensive 3-hour coding bootcamp where we'll cover modern JavaScript frameworks and best practices for frontend development.",
     isOnline: true,
     status: "active",
+    imageUrl: '',
   },
   {
     id: "dummy-3",
     title: "Tech Career Fair",
-    eventDate: new Date(Date.now() + 21 * 24* 60 * 60 * 1000).toISOString(), // 3 weeks from now
+    eventDate: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).toISOString(), // 3 weeks from now
     location: "Community Center",
     description:
       "Connect with top tech companies hiring in your area. Bring your resume and be ready to network with industry professionals.",
     isOnline: false,
     status: "active",
+    imageUrl: '',
   },
 ]
 
@@ -187,32 +191,32 @@ const EventsSection = () => {
     <div className="relative">
       <section id="events">
 
-      <div className="absolute flex flex-row-reverse justify-between w-full -mt-10 lg:mt-10 right-0">
-        <img src="/s_half.png" alt=""  className="w-5 rotate-10 md:w-15" />
+        <div className="absolute flex flex-row-reverse justify-between w-full -mt-10 lg:mt-10 right-0">
+          <img src="/s_half.png" alt="" className="w-5 rotate-10 md:w-15" />
 
-        <div className=" left-20">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: 0.5,
-            }}
-            className="absolute top-[0%] left-[5%] text-[#1D1FB175]"
-          >
-            <img src="/s-star.png" alt="" className="w-7 md:w-12" />
-          </motion.div>
-          <FloatingShape
-            color="from-[#1F22CA] to-transparent"
-            size="w-60 h-60 "
-            top=""
-            position="absolute left-[-20%] lg:left-0 lg:-top-[30%]"
-            left=""
-            delay={0}
-          />
+          <div className=" left-20">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                delay: 0.5,
+              }}
+              className="absolute top-[0%] left-[5%] text-[#1D1FB175]"
+            >
+              <img src="/s-star.png" alt="" className="w-7 md:w-12" />
+            </motion.div>
+            <FloatingShape
+              color="from-[#1F22CA] to-transparent"
+              size="w-60 h-60 "
+              top=""
+              position="absolute left-[-20%] lg:left-0 lg:-top-[30%]"
+              left=""
+              delay={0}
+            />
+          </div>
         </div>
-      </div>
         <div className="container mx-auto max-w-7xl">
           <motion.div className="text-center mb-12 mt-2">
             <h2 className="main_text text-3xl font-bold mb-4">Upcoming Events</h2>
@@ -236,13 +240,15 @@ const EventsSection = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-[#232224B2] backdrop-blur-sm rounded-xl overflow-hidden relative"
                 >
-                  <div className="p-6">
+                  <div className="p-6 space-y-2">
+                    <div>
+                      <img src={event.imageUrl} alt="" className="rounded-xl" />
+                    </div>
                     <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-xl font-bold text-white w-max">{truncateTitle(event.title, 4)}</h3>
+                      <h3 className="text-xl font-bold text-white w-max">{truncateTitle(event.title, 5)}</h3>
                       <span
-                        className={`text-xs px-3 py-1  rounded-full bg-[#2B2B2B] w-max ${
-                          event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
-                        }`}
+                        className={`text-xs px-3 py-1  rounded-full bg-[#2B2B2B] w-max ${event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
+                          }`}
                       >
                         {event.isOnline ? "Online" : "In-person"}
                       </span>
@@ -255,15 +261,15 @@ const EventsSection = () => {
                       </div>
                       <div className="flex items-center">
                         <Clock size={16} className="mr-2" />
-                        <span>{new Date(event.eventDate).toLocaleTimeString(undefined, {timeStyle:'short'})}</span>
+                        <span>{new Date(event.eventDate).toLocaleTimeString(undefined, { timeStyle: 'short' })}</span>
                       </div>
                       <div className="flex items-center">
                         <MapPin size={16} className="mr-2" />
-                        <span>{event.location}</span>
+                        <span>{truncateTitle(event.location, 5)}</span>
                       </div>
                     </div>
 
-                    <p className="text-gray-300  min-h-24 m-2 p-2 ">{event.description}</p>
+                    <p className="text-gray-300    p-2 ">{truncateTitle(event.description, 10)}</p>
 
                     <motion.button
                       whileHover={{ scale: 1.05 }}

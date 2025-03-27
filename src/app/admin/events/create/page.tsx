@@ -6,7 +6,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, LinkIcon, Download, Loader2, AlertCircle } from "lucide-react"
 import AdminSidebar from "@/components/admin/AdminSidebar"
-
+import toast from 'react-hot-toast'
 interface ScrapedEvent {
   title: string
   description: string
@@ -107,7 +107,7 @@ export default function CreateEventPage() {
         const errorData = await response.json()
         throw new Error(errorData.message || "Failed to create event")
       }
-
+     toast.success("Event Created")
       router.push("/admin/events")
     } catch (error) {
       console.error("Error creating event:", error)
@@ -165,6 +165,7 @@ export default function CreateEventPage() {
           thirdPartyEventId: event.thirdPartyEventId || formData.thirdPartyEventId,
         })
       }
+      toast.success("Event Scraped")
     } catch (error) {
       console.error("Error scraping event:", error)
       setErrors((prev) => ({
@@ -253,9 +254,9 @@ export default function CreateEventPage() {
                   <p className="text-blue-700">
                     <strong>Event ID:</strong> {scrapedPreview.thirdPartyEventId || "Not found"}
                   </p>
-                  <p className="text-blue-700">
+                  {/* <p className="text-blue-700 overflow-hidden">
                     <strong>Image:</strong> {scrapedPreview.imageUrl || "Not found"}
-                  </p>
+                  </p> */}
                 </div>
               </div>
 

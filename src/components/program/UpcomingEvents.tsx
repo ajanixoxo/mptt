@@ -13,6 +13,7 @@ interface Event {
   isOnline: boolean
   status: string
   thirdPartyLink?: string | null
+  imageUrl:string
 }
 
 // Dummy events data to use when no events are available
@@ -26,6 +27,7 @@ const dummyEvents: Event[] = [
       "Learn the basics of HTML, CSS, and JavaScript in this beginner-friendly workshop. Perfect for those looking to start their journey in web development.",
     isOnline: false,
     status: "active",
+    imageUrl:'',
   },
   {
     id: "dummy-2",
@@ -36,6 +38,7 @@ const dummyEvents: Event[] = [
       "Join our intensive 3-hour coding bootcamp where we'll cover modern JavaScript frameworks and best practices for frontend development.",
     isOnline: true,
     status: "active",
+    imageUrl:'',
   },
   {
     id: "dummy-3",
@@ -46,37 +49,10 @@ const dummyEvents: Event[] = [
       "Connect with top tech companies hiring in your area. Bring your resume and be ready to network with industry professionals.",
     isOnline: false,
     status: "active",
+    imageUrl:'',
   },
-  {
-    id: "dummy-4",
-    title: "Introduction to Web Dev",
-    eventDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 1 week from now
-    location: "Tech Hub, Downtown",
-    description:
-      "Learn the basics of HTML, CSS, and JavaScript in this beginner-friendly workshop. Perfect for those looking to start their journey in web development.",
-    isOnline: false,
-    status: "active",
-  },
-  {
-    id: "dummy-5",
-    title: "Virtual Coding Bootcamp",
-    eventDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString(), // 2 weeks from now
-    location: "Zoom",
-    description:
-      "Join our intensive 3-hour coding bootcamp where we'll cover modern JavaScript frameworks and best practices for frontend development.",
-    isOnline: true,
-    status: "active",
-  },
-  {
-    id: "dummy-6",
-    title: "Tech Career Fair",
-    eventDate: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).toISOString(), // 3 weeks from now
-    location: "Community Center",
-    description:
-      "Connect with top tech companies hiring in your area. Bring your resume and be ready to network with industry professionals.",
-    isOnline: false,
-    status: "active",
-  },
+  
+  
 ]
 
 const UpcomingEvent = () => {
@@ -214,7 +190,7 @@ const UpcomingEvent = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative mb-8">
       <section id="events">
         <div className="container mx-auto max-w-7xl">
           <motion.div className="text-center mb-12 mt-2">
@@ -239,7 +215,10 @@ const UpcomingEvent = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl overflow-hidden relative"
                 >
-                  <div className="p-6">
+                  <div className="p-6 space-y-3">
+                  <div>
+                      <img src={event.imageUrl} alt="" className="rounded-xl" />
+                    </div>
                     <div className="flex justify-between items-start mb-1">
                       <h3 className="text-xl font-bold text-white">{truncateTitle(event.title, 5)}</h3>
                       <span
@@ -262,11 +241,11 @@ const UpcomingEvent = () => {
                       </div>
                       <div className="flex items-center">
                         <MapPin size={16} className="mr-2" />
-                        <span>{event.location}</span>
+                        <span>{truncateTitle(event.location, 5)}</span>
                       </div>
                     </div>
 
-                    <p className="text-gray-300 my-6  min-h-16 m-2">{event.description}</p>
+                    <p className="text-gray-300    p-2 ">{truncateTitle(event.description, 10)}</p>
 
                     <motion.button
                       whileHover={{ scale: 1.05 }}

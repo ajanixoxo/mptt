@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { PlusCircle, Calendar, MapPin, Users, Trash, Edit } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
+import  {Toaster} from 'react-hot-toast'
 
 // Define TypeScript interfaces
 interface Event {
@@ -69,6 +70,7 @@ export default function EventsPage() {
 
   return (
     <div className="flex min-h-screen bg-gray-100">
+      <Toaster />
       <AdminSidebar />
       <div className="flex-1 p-8">
         <div className="flex justify-between items-center mb-8">
@@ -129,6 +131,7 @@ export default function EventsPage() {
                       e.stopPropagation();
                       router.push(`/admin/events/edit/${event.id}`);
                     }}
+                    type="button"
                     className="p-2 text-blue-600 hover:bg-blue-50 rounded-full"
                   >
                     <Edit size={18} />
@@ -136,6 +139,7 @@ export default function EventsPage() {
                   <button
                     onClick={(e) => handleDelete(event.id, e)}
                     className="p-2 text-red-600 hover:bg-red-50 rounded-full"
+                    type="button"
                   >
                     <Trash size={18} />
                   </button>
