@@ -336,7 +336,7 @@ const CoursesTabs = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full bg-[#74767F] cursor-pointer hover:bg-[#64656d] transition text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
+                    className="w-full bg-[#74767F] cursor-pointer transition text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
                   >
                     <span>Apply for This Pathway</span>
                     <CircleArrowUp className="ml-2" size={20} />
