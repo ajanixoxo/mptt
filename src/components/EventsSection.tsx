@@ -242,7 +242,7 @@ const EventsSection = () => {
                 >
                   <div className="p-6 space-y-2">
                     <div>
-                      <img src={event.imageUrl} alt="" className="rounded-xl" />
+                      <img src={event.imageUrl} alt="" className="rounded-sm" />
                     </div>
                     <div className="flex justify-between items-start mb-1">
                       <h3 className="text-xl font-bold text-white w-max">{truncateTitle(event.title, 5)}</h3>
@@ -269,16 +269,16 @@ const EventsSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-300    p-2 ">{truncateTitle(event.description, 10)}</p>
+                    <p className="text-gray-300 p-1 ">{truncateTitle(event.description, 10)}</p>
 
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => null}
-                      className="w-full bg-[#74767F] text-white border transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                      className="w-full bg-[#74767F] text-white border transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center cursor-pointer justify-center space-x-2"
                     >
                       <span>Register Now</span>
-                      <CircleArrowUp className="rotate-45" size={20} />
+                      <CircleArrowUp className="rotate-45 cursor-pointer" size={20} />
                     </motion.button>
                   </div>
                 </motion.div>

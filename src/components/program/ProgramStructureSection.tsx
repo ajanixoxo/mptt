@@ -69,7 +69,7 @@ const ProgramStructureSection = () => {
   const weeks2 = [
     {
       number: 6,
-      title: "Mid-Program Assessment & Career Development",
+      title: "Mid-Program Assessment & Career",
       description:
         "Receive feedback on your progress and begin focusing on career development alongside technical skills.",
       learnings: [
@@ -117,7 +117,7 @@ const ProgramStructureSection = () => {
     },
     {
       number: 10,
-      title: "Final Presentations & Career Launch",
+      title: " Presentations & Career Launch",
       description:
         "Present your capstone project and prepare for your job search with intensive interview preparation.",
       learnings: [
@@ -255,7 +255,7 @@ const ProgramStructureSection = () => {
                     </h3>
                   </div>
                   <p className="text-gray-400 mb-6">{week.description}</p>
-
+{/* 
                   <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
                     <h4 className="text-sm font-medium text-gray-300 mb-3">
                       What you'll learn:
@@ -292,7 +292,7 @@ const ProgramStructureSection = () => {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Arrow for desktop */}
@@ -352,7 +352,7 @@ const ProgramStructureSection = () => {
                   </div>
                   <p className="text-gray-400 mb-6">{week.description}</p>
 
-                  <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
+                  {/* <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
                     <h4 className="text-sm font-medium text-gray-300 mb-3">
                       What you'll learn:
                     </h4>
@@ -388,7 +388,7 @@ const ProgramStructureSection = () => {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             ))}
