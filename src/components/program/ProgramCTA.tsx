@@ -3,8 +3,12 @@
 import { motion } from "framer-motion"
 import { CircleArrowUp } from "lucide-react"
 import FloatingShape from "@/components/FloatingShape"
-
+import { useRouter } from 'next/navigation'
 const ProgramCTA = () => {
+    const router = useRouter()
+    const handleClick =() => {
+        router.push('/apply')
+      }
     return (
         <section className="py-20 px-4 relative overflow-hidden bg-green-600/10">
             {/* Floating shapes */}
@@ -81,6 +85,7 @@ const ProgramCTA = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-[#def134]  transition text-black md:px-8 cursor-pointer  p-4 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                                onClick={handleClick}
                             >
                                 <span className="w-max">Apply Now</span>
                                 <CircleArrowUp className="rotate-45" size={20} />

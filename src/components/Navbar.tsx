@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
 import { Menu, X, ChevronRight  } from "lucide-react"
 import Button from "./Button"
@@ -10,8 +10,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = usePathname()
+  const router = useRouter()
  const handleClick =() => {
-  
+   router.push('/apply')
  }
   // Close mobile menu when route changes
   useEffect(() => {
