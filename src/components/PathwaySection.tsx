@@ -118,7 +118,7 @@ const PathwaysSection = () => {
                     className="bg-[#74767F] w-full text-center cursor-pointer justify-center text-white px-6 py-3 rounded-2xl font-medium inline-flex items-center space-x-2"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => handlePush(pathway.id)} // Pass the course ID
+                    onClick={() => handlePush(pathway.id ?? "")} // Pass the course ID
                   >
                     <span>Explore Path</span>
                     <CircleArrowUp className="rotate-45" />
