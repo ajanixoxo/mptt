@@ -16,7 +16,8 @@ const pathways = [
     title: "Data Engineering",
     description: "Learn to collect, proceess, analyyse and extract meaningful insights.",
     icon: Database,
-    image: "/course (5).png",
+    image: "https://cdn.prod.website-files.com/64fef88ee8b22d3d21b715a2/657c2bfd9d07f76a47c70ce8_64c0dfda42c1ee625bb4640c_Blog%2520image%2520(1).webp",
+    id: "data", // Added ID to match with tabs
   },
   {
     title: "Software Engineering",
@@ -38,15 +39,8 @@ const pathways = [
     icon: Shield,
     image: "/course (4).png",
     id: "cyber", // Added ID to match with tabs
-  },
-  {
-    title: "Data Engineering",
-    description: " Work with real data and analytics.",
-    icon: Shield,
-    image:
-      "https://cdn.prod.website-files.com/64fef88ee8b22d3d21b715a2/657c2bfd9d07f76a47c70ce8_64c0dfda42c1ee625bb4640c_Blog%2520image%2520(1).webp",
-    id: "data", // Added ID to match with tabs
-  },
+  }
+  
 ]
 
 const PathwaysSection = () => {
@@ -107,7 +101,7 @@ const PathwaysSection = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 w-max">{pathway.title}</h3>
-                <p className="text-gray-400 mb-4">{pathway.description}</p>
+                <p className="text-gray-400 mb-4 h-16">{pathway.description}</p>
                 <motion.div
                   className="mt-12 text-center"
                   variants={itemVariants}

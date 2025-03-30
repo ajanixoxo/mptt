@@ -269,7 +269,7 @@ const EventsSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 p-1 ">{truncateTitle(event.description, 10)}</p>
+                    <p className="text-gray-300 p-1 h-14">{truncateTitle(event.description, 10)}</p>
 
                     <motion.button
                       whileHover={{ scale: 1.05 }}
