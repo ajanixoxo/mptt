@@ -216,7 +216,7 @@ const FindYourPlace = () => {
           className="text-center mb-12 relative"
         >
           <motion.h2
-            className="text-3xl main_text md:text-4xl font-bold mb-4 inline-flex items-center"
+            className="text-3xl main_text md:text-4xl font-bold mb-2 inline-flex items-center"
             variants={itemVariants}
           >
             Find Your Place in Tech
@@ -225,8 +225,7 @@ const FindYourPlace = () => {
             className="text-[#6a6464] max-w-2xl mx-auto sec_text"
             variants={itemVariants}
           >
-            Want to start a tech career, meet mentors, or connect with top
-            companies? Hack-A-Path is your chance!
+            Learn with us. Volunteer with us. Partner with us.
           </motion.p>
         </motion.div>
 

@@ -1,30 +1,36 @@
 "use client"
 import { motion, useInView } from "framer-motion"
-import { Monitor, Code, Database, Shield, CircleArrowUp } from "lucide-react"
+import { Monitor, Code, Database, Shield, CircleArrowUp, Settings } from "lucide-react"
 import { useRef } from "react"
 
 const pathways = [
   {
     title: "UI/UX Design",
-    description: "Learn modern design principles and tools.",
+    description: "Learn modern web design principles and tools.",
     icon: Monitor,
     image: "/course (1).png",
   },
   {
+    title: "Data Engineering",
+    description: "Learn to collect, proceess, analyyse and extract meaningful insights.",
+    icon: Database,
+    image: "/course (5).png",
+  },
+  {
     title: "Software Engineering",
-    description: "Master coding and software development.",
+    description: "Learn modern web application development.",
     icon: Code,
     image: "/course (2).png",
   },
   {
     title: "DevOps",
-    description: "Bridge development and operations.",
-    icon: Database,
+    description: "Learn to bridge development and operations.",
+    icon: Settings,
     image: "/course (3).png",
   },
   {
     title: "Cybersecurity",
-    description: "Protect Computer systems and networks.",
+    description: "Learn to attack & protect systems and networks.",
     icon: Shield,
     image: "/course (4).png",
   }
@@ -83,7 +89,7 @@ const PathwaysSection = () => {
                 />
                 {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" /> */}
                 <div className="absolute bottom-4 left-4">
-                  <pathway.icon className="text-purple-400" size={24} />
+                  <pathway.icon size={24} color="#F9C23A"/>
                 </div>
               </div>
               <div className="p-6">
