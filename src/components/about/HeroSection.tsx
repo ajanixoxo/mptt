@@ -3,8 +3,14 @@ import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import FloatingShape from "@/components/FloatingShape";
 import { CircleArrowUp } from "lucide-react";
+import { useRouter } from "next/navigation";
 const WhyChooseSection = () => {
   const tagControls = useAnimation();
+  const router = useRouter()
+  const handlePush = () => {
+    console.log("Reahced")
+    router.push('/path')
+  }
   useEffect(() => {
     let mounted = true;
 
@@ -168,6 +174,7 @@ const WhyChooseSection = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handlePush}
             >
               <span>Explore our Program</span>
               <CircleArrowUp className="rotate-45" />

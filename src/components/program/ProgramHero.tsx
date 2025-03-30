@@ -9,6 +9,10 @@ const ProgramHero = () => {
   const handleClick =() => {
     router.push('/apply')
   }
+  const handlePush = () => {
+    console.log("Reahced")
+    router.push('/path')
+  }
   return (
     <section className="pt-20 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden hero">
       {/* Floating shapes */}
@@ -143,6 +147,7 @@ const ProgramHero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#74767F] cursor-pointer text-white px-6 py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
+                onClick={handlePush}
               >
                 <span  className="w-max">Explore Paths</span>
                 <CircleArrowUp className="rotate-45" size={20} />

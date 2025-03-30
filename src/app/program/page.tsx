@@ -5,10 +5,11 @@ import ProgramCTA from "@/components/program/ProgramCTA";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProgramInfoSections from "@/components/program/ProgamInfo";
+import { Suspense } from "react";
 
 const Program = () => {
   return (
-    <>
+    <Suspense>
       <Navbar />
       <main className="bg-[#0A0A0B] min-h-screen hero-bg">
         {/* Content */}
@@ -21,7 +22,7 @@ const Program = () => {
       <div className=" mt-4 bg-[#0A0A0B]">
         <Footer />
       </div>
-    </>
+    </Suspense>
   );
 };
 

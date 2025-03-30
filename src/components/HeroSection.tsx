@@ -5,10 +5,15 @@ import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { CircleArrowUp } from "lucide-react";
 import FloatingShape from "@/components/FloatingShape";
+import { useRouter } from "next/navigation";
 const HeroSection = () => {
   // const isInView = useInView(ref, { once: true })
   const tagControls = useAnimation();
-
+ const router = useRouter()
+  const handlePush = () => {
+    console.log("Reahced")
+    router.push('/path')
+  }
   // // Animation for the tag component
   useEffect(() => {
     // Start the animation sequence for the tag
@@ -182,6 +187,7 @@ const HeroSection = () => {
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handlePush}
           >
             <span className="main_text">Discover Your Path</span>
             <CircleArrowUp className="rotate-45 w-4 lg:w-auto" />

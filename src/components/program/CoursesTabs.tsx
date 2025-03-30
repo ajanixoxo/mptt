@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code, Database, Shield, Palette, Settings } from "lucide-react";
 // import FloatingShape from "../../components/FloatingShape"
-import { CircleArrowUp } from "lucide-react";
+// import { CircleArrowUp } from "lucide-react";
+import { useSearchParams } from "next/navigation"
 
 const courses = [
   {
@@ -165,188 +166,196 @@ const courses = [
 ];
 
 const CoursesTabs = () => {
-  const [activeTab, setActiveTab] = useState("software");
-  const activeCourse = courses.find((course) => course.id === activeTab);
+  const [activeTab, setActiveTab] = useState("software")
+  const searchParams = useSearchParams()
+  const activeCourse = courses.find((course) => course.id === activeTab)
+
+ // Create a ref for the section
+ useEffect(() => {
+  // This ensures we start at the top of the page
+  window.scrollTo(0, 0)
+}, [])
+// Create a ref for the section and scroll anchor
+const sectionRef = useRef(null)
+const scrollAnchorRef = useRef<HTMLAnchorElement | null>(null);
+
+
+// Read the course parameter from URL when component mounts
+useEffect(() => {
+  const courseParam = searchParams.get("course")
+  if (courseParam && courses.some((course) => course.id === courseParam)) {
+    setActiveTab(courseParam)
+
+    // Simulate a click on the scroll anchor after a delay
+    setTimeout(() => {
+      if (scrollAnchorRef.current) {
+        scrollAnchorRef.current.click() 
+      }
+    }, 800) // Longer delay to ensure everything is loaded
+  }
+}, [searchParams])
+
 
   return (
-    <section className="py-20 px-4 relative">
-      {/* Floating shape */}
-      {/* <FloatingShape
-        size="w-96 h-96"
-        color="bg-gradient-to-r from-blue-500/20 to-purple-500/20 bottom-48 left-0"
-        top=""
-        left=""
-        delay={0}
-     position="absolute"
-      /> */}
+    <section className="py-20 px-4 relative" id="course-tabs-section" ref={sectionRef}>
+        <a ref={scrollAnchorRef} href="#course-tabs-section" className="hidden" aria-hidden="true">
+        Scroll to courses
+      </a>
+
       <div className="absolute top-6 left-0 rotate-180">
         <img src="/s_half.png" className="w-7 md:w-12" />
       </div>
 
-      <div className="container mx-auto max-w-7xl">
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center md:justify-between max-w-7xl bg-[#2B2B2B] p-1 rounded-2xl gap-4 mb-12">
-          {courses.map((course) => (
-            <motion.button
-              key={course.id}
-              onClick={() => setActiveTab(course.id)}
-              className={`md:px-6 py-3 rounded-2xl flex items-center space-x-2 transition-colors ${
-                activeTab === course.id
-                  ? "px-1 bg-[#F9C23A] text-black"
-                  : "bg-[#2B2B2B] text-white hover:bg-gray-700"
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <course.icon size={18} />
-              <span className="text-sm md:text-base">{course.title}</span>
-            </motion.button>
-          ))}
+        <h1 className="text-4xl font-bold mb-8 text-center">Our Programs</h1>
+        <p className="text-xl text-center max-w-3xl mx-auto mb-16">
+          Explore our comprehensive tech programs designed to prepare you for a successful career in the tech industry.
+        </p>
+
+        {/* Course tabs section */}
+     
+      
+        <div className="container mx-auto max-w-7xl">
+          {/* Tabs */}
+          <div className="flex flex-wrap justify-center md:justify-between max-w-7xl bg-[#2B2B2B] p-1 rounded-2xl gap-4 mb-12">
+            {courses.map((course) => (
+              <motion.button
+                key={course.id}
+                onClick={() => setActiveTab(course.id)}
+                className={`md:px-6 py-3 rounded-2xl flex items-center space-x-2 transition-colors ${
+                  activeTab === course.id ? "px-1 bg-[#F9C23A] text-black" : "bg-[#2B2B2B] text-white hover:bg-gray-700"
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <course.icon size={18} />
+                <span className="text-sm md:text-base">{course.title}</span>
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Content */}
+          <AnimatePresence mode="wait">
+            {activeCourse && (
+              <motion.div
+                key={activeCourse.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+              >
+                {/* Main Content - Left Side */}
+                <div className="bg-[#232224]/70 rounded-lg overflow-hidden">
+                  <div className="flex items-start p-6">
+                    <div className="w-20 h-20 mr-4 flex-shrink-0">
+                      <img
+                        src={activeCourse.image || "/placeholder.svg?height=80&width=80" || "/placeholder.svg"}
+                        alt={activeCourse.title}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    <h2 className="text-2xl font-bold text-white">{activeCourse.title}</h2>
+                  </div>
+
+                  <div className="p-6 pt-0">
+                    <p className="text-white mb-8">{activeCourse.description}</p>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-4">What You'll Learn</h3>
+                        <ul className="space-y-2">
+                          {activeCourse.skills.map((skill) => (
+                            <li key={skill} className="flex items-center">
+                              <div className="w-5 h-5 mr-2 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                                    stroke="#F9C23A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                  <path
+                                    d="M7.75 11.9999L10.58 14.8299L16.25 9.16992"
+                                    stroke="#F9C23A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <span className="text-white">{skill}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-4">Projects You'll Build</h3>
+                        <ul className="space-y-2">
+                          {activeCourse.projects.map((project) => (
+                            <li key={project} className="flex items-center">
+                              <div className="w-4 h-0.5 bg-[#FFBF00] mr-2"></div>
+                              <span className="text-white">{project}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Career Outcomes - Right Side */}
+                <div>
+                  <div className="bg-[#F9C23A] p-6 rounded-t-lg">
+                    <h3 className="text-2xl font-bold text-black">Career Outcomes</h3>
+                  </div>
+
+                  <div className="bg-[#232224]/70 p-6 rounded-b-lg">
+                    <div className="mb-8">
+                      <h4 className="text-xl font-bold text-white mb-4">Potential Roles</h4>
+                      <ul className="space-y-2">
+                        {activeCourse.careers.roles.map((role) => (
+                          <li key={role} className="flex items-center">
+                            <div className="w-2 h-2 bg-[#F9C23A] rounded-full mr-2"></div>
+                            <span className="text-white">{role}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="mb-8">
+                      <h4 className="text-xl font-bold text-white mb-2">Average Salary Range</h4>
+                      <p className="text-2xl font-bold text-[#F9C23A]">{activeCourse.careers.salary}</p>
+                    </div>
+
+                    <div className="mb-8">
+                      <h4 className="text-xl font-bold text-white mb-2">Industry Demand</h4>
+                      <p className="text-2xl font-bold text-[#F9C23A]">{activeCourse.careers.demand}</p>
+                      <p className="text-gray-300 text-sm">from Google</p>
+                    </div>
+
+                    {/* <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full bg-[#74767F] cursor-pointer transition text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
+                    >
+                      <span>Apply for This Pathway</span>
+                      <CircleArrowUp className="ml-2" size={20} />
+                    </motion.button> */}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Content */}
-        <AnimatePresence mode="wait">
-          {activeCourse && (
-            <motion.div
-              key={activeCourse.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-4"
-            >
-              {/* Main Content - Left Side */}
-              <div className="bg-[#232224]/70 rounded-lg overflow-hidden">
-                <div className="flex items-start p-6">
-                  <div className="w-20 h-20 mr-4 flex-shrink-0">
-                    <img
-                      src={
-                        activeCourse.image ||
-                        "/placeholder.svg?height=80&width=80"
-                      }
-                      alt={activeCourse.title}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                  <h2 className="text-2xl font-bold text-white">
-                    {activeCourse.title}
-                  </h2>
-                </div>
-
-                <div className="p-6 pt-0">
-                  <p className="text-white mb-8">{activeCourse.description}</p>
-
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-4">
-                        What You'll Learn
-                      </h3>
-                      <ul className="space-y-2">
-                        {activeCourse.skills.map((skill) => (
-                          <li key={skill} className="flex items-center">
-                            <div className="w-5 h-5 mr-2 rounded-full flex items-center justify-center flex-shrink-0">
-                              <svg
-                                width={24}
-                                height={24}
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
-                                  stroke="#F9C23A"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="M7.75 11.9999L10.58 14.8299L16.25 9.16992"
-                                  stroke="#F9C23A"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                            <span className="text-white">{skill}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-4">
-                        Projects You'll Build
-                      </h3>
-                      <ul className="space-y-2">
-                        {activeCourse.projects.map((project) => (
-                          <li key={project} className="flex items-center">
-                            <div className="w-4 h-0.5 bg-[#FFBF00] mr-2"></div>
-                            <span className="text-white">{project}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Career Outcomes - Right Side */}
-              <div>
-                <div className="bg-[#F9C23A] p-6 rounded-t-lg">
-                  <h3 className="text-2xl font-bold text-black">
-                    Career Outcomes
-                  </h3>
-                </div>
-
-                <div className="bg-[#232224]/70 p-6 rounded-b-lg">
-                  <div className="mb-8">
-                    <h4 className="text-xl font-bold text-white mb-4">
-                      Potential Roles
-                    </h4>
-                    <ul className="space-y-2">
-                      {activeCourse.careers.roles.map((role) => (
-                        <li key={role} className="flex items-center">
-                          <div className="w-2 h-2 bg-[#F9C23A] rounded-full mr-2"></div>
-                          <span className="text-white">{role}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mb-8">
-                    <h4 className="text-xl font-bold text-white mb-2">
-                      Average Salary Range
-                    </h4>
-                    <p className="text-2xl font-bold text-[#F9C23A]">
-                      {activeCourse.careers.salary}
-                    </p>
-                  </div>
-
-                  <div className="mb-8">
-                    <h4 className="text-xl font-bold text-white mb-2">
-                      Industry Demand
-                    </h4>
-                    <p className="text-2xl font-bold text-[#F9C23A]">
-                      {activeCourse.careers.demand}
-                    </p>
-                    <p className="text-gray-300 text-sm">from Google</p>
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full bg-[#74767F] cursor-pointer transition text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
-                  >
-                    <span>Apply for This Pathway</span>
-                    <CircleArrowUp className="ml-2" size={20} />
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
     </section>
   );
 };
