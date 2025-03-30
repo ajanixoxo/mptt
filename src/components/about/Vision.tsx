@@ -82,7 +82,7 @@ const VisionSection = () => {
             >
               <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-purple-500">50+</span>
-                <span className="text-gray-400">Expert Mento</span>
+                <span className="text-gray-400">Black Representation in Tech</span>
               </div>
             </motion.div>
             <motion.div
@@ -90,8 +90,8 @@ const VisionSection = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="flex i flex-col space-x-2">
-                <span className="text-3xl font-bold text-black">50+</span>
-                <span className="text-gray-400">Expert Mentor</span>
+                <span className="text-3xl font-bold text-black">2.6%</span>
+                <span className="text-gray-400">Black Representation in Tech</span>
               </div>
             </motion.div>
 

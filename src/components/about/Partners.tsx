@@ -4,7 +4,7 @@ const cards = [
   {
     title: "Partner with Us",
     description:
-      "Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!",
+      "Corporate, nonprofit, and academic partners — let's create opportunities that change lives.",
     icon:<svg width={156} height={140} viewBox="0 0 156 140" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
   <path d="M65.4853 7.23668C73.2278 2.75955 82.7722 2.75955 90.5147 7.23668L116.512 22.2696L137.754 37.6062C146.391 43.8417 150.127 54.8649 147.063 65.067L140.313 87.5404L130.031 111.386C126.247 120.161 117.793 126.011 108.247 126.459L78 127.88L47.7528 126.459C38.2075 126.011 29.7527 120.161 25.969 111.386L15.6868 87.5404L8.93676 65.067C5.87251 54.8649 9.60938 43.8417 18.246 37.6062L39.4883 22.2696L65.4853 7.23668Z" fill="white" />
   <g style={{mixBlendMode: 'luminosity'}}>
@@ -40,7 +40,7 @@ const PartnersSection = () => {
     <section className="py-20 px-4 relative">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Partners</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Partners</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Proud to partner with leading organizations in tech education.
           </p>

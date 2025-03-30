@@ -104,31 +104,13 @@ const ProgramHero = () => {
             </motion.div>
 
             <h1 className="text-4xl md:text-left text-center md:text-7xl font-bold lg:mb-6 text-white">
-              Choose Your <br />
-              Tech Path with
-              <motion.span
-                className="inline-block  text-white px-4 py-1 rounded-md"
-                animate={{
-                  scale: [1, 1.02, 1],
-                  rotate: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                }}
-              >
-                <img
-                  src="/d-skills.png"
-                  alt=""
-                  className="lg:w-[100%]   w-60  z-10 "
-                />
-              </motion.span>
+               Start here. <br />
+              3 Months. Hands-On.
             </h1>
 
             <p className="text-gray-400 text-lg mb-8 md:text-left text-center">
-              Join our 3-month adventure designed for 15-25 year olds and
-              kickstart your tech career with hands-on projects and expert
+              Join our 3-month adventure designed for 14-20 year olds and
+              kickstart your tech career with hands-on projects and
               mentorship.
             </p>
 

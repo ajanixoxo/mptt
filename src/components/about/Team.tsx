@@ -70,13 +70,13 @@ const TeamSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Meet Our Team</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-1 text-white">Meet Our Team</h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Led by industry veterans passionate about tech education
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1  place-items-center lg:grid-cols-3 gap-10 w-full">
+        <div className="grid grid-cols-1  place-items-center lg:grid-cols-3 w-full">
           {team.map((member, index) => (
             <motion.div
               key={member.name}

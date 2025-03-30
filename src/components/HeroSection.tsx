@@ -148,7 +148,7 @@ const HeroSection = () => {
               className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
               variants={itemVariants}
             >
-              Level Up Your Tech Skills
+              Shape Your Future.
              
             </motion.h1>
             <div className="relative  z-40 flex justify-center items-center flex-col md:flex-row">
@@ -156,10 +156,11 @@ const HeroSection = () => {
               className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
               variants={itemVariants}
             >
-               with
+         Start with
              
             </motion.h1>
-              <img src="/d-skills.png" className="lg:w-[70%]   w-full  z-10 " />
+              <img src="/d-skills.png" className="lg:w-[50%] ml-1  w-full  z-10 " />
+              
             </div>
           </div>
           <motion.div
@@ -178,12 +179,11 @@ const HeroSection = () => {
             className="text-[#817e7e] sec_text font-medium inline-block mb-3 text-[14px] lg:text-[18px] max-w-lg text-center relative  z-20"
             variants={itemVariants}
           >
-            Join Mypath2tech's awesome 3-month program and kickstart your tech
-            journey!
+            Build What Matters.
           </motion.p>
 
           <motion.button
-            className="bg-[#F9C23A] main_text sec_text mx-auto   transition button font-semibold cursor-pointer  p-3 md:py-1 md:px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
+            className="bg-[#F9C23A] main_text sec_text mx-auto lg:my-4 lg:text-lg  transition button font-semibold cursor-pointer  p-3 md:py-1 md:px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

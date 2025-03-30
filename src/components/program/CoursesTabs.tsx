@@ -356,6 +356,150 @@ useEffect(() => {
           </AnimatePresence>
         </div>
 
+
+        {/* Content */}
+        <AnimatePresence mode="wait">
+          {activeCourse && (
+            <motion.div
+              key={activeCourse.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+            >
+              {/* Main Content - Left Side */}
+              <div className="bg-[#232224]/70 rounded-lg overflow-hidden">
+                <div className="flex items-start p-6">
+                  <div className="w-20 h-20 mr-4 flex-shrink-0">
+                    <img
+                      src={
+                        activeCourse.image ||
+                        "/placeholder.svg?height=80&width=80"
+                      }
+                      alt={activeCourse.title}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <h2 className="text-2xl font-bold text-white">
+                    {activeCourse.title}
+                  </h2>
+                </div>
+
+                <div className="p-6 pt-0">
+                  <p className="text-white mb-8">{activeCourse.description}</p>
+
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">
+                        What You'll Learn
+                      </h3>
+                      <ul className="space-y-2">
+                        {activeCourse.skills.map((skill) => (
+                          <li key={skill} className="flex items-center">
+                            <div className="w-5 h-5 mr-2 rounded-full flex items-center justify-center flex-shrink-0">
+                              <svg
+                                width={24}
+                                height={24}
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                                  stroke="#F9C23A"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                                <path
+                                  d="M7.75 11.9999L10.58 14.8299L16.25 9.16992"
+                                  stroke="#F9C23A"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </div>
+                            <span className="text-white">{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">
+                        Projects You'll Build
+                      </h3>
+                      <ul className="space-y-2">
+                        {activeCourse.projects.map((project) => (
+                          <li key={project} className="flex items-center">
+                            <div className="w-4 h-0.5 bg-[#FFBF00] mr-2"></div>
+                            <span className="text-white">{project}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Career Outcomes - Right Side */}
+              <div>
+                <div className="bg-[#F9C23A] p-6 rounded-t-lg">
+                  <h3 className="text-2xl font-bold text-black">
+                    Career Outcomes
+                  </h3>
+                </div>
+
+                <div className="bg-[#232224]/70 p-6 rounded-b-lg">
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-white mb-4">
+                      Potential Roles
+                    </h4>
+                    <ul className="space-y-2">
+                      {activeCourse.careers.roles.map((role) => (
+                        <li key={role} className="flex items-center">
+                          <div className="w-2 h-2 bg-[#F9C23A] rounded-full mr-2"></div>
+                          <span className="text-white">{role}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-white">
+                      Average Salary Range
+                    </h4>
+                    <p className="text-2xl font-bold text-[#F9C23A]">
+                      {activeCourse.careers.salary}
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-white">
+                      Industry Demand
+                    </h4>
+                    <p className="text-2xl font-bold text-[#F9C23A]">
+                      {activeCourse.careers.demand}
+                    </p>
+                    <p className="text-gray-300 text-sm my-2">from Google</p>
+                  </div>
+
+                  {/* <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full bg-[#74767F] cursor-pointer transition text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
+                  >
+                    <span>Apply for This Pathway</span>
+                    <CircleArrowUp className="ml-2" size={20} />
+                  </motion.button> */}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   );
 };

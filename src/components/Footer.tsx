@@ -38,24 +38,7 @@ const Footer = () => {
               and mentorship.
               <div className="flex gap-4 mt-3">
                 <SocialLink
-                  href="#"
-                  icon={
-                    <svg
-                      width={23}
-                      height={23}
-                      viewBox="0 0 23 23"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.55556 0H20.4444C21.1222 0 21.7722 0.269245 22.2515 0.748505C22.7308 1.22776 23 1.87778 23 2.55556V20.4444C23 21.1222 22.7308 21.7722 22.2515 22.2515C21.7722 22.7308 21.1222 23 20.4444 23H2.55556C1.87778 23 1.22776 22.7308 0.748505 22.2515C0.269245 21.7722 0 21.1222 0 20.4444V2.55556C0 1.87778 0.269245 1.22776 0.748505 0.748505C1.22776 0.269245 1.87778 0 2.55556 0ZM19.1667 2.55556H15.9722C14.7861 2.55556 13.6486 3.02674 12.8099 3.86544C11.9712 4.70414 11.5 5.84167 11.5 7.02778V10.2222H8.94444V14.0556H11.5V23H15.3333V14.0556H19.1667V10.2222H15.3333V7.66667C15.3333 7.32778 15.468 7.00277 15.7076 6.76314C15.9472 6.52351 16.2722 6.38889 16.6111 6.38889H19.1667V2.55556Z"
-                        fill="white"
-                      />
-                    </svg>
-                  }
-                />
-                <SocialLink
-                  href="#"
+                  href="https://www.instagram/mypath2tech"
                   icon={
                     <svg
                       width={25}
@@ -72,7 +55,7 @@ const Footer = () => {
                   }
                 />
                 <SocialLink
-                  href="#"
+                  href="https://www.linkedin.com/in/mypath2tech"
                   icon={
                     <svg
                       width={23}
@@ -95,7 +78,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold mb-4 text-white">
+            <h3 className="text-lg font-semibold mb-4 text-[#1C1C1C] bg-[#F9C23A] w-fit px-2 rounded-lg">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -106,15 +89,15 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#1C1C1C] bg-[#F9C23A] w-fit px-2 rounded-lg">Contact</h3>
             <ul className="space-y-2">
               <FooterLink href="">info@mypath2tech.ca</FooterLink>
-              <FooterLink href="">Windsor Ontario, Canada</FooterLink>
+              <FooterLink href="">Windsor, Ontario.</FooterLink>
             </ul>
           </div>
         </div>
 
-        <div className="m pt-3  relative z-20  text-center text-white">
+        <div className="m pt-3  relative z-20  text-center text-white text-sm">
           <p>
             &copy; {new Date().getFullYear()} Mypath2tech. All rights reserved.
           </p>

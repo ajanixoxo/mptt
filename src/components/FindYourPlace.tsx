@@ -7,7 +7,7 @@ const cards = [
   {
     title: "Join a Cohort",
     description:
-      "Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!",
+      "Our 3-month program gives you hands-on experience, mentorship, and a clear path into the tech industry.",
     icon: (
       <svg
         width={156}
@@ -58,9 +58,9 @@ const cards = [
     bg: "f1",
   },
   {
-    title: "Find a Mentor",
+    title: "Volunteer with Us",
     description:
-      "Volunteer with Us Passionate about tech and helping others? Join us to mentor, inspire, and make an impact in the next generation of tech leaders!",
+      "Join a crew of changemakers building, mentoring, and bridging the digital gap for underserved communities.",
     icon: (
       <svg
         width={156}
@@ -113,7 +113,7 @@ const cards = [
   {
     title: "Partner with Us",
     description:
-      "Want to start a tech career, meet mentors, or connect with top companies? Hack-A-Path is your chance!",
+      "Corporate, nonprofit, and academic partners — let's create opportunities that change lives.",
     icon: (
       <svg
         width={156}
@@ -216,7 +216,7 @@ const FindYourPlace = () => {
           className="text-center mb-12 relative"
         >
           <motion.h2
-            className="text-3xl main_text md:text-4xl font-bold mb-4 inline-flex items-center"
+            className="text-3xl main_text md:text-4xl font-bold mb-2 inline-flex items-center"
             variants={itemVariants}
           >
             Find Your Place in Tech
@@ -225,8 +225,7 @@ const FindYourPlace = () => {
             className="text-[#6a6464] max-w-2xl mx-auto sec_text"
             variants={itemVariants}
           >
-            Want to start a tech career, meet mentors, or connect with top
-            companies? Hack-A-Path is your chance!
+            Learn with us. Volunteer with us. Partner with us.
           </motion.p>
         </motion.div>
 

@@ -66,7 +66,7 @@ const EligibilitySection = () => {
                 <p className="text-gray-400 text-[16px] md:text-lg">
                   You must be between{" "}
                  
-                    15-24 years old
+                    14-20 years old
                  
                   at the time of application.
                 </p>
@@ -104,7 +104,7 @@ const EligibilitySection = () => {
                   <span className="text ">
                     15-20 hours per week
                   </span>{" "}
-                  for the full 3-month program duration.
+                  for the program duration.
                 </p>
               </div>
             </div>
@@ -112,8 +112,7 @@ const EligibilitySection = () => {
             <div className="mt-10 p-4 border-2 mb-3 border-gray-600 rounded-lg bg-[#1E1E1E]/50">
             <p className="text-gray-300">
               <span className="font-semibold">Note:</span> No prior coding or
-              tech experience is required. We welcome applicants from all
-              educational backgrounds!
+              tech experience is required.
             </p>
           </div>
           </div>
