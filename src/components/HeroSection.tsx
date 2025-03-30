@@ -173,8 +173,7 @@ const HeroSection = () => {
             className="text-[#817e7e] sec_text font-medium inline-block mb-3 text-[14px] lg:text-[18px] max-w-lg text-center relative  z-20"
             variants={itemVariants}
           >
-            Join Mypath2tech's awesome 3-month program and kickstart your tech
-            journey!
+            Build What Matters.
           </motion.p>
 
           <motion.button

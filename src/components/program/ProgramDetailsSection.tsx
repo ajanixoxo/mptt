@@ -54,11 +54,11 @@ const ProgramDetailsSection = () => {
             className="bg-[#232224B2]/80 backdrop-blur-sm rounded-xl p-8"
           >
             <h3 className="md:text-3xl text-2xl font-bold text-white mb-4">
-              Next Cohort: Fall 2025
+              Next Cohort: Summer 2025
             </h3>
             <div className="flex items-center text-gray-400">
               <Calendar className="w-5 h-5 mr-2" />
-              <span className="text-sm md:text-base">September 1 - November 30, 2025</span>
+              <span className="text-sm md:text-base">June 16th, 2025 - August 16th, 2025</span>
             </div>
           </motion.div>
 
@@ -75,7 +75,7 @@ const ProgramDetailsSection = () => {
             </h3>
             <div className="flex items-center text-gray-400">
               <Clock className="w-5 h-5 mr-2" />
-              <span>July 15, 2025</span>
+              <span>June 1st, 2025</span>
             </div>
           </motion.div>
         </div>
@@ -92,8 +92,8 @@ const ProgramDetailsSection = () => {
             Limited Spots Available!
           </h3>
           <p className="text-gray-400 text-base lg:text-lg">
-            Only 30 spots per pathway. Apply now to secure your place in our
-            Fall 2025 cohort.
+            Apply now to secure your place in our
+            Summer 2025 cohort.
           </p>
         </motion.div>
       </div>
