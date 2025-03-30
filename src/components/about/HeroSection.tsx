@@ -140,27 +140,11 @@ const WhyChooseSection = () => {
             </div>
 
             <h1 className="main_text text-center md:text-left text-5xl md:text-7xl font-bold  text-white">
-              Why Choose{" "}
-              <span className="inline-block">
-                <motion.span
-                  className="inline-block  text-white px-4 py-1 rounded-md"
-                  animate={{
-                    scale: [1, 1.02, 1],
-                    rotate: [0, 1, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                  }}
-                >
-                  <img src="/whychoose.png" className="lg:w-[70%]  z-10 " />
-                </motion.span>
-              </span>
+              One <span className="text-[#F9C23A]">Aim.</span>{" "} <br/>
+              Secure Internships.
             </h1>
             <p className="text-gray-400 sec_text text-center md:text-left text-lg mb-8 max-w-lg">
-              Many young people want a tech career but don't know where to
-              start. That's where we come in!
+              Many young people want a tech career but don't have access to crucial information and the right guidance.
             </p>
 
             <motion.button

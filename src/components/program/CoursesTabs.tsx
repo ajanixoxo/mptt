@@ -315,7 +315,7 @@ const CoursesTabs = () => {
                   </div>
 
                   <div className="mb-8">
-                    <h4 className="text-xl font-bold text-white mb-2">
+                    <h4 className="text-xl font-bold text-white">
                       Average Salary Range
                     </h4>
                     <p className="text-2xl font-bold text-[#F9C23A]">
@@ -324,13 +324,13 @@ const CoursesTabs = () => {
                   </div>
 
                   <div className="mb-8">
-                    <h4 className="text-xl font-bold text-white mb-2">
+                    <h4 className="text-xl font-bold text-white">
                       Industry Demand
                     </h4>
                     <p className="text-2xl font-bold text-[#F9C23A]">
                       {activeCourse.careers.demand}
                     </p>
-                    <p className="text-gray-300 text-sm">from Google</p>
+                    <p className="text-gray-300 text-sm my-2">from Google</p>
                   </div>
 
                   <motion.button
