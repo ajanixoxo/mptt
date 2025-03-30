@@ -216,7 +216,7 @@ const FindYourPlace = () => {
           className="text-center mb-12 relative"
         >
           <motion.h2
-            className="text-3xl main_text md:text-4xl font-bold mb-2 inline-flex items-center"
+            className="text-3xl main_text md:text-4xl font-bold inline-flex items-center"
             variants={itemVariants}
           >
             Find Your Place in Tech
