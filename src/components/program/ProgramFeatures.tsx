@@ -93,7 +93,7 @@ const ProgramFeatures = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl relative z-30 md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-4xl relative z-30 md:text-5xl font-bold mb-1 text-white">
             What Makes Hack-A-Path Special
           </h2>
           <p className="text-[#a09c9c]  max-w-2xl mx-auto">

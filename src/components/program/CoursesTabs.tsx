@@ -208,8 +208,8 @@ const CoursesTabs = () => {
         <img src="/s_half.png" className="w-7 md:w-12" />
       </div>
 
-      <h1 className="text-4xl font-bold mb-2 text-center">Our Programs</h1>
-      <p className="text-lg text-center max-w-5xl mx-auto mb-16">
+      <h1 className="text-5xl font-bold mb-2 text-center">Our Programs</h1>
+      <p className="text-lg text-[#a09c9c] text-center max-w-5xl mx-auto mb-16">
         Explore our comprehensive tech programs designed to prepare you for a successful career in the tech industry.
       </p>
 

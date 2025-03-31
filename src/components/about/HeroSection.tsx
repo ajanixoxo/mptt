@@ -78,7 +78,7 @@ const WhyChooseSection = () => {
   };
 
   return (
-    <section className="min-h-screen hero flex flex-col items-center justify-center pt-20 px-3 lg:px-9 relative overflow-hidden">
+    <section className="min-h-screen mt-2 lg:mt-auto hero flex flex-col items-center justify-center pt-20 px-3 lg:px-1 relative overflow-hidden">
       {/* Decorative Elements */}
 
       <FloatingShape
@@ -116,7 +116,7 @@ const WhyChooseSection = () => {
         <img src="/s-star.png" className="w-7 md:w-12 " />
       </motion.div>
 
-      <div className="container mx-auto max-w-7xl ">
+      <div className="container mx-auto max-w-9xl ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 place-content-center place-items-center items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -145,11 +145,11 @@ const WhyChooseSection = () => {
               </motion.div>
             </div>
 
-            <h1 className="main_text text-center md:text-left text-5xl md:text-7xl font-bold  text-white">
+            <h1 className="main_text text-center leading-10 md:leading-15 md:text-left text-[38px] md:text-[69px] font-bold  text-white">
               One <span className="text-[#F9C23A]">Aim.</span><br/>
               Equip the <span className="text-[#F9C23A]">Next Gen.</span>
             </h1>
-            <p className="text-[#a09c9c] sec_text text-center md:text-left text-lg mb-8 max-w-lg">
+            <p className="text-[#a09c9c] sec_text text-center md:text-left md:text-lg mb-8 max-w-lg">
          
             We connect under-represented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
             </p>

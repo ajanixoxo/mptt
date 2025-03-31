@@ -78,7 +78,7 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1  place-items-center lg:grid-cols-3 w-full">
+        <div className="grid grid-cols-1  place-items-center gap-5 lg:gap-1 lg:grid-cols-3 w-full">
           {team.map((member, index) => (
             <motion.div
               key={member.name}

@@ -72,7 +72,7 @@ const PathwaysSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Tech Pathway</h2>
+          <h2 className="text-3xl md:text-4xl font-bold ">Choose Your Tech Pathway</h2>
           <p className="text-[#a09c9c] max-w-2xl mx-auto">
 
             Explore our specialized career tracks designed to prepare you for the tech industry.
@@ -102,7 +102,7 @@ const PathwaysSection = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 w-max">{pathway.title}</h3>
-                <p className="text-[#a09c9c] mb-4 h-16">{pathway.description}</p>
+                <p className="text-[#a09c9c] text-sm mb-4 h-5">{pathway.description}</p>
                 <motion.div
                   className="mt-12 text-center"
                   variants={itemVariants}

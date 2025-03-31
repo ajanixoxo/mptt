@@ -38,7 +38,7 @@ const EligibilitySection = () => {
           viewport={{ once: true }}
           className="text-center mb-12 rounded-3xl"
         >
-          <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold text-white mb-1">
             Eligibility Requirements
           </h2>
           <p className="text-[#a09c9c] text-base md:text-xl">
@@ -51,7 +51,7 @@ const EligibilitySection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-[#2B2B2B]/80 backdrop-blur-sm   rounded-xl mb-8"
+          className="bg-[#2B2B2B]/80 backdrop-blur-sm   rounded-xl mb-1"
         >
           <h3 className="text-xl md:text-3xl font-bold text-white mb-8 bg-[#787881]  rounded-t-2xl p-3">Who Can Apply?</h3>
 

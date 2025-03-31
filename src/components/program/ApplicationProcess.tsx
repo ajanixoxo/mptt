@@ -56,7 +56,7 @@ const ApplicationProcessSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">Application Process</h2>
+          <h2 className="text-5xl font-bold text-white mb-1">Application Process</h2>
           <p className="text-[#a09c9c] text-xl">Your journey to joining Hack-A-Path</p>
         </motion.div>
 

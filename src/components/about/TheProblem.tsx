@@ -70,7 +70,7 @@ const ProblemSection = () => {
             transition={{ duration: 0.6 }}
             className="order-1 lg:order-2"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white main_text">
+            <h2 className="text-4xl md:text-5xl font-bold  text-white main_text">
               The Problem
             </h2>
             <p className="text-[#7A7979] text-lg mb-8 sec">

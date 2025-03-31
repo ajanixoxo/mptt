@@ -56,7 +56,7 @@ const MissionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-4xl ml-1 md:ml-0 md:text-5xl font-bold  text-white">
               Our Mission
             </h2>
             <p className="text-[#7A7979] text-lg mb-8">

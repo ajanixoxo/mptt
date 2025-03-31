@@ -103,7 +103,7 @@ const ProgramHero = () => {
               <img src="/tag.png" alt="Code tag" className="w-12 h-12" />
             </motion.div>
 
-            <h1 className="text-4xl md:text-left text-center md:text-7xl font-bold lg:mb-6 text-white">
+            <h1 className="text-4xl md:text-left text-center md:text-7xl font-bold  text-white">
                Start here. <br />
                <span className="text-[#F9C23A]">Hack-A-Path.</span>
             </h1>

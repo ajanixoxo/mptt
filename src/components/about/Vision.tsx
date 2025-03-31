@@ -20,7 +20,7 @@ const VisionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold  text-white">
               Our Vision
             </h2>
             <p className="text-[#7A7979] text-lg mb-8">
