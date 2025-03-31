@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
+import Link from "next/link";
 const cards = [
   {
     title: "Join a Cohort",
@@ -52,6 +52,7 @@ const cards = [
         </defs>
       </svg>
     ),
+    link:"/apply",
 
     color: "bg-[#232224B2]",
     borderColor: "border-black border-2",
@@ -105,7 +106,7 @@ const cards = [
         </defs>
       </svg>
     ),
-
+    link:"https://form.typeform.com/to/NJqPTWhB",
     color: "bg-[#232224B2]",
     borderColor: "border-black border-2",
     bg: "f2",
@@ -158,6 +159,7 @@ const cards = [
         </defs>
       </svg>
     ),
+    link:"https://form.typeform.com/to/btHLvGZz",
 
     color: "bg-[#232224B2]",
     borderColor: "border-black border-2",
@@ -236,7 +238,9 @@ const FindYourPlace = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {cards.map((card, index) => (
-            <motion.div
+            <Link href={card.link}
+            key={index}>
+              <motion.div
               key={index}
               className={`${card.color} ${card.borderColor} border ${card.bg} rounded-xl p-6 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition-shadow relative overflow-hidden`}
               variants={itemVariants}
@@ -324,7 +328,8 @@ const FindYourPlace = () => {
               {/* Background Pattern */}
               <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full opacity-10 bg-black"></div>
               <div className="absolute right-10 bottom-10 w-4 h-4 rounded-full opacity-10 bg-black"></div>
-            </motion.div>
+            </motion.div></Link>
+            
           ))}
         </motion.div>
       </div>

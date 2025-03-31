@@ -213,7 +213,7 @@ const ProgramStructureSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-bold text-white mb-4">How It Works</h2>
-          <p className="text-gray-400 text-xl">
+          <p className="text-[#a09c9c] text-xl">
             Your 10-week journey to launching your tech career
           </p>
         </motion.div>
@@ -254,7 +254,7 @@ const ProgramStructureSection = () => {
                       Week {week.number}: {week.title}
                     </h3>
                   </div>
-                  <p className="text-gray-400 mb-6">{week.description}</p>
+                  <p className="text-[#a09c9c] mb-6">{week.description}</p>
 {/* 
                   <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
                     <h4 className="text-sm font-medium text-gray-300 mb-3">
@@ -350,7 +350,7 @@ const ProgramStructureSection = () => {
                       Week {week.number}: {week.title}
                     </h3>
                   </div>
-                  <p className="text-gray-400 mb-6">{week.description}</p>
+                  <p className="text-[#a09c9c] mb-6">{week.description}</p>
 
                   {/* <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
                     <h4 className="text-sm font-medium text-gray-300 mb-3">

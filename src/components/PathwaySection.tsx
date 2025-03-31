@@ -26,7 +26,7 @@ const pathways = [
     image: "/course (2).png",
     id: "software", // Added ID to match with tabs
   },
-  {
+  { 
     title: "DevOps",
     description: "Learn to bridge development and operations.",
     icon: Settings,
@@ -73,7 +73,7 @@ const PathwaysSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Tech Pathway</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#a09c9c] max-w-2xl mx-auto">
             Explore our specialized career tracks designed to prepare you for the tech industry.
           </p>
         </motion.div>
@@ -93,7 +93,7 @@ const PathwaysSection = () => {
                 <img
                   src={pathway.image || "/placeholder.svg"}
                   alt={pathway.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                 />
                 <div className="absolute bottom-4 left-4">
                   <pathway.icon size={24} color="#F9C23A"/>
@@ -101,7 +101,7 @@ const PathwaysSection = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 w-max">{pathway.title}</h3>
-                <p className="text-gray-400 mb-4 h-16">{pathway.description}</p>
+                <p className="text-[#a09c9c] mb-4 h-16">{pathway.description}</p>
                 <motion.div
                   className="mt-12 text-center"
                   variants={itemVariants}

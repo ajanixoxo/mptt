@@ -57,7 +57,7 @@ const ApplicationProcessSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl font-bold text-white mb-4">Application Process</h2>
-          <p className="text-gray-400 text-xl">Your journey to joining Hack-A-Path</p>
+          <p className="text-[#a09c9c] text-xl">Your journey to joining Hack-A-Path</p>
         </motion.div>
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16">
@@ -74,7 +74,7 @@ const ApplicationProcessSection = () => {
                 <span className="text-5xl font-bold text-[#F9C23A]">{step.number}</span>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
-              <p className="text-gray-400">{step.description}</p>
+              <p className="text-[#a09c9c]">{step.description}</p>
             </motion.div>
           ))}
         </div>

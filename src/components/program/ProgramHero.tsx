@@ -108,7 +108,7 @@ const ProgramHero = () => {
               3 Months. Hands-On.
             </h1>
 
-            <p className="text-gray-400 text-lg mb-8 md:text-left text-center">
+            <p className="text-[#a09c9c] text-lg mb-8 md:text-left text-center">
               Join our 3-month adventure designed for 14-20 year olds and
               kickstart your tech career with hands-on projects and
               mentorship.

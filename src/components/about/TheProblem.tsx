@@ -59,7 +59,7 @@ const ProblemSection = () => {
             >
               <div className="flex items-center space-x-3">
                 <span className="text-3xl font-bold text-blue-500">85M+</span>
-                <span className="text-gray-400">Tech jobs by 2030</span>
+                <span className="text-[#a09c9c]">Tech jobs by 2030</span>
               </div>
             </motion.div> */}
 

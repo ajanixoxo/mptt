@@ -60,7 +60,7 @@ const ProgramTestimonials = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Success Stories</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#a09c9c] max-w-2xl mx-auto">
             Hear from our graduates who have transformed their careers through our programs.
           </p>
         </motion.div>
@@ -82,7 +82,7 @@ const ProgramTestimonials = () => {
                 ))}
               </div>
 
-              <p className="text-gray-300 italic mb-6">"{testimonial.quote}"</p>
+              <p className="text-[#a09c9c] italic mb-6">"{testimonial.quote}"</p>
 
               <div className="flex items-center">
                 <Image
@@ -92,7 +92,7 @@ const ProgramTestimonials = () => {
                 />
                 <div>
                   <h3 className="font-semibold text-white">{testimonial.name}</h3>
-                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                  <p className="text-[#a09c9c] text-sm">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>

@@ -60,13 +60,7 @@ const VisionSection = () => {
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 inline-block bg-gray-900 rounded-lg p-4"
-            ></motion.div>
+        
           </motion.div>
 
           <motion.div
@@ -82,7 +76,7 @@ const VisionSection = () => {
             >
               <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-purple-500">50+</span>
-                <span className="text-gray-400">Black Representation in Tech</span>
+                <span className="text-[#a09c9c]">Black Representation in Tech</span>
               </div>
             </motion.div>
             <motion.div
@@ -91,7 +85,7 @@ const VisionSection = () => {
             >
               <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-black">2.6%</span>
-                <span className="text-gray-400">Black Representation in Tech</span>
+                <span className="text-[#a09c9c]">Black Representation in Tech</span>
               </div>
             </motion.div>
 

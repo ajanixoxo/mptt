@@ -8,7 +8,7 @@ const SponsorsSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-2">
           <h2 className="text-3xl md:text-4xl mt-4 font-bold ">Our Sponsors</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#a09c9c] max-w-2xl mx-auto">
             Proud to partner with leading organizations in tech education.
           </p>
         </div>

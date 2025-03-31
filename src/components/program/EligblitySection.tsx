@@ -41,7 +41,7 @@ const EligibilitySection = () => {
           <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">
             Eligibility Requirements
           </h2>
-          <p className="text-gray-400 text-base md:text-xl">
+          <p className="text-[#a09c9c] text-base md:text-xl">
             Check if you qualify for the Hack-A-Path program
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ const EligibilitySection = () => {
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-white mb-2">Age</h4>
-                <p className="text-gray-400 text-[16px] md:text-lg">
+                <p className="text-[#a09c9c] text-[16px] md:text-lg">
                   You must be between{" "}
                  
                     14-20 years old
@@ -82,7 +82,7 @@ const EligibilitySection = () => {
                 <h4 className="text-xl font-semibold text-white mb-2">
                   Location
                 </h4>
-                <p className="text-gray-400 text-[16px] md:text-lg">
+                <p className="text-[#a09c9c] text-[16px] md:text-lg">
                   You must be a resident of{" "}
                   <span className="tex f">Ontario</span> to
                   participate in the program.
@@ -99,7 +99,7 @@ const EligibilitySection = () => {
                 <h4 className="text-xl  text-white mb-2">
                   Commitment
                 </h4>
-                <p className="text-gray-400 text-[16px] md:text-lg">
+                <p className="text-[#a09c9c] text-[16px] md:text-lg">
                   You must be able to commit{" "}
                   <span className="text ">
                     15-20 hours per week
@@ -110,7 +110,7 @@ const EligibilitySection = () => {
             </div>
 
             <div className="mt-10 p-4 border-2 mb-3 border-gray-600 rounded-lg bg-[#1E1E1E]/50">
-            <p className="text-gray-300">
+            <p className="text-[#a09c9c]">
               <span className="font-semibold">Note:</span> No prior coding or
               tech experience is required.
             </p>

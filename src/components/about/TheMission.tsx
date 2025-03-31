@@ -30,7 +30,7 @@ const MissionSection = () => {
             >
               <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-purple-500">1000</span>
-                <span className="text-gray-400">Student Secured Internships</span>
+                <span className="text-[#a09c9c]">Student Secured Internships</span>
               </div>
             </motion.div>
             <motion.div
@@ -39,7 +39,7 @@ const MissionSection = () => {
             >
               <div className="flex i flex-col space-x-2">
                 <span className="text-3xl font-bold text-black">1K</span>
-                <span className="text-gray-400">Student Secured Internships</span>
+                <span className="text-[#a09c9c]">Student Secured Internships</span>
               </div>
             </motion.div>
 

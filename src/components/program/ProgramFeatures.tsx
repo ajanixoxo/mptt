@@ -96,7 +96,7 @@ const ProgramFeatures = () => {
           <h2 className="text-4xl relative z-30 md:text-5xl font-bold mb-4 text-white">
             What Makes Hack-A-Path Special
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#a09c9c]  max-w-2xl mx-auto">
             Our comprehensive program combines technical training with career
             development to prepare you for success in tech
           </p>
@@ -125,7 +125,7 @@ const ProgramFeatures = () => {
                     <h3 className="text-xl font-bold text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-400">{feature.description}</p>
+                    <p className="text-[#a09c9c]">{feature.description}</p>
                   </div>
                 </div>
 <div className="absolute  left-0 w-full h-[1px] bg-[#716D6D]">
@@ -165,7 +165,7 @@ const ProgramFeatures = () => {
                           />
                         </svg>
                       </div>
-                      <p className="text-gray-300">{point}</p>
+                      <p className="text-[#a09c9c]">{point}</p>
                     </motion.div>
                   ))}
                 </div>

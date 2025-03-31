@@ -91,7 +91,7 @@ const ProgramDetailsSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Limited Spots Available!
           </h3>
-          <p className="text-gray-400 text-base lg:text-lg">
+          <p className="text-[#a09c9c] text-base lg:text-lg">
             Apply now to secure your place in our
             Summer 2025 cohort.
           </p>

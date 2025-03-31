@@ -149,7 +149,7 @@ const WhyChooseSection = () => {
               One <span className="text-[#F9C23A]">Aim.</span>{" "} <br/>
               Secure Internships.
             </h1>
-            <p className="text-gray-400 sec_text text-center md:text-left text-lg mb-8 max-w-lg">
+            <p className="text-[#a09c9c] sec_text text-center md:text-left text-lg mb-8 max-w-lg">
               Many young people want a tech career but don't have access to crucial information and the right guidance.
             </p>
 

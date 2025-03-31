@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { motion } from "framer-motion"
-import { Calendar, Clock, MapPin, CircleArrowUp, Loader2 } from "lucide-react"
+import { Calendar, Clock, MapPin, CircleArrowUp, Loader2, RefreshCw } from "lucide-react"
 import FloatingShape from "./FloatingShape"
 
 interface Event {
@@ -17,43 +17,6 @@ interface Event {
   imageUrl: string
 }
 
-// Dummy events data to use when no events are available
-const dummyEvents: Event[] = [
-  {
-    id: "dummy-1",
-    title: "Introduction to Web Deve",
-    eventDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 1 week from now
-    location: "Tech Hub, Downtown",
-    description:
-      "Learn the basics of HTML, CSS, and JavaScript in this beginner-friendly workshop. Perfect for those looking to start their journey in web development.",
-    isOnline: false,
-    status: "active",
-    imageUrl: '',
-  },
-  {
-    id: "dummy-2",
-    title: "Virtual Coding Bootcamp",
-    eventDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString(), // 2 weeks from now
-    location: "Zoom",
-    description:
-      "Join our intensive 3-hour coding bootcamp where we'll cover modern JavaScript frameworks and best practices for frontend development.",
-    isOnline: true,
-    status: "active",
-    imageUrl: '',
-  },
-  {
-    id: "dummy-3",
-    title: "Tech Career Fair",
-    eventDate: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).toISOString(), // 3 weeks from now
-    location: "Community Center",
-    description:
-      "Connect with top tech companies hiring in your area. Bring your resume and be ready to network with industry professionals.",
-    isOnline: false,
-    status: "active",
-    imageUrl: '',
-  },
-]
-
 const EventsSection = () => {
   const [events, setEvents] = useState<Event[]>([])
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
@@ -65,46 +28,53 @@ const EventsSection = () => {
   })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [fetchError, setFetchError] = useState(false)
   const [success, setSuccess] = useState(false)
   const [redirectCountdown, setRedirectCountdown] = useState(3)
 
   const truncateTitle = (title: string, wordLimit: number) => {
-    const words = title.split(" ");
-    return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : title;
-  };
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch("/api/events/")
+    const words = title.split(" ")
+    return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : title
+  }
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch events")
-        }
+  const fetchEvents = useCallback(async () => {
+    setLoading(true)
+    setFetchError(false)
 
-        const data: Event[] = await response.json()
-        const activeEvents = data.filter((event) => event.status === "active")
+    try {
+      const response = await fetch("/api/events/")
 
-        // If no active events are available, use dummy data
-        if (activeEvents.length === 0) {
-          console.log("No active events found, using dummy data")
-          setEvents(dummyEvents)
-        } else {
-          setEvents(activeEvents)
-        }
-      } catch (error) {
-        console.error("Error fetching events:", error)
-        // Use dummy data in case of any error
-        setEvents(dummyEvents)
-      } finally {
-        setLoading(false)
+      if (!response.ok) {
+        throw new Error("Failed to fetch events")
       }
-    }
 
+      const data: Event[] = await response.json()
+      const activeEvents = data.filter((event) => event.status === "active")
+      console.log("Event Data ", data)
+
+      if (activeEvents.length === 0) {
+        console.log("No active events found")
+        setEvents([])
+      } else {
+        setEvents(activeEvents)
+      }
+    } catch (error) {
+      console.error("Error fetching events:", error)
+      setFetchError(true)
+      setEvents([])
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
     fetchEvents()
-    const interval = setInterval(fetchEvents, 5000) // Fetch every ~1.7 minutes
+
+    // Set up polling interval (every 5 minutes instead of 5 seconds to reduce server load)
+    const interval = setInterval(fetchEvents, 300000)
 
     return () => clearInterval(interval) // Cleanup interval on unmount
-  }, [])
+  }, [fetchEvents])
 
   // Handle redirect countdown
   useEffect(() => {
@@ -190,7 +160,6 @@ const EventsSection = () => {
   return (
     <div className="relative">
       <section id="events">
-
         <div className="absolute flex flex-row-reverse justify-between w-full -mt-10 lg:mt-10 right-0">
           <img src="/s_half.png" alt="" className="w-5 rotate-10 md:w-15" />
 
@@ -229,6 +198,19 @@ const EventsSection = () => {
             <div className="flex justify-center items-center py-20">
               <Loader2 size={40} className="animate-spin text-[#989BAE]" />
             </div>
+          ) : fetchError ? (
+            <div className="flex flex-col items-center justify-center py-20 space-y-4">
+              <p className="text-[#a09c9c] text-center">Unable to load events. Please try again.</p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={fetchEvents}
+                className="flex items-center space-x-2 bg-[#74767F] text-white px-6 py-3 rounded-2xl"
+              >
+                <RefreshCw size={20} />
+                <span>Retry</span>
+              </motion.button>
+            </div>
           ) : events.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-2">
               {events.map((event, index) => (
@@ -242,13 +224,21 @@ const EventsSection = () => {
                 >
                   <div className="p-6 space-y-2">
                     <div>
-                      <img src={event.imageUrl} alt="" className="rounded-sm" />
+                      <img
+                        src={event.imageUrl || "/placeholder-event.jpg"}
+                        alt={event.title}
+                        className="rounded-sm w-full h-48 object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = "/placeholder-event.jpg"
+                        }}
+                      />
                     </div>
                     <div className="flex justify-between items-start mb-1">
                       <h3 className="text-xl font-bold text-white w-max">{truncateTitle(event.title, 5)}</h3>
                       <span
-                        className={`text-xs px-3 py-1  rounded-full bg-[#2B2B2B] w-max ${event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
-                          }`}
+                        className={`text-xs px-3 py-1 rounded-full bg-[#2B2B2B] w-max ${
+                          event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
+                        }`}
                       >
                         {event.isOnline ? "Online" : "In-person"}
                       </span>
@@ -261,7 +251,7 @@ const EventsSection = () => {
                       </div>
                       <div className="flex items-center">
                         <Clock size={16} className="mr-2" />
-                        <span>{new Date(event.eventDate).toLocaleTimeString(undefined, { timeStyle: 'short' })}</span>
+                        <span>{new Date(event.eventDate).toLocaleTimeString(undefined, { timeStyle: "short" })}</span>
                       </div>
                       <div className="flex items-center">
                         <MapPin size={16} className="mr-2" />
@@ -269,23 +259,45 @@ const EventsSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 p-1 h-14">{truncateTitle(event.description, 10)}</p>
+                    <p className="text-[#a09c9c] p-1 h-14">{truncateTitle(event.description, 10)}</p>
 
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => null}
-                      className="w-full bg-[#74767F] text-white border transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center cursor-pointer justify-center space-x-2"
+                    <a
+                      href={event.thirdPartyLink ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        if (!event.thirdPartyLink) {
+                          e.preventDefault()
+                          setSelectedEvent(event)
+                        }
+                      }}
                     >
-                      <span>Register Now</span>
-                      <CircleArrowUp className="rotate-45 cursor-pointer" size={20} />
-                    </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-full bg-[#74767F] text-white border transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center cursor-pointer justify-center space-x-2"
+                      >
+                        <span>Register Now</span>
+                        <CircleArrowUp className="rotate-45 cursor-pointer" size={20} />
+                      </motion.button>
+                    </a>
                   </div>
                 </motion.div>
               ))}
             </div>
           ) : (
-            <div className="text-center text-gray-400 py-20">No active events available.</div>
+            <div className="flex flex-col items-center justify-center py-20 space-y-4">
+              <p className="text-[#a09c9c] text-center">No active events available at the moment.</p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={fetchEvents}
+                className="flex items-center space-x-2 bg-[#74767F] text-white px-6 py-3 rounded-2xl"
+              >
+                <RefreshCw size={20} />
+                <span>Check Again</span>
+              </motion.button>
+            </div>
           )}
 
           {/* Registration Form */}
@@ -311,11 +323,11 @@ const EventsSection = () => {
                         </svg>
                       </div>
                       <h3 className="text-xl font-bold mb-2">Registration Successful!</h3>
-                      <p className="text-gray-300 mb-4">Thank you for registering for {selectedEvent.title}.</p>
+                      <p className="text-[#a09c9c] mb-4">Thank you for registering for {selectedEvent.title}.</p>
 
                       {selectedEvent.thirdPartyLink ? (
                         <>
-                          <p className="text-gray-300 mb-4">
+                          <p className="text-[#a09c9c] mb-4">
                             You will be redirected to complete your registration in {redirectCountdown} seconds...
                           </p>
                           <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-green-400 mx-auto"></div>

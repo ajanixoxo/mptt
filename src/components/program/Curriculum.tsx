@@ -108,7 +108,7 @@ const Curriculum = () => {
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Curriculum Overview</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-[#a09c9c] max-w-2xl mx-auto">
                         Our comprehensive curriculum is designed to take you from beginner to job-ready.
                     </p>
                 </motion.div>
@@ -134,11 +134,11 @@ const Curriculum = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-semibold text-white">{module.title}</h3>
-                                        <p className="text-gray-400 text-sm">{module.duration}</p>
+                                        <p className="text-[#a09c9c] text-sm">{module.duration}</p>
                                     </div>
                                 </div>
                                 <motion.div animate={{ rotate: openModule === module.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                    <ChevronDown className="text-gray-400" size={20} />
+                                    <ChevronDown className="text-[#a09c9c]" size={20} />
                                 </motion.div>
                             </motion.button>
 
@@ -161,7 +161,7 @@ const Curriculum = () => {
                                                         initial={{ opacity: 0, x: -10 }}
                                                         animate={{ opacity: 1, x: 0 }}
                                                         transition={{ duration: 0.3, delay: index * 0.1 }}
-                                                        className="flex items-center text-gray-400"
+                                                        className="flex items-center text-[#a09c9c]"
                                                     >
                                                         <div className="w-2 h-2 bg-[#def134] rounded-full mr-3"></div>
                                                         {topic}

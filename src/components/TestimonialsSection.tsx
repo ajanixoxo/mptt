@@ -75,7 +75,7 @@ const TestimonialsSection = () => {
             src="/line.png"
             className="absolute z-10 w-[40%] lg:top-auto top-[25%] lg:w-auto left-[5%] lg:left-[20%]"
           />
-          <p className="text-gray-400 max-w-2xl relative z-20 mx-auto">
+          <p className="text-[#a09c9c] max-w-2xl relative z-20 mx-auto">
             Real experiences. Real success
           </p>
         </motion.div>
@@ -100,7 +100,7 @@ const TestimonialsSection = () => {
                   />
                   <div>
                     <h3 className="font-semibold">{testimonial.name}</h3>
-                    <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                    <p className="text-[#a09c9c] text-sm">{testimonial.role}</p>
                   </div>
                 </div>
                 <div className="flex mb-4">
