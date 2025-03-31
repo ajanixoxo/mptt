@@ -105,7 +105,7 @@ const ProgramHero = () => {
 
             <h1 className="text-4xl md:text-left text-center md:text-7xl font-bold lg:mb-6 text-white">
                Start here. <br />
-              3 Months. Hands-On.
+               <span className="text-[#F9C23A]">Hack-A-Path.</span>
             </h1>
 
             <p className="text-gray-400 text-lg mb-8 md:text-left text-center">
