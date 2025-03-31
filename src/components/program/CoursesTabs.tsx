@@ -6,7 +6,6 @@ import { Code, Database, Shield, Palette, Settings } from "lucide-react";
 // import FloatingShape from "../../components/FloatingShape"
 import { CircleArrowUp } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation"
-
 const courses = [
   {
     id: "software",
@@ -209,8 +208,8 @@ const CoursesTabs = () => {
         <img src="/s_half.png" className="w-7 md:w-12" />
       </div>
 
-      <h1 className="text-4xl font-bold mb-8 text-center">Our Programs</h1>
-      <p className="text-xl text-center max-w-3xl mx-auto mb-16">
+      <h1 className="text-4xl font-bold mb-2 text-center">Our Programs</h1>
+      <p className="text-lg text-center max-w-5xl mx-auto mb-16">
         Explore our comprehensive tech programs designed to prepare you for a successful career in the tech industry.
       </p>
 
@@ -304,7 +303,7 @@ const CoursesTabs = () => {
                       ))}
                     </ul>
                   </div>
-
+{/* 
                   <div>
                     <h3 className="text-xl font-bold text-white mb-4">
                       Projects You'll Build
@@ -317,7 +316,7 @@ const CoursesTabs = () => {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

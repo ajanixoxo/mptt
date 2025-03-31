@@ -188,7 +188,7 @@ const EventsSection = () => {
         </div>
         <div className="container mx-auto max-w-7xl">
           <motion.div className="text-center mb-12 mt-2">
-            <h2 className="main_text text-3xl font-bold mb-4">Upcoming Events</h2>
+            <h2 className="main_text text-3xl font-bold">Upcoming Events</h2>
             <p className="sec_text text-[#a09c9c] max-w-2xl mx-auto px-2">
               Join us at these awesome events to learn, meet our team, and connect!
             </p>

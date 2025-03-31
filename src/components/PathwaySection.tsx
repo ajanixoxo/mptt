@@ -14,7 +14,7 @@ const pathways = [
   },
   {
     title: "Data Engineering",
-    description: "Learn to collect, proceess, analyyse and extract meaningful insights.",
+    description: "Learn to collect, process and extract meaningful insights.",
     icon: Database,
     image: "https://cdn.prod.website-files.com/64fef88ee8b22d3d21b715a2/657c2bfd9d07f76a47c70ce8_64c0dfda42c1ee625bb4640c_Blog%2520image%2520(1).webp",
     id: "data", // Added ID to match with tabs
@@ -74,6 +74,7 @@ const PathwaysSection = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Tech Pathway</h2>
           <p className="text-[#a09c9c] max-w-2xl mx-auto">
+
             Explore our specialized career tracks designed to prepare you for the tech industry.
           </p>
         </motion.div>
