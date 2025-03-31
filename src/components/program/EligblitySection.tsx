@@ -102,7 +102,7 @@ const EligibilitySection = () => {
                 <p className="text-gray-400 text-[16px] md:text-lg">
                   You must be able to commit{" "}
                   <span className="text ">
-                    15-20 hours per week
+                    10 hours per week
                   </span>{" "}
                   for the program duration.
                 </p>
