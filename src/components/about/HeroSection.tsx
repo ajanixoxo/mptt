@@ -150,7 +150,7 @@ const WhyChooseSection = () => {
               Equip the <span className="text-[#F9C23A]">Next Gen.</span>
             </h1>
             <p className="text-gray-400 sec_text text-center md:text-left text-lg mb-8 max-w-lg">
-            We connect underrepresented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
+            We connect under-represented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
             </p>
 
             <motion.button
