@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
-import Navbar from "@/components/Navbar";
 
 function Apply() {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,6 +12,8 @@ function Apply() {
     script.src = "//embed.typeform.com/next/embed.js";
     script.async = true;
     document.body.appendChild(script);
+
+    const originalBodyStyle = document.body.style.overflow; // Save original body style
 
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -30,20 +31,25 @@ function Apply() {
     }
 
     return () => {
-      document.body.removeChild(script);
+      // Remove Typeform script if it exists
+      document.querySelectorAll('script[src="//embed.typeform.com/next/embed.js"]').forEach((script) => {
+        script.remove();
+      });
+
+      // Restore body styles to prevent scrolling issues
+      document.body.style.overflow = originalBodyStyle;
+
       observer.disconnect();
     };
   }, []);
 
   return (
-    <div className="">
+    <div className="min-h-screen flex flex-col">
       {isLoading && <LoadingScreen />}
-      
-      
 
       {/* Main Content */}
       <div className="flex-grow flex items-center justify-center">
-        <div ref={formRef} data-tf-live="01JQ5GSABRY0SKWCX7Q0TNJBM0" className="w-full max-w-4xl p-4" />
+        <div ref={formRef} data-tf-live="01JQ5GSABRY0SKWCX7Q0TNJBM0"></div>
       </div>
     </div>
   );
