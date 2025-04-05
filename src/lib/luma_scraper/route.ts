@@ -2,7 +2,7 @@ import * as cheerio from "cheerio"
 
 export interface LumaEventData {
   title: string
-  description: string
+  description: string | null
   eventDate: string | null
   eventTime: string | null
   location: string | null
