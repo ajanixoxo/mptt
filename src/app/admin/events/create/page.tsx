@@ -61,7 +61,7 @@ export default function CreateEventPage() {
     const newErrors: { [key: string]: string } = {}
 
     if (!formData.title.trim()) newErrors.title = "Title is required"
-    if (!formData.description.trim()) newErrors.description = "Description is required"
+    if (!formData.description) newErrors.description = "Description is required"
      if (!formData.imageUrl.trim()) newErrors.imageUrl = "Image is required"
     if (!formData.event_date) newErrors.event_date = "Event date is required"
     if (!formData.event_time) newErrors.event_time = "Event time is required"
@@ -236,6 +236,9 @@ export default function CreateEventPage() {
                 <div>
                   <p className="text-blue-700">
                     <strong>Title:</strong> {scrapedPreview.title}
+                  </p>
+                  <p className="text-blue-700">
+                    <strong>Description:</strong> {scrapedPreview.description || "Not found"}
                   </p>
                   <p className="text-blue-700">
                     <strong>Date:</strong> {scrapedPreview.eventDate || "Not found"}

@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
     // Scrape event data from Luma
     const eventData = await scrapeLumaEvent(url, includeRawHtml)
-
+     console.log("This is the event data from scraper ", eventData)
     return NextResponse.json(
       {
         message: "Event scraped successfully",

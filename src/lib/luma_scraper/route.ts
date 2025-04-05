@@ -43,13 +43,18 @@ export async function scrapeLumaEvent(lumaUrl: string, includeRawHtml = false): 
   const title = $("h1").first().text().trim() || $('meta[property="og:title"]').attr("content") || ""
 
   // Try different selectors for description
-  let description = $(".event-description").text().trim()
-  if (!description) {
-    description = $('meta[property="og:description"]').attr("content") || ""
-  }
-  if (!description) {
-    description = $('div[class*="description"]').text().trim()
-  }
+  // Extract Description
+  const description =
+    $(".spark-content p").text().trim() || // NEW: Grab from spark-content div
+    $(".event-description").text().trim() ||
+    $('meta[property="og:description"]').attr("content")?.trim() ||
+    $('[data-testid="event-description"]').text().trim() ||
+    $("div").filter((_, el) => {
+      const text = $(el).text().toLowerCase();
+      return text.includes("about") || text.includes("description");
+    }).first().text().trim() ||
+    null;
+
 
   // Extract date and time
   let eventDate: string | null = null
