@@ -74,7 +74,7 @@ const TeamSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-1 text-white">Meet Our Team</h2>
           <p className="text-[#a09c9c] text-lg max-w-2xl mx-auto">
 
-            Led by industry veterans passionate about tech education
+            Led by industry professionals passionate about tech education
           </p>
         </motion.div>
 
