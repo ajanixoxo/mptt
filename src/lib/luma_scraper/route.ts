@@ -2,7 +2,7 @@ import * as cheerio from "cheerio"
 
 export interface LumaEventData {
   title: string
-  description: string | null
+  description: string
   eventDate: string | null
   eventTime: string | null
   location: string | null
@@ -53,7 +53,7 @@ export async function scrapeLumaEvent(lumaUrl: string, includeRawHtml = false): 
       const text = $(el).text().toLowerCase();
       return text.includes("about") || text.includes("description");
     }).first().text().trim() ||
-    null;
+    "";
 
 
   // Extract date and time
