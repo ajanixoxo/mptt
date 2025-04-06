@@ -21,23 +21,23 @@ const HeroSection = () => {
       while (true) {
         // Blink out and rotate
         await tagControls.start({
-          opacity: 0,
-          rotate: 25,
-          transition: { duration: 0.2 },
+          opacity: 0.5,
+          rotate: 15,
+          transition: { duration: 0.1 },
         });
         // Pause briefly
         await new Promise((resolve) => setTimeout(resolve, 300));
         // Blink in with new rotation
         await tagControls.start({
           opacity: 1,
-          rotate: 25,
+          rotate: 15,
           transition: { duration: 0.2 },
         });
         // Pause at rotated position
         await new Promise((resolve) => setTimeout(resolve, 1000));
         // Blink out again
         await tagControls.start({
-          opacity: 0,
+          opacity: 0.5,
           transition: { duration: 0.2 },
         });
         // Pause briefly
@@ -82,7 +82,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20  right-6 md:right-20 text-purple-400"
+        className="absolute top-20  right-1 md:right-[20%] text-purple-400"
       >
         <img src="/s-star.png" alt="" className="w-7 md:w-12" />
       </motion.div>
@@ -102,7 +102,7 @@ const HeroSection = () => {
           animate={{ opacity: [0, 1, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
         >
-          <img src="/s-star.png" className="w-7 md:w-12 ml-40 -mt-32" />
+          <img src="/s-star.png" className="w-7 md:w-12 ml-62 -mt-32" />
         </motion.div>
       </div>
 
@@ -137,7 +137,7 @@ const HeroSection = () => {
             <motion.div
               className="top-15 lg:top-15 absolute w-[10%] lg:left-[24%] text-purple-600 text-3xl"
               animate={tagControls}
-              initial={{ opacity: 1, rotate: 0 }}
+              initial={{ opacity: 1, rotate: 0   }}
             >
               {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
               <img src="/tag.png" className="w-8 lg:w-16" />
@@ -183,7 +183,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.button
-            className="bg-[#F9C23A] main_text sec_text mx-auto lg:my-4 lg:text-lg  transition button font-semibold cursor-pointer  p-3 md:py-1 md:px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
+            className="bg-[#F9C23A] main_text sec_text mx-auto lg:my-4   transition button font-semibold cursor-pointer  p-3 md:py-1 md:px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

@@ -45,7 +45,7 @@ const TeamSection = () => {
 
           >
 
-            <img src="/s-star.png" className="w-7 md:w-12 ml-40 -mt-32" />
+            <img src="/s-star.png" className="w-7 md:w-10 ml-64 -mt-32" />
           </motion.div>
         </div>
 

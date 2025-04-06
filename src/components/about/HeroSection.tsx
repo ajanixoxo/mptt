@@ -111,7 +111,7 @@ const WhyChooseSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20 right-10"
+        className="absolute top-20 right-22"
       >
         <img src="/s-star.png" className="w-7 md:w-12 " />
       </motion.div>
@@ -123,7 +123,7 @@ const WhyChooseSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="absolute flex justify-between w-full -mt-10  left-0">
+            <div className="absolute flex justify-between w-full -mt-10 md:-mt-12  left-0">
               <div className="-10 text-purple-400">
                 <motion.div className="top-5 md:-top-20 absolute lg:top-0  text-purple-600 text-3xl">
                   {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
@@ -145,7 +145,7 @@ const WhyChooseSection = () => {
               </motion.div>
             </div>
 
-            <h1 className="main_text text-center leading-10 md:leading-15 md:text-left text-[38px] md:text-[69px] font-bold  text-white">
+            <h1 className="main_text text-center leading-10 md:leading-16 mb-3 md:text-left text-[38px] md:text-[69px] font-bold  text-white">
               One <span className="text-[#F9C23A]">Aim.</span><br/>
               Equip the <span className="text-[#F9C23A]">Next Gen.</span>
             </h1>

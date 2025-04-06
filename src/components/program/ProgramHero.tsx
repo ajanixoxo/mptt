@@ -30,7 +30,7 @@ const ProgramHero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20  right-6 md:right-20 text-purple-400"
+        className="absolute top-20  left-6 md:right-40 text-purple-400"
       >
         <img src="/s-star.png" alt="" className="w-7 md:w-12" />
       </motion.div>
@@ -74,7 +74,7 @@ const ProgramHero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-40 right-20"
+        className="absolute top-40 right-32"
       >
         <motion.img
           src="/s-star.png"
