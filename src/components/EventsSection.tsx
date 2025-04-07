@@ -259,7 +259,7 @@ const EventsSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-[#a09c9c] p-1 h-20">{truncateTitle(event.description, 18)}</p>
+                    <p className="text-[#a09c9c] p-1 h-26 lg:h-22">{truncateTitle(event.description, 18)}</p>
 
                     <a
                       href={event.thirdPartyLink ?? "#"}
