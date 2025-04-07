@@ -6,19 +6,19 @@ import FloatingShape from "@/components/FloatingShape";
 
 const testimonials = [
   {
-    name: "Jake Thompson",
+    name: " Tonye M",
     role: "UI/UX Designer",
-    image: "/test (2).png",
+    image: "https://api.dicebear.com/9.x/pixel-art-neutral/svg?seed=Jameson",
     quote:
-      "Hack-A-Path showed me the power of tech! I built my first website and now I work as a designer.",
+      "Richard helped me navigate the vast tech career space and empowered me with resources to help me in my chosen tech career.He helped me optimize my Linkedin profile which stood out well enough to land me an internship.",
     rating: 5,
   },
   {
-    name: "Esther Peters",
+    name: "Najma H.",
     role: "Software Engineer",
-    image: "/test (1).png ",
+    image: "https://api.dicebear.com/9.x/pixel-art-neutral/svg?seed=Robert",
     quote:
-      "The UX/UI track at Hack-A-Path helped me transition from graphic design to product design.",
+      "Saka revamped my resume, which played a crucial role in helping me secure a 6-month internship in the government energy sector in a data role.",
     rating: 5,
   },
 ];
@@ -83,20 +83,20 @@ const TestimonialsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-2">
           {testimonials.map((testimonial, index) => (
             <motion.div
-              key={testimonial.name}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className="bg-[#232224B2] backdrop-blur-sm mt-7  rounded-xl p-6"
+              className="bg-[#232224B2] backdrop-blur-sm mt-7 relative  rounded-xl p-6"
             >
               <div className="justify-between flex">
                 <div className="flex items-center mb-4">
                   <img
                     src={testimonial.image || "/placeholder.svg"}
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4"
+                    className="w-12 h-12 rounded-lg mr-4"
                   />
                   <div>
                     <h3 className="font-semibold">{testimonial.name}</h3>
@@ -116,10 +116,10 @@ const TestimonialsSection = () => {
 
               <div className="absolute bg-[#716D6D] w-full h-[1px] mb-2 left-0 ext-[#979292]"></div>
 
-              <p className="text-gray-300 inline-flex gap-2 italic mt-3 relative">
+              <p className="text-gray-300 inline-flex gap-2 italic mt-3 ">
                 <svg
-                  width={28}
-                  className=" w-12 lg:w-auto"
+                  width={ index == 0 ? 3: 28}
+                  className={'absolute w-4 left-1  lg:w-4'}
                   height={28}
                   viewBox="0 0 24 24"
                   fill="none"
@@ -157,7 +157,7 @@ const TestimonialsSection = () => {
 
                 {testimonial.quote}
                 <svg
-                  className="mt-14 md:mt-10 rotate-180 w-12 lg:w-auto"
+                  className={'mt-14 bottom-5 right-3  rotate-180 w-4 lg:w-4 absolute '}
                   width={28}
                   height={28}
                   viewBox="0 0 24 24"

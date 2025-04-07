@@ -231,7 +231,7 @@ html {
 }
 .hero{
   background:url(/hero-bg.png) ;
-  opacity: 30;
+  opacity: 30 ;
 }
 
 @keyframes scroll {

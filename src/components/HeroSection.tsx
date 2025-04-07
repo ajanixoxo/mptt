@@ -6,10 +6,15 @@ import { motion, useAnimation } from "framer-motion";
 import { CircleArrowUp } from "lucide-react";
 import FloatingShape from "@/components/FloatingShape";
 import { useRouter } from "next/navigation";
+// Import the component
+import AnimatedCodeBrackets from './AnimatedCodeBrackets'
+
+// Use it in your component with custom props
+
 const HeroSection = () => {
   // const isInView = useInView(ref, { once: true })
   const tagControls = useAnimation();
- const router = useRouter()
+  const router = useRouter()
   const handlePush = () => {
     console.log("Reahced")
     router.push('/path')
@@ -135,12 +140,19 @@ const HeroSection = () => {
               <img src="/s-star.png" className="w-7 md:w-12" />
             </motion.div>
             <motion.div
-              className="top-15 lg:top-15 absolute w-[10%] lg:left-[24%] text-purple-600 text-3xl"
-              animate={tagControls}
-              initial={{ opacity: 1, rotate: 0   }}
+              className="top-15 lg:top-15 absolute w-[10%] lg:left-[30%] text-purple-600 text-3xl"
+            
             >
               {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
-              <img src="/tag.png" className="w-8 lg:w-16" />
+              {/* <img src="/tag.png" className="w-8 lg:w-16" /> */}
+              <AnimatedCodeBrackets
+                width={70}
+                height={70}
+                color="#F9C23A"
+                strokeWidth={5}
+                animationDuration={1.5}
+                className="w-10 md:w-auto"
+              />
             </motion.div>
           </div>
           <div className="lg:flex flex-col items-center justify-center">
@@ -149,18 +161,18 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               Shape Your Future.
-             
+
             </motion.h1>
             <div className="relative  z-40 flex justify-center items-center flex-col md:flex-row">
-            <motion.h1
-              className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
-              variants={itemVariants}
-            >
-         Start with
-             
-            </motion.h1>
+              <motion.h1
+                className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
+                variants={itemVariants}
+              >
+                Start with
+
+              </motion.h1>
               <img src="/d-skills.png" className="lg:w-[50%] ml-1  w-full  z-10 " />
-              
+
             </div>
           </div>
           <motion.div

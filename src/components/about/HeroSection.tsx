@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import FloatingShape from "@/components/FloatingShape";
 import { CircleArrowUp } from "lucide-react";
 import { useRouter } from "next/navigation";
+import AnimatedCodeBrackets from "../AnimatedCodeBrackets"
 const WhyChooseSection = () => {
   const tagControls = useAnimation();
   const router = useRouter()
@@ -125,12 +126,20 @@ const WhyChooseSection = () => {
           >
             <div className="absolute flex justify-between w-full -mt-10 md:-mt-12  left-0">
               <div className="-10 text-purple-400">
-                <motion.div className="top-5 md:-top-20 absolute lg:top-0  text-purple-600 text-3xl">
+                <motion.div className="top-2 md:-top-20 absolute lg:-top-5  text-purple-600 text-3xl">
                   {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
-                  <img
+                  {/* <img
                     src="/tag.png"
                     className="w-10 ml-10  md:ml-10  lg:w-18"
-                  />
+                  /> */}
+                   <AnimatedCodeBrackets
+                width={70}
+                height={70}
+                color="#F9C23A"
+                strokeWidth={5}
+                animationDuration={1.5}
+                className="w-10 ml-10  md:ml-10  lg:w-18"
+              />
                 </motion.div>
               </div>
 

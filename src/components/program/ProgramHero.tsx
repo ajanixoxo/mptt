@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CircleArrowUp } from "lucide-react";
 import FloatingShape from "@/components/FloatingShape";
 import { useRouter } from 'next/navigation'
+import AnimatedCodeBrackets from "../AnimatedCodeBrackets"
 const ProgramHero = () => {
   const router = useRouter()
   const handleClick =() => {
@@ -14,7 +15,7 @@ const ProgramHero = () => {
     router.push('/path')
   }
   return (
-    <section className="pt-20 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden hero">
+    <section className="pt-15 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden hero">
       {/* Floating shapes */}
       <FloatingShape
         color="from-[#1F22CA] to-transparent"
@@ -74,7 +75,7 @@ const ProgramHero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-40 right-32"
+        className="absolute top-40 right-36"
       >
         <motion.img
           src="/s-star.png"
@@ -98,12 +99,20 @@ const ProgramHero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="absoute top-20 left-10"
+              className="absoute top-25 left-10"
             >
-              <img src="/tag.png" alt="Code tag" className="w-12 h-12" />
+               <AnimatedCodeBrackets
+                width={70}
+                height={70}
+                color="#F9C23A"
+                strokeWidth={5}
+                animationDuration={1.5}
+                className="w-9 md:w-auto "
+              />
+              {/* <img src="/tag.png" alt="Code tag" className="w-12 h-12" /> */}
             </motion.div>
 
-            <h1 className="text-4xl md:text-left text-center md:text-7xl font-bold  text-white">
+            <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  text-white">
                Start here. <br />
                <span className="text-[#F9C23A]">Hack-A-Path.</span>
             </h1>
