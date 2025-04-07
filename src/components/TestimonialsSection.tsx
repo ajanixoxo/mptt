@@ -116,10 +116,10 @@ const TestimonialsSection = () => {
 
               <div className="absolute bg-[#716D6D] w-full h-[1px] mb-2 left-0 ext-[#979292]"></div>
 
-              <p className="text-gray-300 inline-flex gap-2 italic mt-3 ">
+              <p className=" ml-2 text-gray-300 inline-flex gap-2 italic mt-3 ">
                 <svg
                   width={ index == 0 ? 3: 28}
-                  className={'absolute w-4 left-1  lg:w-4'}
+                  className={'absolute w-4 left-2  lg:w-4'}
                   height={28}
                   viewBox="0 0 24 24"
                   fill="none"
