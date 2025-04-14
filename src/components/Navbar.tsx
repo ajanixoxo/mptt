@@ -67,10 +67,8 @@ const Navbar = () => {
           </Link>
         </nav>
 
-        <div className=" hidden md:flex gap-2">
-        <Button text="Apply Now" bg="bg-[#DED6E8] hover:bg-[#def5f7] cursor-pointer" onClick={handleClick} />
-
-          <button
+        <div className=" hidden md:flex gap-4">
+           <button
             className="cursor-pointer"
             onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}>
             {theme === "light" ? (
@@ -79,6 +77,9 @@ const Navbar = () => {
               <Sun />
             )}
           </button>
+        <Button text="Apply Now" bg="bg-[#DED6E8] hover:bg-[#def5f7] cursor-pointer" onClick={handleClick} />
+
+         
 
         </div>
 
@@ -120,7 +121,7 @@ const Navbar = () => {
             >
               Program
             </Link>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               <button
                 onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}>
                 {theme === "light" ? (
