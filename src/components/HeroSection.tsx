@@ -99,7 +99,7 @@ const HeroSection = () => {
       {/* Hero Content */}
       <div className="container mx-auto max-w-6xl text-center">
         {/* Blinking Animated Tag */}
-        <motion.div className="absolute lg:top-12 w-[10%] lg:left-[30%]">
+        <motion.div className="absolute top-10 lg:top-12 w-[10%] lg:left-[30%]">
           <AnimatedCodeBrackets
             width={70}
             height={70}
