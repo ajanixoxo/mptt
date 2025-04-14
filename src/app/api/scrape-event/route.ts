@@ -1,24 +1,49 @@
 import { NextResponse } from "next/server"
 import { scrapeLumaEvent } from "@/lib/luma_scraper/route"
+import prisma from "@/lib/prisma"
 
 export async function POST(request: Request) {
   try {
-    const { url, includeRawHtml } = await request.json()
+    const { url, includeRawHtml, autoSave, id } = await request.json()
 
     if (!url) {
       return NextResponse.json(
-        {
-          message: "Luma URL is required",
-        },
+        { message: "Luma URL is required" },
         { status: 400 },
       )
     }
 
     console.log(`Attempting to scrape Luma event: ${url}`)
 
-    // Scrape event data from Luma
+    // Step 1: Scrape the event
     const eventData = await scrapeLumaEvent(url, includeRawHtml)
-     console.log("This is the event data from scraper ", eventData)
+
+    // Step 2: If autoSave is true, save to DB
+    if (autoSave) {
+      const savedEvent = await prisma.event.update({
+        where:{id},
+        data: {
+          title: eventData.title,
+          description: eventData.description,
+          eventDate: eventData.eventDate ? new Date(eventData.eventDate) : undefined,
+          location: eventData.location,
+          thirdPartyLink: url,
+          thirdPartyEventId: eventData.thirdPartyEventId,
+          isOnline: eventData.isOnline ?? false,
+          status: "active", // or "draft" depending on your app flow
+        },
+      })
+
+      return NextResponse.json(
+        {
+          message: "Event scraped and saved successfully",
+          event: savedEvent,
+        },
+        { status: 201 },
+      )
+    }
+
+    // Step 3: If not auto saving, just return the data
     return NextResponse.json(
       {
         message: "Event scraped successfully",
@@ -38,4 +63,3 @@ export async function POST(request: Request) {
     )
   }
 }
-

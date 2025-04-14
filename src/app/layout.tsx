@@ -1,7 +1,7 @@
 import { defaultMetadata } from "@/lib/metadata";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/next';
-
+import { ThemeProvider } from "next-themes";
 export const metadata = defaultMetadata;
 
 export default function RootLayout({
@@ -9,17 +9,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
+  return (<ThemeProvider
+    attribute="class"
+    defaultTheme="system"
+    enableSystem
+    disableTransitionOnChange>
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="svg" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
-      <body className={` text-white`}>
-        <div className="">
-          <div className="flex-grow">{children}</div>
-          <Analytics />
-        </div>
+      <body className="">
+    
+        <div className="flex-grow">{children}</div>
+        <Analytics />
       </body>
     </html>
+  </ThemeProvider>
   );
 }

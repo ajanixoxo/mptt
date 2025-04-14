@@ -63,7 +63,8 @@ const PathwaysSection = () => {
   }
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 relative">
+      <img src="/h_b (2).png" className="absolute right-0 w-5 md:w-8" />
       <div className="container mx-auto max-w-8xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -88,7 +89,7 @@ const PathwaysSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className="bg-[#232224B2] backdrop-blur-sm rounded-xl overflow-hidden"
+              className="bg-transparent border-2 border-black  dark:bg-[#232224B2] backdrop-blur-sm rounded-xl overflow-hidden"
             >
               <div className="relative h-48 p-1">
                 <img

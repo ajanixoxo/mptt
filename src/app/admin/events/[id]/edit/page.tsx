@@ -189,14 +189,14 @@ export default function EditEventPage() {
           description: event.description || formData.description,
           eventDate: event.eventDate || formData.eventDate,
           eventTime: event.eventTime || formData.eventTime,
-          isOnline: event.isOnline !== undefined ? event.isOnline : formData.isOnline,
+          isOnline: event.isOnline || formData.isOnline,
           imageUrl: event.imageUrl || formData.imageUrl,
-          location: !event.isOnline ? event.location || formData.location : formData.location,
-
+          location: event.location || formData.location,
           thirdPartyLink: event.thirdPartyLink || formData.thirdPartyLink,
           thirdPartyEventId: event.thirdPartyEventId || formData.thirdPartyEventId,
         })
         alert("Succesfuly scraped")
+        console.log(formData)
       }
     } catch (error) {
       console.error("Error scraping event:", error)

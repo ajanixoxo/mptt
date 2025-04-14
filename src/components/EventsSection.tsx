@@ -174,13 +174,13 @@ const EventsSection = () => {
               }}
               className="absolute top-[0%] left-[5%] text-[#1D1FB175]"
             >
-              <img src="/s-star.png" alt="" className="w-7 md:w-12" />
+              <img src="/s-star.png" alt="" className="w-7 md:w-12 hidden dark:flex" />
             </motion.div>
             <FloatingShape
               color="from-[#1F22CA] to-transparent"
               size="w-60 h-60 "
               top=""
-              position="absolute left-[-20%] lg:left-0 lg:-top-[30%]"
+              position="absolute left-[-20%] lg:left-0 lg:-top-[30%] hidden dark:flex"
               left=""
               delay={0}
             />
@@ -220,7 +220,7 @@ const EventsSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-[#232224B2] backdrop-blur-sm rounded-xl overflow-hidden relative"
+                  className="bg-transparent border-black border-2 dark:bg-[#232224B2] backdrop-blur-sm shadow shadow-black rounded-xl overflow-hidden relative"
                 >
                   <div className="p-6 space-y-2">
                     <div>
@@ -234,9 +234,9 @@ const EventsSection = () => {
                       />
                     </div>
                     <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-xl font-bold text-white w-max">{truncateTitle(event.title, 5)}</h3>
+                      <h3 className="text-xl font-bold dark:text-white w-max">{truncateTitle(event.title, 5)}</h3>
                       <span
-                        className={`text-xs px-3 py-1 rounded-full bg-[#2B2B2B] w-max ${
+                        className={`text-xs px-3 py-1 rounded-full bg-[#c0bebe] dark:bg-[#2B2B2B] w-max ${
                           event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
                         }`}
                       >
@@ -244,7 +244,7 @@ const EventsSection = () => {
                       </span>
                     </div>
 
-                    <div className="text-gray-400 mb-2">
+                    <div className="text-[#6A6464] dark:text-gray-400 mb-2">
                       <div className="flex items-center">
                         <Calendar size={16} className="mr-2" />
                         <span>{new Date(event.eventDate).toDateString()}</span>
@@ -259,7 +259,7 @@ const EventsSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-[#a09c9c] p-1 h-26 lg:h-22">{truncateTitle(event.description, 18)}</p>
+                    <p className="text-[#6A6464] dark:text-[#a09c9c] p-1 h-26 lg:h-22">{truncateTitle(event.description, 18)}</p>
 
                     <a
                       href={event.thirdPartyLink ?? "#"}

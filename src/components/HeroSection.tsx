@@ -1,235 +1,200 @@
 "use client";
 
-// import { Code, ArrowRight } from "lucide-react"
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { CircleArrowUp } from "lucide-react";
-import FloatingShape from "@/components/FloatingShape";
 import { useRouter } from "next/navigation";
-// Import the component
-import AnimatedCodeBrackets from './AnimatedCodeBrackets'
-
-// Use it in your component with custom props
+import { useTheme } from "next-themes";
+import { CircleArrowUp } from "lucide-react";
+// import Image from "next/image";
+import FloatingShape from "@/components/FloatingShape";
+import AnimatedCodeBrackets from "./AnimatedCodeBrackets";
 
 const HeroSection = () => {
-  // const isInView = useInView(ref, { once: true })
+  const router = useRouter();
   const tagControls = useAnimation();
-  const router = useRouter()
-  const handlePush = () => {
-    console.log("Reahced")
-    router.push('/path')
-  }
-  // // Animation for the tag component
+  const { theme, systemTheme } = useTheme();
+  // const MotionImage = motion(Image);
+
+  const [mounted, setMounted] = useState(false);
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const isDark = currentTheme === "dark";
+
+  const handleNavigate = () => router.push("/path");
+
+  // Tag animation sequence
   useEffect(() => {
-    // Start the animation sequence for the tag
     const animateTag = async () => {
       while (true) {
-        // Blink out and rotate
-        await tagControls.start({
-          opacity: 0.5,
-          rotate: 15,
-          transition: { duration: 0.1 },
-        });
-        // Pause briefly
-        await new Promise((resolve) => setTimeout(resolve, 300));
-        // Blink in with new rotation
-        await tagControls.start({
-          opacity: 1,
-          rotate: 15,
-          transition: { duration: 0.2 },
-        });
-        // Pause at rotated position
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        // Blink out again
-        await tagControls.start({
-          opacity: 0.5,
-          transition: { duration: 0.2 },
-        });
-        // Pause briefly
-        await new Promise((resolve) => setTimeout(resolve, 300));
-        // Return to original position and blink in
-        await tagControls.start({
-          opacity: 1,
-          rotate: 0,
-          transition: { duration: 0.2 },
-        });
-        // Pause at original position before repeating
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await tagControls.start({ opacity: 0.5, rotate: 15, transition: { duration: 0.1 } });
+        await new Promise((res) => setTimeout(res, 300));
+        await tagControls.start({ opacity: 1, rotate: 15, transition: { duration: 0.2 } });
+        await new Promise((res) => setTimeout(res, 1000));
+        await tagControls.start({ opacity: 0.5, transition: { duration: 0.2 } });
+        await new Promise((res) => setTimeout(res, 300));
+        await tagControls.start({ opacity: 1, rotate: 0, transition: { duration: 0.2 } });
+        await new Promise((res) => setTimeout(res, 2000));
       }
     };
-
     animateTag();
   }, [tagControls]);
 
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  // Reusable animation variant
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const twinkleStar = {
+    initial: { opacity: 0 },
+    animate: { opacity: [0, 1, 0] },
+    transition: { duration: 2, repeat: Infinity },
   };
 
   return (
-    <section className="pt-20  lg:pt-28 hero opacity-65  px-4 relative overflow-hidden">
-      {/* <div className="absolute top-0 left-0 right-0 w-32 blur-xl h-32 rounded-full bg-gradient-to-t from-blue-500 to-transparent z-20 pointer-events-none"></div> */}
-
+    <section
+      className={`pt-20 px-4 relative overflow-hidden lg:pt-28 ${isDark ? "dark:hero hero" : "hero2 bg-[#FEFBEA]"
+        }`}
+    >
+      {/* Floating Elements */}
       <FloatingShape
         color="from-[#1F22CA] to-transparent"
         size="w-60 h-60"
         top="-5%"
-        position="absolute"
         left="88%"
+        position="absolute hidden dark:flex"
         delay={0}
       />
-      {/* Animated stars */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20  right-1 md:right-[20%] text-purple-400"
-      >
-        <img src="/s-star.png" alt="" className="w-7 md:w-12" />
-      </motion.div>
-      {/* Animated stars */}
-      <div className="absolute top-[30%] -left-40 lg:-left-20 text-purple-400">
-        <FloatingShape
-          color="from-[#1F22CA] to-transparent"
-          size="w-60 h-60"
-          position=""
-          top="35%"
-          left="18%"
-          delay={0}
-        />
+      <FloatingShape
+        color="from-[#1F22CA] to-transparent"
+        size="w-60 h-60"
+        top="35%"
+        left="1%"
+        position="absolute hidden  dark:flex"
+        delay={0}
+      />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        >
-          <img src="/s-star.png" className="w-7 md:w-12 ml-62 -mt-32" />
+      {/* Twinkling Stars */}
+      <motion.div {...twinkleStar} className="absolute top-20 right-1 md:right-[20%]">
+        <img src="/s-star.png" className="w-7 md:w-12 hidden dark:flex" />
+        <img src="/star.png" className="w-7 md:w-12 dark:hidden flex" />
+      </motion.div>
+
+      <motion.div {...twinkleStar} className="absolute top-40 left-[20px] md:left-[15%]">
+        <img src="/s-star.png" className="w-7 md:w-12 hidden dark:flex" />
+        <img src="/star.png" className="w-7 md:w-12 dark:hidden flex" />
+      </motion.div>
+
+      <motion.div {...twinkleStar} className="absolute bottom-40 left-20">
+        <img src="/s-star.png" className="w-7 md:w-12 hidden dark:flex" />
+      </motion.div>
+
+      <motion.div {...twinkleStar} className="absolute top-[40%] -right-0 md:right-[5%]">
+        <img src="/s-star.png" className="w-7 md:w-12 hidden dark:flex" />
+      </motion.div>
+
+      {/* Hero Content */}
+      <div className="container mx-auto max-w-6xl text-center">
+        {/* Blinking Animated Tag */}
+        <motion.div className="absolute lg:top-12 w-[10%] lg:left-[30%]">
+          <AnimatedCodeBrackets
+            width={70}
+            height={70}
+            color="#F9C23A"
+            strokeWidth={5}
+            className="w-10 md:w-auto"
+          />
         </motion.div>
-      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{
-          duration: 2,
-          repeat: Number.POSITIVE_INFINITY,
-          delay: 0.5,
-        }}
-        className="absolute bottom-40 left-20 text-blue-400"
-      >
-        <img src="/s-star.png" className="w-7 md:w-12" />
-      </motion.div>
+        {/* Main Headings */}
+        <div className="lg:flex flex-col items-center justify-center">
+          <motion.h1
+            className="main_text max-w-2xl text-[40px] md:text-5xl lg:text-6xl font-bold leading-tight mb-2"
+            variants={itemVariants}
+          >
+            Shape Your Future.
+          </motion.h1>
 
-      <div className="container flex flex-col  mx-auto max-w-6xl">
-        <div className="text-center mb-10">
-          <div className="flex justify-between w-full ">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                delay: 0.5,
-              }}
-              className="absolute top-40 left-[20] md:left-[15%] text-blue-400"
-            >
-              <img src="/s-star.png" className="w-7 md:w-12" />
-            </motion.div>
-            <motion.div
-              className="top-15 lg:top-15 absolute w-[10%] lg:left-[30%] text-purple-600 text-3xl"
-            
-            >
-              {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
-              {/* <img src="/tag.png" className="w-8 lg:w-16" /> */}
-              <AnimatedCodeBrackets
-                width={70}
-                height={70}
-                color="#F9C23A"
-                strokeWidth={5}
-                animationDuration={1.5}
-                className="w-10 md:w-auto"
-              />
-            </motion.div>
-          </div>
-          <div className="lg:flex flex-col items-center justify-center">
+          <div className="relative z-40 flex justify-center items-center flex-col md:flex-row">
             <motion.h1
-              className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
+              className="main_text max-w-2xl text-[40px] md:text-5xl lg:text-6xl font-bold leading-tight mb-2"
               variants={itemVariants}
             >
-              Shape Your Future.
-
+              Start with
             </motion.h1>
-            <div className="relative  z-40 flex justify-center items-center flex-col md:flex-row">
-              <motion.h1
-                className="inline-flex main_text max-w-2xl flex-col md:flex-col items-center justify-center text-[40px]  md:text-5xl main_text lg:text-6xl text-center font-bold mb-2 realtive leading-tight"
-                variants={itemVariants}
-              >
-                Start with
-
-              </motion.h1>
-              <img src="/d-skills.png" className="lg:w-[50%] ml-1  w-full  z-10 " />
-
-            </div>
+            <img src="/d-skills.png" className="lg:w-[50%] w-full z-10 ml-1" />
           </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: 0.5,
-            }}
-            className="absolute top-[40%] -right-0 md:right-[5%] text-blue-400"
-          >
-            <img src="/s-star.png" className="w-7 md:w-12" />
-          </motion.div>
-          <motion.p
-            className="text-[#817e7e] sec_text font-medium inline-block mb-3 text-[14px] lg:text-[18px] max-w-lg text-center relative  z-20"
-            variants={itemVariants}
-          >
-            Build What Matters.
-          </motion.p>
-
-          <motion.button
-            className="bg-[#F9C23A] main_text sec_text mx-auto lg:my-4   transition button font-semibold cursor-pointer  p-3 md:py-1 md:px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl  flex items-center space-x-2"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handlePush}
-          >
-            <span className="main_text">Discover Your Path</span>
-            <CircleArrowUp className="rotate-45 w-4 lg:w-auto" />
-          </motion.button>
         </div>
 
-        <motion.div
-          className="relative flex w-full justify-center -mt-15 items-center z-10"
+        {/* Sub Text */}
+        <motion.p
+          className="sec_text z-50 relative text-[#817e7e] text-[14px] lg:text-[18px] font-medium max-w-lg mx-auto my-3"
           variants={itemVariants}
         >
-          <motion.img
-            src="/4.png"
-            alt="Students with tech devices"
-            className="w-[50%] lg:w-[30%] -mt- h-auto object-contain"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          />
-          <motion.img
-            src="/2.png"
-            alt="Students with tech devices"
-            className="w-[95%] lg:w-[60%] h-auto object-contain"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          />
+          Build What Matters.
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.button
+          onClick={handleNavigate}
+          className="bg-[#F9C23A] main_text z-50 relative sec_text mx-auto lg:my-4 font-semibold p-3 md:py-1 md:px-2 lg:text-base text-gray-900 lg:px-6 lg:py-3 rounded-xl flex items-center space-x-2"
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span>Discover Your Path</span>
+          <CircleArrowUp className="rotate-45 w-4 lg:w-auto" />
+        </motion.button>
+
+        {/* Hero Images */}
+        <motion.div className="relative flex justify-center items-center w-full z-10" variants={itemVariants}>
+          {isDark ? (
+            <>
+              <img
+                src="/4.png"
+                alt="Floating shape 4"
+                width={400}
+                height={400}
+                className="w-[50%] lg:w-[30%] hidden dark:flex"
+              
+              />
+              <img
+                src="/2.png"
+                alt="Hero visual dark"
+                width={800}
+                height={600}
+                className="w-[95%] lg:w-[60%] hidden dark:flex"
+              />
+            </>
+          ) : (
+            <>
+              <img
+                src="/3.png"
+                alt="Floating shape 3"
+                width={400}
+                height={400}
+                className="w-[50%] lg:w-[30%] dark:hidden flex"
+                
+              />
+              <img
+                src="/1.png"
+                alt="Hero visual light"
+                width={800}
+                height={600}
+                className="w-[95%] lg:w-[50%] dark:hidden flex"
+              />
+            </>
+          )}
         </motion.div>
 
-        <div className="absolute -bottom-2 left-0  w-full z-20 pointer-events-none">
-          <img src="/Bg.png" className="w-full" />
+
+        {/* Background Decoration */}
+        <div className="absolute -bottom-2 left-0 w-full z-20 pointer-events-none">
+          <img src="/Bg.png" className="w-full hidden dark:block" />
+          <img src="/white_bg.png" className="w-full block dark:hidden" />
         </div>
       </div>
     </section>

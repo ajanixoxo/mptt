@@ -132,8 +132,10 @@ const ProgramStructureSection = () => {
   return (
     <section className="relative py-20  overflow-hidden">
       {/* Background decorative elements */}
-
-      <div className="absolute flex justify-between w-full -mt-10 lg:mt-10 right-0">
+      <img src="/h_b (2).png" className="absolute right-0 w-5 dark:hidden md:w-8" />
+      <img src="/star.png" className="absolute left-[30%] top-10 w-5 dark:hidden md:w-8" />
+      <img src="/h_b (1).png" className="absolute left-0 bottom-0 w-5 dark:hidden md:w-8" />
+      <div className="absolute hidden dark:flex justify-between w-full -mt-10 lg:mt-10 right-0">
         <img src="/s_half.png" className="w-5 rotate-180 md:w-15" />
 
         <div className=" right-20">
@@ -162,7 +164,7 @@ const ProgramStructureSection = () => {
 
       
 
-      <div className="absolute left-0 top-[30%]">
+      <div className="absolute  hidden dark:flexleft-0 top-[30%]">
         <FloatingShape
           color="from-[#1F22CA] to-transparent"
           size="w-60 h-60"
@@ -187,7 +189,7 @@ const ProgramStructureSection = () => {
           color="from-[#1F22CA] to-transparent"
           size="w-60 h-60"
           top="%"
-          position="absolute"
+          position="absolute hidden dark:"
           left="%"
           delay={0}
         />
@@ -212,15 +214,14 @@ const ProgramStructureSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">How It Works</h2>
-          <p className="text-[#a09c9c] text-xl">
+          <h2 className="text-5xl font-bold dark:text-white mb-4">How It Works</h2>
+          <p className="dark:text-[#a09c9c] text-[#6A6464] text-xl">
             Your 10-week journey to launching your tech career
           </p>
         </motion.div>
 
-        <div className="space-y-8 flex flex-col lg:flex-row gap-5 relative">
+        <div className="grid md:grid-cols-2 gap-5 grid-cols-1">
           <div>
-            {" "}
             {weeks.map((week, index) => (
               <motion.div
                 key={week.number}
@@ -231,9 +232,9 @@ const ProgramStructureSection = () => {
                 className="flex flex-col  mb-4"
               >
                 {/* Week info */}
-                <div className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-6">
+                <div className="border-2 border-black dark:bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#343434] flex items-center justify-center">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white dark:bg-[#343434] flex items-center justify-center">
                       <svg
                         width={24}
                         height={24}
@@ -250,11 +251,11 @@ const ProgramStructureSection = () => {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-xl font-bold dark:text-white">
                       Week {week.number}: {week.title}
                     </h3>
                   </div>
-                  <p className="text-[#a09c9c] mb-6">{week.description}</p>
+                  <p className="dark:text-[#a09c9c] text-[#6A6464] mb-6">{week.description}</p>
 {/* 
                   <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
                     <h4 className="text-sm font-medium text-gray-300 mb-3">
@@ -295,27 +296,10 @@ const ProgramStructureSection = () => {
                   </div> */}
                 </div>
 
-                {/* Arrow for desktop */}
-                {/* {index < weeks.length - 1 && (
-                  <div className="hidden absolute md:flex top-40  items-center justify-center">
-                    <svg
-                      width={36}
-                      height={9}
-                      viewBox="0 0 36 9"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M29.8531 6.73745C31.4364 5.5772 33.3069 5.02567 35.2086 4.58962C36.1087 4.38348 36.3365 3.48117 35.3824 3.07859C35.0877 2.95447 34.7585 2.95123 34.4498 2.87676C31.9987 2.39107 29.593 1.70139 27.2023 0.968542C27.1863 0.963698 27.1695 0.962243 27.153 0.96426C27.1364 0.966277 27.1205 0.971721 27.1062 0.980254C27.0918 0.988788 27.0795 1.00022 27.0698 1.01381C27.0601 1.02741 27.0534 1.04287 27.0501 1.05921C27.0439 1.08759 27.0472 1.1172 27.0595 1.14352C27.0718 1.16984 27.0924 1.19141 27.1181 1.20491C27.9071 1.63663 30.6172 3.36893 32.5071 3.26855C27.1947 3.55133 22.6444 3.09478 17.7346 3.16602C11.8502 3.13795 5.97046 2.95591 0.0954132 2.61988C0.0721664 2.61838 0.0492439 2.62599 0.0315132 2.6411C0.0137787 2.65622 0.00263214 2.67764 0.000434875 2.70083C-0.0017128 2.72096 0.00407791 2.74113 0.0165749 2.75706C0.0290718 2.77298 0.0472908 2.78341 0.0673523 2.7861C5.91505 3.60314 11.7962 4.29714 17.699 4.46011C22.9271 4.60474 26.9864 4.51516 31.5141 4.2885C29.838 4.37269 28.4823 6.93389 28.0085 7.81353C27.9929 7.84231 27.9876 7.87554 27.9935 7.90773C27.9994 7.93993 28.0161 7.96914 28.0409 7.99053C28.0763 8.02022 28.121 8.0365 28.1672 8.0365C28.2134 8.0365 28.2581 8.02022 28.2935 7.99053C28.8212 7.55449 29.3285 7.11845 29.8531 6.73745Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </div>
-                )} */}
+               
               </motion.div>
             ))}
           </div>
-
           <div>
             {weeks2.map((week, index) => (
               <motion.div
@@ -324,12 +308,12 @@ const ProgramStructureSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex flex-col mb-4"
+                className="flex flex-col  mb-4"
               >
                 {/* Week info */}
-                <div className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-6">
+                <div className="border-2 border-black dark:bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#343434] flex items-center justify-center">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white dark:bg-[#343434] flex items-center justify-center">
                       <svg
                         width={24}
                         height={24}
@@ -346,17 +330,17 @@ const ProgramStructureSection = () => {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-xl font-bold dark:text-white">
                       Week {week.number}: {week.title}
                     </h3>
                   </div>
-                  <p className="text-[#a09c9c] mb-6">{week.description}</p>
-
-                  {/* <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
+                  <p className="dark:text-[#a09c9c] text-[#6A6464] mb-6">{week.description}</p>
+{/* 
+                  <div className="p-2 border-2 border-[#716D6D] rounded-2xl">
                     <h4 className="text-sm font-medium text-gray-300 mb-3">
                       What you'll learn:
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-rows-1 sm:grid-cols-2 gap-3">
                       {week.learnings.map((learning, i) => (
                         <div key={i} className="flex items-start gap-2">
                           <svg
@@ -390,9 +374,13 @@ const ProgramStructureSection = () => {
                     </div>
                   </div> */}
                 </div>
+
+             
               </motion.div>
             ))}
           </div>
+          
+
         </div>
       </div>
     </section>

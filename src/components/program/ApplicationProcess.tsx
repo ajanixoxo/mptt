@@ -34,6 +34,8 @@ const ApplicationProcessSection = () => {
 
   return (
     <section className="relative py-20 overflow-hidden">
+               <img src="/h_b (2).png" className="absolute right-0 w-5 dark:hidden md:w-8" />
+               <img src="/h_b (1).png" className="absolute left-0 bottom-0 w-5 dark:hidden md:w-8" />
        <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
@@ -41,7 +43,7 @@ const ApplicationProcessSection = () => {
         className="absolute top-20 left-10 w-8 h-8 opacity-30"
       >
 
-        <img src='/s-star.png' alt="" className="w-7 md:w-12" />
+        <img src='/s-star.png' alt="" className="w-7 md:w-12 hidden dark:flex" />
 
 
 
@@ -56,7 +58,7 @@ const ApplicationProcessSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-1">Application Process</h2>
+          <h2 className="text-5xl font-bold dark:text-white mb-1">Application Process</h2>
           <p className="text-[#a09c9c] text-xl">Your journey to joining Hack-A-Path</p>
         </motion.div>
 
@@ -70,10 +72,10 @@ const ApplicationProcessSection = () => {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center w-full sm:w-[calc(50%-1rem)] md:w-[calc(20%-1.6rem)]"
             >
-              <div className="w-24 h-24 rounded-full bg-[#1E1E1E] flex items-center justify-center mb-6">
+              <div className="w-24 h-24 rounded-full dark:bg-[#1E1E1E] bg-white flex items-center justify-center mb-6">
                 <span className="text-5xl font-bold text-[#F9C23A]">{step.number}</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
+              <h3 className="text-2xl font-bold dark:text-white mb-2">{step.title}</h3>
               <p className="text-[#a09c9c]">{step.description}</p>
             </motion.div>
           ))}

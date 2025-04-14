@@ -11,7 +11,9 @@ const missionPoints = [
 
 const MissionSection = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 relative">
+           <img src="/h_b (2).png" className="absolute right-0 w-5 dark:hidden md:w-8" />
+           <img src="/h_b (1).png" className="absolute left-0 bottom-0 w-5 dark:hidden md:w-8" />
       <div className="absolute  left-2">
         <img src="/s_half.png" className="w-5 rotate-180 md:w-15" />
       </div>
@@ -56,7 +58,7 @@ const MissionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl ml-1 md:ml-0 md:text-5xl font-bold  text-white">
+            <h2 className="text-4xl ml-1 md:ml-0 md:text-5xl font-bold  dark:text-white">
               Our Mission
             </h2>
             <p className="text-[#7A7979] text-lg mb-8">

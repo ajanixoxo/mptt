@@ -35,7 +35,7 @@ async function getAdminFromToken() {
   }
 }
 
-export async function POST(request: Request, context: { params: { id: string } }) {
+export async function POST(request: Request, context: {  params: Promise<{ id: string }> }) {
   try {
     // Check if user is authenticated and is an admin
     const admin = await getAdminFromToken()
@@ -44,7 +44,8 @@ export async function POST(request: Request, context: { params: { id: string } }
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
     }
 
-    const { id } = context.params
+    const params = await context.params
+    const { id } = params
 
     // Get the event
     const event = await prisma.event.findUnique({
@@ -105,7 +106,7 @@ export async function POST(request: Request, context: { params: { id: string } }
       { status: 200 },
     )
   } catch (error) {
-    console.error("Sync Luma event error:", error)
+    console.error("Sync Luma event error:", error, request)
     return NextResponse.json(
       {
         message: "Failed to sync event",

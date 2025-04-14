@@ -52,13 +52,15 @@ const features = [
 
 const ProgramFeatures = () => {
   return (
-    <section className="py-20 px-4 relative bg-gradient-to-b from-[#0A0A0B] to-[#0F0F1A]">
+    <section className="py-20 px-4 relative dark:bg-gradient-to-b from-[#0A0A0B] to-[#0F0F1A]">
+                    <img src="/h_b (2).png" className="absolute right-0 w-5 dark:hidden md:w-8" />
+                    <img src="/h_b (1).png" className="absolute left-0 bottom-0 w-5 dark:hidden md:w-8" />
       {/* Floating shape */}
       <FloatingShape
         size="w-60 h-60"
         color="bg-gradient-to-r from-[#1F22CA] to-transparent -left-[40%] -top-20 lg:-left-[10%]"
         // className=""
-        position="absolute"
+        position="absolute hidden dark:flex"
         top=""
         left=""
         delay={0.3}
@@ -69,7 +71,7 @@ const ProgramFeatures = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-40 left-20"
+        className="absolute top-40 left-20 hidden dark:flex"
       >
         <motion.img
           src=" /s-star.png"
@@ -81,7 +83,7 @@ const ProgramFeatures = () => {
       </motion.div>
 
       {/* Half star */}
-      <div className="absolute right-0 lg:right-10 top-40">
+      <div className="absolute right-0 lg:right-10 top-40 hidden dark:flex">
         <img src="/s_half.png" className="w-7 md:w-12" />
       </div>
 
@@ -93,7 +95,7 @@ const ProgramFeatures = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl relative z-30 md:text-5xl font-bold mb-1 text-white">
+          <h2 className="text-4xl relative z-30 md:text-5xl font-bold mb-1 dark:text-white">
             What Makes Hack-A-Path Special
           </h2>
           <p className="text-[#a09c9c]  max-w-2xl mx-auto">
@@ -110,7 +112,7 @@ const ProgramFeatures = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl overflow-hidden"
+              className="border-2 border-black dark:bg-[#2B2B2B]/80 backdrop-blur-sm rounded-xl overflow-hidden"
             >
               <div className="p-6">
                 <div className="flex items-center mb-4">
@@ -122,15 +124,15 @@ const ProgramFeatures = () => {
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-xl font-bold dark:text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-[#a09c9c]">{feature.description}</p>
+                    <p className="text-[#6A6464] dark:text-[#a09c9c]">{feature.description}</p>
                   </div>
                 </div>
-<div className="absolute  left-0 w-full h-[1px] bg-[#716D6D]">
+                <div className="absolute  left-0 w-full h-[1px] bg-[#716D6D]">
 
-</div>
+                </div>
                 <div className="mt-6 space-y-3">
                   {feature.points.map((point, i) => (
                     <motion.div
@@ -165,7 +167,7 @@ const ProgramFeatures = () => {
                           />
                         </svg>
                       </div>
-                      <p className="text-[#a09c9c]">{point}</p>
+                      <p className="text-[#6A6464] dark:text-[#a09c9c]">{point}</p>
                     </motion.div>
                   ))}
                 </div>

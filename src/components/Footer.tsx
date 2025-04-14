@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="relative lg:mx-6 mb-4 ">
+    <footer className="relative lg:mx-6 dark:mb-4 ">
       <div className=" text-purple-400">
         <motion.div
           initial={{ opacity: 0 }}
@@ -31,7 +31,8 @@ const Footer = () => {
           <div className="col-span-1 space-y-4">
             <Link href="/" className="flex gap-2">
               <img src="/logo.svg" alt="logo" className="w-10 md:w-12" />
-              <span className="main_text text-4xl">Mypath2tech</span>
+              <span className="main_text text-4xl text-white">Mypath2tech</span>
+              
             </Link>
             <p className="text-gray-400 mb-4">
               Empowering the next generation of tech talent through education

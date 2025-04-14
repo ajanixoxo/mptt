@@ -36,7 +36,13 @@ const TeamSection = () => {
 
         <div
           className=" -ml-10 text-purple-400">
-          <FloatingShape color='from-[#1F22CA] to-transparent' size='lg:w-60 w-32 h-32 lg:h-60' position="" top='35%' left='18%' delay={0} />
+          <FloatingShape
+           color='from-[#1F22CA] to-transparent' 
+           size='lg:w-60 w-32 h-32 lg:h-60' 
+           position="hidden dark:flex" 
+           top='35%' 
+           left='18%' 
+           delay={0} />
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -45,7 +51,7 @@ const TeamSection = () => {
 
           >
 
-            <img src="/s-star.png" className="w-7 md:w-10 ml-64 -mt-32" />
+            <img src="/s-star.png" className="w-7 md:w-10 ml-64 -mt-32 hidden dark:flex" />
           </motion.div>
         </div>
 
@@ -71,11 +77,11 @@ const TeamSection = () => {
           className="text-center mb-12"
         >
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-1 text-white">Meet Our Team</h2>
-          <p className="text-[#a09c9c] text-lg max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-1 dark:text-white">Meet Our Team</h2>
+          <p className="text-[#646464] dark:text-[#a09c9c] text-lg max-w-2xl mx-auto">
 
             Led by industry professionals passionate about tech education
-          </p>
+          </p> 
         </motion.div>
 
         <div className="grid grid-cols-1  place-items-center gap-5 lg:gap-1 lg:grid-cols-3 w-full">

@@ -75,8 +75,8 @@ const ProgramCTA = () => {
                     className=" text-center relative "
                 >
                     <div className="relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Tech Journey?</h2>
-                        <p className="text-[#a09c9c] mb-8 max-w-2xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">Ready to Start Your Tech Journey?</h2>
+                        <p className="dark:text-[#a09c9c] text-[#6A6464] mb-8 max-w-2xl mx-auto">
                             Applications for our next cohort are now open. Spaces fill up quickly, so apply today to secure your spot.
                         </p>
 

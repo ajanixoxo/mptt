@@ -11,7 +11,9 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 relative">
+         <img src="/h_b (2).png" className="absolute right-0 w-5 dark:hidden md:w-8" />
+         <img src="/h_b (1).png" className="absolute left-0 bottom-0 w-5 dark:hidden md:w-8" />
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:flex flex-row-reverse gap-12 items-center justify-between">
           <motion.div
@@ -70,7 +72,7 @@ const ProblemSection = () => {
             transition={{ duration: 0.6 }}
             className="order-1 lg:order-2"
           >
-            <h2 className="text-4xl md:text-5xl font-bold  text-white main_text">
+            <h2 className="text-4xl md:text-5xl font-bold  dark:text-white main_text">
               The Problem
             </h2>
             <p className="text-[#7A7979] text-lg mb-8 sec">

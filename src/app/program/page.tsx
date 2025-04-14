@@ -2,16 +2,16 @@
 
 import ProgramHero from "@/components/program/ProgramHero";
 import ProgramCTA from "@/components/program/ProgramCTA";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProgramInfoSections from "@/components/program/ProgamInfo";
 import { Suspense } from "react";
+import Navbar from "@/components/Navbar";
 
 const Program = () => {
   return (
     <Suspense>
-      <Navbar />
-      <main className="bg-[#0A0A0B] min-h-screen hero-bg">
+     <Navbar />
+      <main className="dark:bg-[#0A0A0B] bg-[#FEFBEA] min-h-screen hero-bg">
         {/* Content */}
         <div className="relative z-10">
           <ProgramHero />

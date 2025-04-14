@@ -5,7 +5,9 @@ import FloatingShape from "@/components/FloatingShape";
 import { CircleArrowUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 import AnimatedCodeBrackets from "../AnimatedCodeBrackets"
+import { useThemeMode } from "@/hooks/useThemeMode";
 const WhyChooseSection = () => {
+  const theme = useThemeMode();
   const tagControls = useAnimation();
   const router = useRouter()
   const handlePush = () => {
@@ -79,14 +81,15 @@ const WhyChooseSection = () => {
   };
 
   return (
-    <section className="min-h-screen mt-2 lg:mt-auto hero flex flex-col items-center justify-center pt-20 px-3 lg:px-1 relative overflow-hidden">
+    <section className={`min-h-screen mt-2 lg:mt-auto  ${theme === 'dark' ? "dark:hero hero" : "hero2 bg-[#FEFBEA]"
+      }  flex flex-col items-center justify-center pt-20 px-3 lg:px-1 relative overflow-hidden`}>
       {/* Decorative Elements */}
 
       <FloatingShape
         color="from-[#1F22CA] to-transparent"
         size="w-60 h-60"
         top="70%"
-        position="absolute"
+        position="absolute hidden dark:flex"
         left="-5%"
         delay={0}
       />
@@ -95,7 +98,7 @@ const WhyChooseSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute -bottom-0 md:-bottom-14 left-0"
+        className="absolute hidden dark:flex -bottom-0 md:-bottom-14 left-0"
       >
         <img src="/s-star.png" className="w-10 md:w-9 ml-20 lg:ml-28 mt-3" />
       </motion.div>
@@ -103,7 +106,7 @@ const WhyChooseSection = () => {
         color="from-[#1F22CA] to-transparent"
         size="w-60 h-60"
         top="0%"
-        position="absolute"
+        position="absolute hidden dark:flex"
         left="95%"
         delay={0}
       />
@@ -112,7 +115,7 @@ const WhyChooseSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20 right-22"
+        className="absolute top-20 right-22 hidden dark:flex"
       >
         <img src="/s-star.png" className="w-7 md:w-12 " />
       </motion.div>
@@ -132,14 +135,14 @@ const WhyChooseSection = () => {
                     src="/tag.png"
                     className="w-10 ml-10  md:ml-10  lg:w-18"
                   /> */}
-                   <AnimatedCodeBrackets
-                width={70}
-                height={70}
-                color="#F9C23A"
-                strokeWidth={5}
-                animationDuration={1.5}
-                className="w-10 ml-10  md:ml-10  lg:w-18"
-              />
+                  <AnimatedCodeBrackets
+                    width={70}
+                    height={70}
+                    color="#F9C23A"
+                    strokeWidth={5}
+                    animationDuration={1.5}
+                    className="w-10 ml-10  md:ml-10  lg:w-28"
+                  />
                 </motion.div>
               </div>
 
@@ -154,13 +157,13 @@ const WhyChooseSection = () => {
               </motion.div>
             </div>
 
-            <h1 className="main_text text-center leading-10 md:leading-16 mb-3 md:text-left text-[38px] md:text-[69px] font-bold  text-white">
-              One <span className="text-[#F9C23A]">Aim.</span><br/>
+            <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  dark:text-white">
+              One <span className="text-[#F9C23A]">Aim.</span><br />
               Equip the <span className="text-[#F9C23A]">Next Gen.</span>
             </h1>
-            <p className="text-[#a09c9c] sec_text text-center md:text-left md:text-lg mb-8 max-w-lg">
-         
-            We connect under-represented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
+            <p className="text-[#6A6464] dark:text-[#a09c9c] sec_text text-center md:text-left md:text-lg mb-8 max-w-lg">
+
+              We connect under-represented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
             </p>
 
             <motion.button
@@ -183,8 +186,9 @@ const WhyChooseSection = () => {
           >
             {/* Pink Circle */}
             <div className="relative ">
-              <img src="/about_hero.png" className="w-full  top-0" />
-
+              <img src="/b_star.png" className="w-22 absolute dark:hidden top-0 right-0" />
+              <img src="/about_hero.png" className="w-[80%]  top-0" />
+              <img src="/b_star.png" className="w-22 absolute dark:hidden  bottom-0 left-0" />
               {/* Stats */}
             </div>
           </motion.div>

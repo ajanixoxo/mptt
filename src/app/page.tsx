@@ -5,8 +5,9 @@ import EventsSection from "@/components/EventsSection"
 import SponsorsSection from "@/components/SponsorsSection"
 import PathwaysSection from "@/components/PathwaySection"
 import TestimonialsSection from "@/components/TestimonialsSection"
-import Navbar from "@/components/Navbar"
+
 import Footer from "@/components/Footer"
+import Navbar from "@/components/Navbar"
 
 
 export default function Home() {
@@ -14,8 +15,8 @@ export default function Home() {
 
     <>
   
-      <Navbar />
-      <div className="min-h-screen bg-[#0A0A0B]  overflow-hidden">
+   <Navbar/>
+      <div className="min-h-screen dark:bg-[#0A0A0B] bg-[#FEFBEA]  overflow-hidden">
      
         <HeroSection />
         <FindYourPlace />
@@ -24,7 +25,7 @@ export default function Home() {
         <TestimonialsSection /> 
         <SponsorsSection />
       </div>
-      <div className=" bg-[#0A0A0B]">
+      <div className=" dark:bg-[#0A0A0B]">
       <Footer />
       </div>
     </>

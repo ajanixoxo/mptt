@@ -218,12 +218,12 @@ const CoursesTabs = () => {
 
       <div className="container  mx-auto max-w-7xl">
        
-        <div className="flex flex-wrap justify-center md:justify-between max-w-7xl bg-[#2B2B2B] p-1 rounded-2xl gap-4 mb-12">
+        <div className="flex flex-wrap justify-center md:justify-between max-w-7xl border-2 border-black dark:bg-[#2B2B2B] p-1 rounded-2xl gap-4 mb-12">
           {courses.map((course) => (
             <motion.button
               key={course.id}
               onClick={() => setActiveTab(course.id)}
-              className={`md:px-6 py-3 rounded-2xl max-w-xl flex items-center space-x-2 transition-colors ${activeTab === course.id ? "px-1 bg-[#F9C23A] text-black" : "bg-[#2B2B2B] text-white hover:bg-gray-700"
+              className={`md:px-6 py-3 rounded-2xl max-w-xl flex items-center space-x-2 transition-colors ${activeTab === course.id ? "px-1 bg-[#F9C23A] text-black" : "  dark:bg-[#2B2B2B] dark:text-white hover:dark:bg-gray-700"
                 }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -246,7 +246,7 @@ const CoursesTabs = () => {
             className="grid grid-cols-1 max-w-7xl place-content-center lg:grid-cols-2 gap-4"
           >
             {/* Main Content - Left Side */}
-            <div className="bg-[#232224]/70 rounded-lg overflow-hidden">
+            <div className="border-2 border-black dark:bg-[#232224]/70 rounded-lg overflow-hidden">
               <div className="flex items-start p-6">
                 <div className="w-20 h-20 mr-4 flex-shrink-0">
                   <img
@@ -258,17 +258,17 @@ const CoursesTabs = () => {
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-white">
+                <h2 className="text-2xl font-bold dark:text-white">
                   {activeCourse.title}
                 </h2>
               </div>
 
               <div className="p-6 pt-0">
-                <p className="text-white mb-8">{activeCourse.description}</p>
+                <p className="dark:text-white mb-8">{activeCourse.description}</p>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-4">
+                    <h3 className="text-xl font-bold dark:text-white mb-4">
                       What You'll Learn
                     </h3>
                     <ul className="space-y-2">
@@ -298,21 +298,21 @@ const CoursesTabs = () => {
                               />
                             </svg>
                           </div>
-                          <span className="text-white">{skill}</span>
+                          <span className="dark:text-white">{skill}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 {/* 
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-4">
+                    <h3 className="text-xl font-bold dark:text-white mb-4">
                       Projects You'll Build
                     </h3>
                     <ul className="space-y-2">
                       {activeCourse.projects.map((project) => (
                         <li key={project} className="flex items-center">
                           <div className="w-4 h-0.5 bg-[#FFBF00] mr-2"></div>
-                          <span className="text-white">{project}</span>
+                          <span className="dark:text-white">{project}</span>
                         </li>
                       ))}
                     </ul>
@@ -329,23 +329,23 @@ const CoursesTabs = () => {
                 </h3>
               </div>
 
-              <div className="bg-[#232224]/70 p-6 rounded-b-lg">
+              <div className="border-2 border-black dark:bg-[#232224]/70 p-6 rounded-b-lg">
                 <div className="mb-8">
-                  <h4 className="text-xl font-bold text-white mb-4">
+                  <h4 className="text-xl font-bold dark:text-white mb-4">
                     Potential Roles
                   </h4>
                   <ul className="space-y-2">
                     {activeCourse.careers.roles.map((role) => (
                       <li key={role} className="flex items-center">
                         <div className="w-2 h-2 bg-[#F9C23A] rounded-full mr-2"></div>
-                        <span className="text-white">{role}</span>
+                        <span className="dark:text-white">{role}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-xl font-bold text-white">
+                  <h4 className="text-xl font-bold dark:text-white">
                     Average Salary Range
                   </h4>
                   <p className="text-2xl font-bold text-[#F9C23A]">
@@ -354,7 +354,7 @@ const CoursesTabs = () => {
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-xl font-bold text-white">
+                  <h4 className="text-xl font-bold dark:text-white">
                     Industry Demand
                   </h4>
                   <p className="text-2xl font-bold text-[#F9C23A]">

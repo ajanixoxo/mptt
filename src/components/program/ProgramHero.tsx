@@ -5,7 +5,9 @@ import { CircleArrowUp } from "lucide-react";
 import FloatingShape from "@/components/FloatingShape";
 import { useRouter } from 'next/navigation'
 import AnimatedCodeBrackets from "../AnimatedCodeBrackets"
+import { useThemeMode } from "@/hooks/useThemeMode";
 const ProgramHero = () => {
+  const theme = useThemeMode();
   const router = useRouter()
   const handleClick =() => {
     router.push('/apply')
@@ -15,13 +17,14 @@ const ProgramHero = () => {
     router.push('/path')
   }
   return (
-    <section className="pt-15 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden hero">
+    <section className={`pt-15 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden ${theme === 'dark' ? "dark:hero hero" : "hero2 bg-[#FEFBEA]"
+      }`}>
       {/* Floating shapes */}
       <FloatingShape
         color="from-[#1F22CA] to-transparent"
         size="w-60 h-60"
         top="-5%"
-        position="absolute"
+        position="absolute hidden dark:flex"
         left="88%"
         delay={0}
       />
@@ -31,14 +34,14 @@ const ProgramHero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20  left-6 md:right-40 text-purple-400"
+        className="absolute top-40 hidden dark:flex  left-6 md:right-40 text-purple-400"
       >
         <img src="/s-star.png" alt="" className="w-7 md:w-12" />
       </motion.div>
-      <img src="/s_half.png" className="w-7 md:w-12 absolute right-1" />
+      <img src="/s_half.png" className="hidden dark:flex w-7 md:w-12 top-14 md:top-8 absolute right-1" />
 
       {/* Animated stars */}
-      <div className="absolute   -top-[10%] lg:-top-[20%] -left-[20%] lg:left-[40%] text-purple-400">
+      <div className="absolute  hidden dark:flex  -top-[10%] lg:-top-[20%] -left-[20%] lg:left-[40%] text-purple-400">
         <FloatingShape
           color="from-[#1F22CA] to-transparent"
           size="w-60 h-60"
@@ -66,7 +69,7 @@ const ProgramHero = () => {
           repeat: Number.POSITIVE_INFINITY,
           delay: 0.5,
         }}
-        className="absolute bottom-40 left-20 text-blue-400"
+        className="absolute hidden dark:flex bottom-40 left-20 text-blue-400"
       >
         <img src="/s-star.png" className="w-7 md:w-12" />
       </motion.div>
@@ -75,7 +78,7 @@ const ProgramHero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-40 right-36"
+        className="absolute top-40 right-36 hidden dark:flex"
       >
         <motion.img
           src="/s-star.png"
@@ -87,7 +90,8 @@ const ProgramHero = () => {
       </motion.div>
 
       <div className="container mx-auto max-w-8xl relative">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+      <img src="/b_star.png" className="w-22 absolute dark:hidden top-0 right-0" />
+        <div className="flex flex-col mt-20 md:mt-0 lg:flex-row items-center justify-center gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,7 +103,7 @@ const ProgramHero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="absoute top-25 left-10"
+              className="absoute top-25 left-10 hidden dark:flex"
             >
                <AnimatedCodeBrackets
                 width={70}
@@ -107,12 +111,12 @@ const ProgramHero = () => {
                 color="#F9C23A"
                 strokeWidth={5}
                 animationDuration={1.5}
-                className="w-9 md:w-auto "
+                className="w-9 md:w-auto  absolute md:flex"
               />
               {/* <img src="/tag.png" alt="Code tag" className="w-12 h-12" /> */}
             </motion.div>
 
-            <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  text-white">
+            <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  dark:-white">
                Start here. <br />
                <span className="text-[#F9C23A]">Hack-A-Path.</span>
             </h1>
@@ -166,6 +170,8 @@ const ProgramHero = () => {
             </div>
           </motion.div>
         </div>
+        <img src="/b_star.png" className="w-22 absolute dark:hidden  bottom-0 left-0" />
+              
       </div>
       <div className="aboslute flex w-full items-center justify-center flex-row mx-auto">
         <div>

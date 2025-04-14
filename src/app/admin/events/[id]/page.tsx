@@ -53,6 +53,7 @@ export default function EventDetailPage() {
 
       const data = (await response.json()) as EventWithDetails
       setEvent(data)
+      
     } catch (error) {
       console.error("Error fetching event:", error)
       setError(error instanceof Error ? error.message : "An error occurred")
@@ -102,7 +103,11 @@ export default function EventDetailPage() {
       const response = await fetch(`/api/scrape-event`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: event.thirdPartyLink }),
+        body: JSON.stringify({ 
+          url: event.thirdPartyLink, 
+          autoSave: true, 
+          id:event.id,
+        }),
       })
 
       if (!response.ok) {
