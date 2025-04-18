@@ -14,7 +14,7 @@ const ProgramHero = () => {
   }
   const handlePush = () => {
     console.log("Reahced")
-    router.push('/path')
+    router.push('http://careers.mypath2tech.ca')
   }
   return (
     <section className={`pt-15 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden ${theme === 'dark' ? "dark:hero hero" : "hero2 bg-[#FEFBEA]"
@@ -103,7 +103,7 @@ const ProgramHero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="absoute top-25 left-10 hidden dark:flex"
+              className="absolute md:top-10 left-10 hidden dark:flex"
             >
                <AnimatedCodeBrackets
                 width={70}

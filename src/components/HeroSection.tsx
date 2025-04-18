@@ -20,7 +20,7 @@ const HeroSection = () => {
   const currentTheme = theme === "system" ? systemTheme : theme;
   const isDark = currentTheme === "dark";
 
-  const handleNavigate = () => router.push("/path");
+  const handleNavigate = () => router.push("httpS://careers.mypath2tech.ca");
 
   // Tag animation sequence
   useEffect(() => {
