@@ -14,7 +14,7 @@ export async function GET(request: Request) {
     // Get events
     const events = await prisma.event.findMany({
       where,
-      orderBy: { createdAt: "desc" }, // Order by date ascending (upcoming first)
+      orderBy: { eventDate: "asc" }, // Order by date ascending (upcoming first)
       take: limit,
     })
 

@@ -14,7 +14,7 @@ const ProgramHero = () => {
   }
   const handlePush = () => {
     console.log("Reahced")
-    router.push('http://careers.mypath2tech.ca')
+    router.push('http:  //careers.mypath2tech.ca')
   }
   return (
     <section className={`pt-15 lg:pt-32 pb-16 px-8  md:px-10 relative  overflow-hidden ${theme === 'dark' ? "dark:hero hero" : "hero2 bg-[#FEFBEA]"
