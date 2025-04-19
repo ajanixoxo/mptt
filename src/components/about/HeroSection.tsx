@@ -3,16 +3,14 @@ import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import FloatingShape from "@/components/FloatingShape";
 import { CircleArrowUp } from "lucide-react";
-import { useRouter } from "next/navigation";
 import AnimatedCodeBrackets from "../AnimatedCodeBrackets"
 import { useThemeMode } from "@/hooks/useThemeMode";
 const WhyChooseSection = () => {
   const theme = useThemeMode();
   const tagControls = useAnimation();
-  const router = useRouter()
   const handlePush = () => {
     console.log("Reahced")
-    router.push('/path')
+    window.open('/program', '_blank')
   }
   useEffect(() => {
     let mounted = true;
