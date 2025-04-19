@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import {  CircleArrowUp } from "lucide-react"
+import Link from "next/link"
 
 const ApplicationProcessSection = () => {
   const steps = [
@@ -90,14 +91,14 @@ const ApplicationProcessSection = () => {
           whileTap={{ scale: 0.95 }}
           className="flex justify-center"
         >
-          <a
-            href="#apply"
+          <Link
+            href="/apply"
             className="inline-flex items-center gap-2 bg-[#F9C23A]  text-black font-semibold py-3 px-6 rounded-xl transition-colors"
           >
             Start Your Application
             <CircleArrowUp className="rotate-45" />
 
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
