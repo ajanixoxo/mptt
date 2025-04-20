@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="relative lg:mx-6 dark:mb-4 ">
+    <footer className="relative mx-2 lg:mx-6 dark:mb-4 ">
       <div className=" text-purple-400">
         <motion.div
           initial={{ opacity: 0 }}
@@ -19,8 +19,8 @@ const Footer = () => {
           <img src="/s-star.png" alt="" className="w-5 md:w-7 lg:ml-40 ml-20" />
         </motion.div>
       </div>
-      <div className="w-full  rounded-2xl bg-[#1C1C1C] px-6 py-7 space-y-4">
-        <img src="/y_star.png" alt="" className="absolute -left-0 bottom-0" />
+      <div className="w-full   rounded-2xl bg-[#1C1C1C] px-6 py-7 space-y-4">
+        <img src="/y_star.png" alt="" className="absolute z-10 -left-0 bottom-0" />
         <img
           src="/y_star.png"
           alt=""
@@ -98,7 +98,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="m pt-3  relative z-20  text-center text-white text-sm">
+        <div className=" pt-3 relative z-40  text-center text-white text-sm">
           <p>
             &copy; {new Date().getFullYear()} Mypath2tech. All rights reserved.
           </p>

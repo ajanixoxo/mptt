@@ -90,13 +90,13 @@ const ProgramHero = () => {
       </motion.div>
 
       <div className="container mx-auto max-w-8xl relative">
-      <img src="/b_star.png" className="w-22 absolute dark:hidden top-0 right-0" />
+      <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden z-10 top-0 right-0" />
         <div className="flex flex-col mt-20 md:mt-0 lg:flex-row items-center justify-center gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex-1"
+            className="flex-1 relative z-40"
           >
             {/* Code tag */}
             <motion.div
@@ -170,7 +170,7 @@ const ProgramHero = () => {
             </div>
           </motion.div>
         </div>
-        <img src="/b_star.png" className="w-22 absolute dark:hidden  bottom-0 left-0" />
+        <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden bottom-10  lg:bottom-0 left-0" />
               
       </div>
       <div className="aboslute flex w-full items-center justify-center flex-row mx-auto">

@@ -184,9 +184,9 @@ const WhyChooseSection = () => {
           >
             {/* Pink Circle */}
             <div className="relative ">
-              <img src="/b_star.png" className="w-22 absolute dark:hidden top-0 right-0" />
-              <img src="/about_hero.png" className="w-[80%]  top-0" />
-              <img src="/b_star.png" className="w-22 absolute dark:hidden  bottom-0 left-0" />
+              <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden top-0 right-0" />
+              <img src="/about_hero.png" className="lg:w-[80%]   top-0" />
+              <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden  bottom-0 left-0" />
               {/* Stats */}
             </div>
           </motion.div>

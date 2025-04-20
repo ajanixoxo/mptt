@@ -84,7 +84,7 @@ const TestimonialsSection = () => {
           </h2>
           <img
             src="/line.png"
-            className="absolute z-10 w-[40%] lg:top-auto top-[25%] lg:w-auto left-[5%] lg:left-[20%]"
+            className="absolute z-10 w-[40%] lg:top-auto top-[19%] lg:w-auto left-[5%] lg:left-[20%]"
           />
           <p className="text-[#a09c9c] max-w-2xl relative z-20 mx-auto">
             Real experiences. Real success

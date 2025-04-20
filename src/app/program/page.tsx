@@ -19,7 +19,7 @@ const Program = () => {
           <ProgramCTA />
         </div>
       </main>
-      <div className="bg-[#0A0A0B]">
+      <div className="bg-[#FEFBEA] dark:bg-[#0A0A0B]">
         <Footer />
       </div>
     </Suspense>

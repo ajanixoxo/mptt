@@ -25,7 +25,7 @@ export default function Home() {
         <TestimonialsSection /> 
         <SponsorsSection />
       </div>
-      <div className=" dark:bg-[#0A0A0B]">
+      <div className="  bg-[#FEFBEA] dark:bg-[#0A0A0B]">
       <Footer />
       </div>
     </>
