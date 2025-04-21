@@ -201,7 +201,7 @@ export default function CreateEventPage() {
                 value={scrapingUrl}
                 onChange={(e) => setScrapingUrl(e.target.value)}
                 placeholder="https://lu.ma/your-event"
-                className={`w-full px-4 py-2 border text-black ${
+                className={`w-full px-4 py-2 border dark:bg-white text-black ${
                   errors.scrapingUrl ? "border-red-500" : "border-gray-300"
                 } rounded-md`}
               />
@@ -287,7 +287,7 @@ export default function CreateEventPage() {
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border ${errors.title ? "border-red-500" : "border-gray-300"} rounded-md`}
+                  className={`w-full px-4 py-2 border dark:bg-white ${errors.title ? "border-red-500" : "border-gray-300"} rounded-md`}
                   placeholder="Enter event title"
                 />
                 {errors.title && <p className="mt-1 text-sm text-red-500">{errors.title}</p>}
@@ -301,7 +301,7 @@ export default function CreateEventPage() {
                   value={formData.description}
                   onChange={handleChange}
                   rows={4}
-                  className={`w-full px-4 py-2 border ${errors.description ? "border-red-500" : "border-gray-300"} rounded-md`}
+                  className={`w-full px-4 py-2 dark:bg-white border ${errors.description ? "border-red-500" : "border-gray-300"} rounded-md`}
                   placeholder="Enter event description"
                 />
                 {errors.description && <p className="mt-1 text-sm text-red-500">{errors.description}</p>}
@@ -316,7 +316,7 @@ export default function CreateEventPage() {
                     name="event_date"
                     value={formData.event_date}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${errors.event_date ? "border-red-500" : "border-gray-300"} rounded-md`}
+                    className={`w-full px-4 py-2 dark:bg-white border ${errors.event_date ? "border-red-500" : "border-gray-300"} rounded-md`}
                     placeholder="https"
                   />
                   {errors.event_date && <p className="mt-1 text-sm text-red-500">{errors.event_date}</p>}
@@ -329,7 +329,7 @@ export default function CreateEventPage() {
                     name="event_time"
                     value={formData.event_time}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${errors.event_time ? "border-red-500" : "border-gray-300"} rounded-md`}
+                    className={`w-full px-4 py-2 dark:text-white dark:bg-white border ${errors.event_time ? "border-red-500" : "border-gray-300"} rounded-md`}
                       placeholder="https"
                   />
                   {errors.event_time && <p className="mt-1 text-sm text-red-500">{errors.event_time}</p>}
@@ -347,7 +347,7 @@ export default function CreateEventPage() {
                       value="true"
                       checked={formData.is_online}
                       onChange={handleChange}
-                      className="text-purple-600"
+                      className="appearance-none w-4 h-4 rounded-full border border-gray-300 bg-white checked:bg-purple-600 checked:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                     <span>Online</span>
                   </label>
@@ -358,7 +358,7 @@ export default function CreateEventPage() {
                       value="false"
                       checked={!formData.is_online}
                       onChange={handleChange}
-                      className="text-purple-600"
+                      className="appearance-none w-4 h-4 rounded-full border border-gray-300 bg-white checked:bg-purple-600 checked:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                     <span>Meet in Person</span>
                   </label>
@@ -374,7 +374,7 @@ export default function CreateEventPage() {
                     name="meeting_app"
                     value={formData.meeting_app}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-4 py-2 border dark:bg-white border-gray-300 rounded-md"
                     placeholder="Google Meet, Zoom, etc."
                   />
                   {errors.meeting_app && <p className="mt-1 text-sm text-red-500">{errors.meeting_app}</p>}
@@ -387,7 +387,7 @@ export default function CreateEventPage() {
                     name="location"
                     value={formData.location}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-4 py-2 border dark:bg-white border-gray-300 rounded-md"
                     placeholder="Enter event location"
                   />
                   {errors.location && <p className="mt-1 text-sm text-red-500">{errors.location}</p>}
@@ -412,7 +412,7 @@ export default function CreateEventPage() {
                         name="imageUrl"
                         value={formData.imageUrl}
                         onChange={handleChange}
-                        className={`w-full pl-10 px-4 py-2 border ${errors.imageUrl ? "border-red-500" : "border-gray-300"} rounded-md`}
+                        className={`w-full pl-10 px-4 dark:bg-white py-2 border ${errors.imageUrl ? "border-red-500" : "border-gray-300"} rounded-md`}
                         placeholder="https://example.com/register"
                       />
                     </div>
@@ -432,7 +432,7 @@ export default function CreateEventPage() {
                         name="thirdPartyLink"
                         value={formData.thirdPartyLink}
                         onChange={handleChange}
-                        className={`w-full pl-10 px-4 py-2 border ${errors.thirdPartyLink ? "border-red-500" : "border-gray-300"} rounded-md`}
+                        className={`w-full pl-10 px-4 dark:bg-white py-2 border ${errors.thirdPartyLink ? "border-red-500" : "border-gray-300"} rounded-md`}
                         placeholder="https://example.com/register"
                       />
                     </div>
@@ -450,7 +450,7 @@ export default function CreateEventPage() {
                       name="thirdPartyEventId"
                       value={formData.thirdPartyEventId}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                      className="w-full px-4 py-2 border dark:bg-white border-gray-300 rounded-md"
                       placeholder="External event identifier"
                     />
                     <p className="mt-1 text-xs text-gray-500">

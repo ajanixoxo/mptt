@@ -129,7 +129,7 @@ export default function EventsPage() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      router.push(`/admin/events/edit/${event.id}`);
+                      router.push(`/admin/events/${event.id}/edit`);
                     }}
                     type="button"
                     className="p-2 text-blue-600 hover:bg-blue-50 rounded-full"

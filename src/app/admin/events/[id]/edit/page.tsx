@@ -248,7 +248,7 @@ export default function EditEventPage() {
                 value={scrapingUrl}
                 onChange={(e) => setScrapingUrl(e.target.value)}
                 placeholder="https://lu.ma/your-event"
-                className={`w-full px-4 py-2 border text-black ${errors.scrapingUrl ? "border-red-500" : "border-gray-300"
+                className={`w-full px-4 py-2 border dark:bg-white text-black ${errors.scrapingUrl ? "border-red-500" : "border-gray-300"
                   } rounded-md`}
               />
               {errors.scrapingUrl && <p className="mt-1 text-sm text-red-500">{errors.scrapingUrl}</p>}
@@ -330,7 +330,7 @@ export default function EditEventPage() {
               required
               value={formData.title}
               onChange={handleChange}
-              className="w-full px-4 py-2 !text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 !text-black border dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -345,7 +345,7 @@ export default function EditEventPage() {
               required
               value={formData.description}
               onChange={handleChange}
-              className="w-full px-4 py-2 !text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 !text-black border dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -364,7 +364,7 @@ export default function EditEventPage() {
                   type="text"
                   value={formData.location}
                   onChange={handleChange}
-                  className="w-full pl-10 px-4 !text-black py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full pl-10 px-4 !text-black py-2 dark:bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
             </div>
@@ -383,7 +383,7 @@ export default function EditEventPage() {
                   type="date"
                   value={formData.eventDate}
                   onChange={handleChange}
-                  className="w-full pl-10 px-4 text-black py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full pl-10 px-4 text-black py-2 border dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
             </div>
@@ -400,7 +400,7 @@ export default function EditEventPage() {
                 type="time"
                 value={formData.eventTime}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border !text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-4 py-2 border !text-black dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
 
@@ -413,7 +413,7 @@ export default function EditEventPage() {
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border !text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-4 py-2 border !text-black dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               >
                 <option value="active">Active</option>
                 <option value="closed">Closed</option>
@@ -437,7 +437,7 @@ export default function EditEventPage() {
                   value={formData.imageUrl}
                   onChange={handleChange}
                   placeholder="https://example.com/register"
-                  className="w-full pl-10 px-4 py-2 !text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full pl-10 px-4 py-2 !text-black border dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
               <p className="mt-1 text-xs text-gray-500">
@@ -460,7 +460,7 @@ export default function EditEventPage() {
                   value={formData.thirdPartyLink}
                   onChange={handleChange}
                   placeholder="https://example.com/register"
-                  className="w-full pl-10 px-4 py-2 !text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full pl-10 px-4 py-2 !text-black border dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
               </div>
               <p className="mt-1 text-xs text-gray-500">
@@ -478,7 +478,7 @@ export default function EditEventPage() {
                 type="text"
                 value={formData.thirdPartyEventId}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border !text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-4 py-2 border !text-black dark:bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
               <p className="mt-1 text-xs text-gray-800">
                 Optional: Store the event ID from the third-party platform for reference
@@ -494,7 +494,7 @@ export default function EditEventPage() {
                 type="checkbox"
                 checked={formData.isOnline}
                 onChange={handleCheckboxChange}
-                className="h-4 w-4 t !text-black focus:ring-purple-500 border-gray-300 rounded"
+                className="appearance-none w-4 h-4 rounded-full border border-gray-300 bg-white checked:bg-purple-600 checked:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
               <label htmlFor="isOnline" className="ml-2 block text-sm text-gray-700">
                 Online Event
@@ -506,14 +506,14 @@ export default function EditEventPage() {
             <button
               type="button"
               onClick={() => router.push(`/admin/events/${eventId}`)}
-              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+              className="px-4 py-2 border border-gray-300 rounded-md  text-gray-700 hover:bg-gray-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-4 py-2 bg-purple-600 text-black rounded-md hover:bg-purple-700 disabled:opacity-50 flex items-center"
+              className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 disabled:opacity-50 flex items-center"
             >
               {saving ? (
                 <>

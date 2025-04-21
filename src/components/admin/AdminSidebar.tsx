@@ -3,13 +3,13 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { LayoutDashboard, Calendar, Users, Settings, LogOut, Menu, X, ChevronDown } from "lucide-react"
+import { LayoutDashboard, Calendar, LogOut, Menu, X } from "lucide-react"
 
 export default function AdminSidebar() {
   const pathname = usePathname()
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+  // const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
   const handleSignOut = async () => {
     try {
@@ -31,7 +31,7 @@ export default function AdminSidebar() {
   const navItems = [
     { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
     { name: "Events", href: "/admin/events", icon: Calendar },
-    { name: "Users", href: "/admin/users", icon: Users },
+    // { name: "Users", href: "/admin/users", icon: Users },
   ]
 
   return (
@@ -79,7 +79,7 @@ export default function AdminSidebar() {
 
           {/* User section */}
           <div className="p-4 border-t">
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 onClick={() => setIsSettingsOpen(!isSettingsOpen)}
                 className="flex items-center w-full px-4 py-3 text-gray-600 rounded-md hover:bg-gray-100 transition-colors"
@@ -105,7 +105,7 @@ export default function AdminSidebar() {
                   </Link>
                 </div>
               )}
-            </div>
+            </div> */}
 
             <button
               onClick={handleSignOut}
