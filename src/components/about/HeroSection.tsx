@@ -121,9 +121,7 @@ const WhyChooseSection = () => {
       <div className="container mx-auto max-w-9xl ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 place-content-center place-items-center items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+           
           >
             <div className="absolute flex justify-between w-full -mt-10 md:-mt-12  left-0">
               <div className="-10 text-purple-400">
@@ -139,7 +137,7 @@ const WhyChooseSection = () => {
                     color="#F9C23A"
                     strokeWidth={5}
                     animationDuration={1.5}
-                    className="w-10 ml-10  md:ml-10  lg:w-28"
+                    className="w-10 ml-10    lg:w-28"
                   />
                 </motion.div>
               </div>
@@ -154,26 +152,29 @@ const WhyChooseSection = () => {
                 <img src="/ws-star.png" className="w-7 md:w-12" />
               </motion.div>
             </div>
+            <motion.div
+             initial={{ opacity: 0, x: -50 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.6 }}>
+              <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  dark:text-white">
+                One <span className="text-[#F9C23A]">Aim.</span><br />
+                Equip the <span className="text-[#F9C23A]">Next Gen.</span>
+              </h1>
+              <p className="text-[#6A6464] dark:text-[#a09c9c] sec_text text-center md:text-left md:text-lg mb-8 max-w-lg">
 
-            <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  dark:text-white">
-              One <span className="text-[#F9C23A]">Aim.</span><br />
-              Equip the <span className="text-[#F9C23A]">Next Gen.</span>
-            </h1>
-            <p className="text-[#6A6464] dark:text-[#a09c9c] sec_text text-center md:text-left md:text-lg mb-8 max-w-lg">
+                We connect under-represented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
+              </p>
 
-              We connect under-represented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
-            </p>
-
-            <motion.button
-              className="bg-[#F9C23A] main_text cursor-pointer font-semibold z-20 button mx-auto lg:mx-0 f text-gray-900 px-6 py-3 rounded-2xl  flex items-center space-x-2"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handlePush}
-            >
-              <span>Explore our Program</span>
-              <CircleArrowUp className="rotate-45" />
-            </motion.button>
+              <motion.button
+                className="bg-[#F9C23A] main_text cursor-pointer font-semibold z-20 button mx-auto lg:mx-0 f text-gray-900 px-6 py-3 rounded-2xl  flex items-center space-x-2"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handlePush}
+              >
+                <span>Explore our Program</span>
+                <CircleArrowUp className="rotate-45" />
+              </motion.button></motion.div>
           </motion.div>
 
           <motion.div

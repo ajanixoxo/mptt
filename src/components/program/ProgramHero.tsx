@@ -9,7 +9,7 @@ import { useThemeMode } from "@/hooks/useThemeMode";
 const ProgramHero = () => {
   const theme = useThemeMode();
   const router = useRouter()
-  const handleClick =() => {
+  const handleClick = () => {
     router.push('/apply')
   }
   const handlePush = () => {
@@ -90,7 +90,7 @@ const ProgramHero = () => {
       </motion.div>
 
       <div className="container mx-auto max-w-8xl relative">
-      <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden z-10 top-0 right-0" />
+        <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden z-10 top-0 right-0" />
         <div className="flex flex-col mt-20 md:mt-0 lg:flex-row items-center justify-center gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -98,6 +98,14 @@ const ProgramHero = () => {
             transition={{ duration: 0.6 }}
             className="flex-1 relative z-40"
           >
+            <AnimatedCodeBrackets
+              width={70}
+              height={70}
+              color="#F9C23A"
+              strokeWidth={5}
+              animationDuration={1.5}
+              className="w-9 md:w-auto  top-0 md:flex"
+            />
             {/* Code tag */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -105,20 +113,13 @@ const ProgramHero = () => {
               transition={{ duration: 0.6 }}
               className="absolute md:top-10 left-10 hidden dark:flex"
             >
-               <AnimatedCodeBrackets
-                width={70}
-                height={70}
-                color="#F9C23A"
-                strokeWidth={5}
-                animationDuration={1.5}
-                className="w-9 md:w-auto  absolute md:flex"
-              />
+
               {/* <img src="/tag.png" alt="Code tag" className="w-12 h-12" /> */}
             </motion.div>
 
             <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  dark:-white">
-               Start here. <br />
-               <span className="text-[#F9C23A]">Hack-A-Path.</span>
+              Start here. <br />
+              <span className="text-[#F9C23A]">Hack-A-Path.</span>
             </h1>
 
             <p className="text-[#a09c9c] text-lg mb-8 md:text-left text-center">
@@ -144,7 +145,7 @@ const ProgramHero = () => {
                 className="bg-[#74767F] cursor-pointer text-white px-6 py-2 rounded-2xl font-medium flex items-center justify-center space-x-2"
                 onClick={handlePush}
               >
-                <span  className="w-max">Explore Paths</span>
+                <span className="w-max">Explore Paths</span>
                 <CircleArrowUp className="rotate-45" size={20} />
               </motion.button>
             </div>
@@ -171,7 +172,7 @@ const ProgramHero = () => {
           </motion.div>
         </div>
         <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden bottom-10  lg:bottom-0 left-0" />
-              
+
       </div>
       <div className="aboslute flex w-full items-center justify-center flex-row mx-auto">
         <div>
@@ -234,7 +235,7 @@ const ProgramHero = () => {
           </svg>
         </div>
         <div className="absolute left-0 lg:left-[28%] bottom-5">
-        
+
           <svg
             width="252"
             height="172"
