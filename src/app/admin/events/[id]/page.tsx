@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
@@ -199,7 +200,7 @@ export default function EventDetailPage() {
               </div>
             </div>
             <div className="flex space-x-2 mt-3">
-              {event.thirdPartyLink && (
+              {/* {event.thirdPartyLink && (
                 <button
                   onClick={handleSyncWithLuma}
                   disabled={syncLoading}
@@ -215,7 +216,7 @@ export default function EventDetailPage() {
                     </>
                   )}
                 </button>
-              )}
+              )} */}
               <Link
                 href={`/admin/events/${event.id}/edit`}
                 className="flex items-center px-3 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500"

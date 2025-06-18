@@ -37,6 +37,38 @@ const EventsSection = () => {
     return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : title
   }
 
+  // Function to check if event is in the past
+  const isEventPast = (eventDate: string) => {
+    const now = new Date()
+    const eventDateTime = new Date(eventDate)
+    return eventDateTime < now
+  }
+
+  // Function to sort events by date (upcoming first, then past events)
+  const sortEventsByDate = (events: Event[]) => {
+    const now = new Date()
+    
+    return events.sort((a, b) => {
+      const dateA = new Date(a.eventDate)
+      const dateB = new Date(b.eventDate)
+      
+      const isAPast = dateA < now
+      const isBPast = dateB < now
+      
+      // If one is past and one is upcoming, upcoming comes first
+      if (isAPast && !isBPast) return 1
+      if (!isAPast && isBPast) return -1
+      
+      // If both are upcoming, sort by nearest date first
+      if (!isAPast && !isBPast) {
+        return dateA.getTime() - dateB.getTime()
+      }
+      
+      // If both are past, sort by most recent first
+      return dateB.getTime() - dateA.getTime()
+    })
+  }
+
   const fetchEvents = useCallback(async () => {
     setLoading(true)
     setFetchError(false)
@@ -56,7 +88,9 @@ const EventsSection = () => {
         console.log("No active events found")
         setEvents([])
       } else {
-        setEvents(activeEvents)
+        // Sort events by date before setting state
+        const sortedEvents = sortEventsByDate(activeEvents)
+        setEvents(sortedEvents)
       }
     } catch (error) {
       console.error("Error fetching events:", error)
@@ -88,6 +122,12 @@ const EventsSection = () => {
 
   const handleRegister = async () => {
     if (!selectedEvent) return
+
+    // Check if event is in the past
+    if (isEventPast(selectedEvent.eventDate)) {
+      setError("This event has already passed and registration is no longer available.")
+      return
+    }
 
     // Basic validation
     if (!formData.userName.trim()) {
@@ -213,77 +253,103 @@ const EventsSection = () => {
             </div>
           ) : events.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-2">
-              {events.map((event, index) => (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-transparent border-black border-2 dark:bg-[#232224B2] backdrop-blur-sm shadow shadow-black rounded-xl overflow-hidden relative"
-                >
-                  <div className="p-6 space-y-2">
-                    <div>
-                      <img
-                        src={event.imageUrl || "/placeholder-event.jpg"}
-                        alt={event.title}
-                        className="rounded-sm w-full h-48 object-cover"
-                        onError={(e) => {
-                          e.currentTarget.src = "/placeholder-event.jpg"
+              {events.map((event, index) => {
+                const isPast = isEventPast(event.eventDate)
+                
+                return (
+                  <motion.div
+                    key={event.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className={`bg-transparent border-black border-2 dark:bg-[#232224B2] backdrop-blur-sm shadow shadow-black rounded-xl overflow-hidden relative ${
+                      isPast ? 'grayscale opacity-60' : ''
+                    }`}
+                  >
+                    <div className="p-6 space-y-2">
+                      {isPast && (
+                        <div className="absolute top-2 right-2 bg-red-500/80 text-white text-xs px-2 py-1 rounded-full z-10">
+                          Past Event
+                        </div>
+                      )}
+                      
+                      <div>
+                        <img
+                          src={event.imageUrl || "/placeholder-event.jpg"}
+                          alt={event.title}
+                          className="rounded-sm w-full h-48 object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = "/placeholder-event.jpg"
+                          }}
+                        />
+                      </div>
+                      <div className="flex justify-between items-start mb-1">
+                        <h3 className="text-xl font-bold dark:text-white w-max">{truncateTitle(event.title, 5)}</h3>
+                        <span
+                          className={`text-xs px-3 py-1 rounded-full bg-[#c0bebe] dark:bg-[#2B2B2B] w-max ${
+                            event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
+                          }`}
+                        >
+                          {event.isOnline ? "Online" : "In-person"}
+                        </span>
+                      </div>
+
+                      <div className="text-[#6A6464] dark:text-gray-400 mb-2">
+                        <div className="flex items-center">
+                          <Calendar size={16} className="mr-2" />
+                          <span>{new Date(event.eventDate).toDateString()}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Clock size={16} className="mr-2" />
+                          <span>
+                            {new Date(event.eventDate).toLocaleTimeString(undefined, {
+                              timeStyle: "short",
+                              timeZone: "UTC"
+                            })}
+                          </span>
+                        </div>
+                        <div className="flex items-center">
+                          <MapPin size={16} className="mr-2" />
+                          <span>{truncateTitle(event.location, 5)}</span>
+                        </div>
+                      </div>
+
+                      <p className="text-[#6A6464] dark:text-[#a09c9c] p-1 h-26 lg:h-24">{truncateTitle(event.description, 18)}</p>
+
+                      <a
+                        href={isPast ? "#" : (event.thirdPartyLink ?? "#")}
+                        target={isPast ? "_self" : "_blank"}
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          if (isPast) {
+                            e.preventDefault()
+                            return
+                          }
+                          if (!event.thirdPartyLink) {
+                            e.preventDefault()
+                            setSelectedEvent(event)
+                          }
                         }}
-                      />
-                    </div>
-                    <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-xl font-bold dark:text-white w-max">{truncateTitle(event.title, 5)}</h3>
-                      <span
-                        className={`text-xs px-3 py-1 rounded-full bg-[#c0bebe] dark:bg-[#2B2B2B] w-max ${
-                          event.isOnline ? " text-[#1E6EBC]" : " text-[#167B96]"
-                        }`}
                       >
-                        {event.isOnline ? "Online" : "In-person"}
-                      </span>
+                        <motion.button
+                          whileHover={!isPast ? { scale: 1.05 } : {}}
+                          whileTap={!isPast ? { scale: 0.95 } : {}}
+                          className={`w-full ${
+                            isPast 
+                              ? 'bg-gray-500 cursor-not-allowed' 
+                              : 'bg-[#74767F] hover:bg-[#5a5c65]'
+                          } text-white border transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center justify-center space-x-2`}
+                          disabled={isPast}
+                        >
+                          <span>{isPast ? 'Event Ended' : 'Register Now'}</span>
+                          {!isPast && <CircleArrowUp className="rotate-45 cursor-pointer" size={20} />}
+                        </motion.button>
+                      </a>
                     </div>
-
-                    <div className="text-[#6A6464] dark:text-gray-400 mb-2">
-                      <div className="flex items-center">
-                        <Calendar size={16} className="mr-2" />
-                        <span>{new Date(event.eventDate).toDateString()}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Clock size={16} className="mr-2" />
-                        <span>{new Date(event.eventDate).toLocaleTimeString(undefined, { timeStyle: "short" })}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <MapPin size={16} className="mr-2" />
-                        <span>{truncateTitle(event.location, 5)}</span>
-                      </div>
-                    </div>
-
-                    <p className="text-[#6A6464] dark:text-[#a09c9c] p-1 h-26 lg:h-22">{truncateTitle(event.description, 18)}</p>
-
-                    <a
-                      href={event.thirdPartyLink ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => {
-                        if (!event.thirdPartyLink) {
-                          e.preventDefault()
-                          setSelectedEvent(event)
-                        }
-                      }}
-                    >
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-full bg-[#74767F] text-white border transition border-gray-700 px-6 py-3 rounded-2xl font-medium flex items-center cursor-pointer justify-center space-x-2"
-                      >
-                        <span>Register Now</span>
-                        <CircleArrowUp className="rotate-45 cursor-pointer" size={20} />
-                      </motion.button>
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                )
+              })}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-20 space-y-4">
@@ -423,4 +489,3 @@ const EventsSection = () => {
 }
 
 export default EventsSection
-
