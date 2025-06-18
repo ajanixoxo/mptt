@@ -53,7 +53,8 @@ export default function EventDetailPage() {
 
       const data = (await response.json()) as EventWithDetails
       setEvent(data)
-      
+      console.log('This is', data)
+
     } catch (error) {
       console.error("Error fetching event:", error)
       setError(error instanceof Error ? error.message : "An error occurred")
@@ -103,10 +104,10 @@ export default function EventDetailPage() {
       const response = await fetch(`/api/scrape-event`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          url: event.thirdPartyLink, 
-          autoSave: true, 
-          id:event.id,
+        body: JSON.stringify({
+          url: event.thirdPartyLink,
+          autoSave: true,
+          id: event.id,
         }),
       })
 
@@ -143,6 +144,7 @@ export default function EventDetailPage() {
       day: "numeric",
       hour: "numeric",
       minute: "numeric",
+      timeZone: "UTC" // This forces UTC display
     }).format(date)
   }
 
@@ -246,9 +248,8 @@ export default function EventDetailPage() {
 
           <div className="mt-4 flex flex-wrap gap-4">
             <span
-              className={`px-3 py-1 rounded-full text-sm font-medium ${
-                event.status === "active" ? "bg-green-200 text-green-700" : "bg-gray-200 text-gray-700"
-              }`}
+              className={`px-3 py-1 rounded-full text-sm font-medium ${event.status === "active" ? "bg-green-200 text-green-700" : "bg-gray-200 text-gray-700"
+                }`}
             >
               {event.status === "active" ? "Active" : "Closed"}
             </span>
