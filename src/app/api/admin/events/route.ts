@@ -76,6 +76,7 @@ export async function POST(request: Request) {
 
     // Get event data from request
     const eventData = await request.json()
+  
 
     // Create event
     const event = await prisma.event.create({
@@ -83,7 +84,7 @@ export async function POST(request: Request) {
         title: eventData.title,
         description: eventData.description,
         location: eventData.location,
-        eventDate: new Date(eventData.eventDate),
+        eventDate: new Date(eventData.event_date),
         isOnline: eventData.isOnline || false,
         imageUrl: eventData.imageUrl,
         status: eventData.status || "active",

@@ -7,7 +7,7 @@ import { useRouter, useParams } from "next/navigation"
 import { ArrowLeft, Calendar, MapPin, LinkIcon, Loader2, AlertCircle, Download } from "lucide-react"
 import LoadingScreen from "@/components/LoadingScreen"
 import type { Event } from "@prisma/client"
-import { formatDateForInput, formatTimeForInput } from "@/utils/date-utils"
+import { formatDateForInput } from "@/utils/date-utils"
 
 interface ScrapedEvent {
   title: string
@@ -60,15 +60,23 @@ export default function EditEventPage() {
 
         const data = await response.json()
         setEvent(data)
+        console.log("form data from fetching", data)
 
         // Format the date and time for the form inputs
         let eventDate = ""
         let eventTime = ""
 
         if (data.eventDate) {
-          const date = new Date(data.eventDate)
-          eventDate = formatDateForInput(date.toISOString())
-          eventTime = formatTimeForInput(date.toISOString())
+          const isoString = new Date(data.eventDate).toISOString()
+
+          // Split on 'T' to separate date and time parts
+          const [datePart, timePart] = isoString.split('T')
+
+          eventDate = formatDateForInput(datePart)
+          // Extract just HH:MM from the time part (before the seconds)
+          eventTime = timePart.substring(0, 5) // Gets "07:30" from "07:30:00.000Z"
+
+          console.log(eventTime) // Should show "07:30"
         }
 
         setFormData({
@@ -83,7 +91,8 @@ export default function EditEventPage() {
           thirdPartyEventId: data.thirdPartyEventId || "",
           imageUrl: data.imageUrl || ""
         })
-        setScrapingUrl(data.thirdPartyLink)
+        setScrapingUrl(data.thirdPartyEventId)
+
       } catch (error) {
         console.error("Error fetching event:", error)
         setError(error instanceof Error ? error.message : "An error occurred")
@@ -123,8 +132,9 @@ export default function EditEventPage() {
       // Combine date and time for the eventDate field
       let eventDate = null
       if (formData.eventDate) {
-        const dateTime = `${formData.eventDate}T${formData.eventTime || "00:00"}:00`
-        eventDate = new Date(dateTime).toISOString()
+        const localDate = new Date(`${formData.eventDate}T${formData.eventTime}:00`)
+        const utcDate = new Date(localDate.getTime() - localDate.getTimezoneOffset() * 60000)
+        eventDate = utcDate
       }
 
       const response = await fetch(`/api/admin/events/${eventId}`, {
@@ -165,11 +175,7 @@ export default function EditEventPage() {
 
     setScraping(true)
     try {
-      const response = await fetch("/api/scrape-event", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: scrapingUrl }),
-      })
+      const response = await fetch(`/api/events/luma/${formData.thirdPartyEventId}`)
 
       if (!response.ok) {
         const errorData = await response.json()
