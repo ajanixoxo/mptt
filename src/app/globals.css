@@ -2,12 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --cream: #0A0A0B;
   --purple: #8b5cf6;
   --yellow: #fbbf24;
   --pink: #ec4899;
-  --pt-text:#10141D;
+  --pt-text: #10141D;
 }
 
 
@@ -17,55 +18,70 @@
 
 
 @font-face {
-  font-family:"Helvetica Light";
+  font-family: "Helvetica Light";
   src: url('/fonts/light.ttf');
 }
+
 @font-face {
-  font-family: "Helvetica Bold" ;
+  font-family: "Helvetica Bold";
   src: url('/fonts/bold.ttf');
 }
-.main_text, h1, h2{
+
+.main_text,
+h1,
+h2 {
   font-family: "Bricolage Grotesque";
-}
-.sec_text, b{
-  font-family: "Light";
-}
-li{
-font-family: "Helvetica Light";
-font-weight: 500;
-letter-spacing: -0.02em;
 }
 
-h1, h2, .logo, .button{
+.sec_text,
+b {
+  font-family: "Light";
+}
+
+li {
+  font-family: "Helvetica Light";
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h1,
+h2,
+.logo,
+.button {
   font-family: "Bricolage Grotesque";
 }
- 
+
 .bg-cream {
   background-color: var(--cream);
 }
 
-.button{
-  box-shadow: 5px 6px 2px black ;
-}
-.button:hover{
-  box-shadow: 5px 6px 2px transparent ;
+.button {
+  box-shadow: 5px 6px 2px black;
 }
 
-.f1{
-  box-shadow: 8px 10px 2px black ;
+.button:hover {
+  box-shadow: 5px 6px 2px transparent;
+}
+.text{
+  font-weight: 700
+}
+.f1 {
+  box-shadow: 8px 10px 2px black;
   background: url("/fd (3).png") no-repeat;
   background-position: top right;
   background-size: 25% auto;
   background-color: #232224B2;
 }
-.f2{
-  box-shadow: 8px 10px 2px black ;
+
+.f2 {
+  box-shadow: 8px 10px 2px black;
   background: url("/fd (2).png") no-repeat;
   background-position: top right;
   background-size: 20% auto;
   background-color: #232224B2;
 }
-.f3{
+
+.f3 {
   box-shadow: 8px 10px 2px black;
   background: url("/fd (1).png") no-repeat;
   background-position: top right;
@@ -73,29 +89,32 @@ h1, h2, .logo, .button{
   background-color: #232224B2;
 }
 
-.wf1{
-  box-shadow: 8px 10px 2px black ;
+.wf1 {
+  box-shadow: 8px 10px 2px black;
   background: url("/fbg (2).png") no-repeat;
   background-position: top right;
   background-size: 25% auto;
   background-color: #E9D9FF;
 }
-.wf2{
-  box-shadow: 8px 10px 2px black ;
+
+.wf2 {
+  box-shadow: 8px 10px 2px black;
   background: url("/fbg (3).png") no-repeat;
   background-position: top right;
   background-size: 20% auto;
   background-color: #FFF9CA;
 }
-.wf3{
+
+.wf3 {
   box-shadow: 8px 10px 2px black;
   background: url("/fbg (1).png") no-repeat;
   background-position: top right;
   background-size: 25% auto;
   background-color: #FFE4E4;
 }
-.about_hero{
-  box-shadow: 18px 10px 1px  #F9C23A;
+
+.about_hero {
+  box-shadow: 18px 10px 1px #F9C23A;
   border-radius: 50%;
   background-position: top right;
   background-size: 25% auto;
@@ -126,6 +145,7 @@ h1, h2, .logo, .button{
   0% {
     stroke-dashoffset: 1000;
   }
+
   100% {
     stroke-dashoffset: 0;
   }
@@ -135,6 +155,7 @@ h1, h2, .logo, .button{
   0% {
     stroke-dashoffset: 0;
   }
+
   100% {
     stroke-dashoffset: 1000;
   }
@@ -171,6 +192,7 @@ h1, h2, .logo, .button{
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
 }
+
 .bg-grid-white {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -195,11 +217,13 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 /* ☀️ Light mode scrollbar */
 html ::-webkit-scrollbar {
   width: 10px;
-  background-color: #f3f4f6; /* light gray */
+  background-color: #f3f4f6;
+  /* light gray */
 }
 
 html ::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1; /* light thumb */
+  background-color: #cbd5e1;
+  /* light thumb */
   border-radius: 5px;
 }
 
@@ -221,10 +245,12 @@ html {
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -240,17 +266,21 @@ html {
 .bg-cream {
   background-color: var(--cream);
 }
-.hero{
-  background:url(/hero-bg.png) ;
-  opacity: 30 ;
+
+.hero {
+  background: url(/hero-bg.png);
+  opacity: 30;
 }
-.hero2{
-  background:url(/white_lines.png) ;
+
+.hero2 {
+  background: url(/white_lines.png);
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -266,10 +296,12 @@ html {
   animation-play-state: paused;
 }
 
-.test{
-  background:#1b1a1c;
+.test {
+  background: #1b1a1c;
 }
 
-button{
-  font-family:"Bold";
+
+.mask-gradient {
+  mask-image: linear-gradient(to bottom, transparent 2%, black 20%, black 80%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 2%, black 20%, black 80%, transparent 98%);
 }

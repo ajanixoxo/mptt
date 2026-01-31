@@ -4,7 +4,7 @@ import { CircleArrowUp } from 'lucide-react'
 
 interface ButtonProps {
     text: string
-    variant?: 'primary' | 'outline'
+    variant?: 'primary' | 'outline' | 'secondary'
     onClick?: () => void
     icon?: ReactNode
     className?: string
@@ -23,7 +23,7 @@ function Button({ text, variant = 'primary', onClick, icon, className }: ButtonP
 
     const variants = {
         primary: primaryStyles,
-        outline: "px-6 py-2.5 rounded-full bg-transparent text-[#10141D] border border-[##000612] hover:bg-gray-50",
+        outline: "px-6 py-2.5 rounded-full bg-transparent text-[#10141D] border border-[#000612] hover:bg-gray-50",
         secondary: "px-6 py-2.5 rounded-full bg-white text-[#10141D] border border-[#EEEEEE] hover:bg-gray-50",
     }
 
@@ -34,7 +34,7 @@ function Button({ text, variant = 'primary', onClick, icon, className }: ButtonP
             whileTap={{ scale: 0.98 }}
             onClick={onClick}
         >
-            <span className="text-sm tracking-[-2%] leading-[135%] flex font-medium logo whitespace-nowrap">{text}</span>
+            <span className="text-sm tracking-[-2%] leading-[135%] flex font-medium logo whitespace-nowrap text">{text}</span>
             {icon}
         </motion.button>
     )
