@@ -16,7 +16,7 @@ export default function Home() {
     <>
   
    <Navbar/>
-      <div className="min-h-screen dark:bg-[#0A0A0B] bg-[#FEFBEA]  overflow-hidden">
+      <div className="min-h-screen   overflow-hidden">
      
         <HeroSection />
         <FindYourPlace />

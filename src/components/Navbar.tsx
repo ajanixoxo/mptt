@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
-import { Menu, X, ChevronRight, Sun, Moon } from "lucide-react"
+import { Menu, X, ChevronRight, Sun, Moon, ChartNoAxesColumnDecreasing } from "lucide-react"
 import Button from "./Button"
 import Link from "next/link"
 import { useTheme } from "next-themes";
+import Image from "next/image"
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -14,13 +15,28 @@ const Navbar = () => {
   const router = useRouter()
   const { theme, setTheme } = useTheme();
 
-  const handleClick = () => {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+
+  const handleApplyClick = () => {
     router.push('/apply')
   }
+
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false)
+    setActiveDropdown(null)
   }, [location])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (activeDropdown && !(event.target as Element).closest('.dropdown-container')) {
+        setActiveDropdown(null)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [activeDropdown])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,113 +46,206 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "For Students", path: "#" },
+    { name: "About", path: "/about" },
+    { name: "Program", path: "/program" },
+    { name: "Contact", path: "/contact" },
+  ]
+
+  const toggleDropdown = (e: React.MouseEvent, name: string) => {
+    if (name === "For Students") {
+      e.preventDefault()
+      e.stopPropagation()
+      setActiveDropdown(activeDropdown === name ? null : name)
+    }
+  }
+
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-[999]  py-4 px-6 transition-all duration-300 ${scrolled ? "bg-transparent backdrop-blur-sm  shadow-sm " : "bg-transparent"
-        }`}
-      initial={{ y: 0 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container  mx-auto flex justify-between items-center">
-        <Link href="/" className="flex items-center justify-center gap-2">
-         <div className=" gap-2 justify-center items-center hidden dark:flex"> <img src="/logo.svg" alt="logo" className="w-10 md:w-10" /><span className="main_text text-xl">Mypath2tech</span></div>
-         <img src="/dark_logo.svg" alt="logo" className="w-32 md:w-40 flex dark:hidden" />
-         <div></div>
-        </Link>
+    <>
+      <motion.header
+        className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 bg-white  py-4 md:px-6 ${scrolled ? "shadow-sm py-3" : ""
+          }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 z-50">
+            <div className="flex items-center gap-1">
+              <Image src="/logo.svg" alt="mypath2tech logo" width={24} height={20} />
+              <span className="text-base tracking-[-2%] font-medium  text-[#10141D] logo">Mypath2tech</span>
+            </div>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 sec_text">
-          <Link
-            href="/"
-            className={`${location === "/" ? "dark:text-white text-black font-semibold" : "dark:text-gray-200 text-gray-500"}  flex items-center hover:text-gray300 transition-colors`}
-          >
-            {`${location}` === "/" ? <ChevronRight className="w-auto lg:w-5 h-auto dark:text-[#F9C23A] text-black" /> : ""} Home
-          </Link>
-          <Link
-            href="/about"
-            className={`${location === "/about" ? "dark:text-white text-black font-semibold" : "dark:text-gray-200 text-gray-500"} flex items-center hover:text-gray300 transition-colors`}
-          >
-            {`${location}` === "/about" ? <ChevronRight className="w-auto lg:w-5 h-auto text-[#F9C23A]" /> : ""}  About
-          </Link>
-          <Link
-            href="/program"
-            className={`${location === "/program" ? "dark:text-white text-black font-semibold" : "dark:text-gray-200 text-gray-500"} flex items-center hover:text-gray300  transition-colors`}
-          >
-            {`${location}` === "/program" ? <ChevronRight className="w-auto lg:w-5 h-auto text-[#F9C23A]" /> : ""}  Program
-          </Link>
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative dropdown-container">
+                <Link
+                  href={link.path}
+                  onClick={(e) => toggleDropdown(e, link.name)}
+                  className={`text-sm font-medium tracking-[-2%] cursor-pointer transition-colors hover:text-purple-600 flex items-center gap-1 ${location === link.path
+                    ? "text-[#10141D] hover:underline hover:text-blue-500"
+                    : "text-[#646669] hover:text-blue-500"
+                    }`}
+                >
+                  {link.name}
+                  {link.name === "For Students" && (
+                    <ChevronRight
+                      className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? '-rotate-90' : 'rotate-90'}`}
+                    />
+                  )}
+                </Link>
 
-        <div className=" hidden md:flex gap-4">
-           <button
-            className="cursor-pointer"
-            onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}>
-            {theme === "light" ? (
-              <Moon />
+                {link.name === "For Students" && (
+                  <div
+                    className={`absolute top-full left-0 pt-4 transition-all duration-300 ease-in-out transform origin-top ${activeDropdown === link.name
+                      ? "opacity-100 visible translate-y-0"
+                      : "opacity-0 invisible -translate-y-2"
+                      }`}
+                  >
+                    <div className="bg-white shadow-xl rounded-2xl p-6 min-w-[200px] border border-gray-100">
+                      <span className="text-xs font-bold text-gray-400 tracking-wider mb-3 block">
+                        HIGH SCHOOL
+                      </span>
+                      <div className="flex flex-col gap-3">
+                        <Link
+                          href="/courses"
+                          className="text-sm font-medium text-[#10141D] hover:text-purple-600 transition-colors"
+                        >
+                          Browse Courses
+                        </Link>
+                        <Link
+                          href="/apply"
+                          className="text-sm font-medium text-[#10141D] hover:text-purple-600 transition-colors"
+                        >
+                          Apply Now
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* Theme Toggle */}
+            {/* <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          >
+            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+          </button> */}
+          </nav>
+
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link href="/donate" className="text-sm tracking-[-2%] font-medium text-[#646669] hover:text-[#704FE6] transition-colors">
+              Donate
+            </Link>
+            <Button
+              text="Apply Now"
+              variant="primary"
+              onClick={handleApplyClick}
+              className="w-[110px] h-[56px] px-[20px] py-[14px] hover:bg-[#704FE6]  hover:text-white hover:border-none"
+            />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden relative z-50 p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            {isOpen ? (
+              <X className="w-6 h-6 text-black dark:text-white" />
             ) : (
-              <Sun />
+              <ChartNoAxesColumnDecreasing className="w-6 h-6 text-black dark:text-white -rotate-90" />
             )}
           </button>
-        <Button text="Apply Now" bg="bg-[#DED6E8] hover:bg-[#def5f7] cursor-pointer" onClick={handleClick} />
-
-         
-
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-800"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          {isOpen ? <X size={24} className="dark:text-white" /> : <Menu size={24} className="dark:text-white" />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
+        {/* Mobile Navigation Menu */}
         <motion.div
-          className="md:hidden absolute top-full left-0 right-0 bg-white  dark:bg-black shadow-md py-4 px-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
+          className={`absolute top-full left-0 right-0 bg-white dark:bg-black shadow-lg md:hidden overflow-hidden ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: isOpen ? "max-content" : 0, opacity: isOpen ? 1 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <nav className="flex flex-col space-y-4 sec_text">
-            <Link
-              href="/"
-              className={`${location === "/" ? "dark:text-white font-semibold" : "text-gray-500 dark:text-gray-200"} hover:text-purple-600 transition-colors py-2`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className={`${location === "/about" ? "dark:text-white font-semibold" : "text-gray-500 dark:text-gray-200"} hover:text-purple-600 transition-colors py-2`}
-            >
-              About
-            </Link>
-            <Link
-              href="/program"
-              className={`${location === "/program" ? "dark:text-white font-semibold" : "text-gray-500 dark:text-gray-200"} hover:text-purple-600 transition-colors py-2`}
-            >
-              Program
-            </Link>
-            <div className="flex flex-col gap-4">
-              <button
-                onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}>
-                {theme === "light" ? (
-                  <Moon  className="text-black"/>
-                ) : (
-                  <Sun />
+          <nav className="flex flex-col p-3 space-y-6">
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative dropdown-container" >
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  onClick={(e) => {
+                    if (link.name === "For Students") {
+                      toggleDropdown(e, link.name)
+                    } else {
+                      setIsOpen(false)
+                    }
+                  }}
+                  className={`text-sm font-medium  flex items-center gap-1 ${location === link.path ? "text-[#10141D] hover:underline hover:text-[#704FE6]" : "text-[#10141D] hover:text-[#704FE6]"
+                    }`}
+                >
+                  {link.name}
+                  {link.name === "For Students" && (
+                    <ChevronRight
+                      className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? '-rotate-90' : 'rotate-90'}`}
+                    />
+                  )}
+                </Link>
+                {link.name === "For Students" && (
+                  <div
+                    className={`${activeDropdown === link.name
+                      ? "max-h-[500px] opacity-100 visible translate-y-0 mt-4"
+                      : "max-h-0 opacity-0 invisible -translate-y-2 overflow-hidden"
+                      } transition-all duration-300 ease-in-out w-full`}
+                  >
+                    <div className="pl-4 pt-2">
+                      <span className="text-xs font-bold text-gray-400 tracking-wider mb-3 block">
+                        HIGH SCHOOL
+                      </span>
+                      <div className="flex flex-col gap-3">
+                        <Link
+                          href="/courses"
+                          className="text-sm font-medium text-[#10141D] hover:text-purple-600 transition-colors"
+                        >
+                          Browse Courses
+                        </Link>
+                        <Link
+                          href="/apply"
+                          className="text-sm font-medium text-[#10141D] hover:text-purple-600 transition-colors"
+                        >
+                          Apply Now
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 )}
-              </button>
-              <motion.div className="w-full" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button text="Apply Now" bg="bg-[#DED6E8]" onClick={handleClick} />
-              </motion.div></div>
+              </div>
+            ))}
+            <Link href="/donate" onClick={() => setIsOpen(false)} className="text-sm text-[#10141D] hover:text-[#704FE6]">
+              Donate
+            </Link>
+
+            <div className="">
+              <Button
+                text="Apply Now"
+                variant="primary"
+                onClick={() => {
+                  handleApplyClick()
+                  setIsOpen(false)
+                }}
+                className="w-[110px] h-[56px] px-[20px] py-[14px] hover:bg-[#704FE6]  hover:text-white hover:border-none"
+              />
+            </div>
           </nav>
         </motion.div>
-      )}
-    </motion.header>
+      </motion.header>
+    </>
   )
 }
 

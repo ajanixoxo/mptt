@@ -7,7 +7,9 @@
   --purple: #8b5cf6;
   --yellow: #fbbf24;
   --pink: #ec4899;
+  --pt-text:#10141D;
 }
+
 
 /* body {
   background-color: var(--cream);
@@ -15,11 +17,11 @@
 
 
 @font-face {
-  font-family:"Light";
+  font-family:"Helvetica Light";
   src: url('/fonts/light.ttf');
 }
 @font-face {
-  font-family: "Bold" ;
+  font-family: "Helvetica Bold" ;
   src: url('/fonts/bold.ttf');
 }
 .main_text, h1, h2{
@@ -28,8 +30,13 @@
 .sec_text, b{
   font-family: "Light";
 }
+li{
+font-family: "Helvetica Light";
+font-weight: 500;
+letter-spacing: -0.02em;
+}
 
-h1, h2{
+h1, h2, .logo, .button{
   font-family: "Bricolage Grotesque";
 }
  
@@ -39,7 +46,9 @@ h1, h2{
 
 .button{
   box-shadow: 5px 6px 2px black ;
-  
+}
+.button:hover{
+  box-shadow: 5px 6px 2px transparent ;
 }
 
 .f1{
@@ -204,10 +213,7 @@ html {
 }
 
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+
 
 
 .animate-float {
