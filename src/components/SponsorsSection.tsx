@@ -3,11 +3,11 @@ const SponsorsSection = () => {
   // const carouselRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-14 px-4 relative ">
-    
-      <div className="container mx-auto max-w-6xl">
+    <section className="md:py-14 px-2 md:px-4 relative ">
+
+      <div className="container mx-auto md:max-w-6xl">
         <div className="text-center mb-2">
-          <h2 className="text-3xl md:text-[62px] mt-4 font-semibold leading-[120%] tracking-[-3%]">Our <span className="text-[#704FE6]">Sponsors</span> and <span className="text-[#704FE6]">Partners</span></h2>
+          <h2 className="text-[30px] md:text-[62px] mt-4 font-semibold leading-[120%] tracking-[-3%]">Our <span className="text-[#704FE6]">Sponsors</span> and <span className="text-[#704FE6]">Partners</span></h2>
           <p className="text-[#646669] text-[14px] max-w-2xl mx-auto tracking-[-1%] leading-[140%] ">
             Proud to partner with leading organizations in tech education.
           </p>

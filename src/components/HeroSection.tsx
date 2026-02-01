@@ -60,7 +60,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className=" p-1.5 pr-6 flex flex-col md:flex-row items-center gap-4 shadow-xl"
+          className=" p-1.5 pr-6 flex flex-col md:flex-row items-center gap-4 md:shadow-xl"
         >
           <div className="flex flex-col md:flex-row items-center gap-3 px-3">
             <span className="text-sm font-medium text-white">Spring 2026 Applications Now Open</span>
@@ -72,7 +72,7 @@ const HeroSection = () => {
           <Button
             text="Apply Now"
             variant="secondary"
-            className="!h-[36px] !px-4 !text-xs !w-auto !rounded-full bg-white text-black font-bold border-none"
+            className=" !text-xs w-max  !rounded-full bg-white text-black font-bold border-none"
             icon={<ArrowRight size={14} />}
           />
         </motion.div>
@@ -89,18 +89,18 @@ const HeroSection = () => {
             className="flex flex-col items-center text-center md:items-start  md:text-left gap-6 lg:gap-8 z-10"
           >
             <div className="space-y-2  leading-[110%]">
-              <motion.h1 variants={fadeIn} className="text-5xl sm:text-6xl lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%]">
+              <motion.h1 variants={fadeIn} className="text-[55px]  lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%]">
                 LEARN IT.
               </motion.h1>
-              <motion.h1 variants={fadeIn} className="text-5xl sm:text-6xl lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%]">
+              <motion.h1 variants={fadeIn} className="text-[55px]  lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%]">
                 BUILD IT.
               </motion.h1>
-              <motion.h1 variants={fadeIn} className="text-5xl sm:text-6xl lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%] text-[#F9C23A]">
+              <motion.h1 variants={fadeIn} className="text-[55px]  lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%] text-[#F9C23A]">
                 LAUNCH IT.
               </motion.h1>
             </div>
 
-            <motion.p variants={fadeIn} className="text-[#D1D5DC] text-lg md:text-xl max-w-xl leading-relaxed tracking-[2%] leading-[154%] ">
+            <motion.p variants={fadeIn} className="text-[#D1D5DC] text-[18px] md:text-xl max-w-xl leading-relaxed tracking-[2%] leading-[154%] ">
               Free, industry-leading computer science courses designed to prepare you for high-impact careers. Learn from the best, build real projects, and join a thriving community.
             </motion.p>
 

@@ -83,14 +83,14 @@ const TestimonialsSection = () => {
           {/* Previous Button */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 md:left-1 z-10 p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 hidden md:flex items-center justify-center"
+            className="absolute left-0 md:left-1 z-10 p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 flex items-center justify-center"
             aria-label="Previous"
           >
             <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
           </button>
 
           {/* Card */}
-          <div className="w-full max-w-4xl bg-white dark:bg-[#111] rounded-[32px] p-8 md:p-12 shadow-[0px_8px_30px_rgba(0,0,0,0.04)] border border-gray-100 dark:border-gray-800 min-h-[300px] flex items-center">
+          <div className="w-full max-w-4xl bg-white dark:bg-[#111] rounded-[32px] p-9 md:p-12 shadow-[0px_8px_30px_rgba(0,0,0,0.04)] border border-gray-100 dark:border-gray-800 min-h-[300px] flex items-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -139,7 +139,7 @@ const TestimonialsSection = () => {
           {/* Next Button */}
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 md:right-1 z-10 p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 hidden md:flex items-center justify-center"
+            className="absolute right-0 md:right-1 z-10 p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 flex items-center justify-center"
             aria-label="Next"
           >
             <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
