@@ -1,200 +1,63 @@
-"use client";
-import { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import FloatingShape from "@/components/FloatingShape";
-import { CircleArrowUp } from "lucide-react";
-import AnimatedCodeBrackets from "../AnimatedCodeBrackets"
-import { useThemeMode } from "@/hooks/useThemeMode";
-const WhyChooseSection = () => {
-  const theme = useThemeMode();
-  const tagControls = useAnimation();
-  const handlePush = () => {
-    console.log("Reahced")
-    window.open('/program', '_blank')
-  }
-  useEffect(() => {
-    let mounted = true;
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-    const animateTag = async () => {
-      while (mounted) {
-        await tagControls.start({
-          opacity: 0,
-          rotate: 45,
-          transition: { duration: 0.2 },
-        });
-        await new Promise((resolve) => setTimeout(resolve, 300));
-        await tagControls.start({
-          opacity: 1,
-          rotate: 45,
-          transition: { duration: 0.2 },
-        });
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        await tagControls.start({ opacity: 0, transition: { duration: 0.2 } });
-        await new Promise((resolve) => setTimeout(resolve, 300));
-        await tagControls.start({
-          opacity: 1,
-          rotate: 0,
-          transition: { duration: 0.2 },
-        });
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-      }
-    };
-
-    animateTag();
-
-    return () => {
-      mounted = false;
-    }; // Cleanup function to stop animations on unmount
-  }, [tagControls]);
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  const decorationVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
-  // Fix the floating animation with proper TypeScript types
-  const floatingAnimation = {
-    initial: { y: 0 },
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 4,
-        repeat: Number.POSITIVE_INFINITY,
-        repeatType: "reverse", // Type assertion to fix the error
-      },
-    },
-  };
-
+const AboutHero = () => {
   return (
-    <section className={`min-h-screen mt-2 lg:mt-auto  ${theme === 'dark' ? "dark:hero hero" : "hero2 bg-[#FEFBEA]"
-      }  flex flex-col items-center justify-center pt-20 px-3 lg:px-1 relative overflow-hidden`}>
-      {/* Decorative Elements */}
+    <section className="relative pt-32 pb-20 overflow-hidden bg-[#F4F0FF]">
+      {/* Radial Glows */}
+      <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none " />
+      <div className="absolute z-10 bottom-[0px] right-0 w-[350px] h-[350px] bg-[#F9C23A]/30 rounded-full blur-[136px] pointer-events-none translate-x-1/3 " />
 
-      <FloatingShape
-        color="from-[#1F22CA] to-transparent"
-        size="w-60 h-60"
-        top="70%"
-        position="absolute hidden dark:flex"
-        left="-5%"
-        delay={0}
-      />
+      <div className="container mx-auto px-4 md:px-6 lg:px-14 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute hidden dark:flex -bottom-0 md:-bottom-14 left-0"
-      >
-        <img src="/s-star.png" className="w-10 md:w-9 ml-20 lg:ml-28 mt-3" />
-      </motion.div>
-      <FloatingShape
-        color="from-[#1F22CA] to-transparent"
-        size="w-60 h-60"
-        top="0%"
-        position="absolute hidden dark:flex"
-        left="95%"
-        delay={0}
-      />
+          {/* Left Content */}
+          <div className="flex-1 max-w-2xl text-center lg:text-left">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-[55px]  lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%]"
+            >
+              <span className="text-[#10141D]">OUR</span> <br />
+              <span className="text-[#F9C23A]">MISSION.</span>
+            </motion.h1>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute top-20 right-22 hidden dark:flex"
-      >
-        <img src="/s-star.png" className="w-7 md:w-12 " />
-      </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[#646669] text-[18px] md:text-[20px] tracking-[2%] leading-[154%]  mx-auto lg:mx-0  font-helvetica font-regular"
+            >
+              At MyPath2Tech, we believe that education is the ultimate equalizer. Our mission is to bridge the gap between passion and opportunity, empowering individuals from all backgrounds to thrive in the ever-evolving world of technology.
+            </motion.p>
+          </div>
 
-      <div className="container mx-auto max-w-9xl ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 place-content-center place-items-center items-center">
+          {/* Right Image */}
           <motion.div
-           
-          >
-            <div className="absolute flex justify-between w-full -mt-10 md:-mt-12  left-0">
-              <div className="-10 text-purple-400">
-                <motion.div className="top-2 md:-top-20 absolute lg:-top-5  text-purple-600 text-3xl">
-                  {/* The tag is </> so i want it to tilt rotate and blink so it will blink non-visible and rotate to another angle and becomes visble back thenblink non-visble and gets back to the normal angle  */}
-                  {/* <img
-                    src="/tag.png"
-                    className="w-10 ml-10  md:ml-10  lg:w-18"
-                  /> */}
-                  <AnimatedCodeBrackets
-                    width={70}
-                    height={70}
-                    color="#F9C23A"
-                    strokeWidth={5}
-                    animationDuration={1.5}
-                    className="w-10 ml-10    lg:w-28"
-                  />
-                </motion.div>
-              </div>
-
-              <motion.div
-                variants={decorationVariants}
-                custom={1}
-                initial={floatingAnimation.initial}
-                // animate={floatingAnimation.animate}
-                className=" bottom-28 left-20 mt-0 text-blue-400"
-              >
-                <img src="/ws-star.png" className="w-7 md:w-12" />
-              </motion.div>
-            </div>
-            <motion.div
-             initial={{ opacity: 0, x: -50 }}
-             animate={{ opacity: 1, x: 0 }}
-             transition={{ duration: 0.6 }}>
-              <h1 className="text-5xl md:text-left text-center md:text-7xl font-bold  dark:text-white">
-                One <span className="text-[#F9C23A]">Aim.</span><br />
-                Equip the <span className="text-[#F9C23A]">Next Gen.</span>
-              </h1>
-              <p className="text-[#6A6464] dark:text-[#a09c9c] sec_text text-center md:text-left md:text-lg mb-8 max-w-lg">
-
-                We connect under-represented youth with the resources (crucial information, hands-on practices and workshops) to land real tech internships and launch real futures.
-              </p>
-
-              <motion.button
-                className="bg-[#F9C23A] main_text cursor-pointer font-semibold z-20 button mx-auto lg:mx-0 f text-gray-900 px-6 py-3 rounded-2xl  flex items-center space-x-2"
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handlePush}
-              >
-                <span>Explore our Program</span>
-                <CircleArrowUp className="rotate-45" />
-              </motion.button></motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            transition={{ duration: 0.8 }}
+            className="flex-1 relative aspect-[4/3] w-full max-w-2xl lg:max-w-none"
           >
-            {/* Pink Circle */}
-            <div className="relative ">
-              <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden top-0 right-0" />
-              <img src="/about_hero.png" className="lg:w-[80%]   top-0" />
-              <img src="/b_star.png" className="lg:w-22 w-6 absolute dark:hidden  bottom-0 left-0" />
-              {/* Stats */}
+            <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl">
+              <Image
+                src="/v2-images/mission-hero.jpg"
+                alt="Our Mission"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
+            {/* Subtle glow / decoration */}
+            <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-purple-100/30 rounded-full blur-3xl" />
+            <div className="absolute -z-10 -top-10 -left-10 w-64 h-64 bg-pink-100/30 rounded-full blur-3xl" />
           </motion.div>
+
         </div>
       </div>
     </section>
   );
 };
 
-export default WhyChooseSection;
+export default AboutHero;
