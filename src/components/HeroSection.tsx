@@ -52,7 +52,7 @@ const HeroSection = () => {
 
       {/* Radial Glows */}
       <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none " />
-      {/* <div className="absolute -z-10 bottom-10 -right-10 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none translate-x-1/3 translate-y-1/3" /> */}
+      <div className="absolute z-10 bottom-[10px] -right-10 w-[350px] h-[150px] bg-[#F9C23A]/30 rounded-full blur-[136px] pointer-events-none translate-x-1/3 " />
 
       {/* Sticky Banner */}
       <div className="flex md:bg-black w-screen -mx-4 sm:-mx-6 lg:-mx-14 pt-5 md:py-7 md:shadow-lg justify-center  lg:mb-20 sticky top-[50px] md:top-20 z-30">
@@ -119,7 +119,8 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Right Column: Auto-Scrolling Images */}
-          <div className=" md:block h-[400px] md:h-[600px] w-full max-w-full overflow-hidden relative rotate-[-5.13deg] md:mask-gradient z-30">
+          <div className=" md:block h-[400px] md:h-[600px] w-full max-w-full overflow-hidden relative rotate-[-5.13deg] z-30">
+
             <div className="grid grid-cols-2 gap-2 md:gap-4 h-full">
               {/* Column 1 - Scrolling Down */}
               <div className="relative h-full overflow-hidden">
@@ -154,7 +155,7 @@ const HeroSection = () => {
 
             {/* Gradient Overlays for smooth entry/exit */}
             <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black to-transparent z-20" />
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent z-20" />
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-black z-20" />
           </div>
 
         </div>
