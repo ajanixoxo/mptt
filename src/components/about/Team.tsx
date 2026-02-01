@@ -1,125 +1,84 @@
-"use client"
-
-import { motion } from "framer-motion"
-import FloatingShape from "@/components/FloatingShape"
-
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const team = [
   {
-    name: "Moshood Saka ",
+    name: "Moshood Saka",
     role: "Co Founder",
     color: "bg-[#F9C23A]",
-    img:"https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Luis"
+    img: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Luis"
   },
   {
     name: "Richard Nonso",
     role: "Co Founder",
-    color: "bg-green-400",
-    img:"https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Wyatt"
-
+    color: "bg-[#704FE6]",
+    img: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Wyatt"
   },
   {
     name: "Favour Atere",
     role: "Operational Volunteer",
-    color: "bg-pink-500",
-    img:"https://api.dicebear.com/9.x/lorelei-neutral/svg?seed=Jude"
-
+    color: "bg-pink-400",
+    img: "https://api.dicebear.com/9.x/lorelei-neutral/svg?seed=Jude"
   },
-
- 
-]
+];
 
 const TeamSection = () => {
   return (
-    <section className="py-20 px-4 relative">
-      <div className="absolute flex justify-between w-full -mt-10  right-0">
-
-        <div
-          className=" -ml-10 text-purple-400">
-          <FloatingShape
-           color='from-[#1F22CA] to-transparent' 
-           size='lg:w-60 w-32 h-32 lg:h-60' 
-           position="hidden dark:flex" 
-           top='35%' 
-           left='18%' 
-           delay={0} />
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-
-          >
-
-            <img src="/s-star.png" className="w-7 md:w-10 ml-64 -mt-32 hidden dark:flex" />
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
-          className=" bottom-40 left-20 mt-20 text-blue-400"
-        >
-          <img src='/s_half.png' className="w-7 md:w-12" />
-        </motion.div>
-
-
-
-
-      </div>
-      <div className="container mx-auto max-w-7xl">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 lg:px-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-1 dark:text-white">Meet Our Team</h2>
-          <p className="text-[#646464] dark:text-[#a09c9c] text-lg max-w-2xl mx-auto">
-
-            Led by industry professionals passionate about tech education
-          </p> 
+          <h2 className="text-[36px] md:text-[54px] lg:text-[62px] font-bold leading-[120%] tracking-[-3%] text-[#10141D] mb-4">
+            Meet Our <span className="text-[#704FE6]">Team</span>
+          </h2>
+          <p className="text-[#646669] text-[16px] tracking-[-1%] leading-[140%] max-w-2xl mx-auto font-helvetica">
+            Led by industry professionals passionate about tech education and community growth.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1  place-items-center gap-5 lg:gap-1 lg:grid-cols-3 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="relative group"
+              className="group flex flex-col items-center text-center"
             >
-              <div className="relative overflow-hidden rounded-lg z-10 h-max ">
-
-
-                <div
-                  className={`mt-4 mr-5 rounded-2xl h-20  w-60 ${member.color} z-10`}
-                />
-                <div className="top-0 lg:top-2 absolute gap-1  flex items-center justify-start  ml-1 h-20 w-[250px] bg-white rounded-2xl border border-black  z-20  -30 object-contain" >
-                  <div className="pl-2">
-                    <img src={member.img} className="rounded-2xl  border border-black w-16" />
-                  </div>
-                  <div className=" flex flex-col text-left justify-start  p-1 ">
-                    <h3 className="text-xl font-semibold text-black mb-1 w-max">{member.name}</h3>
-                    <p className="text-gray-800 text-sm w-max">{member.role}</p>
-                  </div>
+              <div className="relative mb-6">
+                <div className={`absolute inset-0 rounded-[40px] transform rotate-6 border-2 border-[#10141D] opacity-0 group-hover:opacity-10 transition-all duration-300`} />
+                <div className={`relative w-48 h-48 rounded-[40px] ${member.color} overflow-hidden border-2 border-[#10141D] shadow-lg group-hover:-translate-y-2 transition-transform duration-300`}>
+                  <Image
+                    src={member.img}
+                    alt={member.name}
+                    fill
+                    className="p-4"
+                  />
                 </div>
               </div>
 
-
+              <h3 className="text-2xl font-bold text-[#10141D] mb-1">
+                {member.name}
+              </h3>
+              <p className="text-[#704FE6] font-medium mb-3">
+                {member.role}
+              </p>
+              <p className="text-[#646669] text-sm leading-relaxed max-w-[240px]">
+                Passionate about driving innovation and fostering the next generation of tech talent.
+              </p>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TeamSection
+export default TeamSection;
 

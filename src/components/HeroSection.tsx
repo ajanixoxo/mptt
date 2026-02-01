@@ -100,7 +100,7 @@ const HeroSection = () => {
               </motion.h1>
             </div>
 
-            <motion.p variants={fadeIn} className="text-[#D1D5DC] text-[18px] md:text-xl max-w-xl leading-relaxed tracking-[2%] leading-[154%] ">
+            <motion.p variants={fadeIn} className="text-[#D1D5DC] text-[18px] md:text-xl max-w-xl tracking-[2%] leading-[154%] ">
               Free, industry-leading computer science courses designed to prepare you for high-impact careers. Learn from the best, build real projects, and join a thriving community.
             </motion.p>
 

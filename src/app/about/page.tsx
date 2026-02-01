@@ -1,39 +1,36 @@
 "use client"
 
 
-import VisionSection from "@/components/about/Vision"
+import AboutHero from "@/components/about/HeroSection"
+import RealPaths from "@/components/about/RealPaths"
+import WhySection from "@/components/about/TheProblem"
+import WhatWeDo from "@/components/about/TheMission"
+import ImpactSection from "@/components/about/Vision"
+import SponsorsSection from "@/components/SponsorsSection"
 import TeamSection from "@/components/about/Team"
-import ProblemSection from "@/components/about/TheProblem"
-import MissionSection from "@/components/about/TheMission"
-import PartnersSection from "@/components/about/Partners"
-import WhyChooseSection from "@/components/about/HeroSection"
+import FoundedBy from "@/components/about/FoundedBy"
+import AboutCTA from "@/components/about/AboutCTA"
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 
 const About = () => {
-
-
   return (
-    <>  
-        <Navbar />
-
-      <main className="dark:bg-[#0A0A0B] bg-[#FEFBEA] min-h-screen ">
-    
-        {/* Content */}
+    <>
+      <Navbar />
+      <main className="bg-white dark:bg-[#0A0A0B] min-h-screen">
         <div className="relative z-10">
-          <WhyChooseSection />
-          <ProblemSection />
-          <MissionSection />
-          <VisionSection />
-          <PartnersSection />
+          <AboutHero />
+          <RealPaths />
+          <WhySection />
+          <WhatWeDo />
+          <ImpactSection />
+          <SponsorsSection />
           <TeamSection />
-
+          <FoundedBy />
+          <AboutCTA />
         </div>
       </main>
-      <div className="bg-[#FEFBEA] dark:bg-[#0A0A0B]">
-        <Footer />
-      </div>
-
+      <Footer />
     </>
   )
 }

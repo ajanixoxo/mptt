@@ -1,120 +1,72 @@
-"use client";
-
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const problems = [
-  "Students graduate without practical experience employers value",
-  "Limited access to industry mentors and real projects",
-  "Overwhelming choices in a rapidly changing tech landscape",
-  "High costs create barriers to quality tech education",
-];
+const WhySection = () => {
+  const cards = [
+    {
+      title: "The Problem",
+      description: "Many talented individuals in underrepresented communities face systemic barriers to entry in the tech industry. These barriers include limited access to high-quality resources, mentorship, and professional networks.",
+      image: "/v2-images/why1.jpg",
+      delay: 0.1
+    },
+    {
+      title: "Our Solution",
+      description: "We provide a structured environment where students can learn, build, and connect. By offering free industry-leading curriculum and direct mentorship, we're breaking down barriers and opening doors to high-impact careers.",
+      image: "/v2-images/why2.png",
+      delay: 0.2
+    }
+  ];
 
-const ProblemSection = () => {
   return (
-    <section className="py-20 px-4 relative">
-         <img src="/h_b (2).png" className="absolute right-0 w-5 dark:hidden md:w-8" />
-         <img src="/h_b (1).png" className="absolute left-0 bottom-0 w-5 dark:hidden md:w-8" />
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:flex flex-row-reverse gap-12 items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="order-2 grid items-center place-items-center lg:order-1 relative z-10"
-          >
-            <motion.div
-              className="absolute -bottom-8 w-max z-10 h-20  -left-2 border-2 border-black bg-white rounded-2xl p-2 px-4 shadow-lg"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="flex i flex-col space-x-2">
-                <span className="text-2xl font-bold text-black">85M+</span>
-                <span className="text-gray-700 text-[16px]">
-                  Tech jobs by 2030
-                </span>
-              </div>
-            </motion.div>
-            <motion.div
-              className="absolute -bottom-6 w-max z-20 -left-0 border-2 border-black bg-white rounded-2xl p-2 px-4 shadow-lg"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="flex justify-end i flex-col space-x-2">
-                <span className="text-2xl font-bold text-black">85M+</span>
-                <span className="text-gray-700 text-[16px]">
-                  Tech jobs by 2030
-                </span>
-              </div>
-            </motion.div>
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-6 lg:px-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-[36px] md:text-[54px] lg:text-[62px] font-bold leading-[120%] tracking-[-3%] text-[#10141D]">
+            Why <span className="text-[#704FE6]">MyPath2Tech</span>
+          </h2>
+        </motion.div>
 
-            <img
-              src="/problem.png"
-              alt="Problem illustration"
-              className="rounded-2xl md:w-[80%] shadow-2xl"
-            />
-          </motion.div>
-          {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8  mx-auto">
+          {cards.map((card, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 inline-block bg-gray-800 rounded-2xl p-4 transform -translate-y-1/2 translate-x-1/2"
+              transition={{ duration: 0.6, delay: card.delay }}
+              className="flex flex-col h-full bg-white rounded-[16px] overflow-hidden group shadow-black/10 shadow-sm hover:shadow-lg transition-all duration-500 p-2"
             >
-              <div className="flex items-center space-x-3">
-                <span className="text-3xl font-bold text-blue-500">85M+</span>
-                <span className="text-[#a09c9c]">Tech jobs by 2030</span>
+              <div className="relative h-auto w-full overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={636}
+                  height={400}
+                  className="object-cover rounded-[16px] mx-auto transition-transform duration-700"
+                />
+                <div className="absolute w-[636px] mx-auto inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/40 rounded-[16px] to-transparent  transition-opacity duration-500" />
               </div>
-            </motion.div> */}
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="order-1 lg:order-2"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold  dark:text-white main_text">
-              The Problem
-            </h2>
-            <p className="text-[#7A7979] text-lg mb-8 sec">
-              Traditional tech education isn't working for today's learners
-            </p>
-
-            <div className="space-y-4">
-              {problems.map((problem, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-start space-x-3"
-                >
-                  <div className="mt-1">
-                    <svg
-                      width={26}
-                      height={20}
-                      viewBox="0 0 26 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 12L8 18L24 2"
-                        stroke="#CEED12"
-                        strokeWidth={3}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-[#6A6464]">{problem}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+              <div className="p-3 md:p-6 flex-1 flex flex-col">
+                <h3 className="text-2xl md:text-[26px] font-bold text-[#10141D] mb-4">
+                  {card.title}
+                </h3>
+                <p className="text-[#646669] text-base md:text-[16px]  leading-[140%] tracking-[-1%] font-helvetica">
+                  {card.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default ProblemSection;
+export default WhySection;

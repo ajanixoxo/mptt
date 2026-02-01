@@ -27,6 +27,11 @@
   src: url('/fonts/bold.ttf');
 }
 
+@font-face {
+  font-family: "Helvetica";
+  src: url('/fonts/regular.otf');
+}
+
 .main_text,
 h1,
 h2 {
@@ -42,6 +47,9 @@ li {
   font-family: "Helvetica Light";
   font-weight: 500;
   letter-spacing: -0.02em;
+}
+.font-helvetica{
+  font-family: "Helvetica";
 }
 
 h1,
