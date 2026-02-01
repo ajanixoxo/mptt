@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { MoreHorizontal, ThumbsUp, MessageSquare, Share2, Send, Globe } from "lucide-react";

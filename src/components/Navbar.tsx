@@ -3,17 +3,17 @@
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
-import { Menu, X, ChevronRight, Sun, Moon, ChartNoAxesColumnDecreasing } from "lucide-react"
+import {  X, ChevronRight,  ChartNoAxesColumnDecreasing } from "lucide-react"
 import Button from "./Button"
 import Link from "next/link"
-import { useTheme } from "next-themes";
+
 import Image from "next/image"
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = usePathname()
   const router = useRouter()
-  const { theme, setTheme } = useTheme();
+
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 

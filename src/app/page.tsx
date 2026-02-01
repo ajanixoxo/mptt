@@ -1,9 +1,9 @@
 "use client"
 import HeroSection from "@/components/HeroSection"
 import FindYourPlace from "@/components/FindYourPlace"
-import EventsSection from "@/components/EventsSection"
+// import EventsSection from "@/components/EventsSection"
 import SponsorsSection from "@/components/SponsorsSection"
-import PathwaysSection from "@/components/PathwaySection"
+// import PathwaysSection from "@/components/PathwaySection"
 import TestimonialsSection from "@/components/TestimonialsSection"
 
 import Footer from "@/components/Footer"

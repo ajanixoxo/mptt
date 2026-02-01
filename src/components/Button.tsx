@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { ReactNode } from "react"
-import { CircleArrowUp } from 'lucide-react'
+
 
 interface ButtonProps {
     text: string
