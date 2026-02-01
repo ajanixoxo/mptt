@@ -15,13 +15,13 @@ const FoundedBy = () => {
                         transition={{ duration: 0.6 }}
                         className="flex-1 w-full max-w-xl"
                     >
-                        <div className="relative w-full  rounded-[40px] overflow-hidden shadow-2xl border border-gray-100">
+                        <div className="relative w-full h-[500px]  rounded-[40px] overflow-hidden shadow-2xl border border-gray-100">
                             <Image
                                 src="/v2-images/founded.jpg"
                                 alt="Founded by Educators"
                                 width={576}
                                 height={500}
-                                className="object-cover"
+                                className="object-cover h-full"
                             />
                         </div>
                     </motion.div>
@@ -33,7 +33,7 @@ const FoundedBy = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-[36px] md:text-[54px] lg:text-[62px] max-w-xl font-bold leading-[120%] tracking-[-3%] text-[#10141D] mb-8"
+                            className="text-[30px] md:text-[54px] lg:text-[62px] max-w-xl font-bold leading-[120%] tracking-[-3%] text-[#10141D] mb-8"
                         >
                             Founded by <span className="text-[#704FE6]">Educators</span>
                         </motion.h2>
@@ -43,7 +43,7 @@ const FoundedBy = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3 }}
-                            className="space-y-6"
+                            className="space-y-6 text-center md:text-left"
                         >
                             <p className="text-[#646669] text-[16px] leading-[140%] tracking-[-1%] font-helvetica">
                                 MyPath2Tech was founded in 2013 by engineers who saw firsthand the gap between what students learn in school and what employers need in the workplace.
