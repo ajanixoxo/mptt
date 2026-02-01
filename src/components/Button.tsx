@@ -23,7 +23,7 @@ function Button({ text, variant = 'primary', onClick, icon, className }: ButtonP
 
     const variants = {
         primary: primaryStyles,
-        outline: "px-6 py-2.5 rounded-full bg-transparent text-[#10141D] border border-[#000612] hover:bg-gray-50",
+        outline: " w-[110px] h-[56px] px-[20px] py-[14px] rounded-full bg-transparent text-[#10141D] border-[1.5px] border-[#000612] shadow-[0px_12px_13.1px_-8px_rgba(61,61,61,0.05),inset_0px_2px_4px_0px_rgba(255,255,255,0.31)] hover:bg-gray-50",
         secondary: "px-6 py-2.5 rounded-full bg-white text-[#10141D] border border-[#EEEEEE] hover:bg-gray-50",
     }
 

@@ -8,25 +8,28 @@ import TestimonialsSection from "@/components/TestimonialsSection"
 
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
+import SuccessStories from "@/components/SuccessStories"
 
 
 export default function Home() {
   return (
 
     <>
-  
-   <Navbar/>
+
+      <Navbar />
       <div className="min-h-screen   overflow-hidden">
-     
+
         <HeroSection />
+        <SponsorsSection />
         <FindYourPlace />
-        <EventsSection />
+        <SuccessStories />
+        {/*     <EventsSection />
         <PathwaysSection />
         <TestimonialsSection /> 
-        <SponsorsSection />
+      */}
       </div>
       <div className="  bg-[#FEFBEA] dark:bg-[#0A0A0B]">
-      <Footer />
+        <Footer />
       </div>
     </>
   );

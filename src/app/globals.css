@@ -46,6 +46,7 @@ li {
 
 h1,
 h2,
+h3,
 .logo,
 .button {
   font-family: "Bricolage Grotesque";
@@ -61,6 +62,9 @@ h2,
 
 .button:hover {
   box-shadow: 5px 6px 2px transparent;
+}
+.font-helvetica-bold{
+  font-family: "Helvetica Bold";
 }
 .text{
   font-weight: 700
