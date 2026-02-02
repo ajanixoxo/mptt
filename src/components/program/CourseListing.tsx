@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Button from "../Button";
 import { ArrowRightIcon } from "lucide-react";
@@ -17,7 +17,8 @@ const courses = [
         ],
         duration: "12 weeks",
         commitment: "10-15 hrs",
-        price: "100% Free"
+        price: "100% Free",
+        link: "/courses/web-development"
     },
     {
         title: "AI Engineering",
@@ -62,6 +63,7 @@ const courses = [
 ];
 
 const CourseListing = () => {
+    const router = useRouter();
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4 md:px-6 lg:px-14">
@@ -127,6 +129,7 @@ const CourseListing = () => {
                                     text="Learn More"
                                     variant="outline"
                                     className="flex-1 !py-4"
+                                    onClick={() => router.push(course.link)}
                                 />
                             </div>
                         </motion.div>

@@ -267,7 +267,7 @@ const UpcomingEvent = () => {
           {/* Registration Form */}
           {selectedEvent && (
             <div className="fixed inset-0 z-40 bg-black bg-opacity-50 flex justify-center items-center">
-              <div className="bg-[#2B2B2B]/90 p-6 rounded-lg w-96 text-white shadow-lg">
+              <div className="bg-[#2B2B2B]/90 p-6 rounded-lg w-96 text-white ">
                 {success ? (
                   <div className="text-center">
                     <motion.div

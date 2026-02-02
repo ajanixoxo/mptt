@@ -60,7 +60,9 @@ h4,
 .button {
   font-family: "Bricolage Grotesque";
 }
-
+.font-bricolage{
+  font-family: "Bricolage Grotesque";
+}
 .bg-cream {
   background-color: var(--cream);
 }

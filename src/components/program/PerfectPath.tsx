@@ -120,7 +120,7 @@ const PerfectPath = () => {
                             <button className="w-full bg-[#10141D] hover:bg-black/90 text-white font-medium py-5 rounded-full flex items-center justify-center gap-2 transition-all group">
                                 Get My Complete Roadmap <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                             </button>
-                            <p className="text-center text-gray-400 text-sm mt-4 font-helvetica-light">
+                            <p className="text-center text-gray-400 text-sm mt-4 font-helvetica">
                                 Free personalized guidance based on your goals
                             </p>
                         </div>
