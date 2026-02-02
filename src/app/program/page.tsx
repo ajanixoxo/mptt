@@ -1,23 +1,27 @@
 "use client";
 
-import ProgramHero from "@/components/program/ProgramHero";
-import ProgramCTA from "@/components/program/ProgramCTA";
+
 import Footer from "@/components/Footer";
-import ProgramInfoSections from "@/components/program/ProgamInfo";
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
+import PathHero from "@/components/program/PathHero";
+import WhyPlan from "@/components/program/WhyPlan";
+import JourneyCarousel from "@/components/program/JourneyCarousel";
+import PerfectPath from "@/components/program/PerfectPath";
+import ProgramSuccessStories from "@/components/program/ProgramSuccessStories";
+import CTASection from "@/components/CTASection";
 
 const Program = () => {
   return (
     <Suspense>
-     <Navbar />
-      <main className="dark:bg-[#0A0A0B] bg-[#FEFBEA] min-h-screen hero-bg">
-        {/* Content */}
-        <div className="relative z-10">
-          <ProgramHero />
-          <ProgramInfoSections />
-          <ProgramCTA />
-        </div>
+      <Navbar />
+      <main className=" min-h-screen">
+        <PathHero />
+        <WhyPlan />
+        <JourneyCarousel />
+        <PerfectPath />
+        <ProgramSuccessStories />
+        <CTASection />
       </main>
       <div className="bg-[#FEFBEA] dark:bg-[#0A0A0B]">
         <Footer />
