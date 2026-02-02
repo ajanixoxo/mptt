@@ -52,7 +52,8 @@ const HeroSection = () => {
 
       {/* Radial Glows */}
       <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none " />
-      <div className="absolute z-10 bottom-[10px] -right-10 w-[350px] h-[150px] bg-[#F9C23A]/30 rounded-full blur-[136px] pointer-events-none translate-x-1/3 " />
+          <div className="absolute  bottom-0 -right-0 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none translate-x-1/3 " />
+
 
       {/* Sticky Banner */}
       <div className="flex md:bg-black w-screen -mx-4 sm:-mx-6 lg:-mx-14 pt-5 md:py-7 md:shadow-lg justify-center  lg:mb-20 sticky top-[50px] md:top-20 z-30">
