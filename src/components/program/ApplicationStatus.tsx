@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Button from "../Button";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const ApplicationStatus = () => {
     return (

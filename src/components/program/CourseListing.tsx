@@ -32,7 +32,8 @@ const courses = [
         duration: "12 weeks",
         commitment: "12-18 hrs",
         price: "100% Free",
-        badge: "Partnered by:"
+        badge: "Partnered by:",
+        link: "/courses/ai-engineering"
     },
     {
         title: "Data Science",
@@ -45,7 +46,8 @@ const courses = [
         ],
         duration: "12 weeks",
         commitment: "10-15 hrs",
-        price: "100% Free"
+        price: "100% Free",
+        link: "/courses/data-science"
     },
     {
         title: "Cybersecurity",
@@ -58,7 +60,8 @@ const courses = [
         ],
         duration: "12 weeks",
         commitment: "12-15 hrs",
-        price: "100% Free"
+        price: "100% Free",
+        link: "/courses/cybersecurity"
     }
 ];
 

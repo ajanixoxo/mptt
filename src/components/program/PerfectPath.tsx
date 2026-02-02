@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, User, Briefcase, Clock } from "lucide-react";
-import Button from "../Button";
 import {
     Select,
     SelectContent,
