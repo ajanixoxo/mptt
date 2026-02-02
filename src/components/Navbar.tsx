@@ -187,7 +187,7 @@ const Navbar = () => {
                       setIsOpen(false)
                     }
                   }}
-                  className={`text-sm font-medium  flex items-center gap-1 ${location === link.path ? "text-[#10141D] hover:underline hover:text-[#704FE6]" : "text-[#10141D] hover:text-[#704FE6]"
+                  className={`text-sm font-medium  flex items-center gap-1 ${location === link.path ? "text-[#10141D] hover:underline hover:text-[#704FE6]" : "text-[#646669] hover:text-[#704FE6]"
                     }`}
                 >
                   {link.name}
@@ -205,7 +205,7 @@ const Navbar = () => {
                       } transition-all duration-300 ease-in-out w-full`}
                   >
                     <div className="pl-4 pt-2">
-                      <span className="text-xs font-bold text-gray-400 tracking-wider mb-3 block">
+                      <span className="text-xs font-bold text-[#646669] tracking-wider mb-3 block">
                         HIGH SCHOOL
                       </span>
                       <div className="flex flex-col gap-3">

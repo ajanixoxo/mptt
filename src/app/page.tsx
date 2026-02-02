@@ -20,10 +20,10 @@ export default function Home() {
       <div className="min-h-screen   overflow-hidden">
 
         <HeroSection />
-        <SponsorsSection />
+        <SponsorsSection showCalendar={true} />
         <FindYourPlace />
         <SuccessStories />
-        <TestimonialsSection />       
+        <TestimonialsSection />
         <CTASection />
         {/*     <EventsSectio n />
         <PathwaysSection />
