@@ -45,7 +45,7 @@ const PathHero = () => {
                                 text="Get Started"
                                 variant="secondary"
                                 icon={<ArrowRight size={18} />}
-                                className="!bg-white w-max !text-black !border-white hover:!bg-gray-100"
+                                className="!bg-white w-max !text-black mx-auto lg:mx-0 !border-white hover:!bg-gray-100"
                             />
                         </motion.div>
                     </div>
@@ -63,7 +63,7 @@ const PathHero = () => {
                                 alt="Plan Your Path"
                                 width={672}
                                 height={481}
-                                className="object-contain scale-150"
+                                className="object-contain scale-[200%] md:scale-150"
                                 priority
                             />
                         </div>

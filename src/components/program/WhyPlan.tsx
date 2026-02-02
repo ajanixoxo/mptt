@@ -51,9 +51,9 @@ const WhyPlan = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: card.delay }}
-                            className="p-8 rounded-[32px] border border-[#E5E7EB] bg-white hover:shadow-xl transition-all duration-500 text-center md:text-left"
+                            className="p-8 rounded-[32px] border border-[#E5E7EB] bg-white hover:shadow-xl transition-all duration-500 text-left"
                         >
-                            <div className="w-16 h-16 mb-6 mx-auto md:mx-0">
+                            <div className="w-[84px] h-[84px] mb-6  md:mx-0">
                                 <Image src={card.icon} alt={card.title} width={64} height={64} className="w-full h-full object-contain" />
                             </div>
 
