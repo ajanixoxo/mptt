@@ -63,7 +63,7 @@ const PathHero = () => {
                                 alt="Plan Your Path"
                                 width={672}
                                 height={481}
-                                className="object-contain scale-[200%] md:scale-150"
+                                className="object-contain scale-[200%] md:scale-[250%]"
                                 priority
                             />
                         </div>
