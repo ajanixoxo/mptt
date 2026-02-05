@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Twitter, Instagram, Linkedin, Youtube, Facebook } from "lucide-react";
+import { Twitter, Instagram, Linkedin, Youtube, Facebook, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -53,7 +53,15 @@ const Footer = () => {
             <h4 className="font-bold text-[#10141D] mb-6">Support</h4>
             <ul className="space-y-4">
               <FooterLink href="/donate">Donate</FooterLink>
-              <FooterLink href="/contact">Contact Us</FooterLink>
+              <li>
+                <a
+                  href="mailto:hi@mypath2tech.ca"
+                  className="text-[#646669] hover:text-[#704FE6] transition-colors text-sm font-medium flex items-center gap-2"
+                >
+                  <Mail size={16} />
+                  hi@mypath2tech.ca
+                </a>
+              </li>
               <FooterLink href="/faq">FAQ</FooterLink>
               <FooterLink href="/privacy">Privacy Policy</FooterLink>
             </ul>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
-import {  X, ChevronRight,  ChartNoAxesColumnDecreasing } from "lucide-react"
+import { X, ChevronRight, ChartNoAxesColumnDecreasing } from "lucide-react"
 import Button from "./Button"
 import Link from "next/link"
 
@@ -51,7 +51,6 @@ const Navbar = () => {
     { name: "For Students", path: "#" },
     { name: "About", path: "/about" },
     { name: "Program", path: "/program" },
-    { name: "Contact", path: "/contact" },
   ]
 
   const toggleDropdown = (e: React.MouseEvent, name: string) => {
