@@ -52,8 +52,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <h4 className="font-bold text-[#10141D] mb-6">Support</h4>
             <ul className="space-y-4">
-              <FooterLink href="/donate">Donate</FooterLink>
-              <li>
+                <li>
                 <a
                   href="mailto:hi@mypath2tech.ca"
                   className="text-[#646669] hover:text-[#704FE6] transition-colors text-sm font-medium flex items-center gap-2"
@@ -61,7 +60,8 @@ const Footer = () => {
                   <Mail size={16} />
                   hi@mypath2tech.ca
                 </a>
-              </li>
+              </li> 
+              <FooterLink href="/donate">Donate</FooterLink>
               <FooterLink href="/faq">FAQ</FooterLink>
               <FooterLink href="/privacy">Privacy Policy</FooterLink>
             </ul>

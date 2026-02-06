@@ -33,7 +33,7 @@ const HeroSection = () => {
         y: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 20,
+          duration: 40,
           ease: "linear",
         },
       },

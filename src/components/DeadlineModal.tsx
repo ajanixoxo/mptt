@@ -21,12 +21,7 @@ const DeadlineModal = () => {
     useEffect(() => {
         // Show modal after 5 seconds
         const timer = setTimeout(() => {
-            // Check session storage to see if already shown in this session
-            const hasShown = sessionStorage.getItem("deadlineModalShown");
-            if (!hasShown) {
-                setIsVisible(true);
-                sessionStorage.setItem("deadlineModalShown", "true");
-            }
+            setIsVisible(true);
         }, 5000);
 
         return () => clearTimeout(timer);
@@ -64,25 +59,24 @@ const DeadlineModal = () => {
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center px-4 bg-black/40 backdrop-blur-sm">
+                <div className="fixed bottom-4 right-4 z-[9999] flex items-end justify-end p-4 pointer-events-none">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        transition={{ type: "spring", duration: 0.5 }}
-                        className="bg-white rounded-[32px] overflow-hidden flex flex-col md:flex-row max-w-[650px] w-full shadow-2xl relative"
+                        initial={{ opacity: 0, x: 100, y: 100 }}
+                        animate={{ opacity: 1, x: 0, y: 0 }}
+                        exit={{ opacity: 0, x: 100, y: 100 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className="bg-white rounded-[32px] overflow-hidden flex flex-col md:flex-row max-w-[650px] w-full shadow-2xl relative pointer-events-auto"
                     >
                         {/* Close Button (Mobile Absolute / Desktop Absolute) */}
                         <button
                             onClick={closeBox}
-                            className="absolute top-4 right-4 z-20 p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500"
+                            className="absolute top-4 right-4 z-20 p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500 bg-white/80 backdrop-blur-sm"
                         >
                             <X size={24} />
                         </button>
 
                         {/* Left Side - Pink/Purple Gradient with Countdown */}
                         <div className="w-full md:w-[45%] bg-[#704FE6] text-white p-8 relative overflow-hidden flex flex-col justify-center items-center min-h-[300px]">
-                            {/* Blob Effect Background */}
                             {/* Blob Effect Background */}
                             <img
                                 src="/v2-images/blog.svg"
