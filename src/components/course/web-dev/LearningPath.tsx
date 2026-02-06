@@ -4,15 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const curriculumItems = [
-    "JavaScript", "React", "Node.js", "APIs", "Databases", "Git & Github", "Testing"
+    "HTML", "CSS", "JavaScript", "Git & GitHub"
 ];
 
 const projectsItems = [
-    "Social media application", "E-commerce platform", "Personal portfolio website", "Mobile app with React Native"
-];
-
-const potentialRoles = [
-    "Front-End Developer", "Back-End Developer", "Full-Stack Engineer", "Mobile Developer"
+    "Complete business website (restaurant, gym, café, barbershop, etc.)",
+    "Portfolio piece for college apps",
+    "Live site you can share"
 ];
 
 const LearningPath = () => {
@@ -34,7 +32,7 @@ const LearningPath = () => {
                         viewport={{ once: true }}
                         className="text-[36px] md:text-[54px] lg:text-[72px] font-bold text-[#10141D] tracking-[-3%] leading-[120%]"
                     >
-                        What you'll <span className="text-[#704FE6]">Learn</span>
+                        What you'll <span className="text-[#704FE6]">Build</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -43,7 +41,7 @@ const LearningPath = () => {
                         transition={{ delay: 0.1 }}
                         className="text-[#646669] text-base md:text-lg mt-4 font-helvetica max-w-2xl mx-auto tracking-[-1%] leading-[140%]"
                     >
-                        We serve students, colleges, and employers to create a more inclusive tech ecosystem
+                        A real website from scratch, and a clearer idea if coding is your thing
                     </motion.p>
 
                     <motion.div
@@ -75,18 +73,18 @@ const LearningPath = () => {
                                 />
                             </div>
                             <div>
-                                <h3 className="text-xl md:text-2xl font-bold text-[#10141D] mb-0.5">Foundations of Web Development</h3>
-                                <p className="text-[#646669] text-sm font-helvetica">HTML, CSS, JavaScript basics</p>
+                                <h3 className="text-xl md:text-2xl font-bold text-[#10141D] mb-0.5">Your First Real Website</h3>
+                                <p className="text-[#646669] text-sm font-helvetica">HTML, CSS, JavaScript, Git/GitHub</p>
                             </div>
                         </div>
 
                         <p className="text-[#646669] text-[16px] font-helvetica leading-[140%] mb-4 max-w-4xl">
-                            Learn to design, develop, and deploy web and mobile applications that solve real-world problems. Master modern programming languages and frameworks while building a portfolio of projects.
+                            Build a complete business website from scratch. You choose the type (restaurant, gym, café, barbershop, etc.). You&apos;ll learn by doing, not just following tutorials, and end with a live portfolio piece for college apps.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-[#E5E7EB] pt-4">
                             <div>
-                                <h4 className="text-[#10141D] text-xl font-bold mb-3">What You'll Learn</h4>
+                                <h4 className="text-[#10141D] text-xl font-bold mb-3">Skills You&apos;ll Use</h4>
                                 <ul className="space-y-2">
                                     {curriculumItems.map((item, idx) => (
                                         <li key={idx} className="flex items-center gap-3 text-[#646669] text-[16px] font-helvetica">
@@ -102,7 +100,7 @@ const LearningPath = () => {
                                 </ul>
                             </div>
                             <div>
-                                <h4 className="text-[#10141D] text-xl font-bold mb-3">Projects You'll Build</h4>
+                                <h4 className="text-[#10141D] text-xl font-bold mb-3">What You&apos;ll Have</h4>
                                 <ul className="space-y-2">
                                     {projectsItems.map((item, idx) => (
                                         <li key={idx} className="flex items-center gap-3 text-[#646669] text-[16px] font-helvetica">
@@ -115,39 +113,53 @@ const LearningPath = () => {
                         </div>
                     </motion.div>
 
-                    {/* Career Outcomes Card */}
+                    {/* What Makes This Different */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         className="flex-1 bg-white rounded-[16px] border-2 border-[#10141D] p-8 md:p-10 shadow-sm flex flex-col"
                     >
-                        <h3 className="text-[#10141D] text-3xl font-bold mb-10">Career Outcomes</h3>
+                        <h3 className="text-[#10141D] text-3xl font-bold mb-10">What Makes This Different</h3>
 
-                        <div className="space-y-10 flex-grow">
-                            <div>
-                                <h3 className="text-[#10141D] text-xl font-bold mb-6">Potential Roles</h3>
-                                <ul className="space-y-4">
-                                    {potentialRoles.map((role, idx) => (
-                                        <li key={idx} className="flex items-center gap-3 text-[#646669] text-[18px] font-helvetica">
-                                            <div className="w-2 h-2 rounded-full bg-[#F9C23A]" />
-                                            {role}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="font-bricolage">
-                                <p className="text-[#10141D] text-xl font-bold mb-2">Average Salary Range</p>
-                                <p className="text-[#F9C23A] text-2xl md:text-3xl font-bold">$70,000 - $120,000</p>
-                            </div>
-
-                            <div className="font-bricolage">
-                                <p className="text-[#10141D] text-xl font-bold mb-2">Industry Demand</p>
-                                <p className="text-[#F9C23A] text-3xl font-bold">86%</p>
-                                <p className="text-[#646669] text-sm !font-helvetica mt-1 text-opacity-70">From Google</p>
-                            </div>
-                        </div>
+                        <ul className="space-y-6 flex-grow">
+                            <li className="flex items-start gap-3 text-[#646669] text-[16px] font-helvetica">
+                                <div className="flex-shrink-0 text-[#704FE6] mt-0.5">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" />
+                                        <path d="M7 12L10.5 15.5L17 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                Actually build something (not just follow tutorials)
+                            </li>
+                            <li className="flex items-start gap-3 text-[#646669] text-[16px] font-helvetica">
+                                <div className="flex-shrink-0 text-[#704FE6] mt-0.5">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" />
+                                        <path d="M7 12L10.5 15.5L17 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                Designed for complete beginners
+                            </li>
+                            <li className="flex items-start gap-3 text-[#646669] text-[16px] font-helvetica">
+                                <div className="flex-shrink-0 text-[#704FE6] mt-0.5">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" />
+                                        <path d="M7 12L10.5 15.5L17 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                Small cohort, real mentorship
+                            </li>
+                            <li className="flex items-start gap-3 text-[#646669] text-[16px] font-helvetica">
+                                <div className="flex-shrink-0 text-[#704FE6] mt-0.5">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" />
+                                        <path d="M7 12L10.5 15.5L17 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                No pressure, just exploration
+                            </li>
+                        </ul>
                     </motion.div>
                 </div>
             </div>

@@ -6,25 +6,23 @@ import Image from "next/image";
 const benefits = [
     {
         icon: "/v2-images/shield2.svg",
-        title: "80% Job Placement ",
-        description: "Our graduates land roles at top tech companies within 6 months",
-
+        title: "Actually Build Something",
+        description: "Not just follow tutorials. You'll create a real website from scratch.",
     },
     {
         icon: "/v2-images/hand-on.svg",
-        title: "Expert Mentorship",
-        description: " Learn from engineers at Google, Meta, Amazon, and more",
-
+        title: "Complete Beginners",
+        description: "Designed for anyone with no prior coding experience.",
     },
     {
         icon: "/v2-images/mentorship.svg",
-        title: "Expert Mentorship",
-        description: "Get weekly 1-on-1 sessions with senior developers.",
+        title: "Small Cohort, Real Mentorship",
+        description: "Learn in a small group with real support and guidance.",
     },
     {
         icon: "/v2-images/career-support.svg",
-        title: "Career Counseling",
-        description: "Resume reviews, interview prep, and hiring connections.",
+        title: "No Pressure, Just Exploration",
+        description: "Explore if tech is right for you. No commitment required.",
     }
 ];
 
@@ -42,7 +40,7 @@ const WhyTakeCourse = () => {
                         Why Take This <span className="text-[#704FE6]">Course</span>
                     </h2>
                     <p className="text-[#646669] text-base md:text-lg mt-4 font-helvetica">
-                        Accelerate your journey into software engineering.
+                        Build a real website and see if coding is your thing.
                     </p>
                 </motion.div>
 

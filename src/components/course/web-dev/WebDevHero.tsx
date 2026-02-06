@@ -24,7 +24,7 @@ const WebDevHero = () => {
                                 <span className="text-[#F9C23A]">DEVELOPMENT.</span>
                             </h1>
                             <p className="text-gray-400 text-lg md:text-xl mt-6 max-w-xl font-helvetica leading-relaxed">
-                                Master the art of building modern, responsive websites and web applications. From HTML/CSS basics to advanced React frameworks.
+                                Build a real website. Explore if tech is right for you. Your first website, built from scratch. By the end, you&apos;ll have a live site in your portfolio and a much clearer idea if coding is your thing.
                             </p>
 
                             <div className="flex flex-wrap  justify-center lg:justify-start gap-4 mt-8">

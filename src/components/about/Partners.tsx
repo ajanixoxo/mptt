@@ -5,7 +5,7 @@ const cards = [
   {
     title: "Partner with Us",
     description:
-      "Corporate, nonprofit, and academic partners — let's create opportunities that change lives.",
+      "Corporate, nonprofit, and academic partners. Let's create opportunities that change lives.",
     icon: (
       <svg
         width={156}

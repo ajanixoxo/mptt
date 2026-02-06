@@ -51,7 +51,7 @@ const HeroSection = () => {
 
 
       {/* Sticky Banner */}
-      <div className="flex md:bg-black w-screen -mx-4 sm:-mx-6 lg:-mx-14 pt-5 md:py-7 md:shadow-lg justify-center  lg:mb-20 sticky top-[50px] md:top-20 z-30">
+      <div className="flex w-screen -mx-4 sm:-mx-6 lg:-mx-14 pt-5 md:py-7 md:shadow-lg justify-center  lg:mb-20 sticky top-[50px] md:top-20 z-30">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const HeroSection = () => {
           className=" p-1.5 pr-6 flex flex-col md:flex-row items-center gap-4 md:shadow-xl"
         >
           <div className="flex flex-col md:flex-row items-center gap-3 px-3">
-            <span className="text-sm font-medium text-white">Spring 2026 Applications Now Open</span>
+            <span className="text-sm font-medium text-white">Web Development Spring 2026 Applications Now Open</span>
             <span className="text-[#99A1AF] text-xs flex items-center gap-1">
               <Clock size={12} />
               Closes in: 15d 8h 40m 22s

@@ -52,7 +52,7 @@ const FoundedBy = () => {
                                 We started with a simple idea: create high-quality, industry-relevant courses and make them completely free for students. Today, we've trained over 30,000 students and partnered with hundreds of companies.
                             </p>
                             <p className="text-[#646669] text-[16px] leading-[140%] tracking-[-1%] font-helvetica">
-                                Our success comes from staying true to our mission—we don't charge students, we don't take equity, and we don't compromise on quality. We're supported by companies that believe in building a more diverse and skilled tech workforce.
+                                Our success comes from staying true to our mission: we don't charge students, we don't take equity, and we don't compromise on quality. We're supported by companies that believe in building a more diverse and skilled tech workforce.
                             </p>
 
                             

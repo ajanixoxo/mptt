@@ -8,13 +8,22 @@ import Image from "next/image";
 const courses = [
     {
         title: "Web Development",
-        description: "Master the art of building modern, responsive websites and web applications.",
+        description: "Build a real website. Explore if tech is right for you. Your first website, built from scratch. By the end, you'll have a live site in your portfolio and a much clearer idea if coding is your thing.",
+        featuresLabel: "What You'll Build",
         features: [
-            "Build production-ready applications with industry best practices",
-            "Collaborate on real-world projects with peers and mentors",
-            "Join a community of thousands of aspiring developers",
-            "Get career support and interview preparation"
+            "Complete business website (you choose: restaurant, gym, café, barbershop, etc.)",
+            "Portfolio piece for college apps"
         ],
+        skills: ["HTML", "CSS", "JavaScript", "Git/GitHub"],
+        secondarySection: {
+            label: "What Makes This Different",
+            items: [
+                "Actually build something (not just follow tutorials)",
+                "Designed for complete beginners",
+                "Small cohort, real mentorship",
+                "No pressure, just exploration"
+            ]
+        },
         duration: "12 weeks",
         commitment: "10 hrs",
         price: "Free",
@@ -32,7 +41,7 @@ const courses = [
         duration: "12 weeks",
         commitment: "12 hrs",
         price: "Free",
-        badge: "Partnered by:",
+        badge: "with:",
         link: "/courses/ai-engineering"
     },
     // {
@@ -91,19 +100,47 @@ const CourseListing = () => {
                                 {course.description}
                             </p>
 
-                            <div className="bg-[#EFF0F5] rounded-2xl p-6 mb-8">
-                                <h4 className="font-bold text-[#10141D] mb-4  text-[18px] leading-[126%] tracking-[-2%] font-helvetica">What You'll Learn</h4>
-                                <ul className="grid grid-cols-1  gap-3">
-                                    {course.features.map((feat, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-[#2C2B2DB2]/70 text-[16px] leading-[140%] tracking-[-1%] font-helvetica">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M16.6663 5L7.49967 14.1667L3.33301 10" stroke="#704FE6" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-
-                                            {feat}
-                                        </li>
-                                    ))}
-                                </ul>
+                            <div className="space-y-6 mb-8">
+                                {"skills" in course && course.skills && course.skills.length > 0 && (
+                                    <div className="bg-[#EFF0F5] rounded-2xl p-6">
+                                        <h4 className="font-bold text-[#10141D] mb-3 text-[18px] leading-[126%] tracking-[-2%] font-helvetica">Skills</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {course.skills.map((skill, i) => (
+                                                <span key={i} className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white border border-[#E5E7EB] text-[#10141D] text-[14px] font-helvetica">
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                                <div className="bg-[#EFF0F5] rounded-2xl p-6">
+                                    <h4 className="font-bold text-[#10141D] mb-4  text-[18px] leading-[126%] tracking-[-2%] font-helvetica">{course.featuresLabel ?? "What You'll Learn"}</h4>
+                                    <ul className="grid grid-cols-1  gap-3">
+                                        {course.features.map((feat, i) => (
+                                            <li key={i} className="flex items-center gap-2 text-[#2C2B2DB2]/70 text-[16px] leading-[140%] tracking-[-1%] font-helvetica">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16.6663 5L7.49967 14.1667L3.33301 10" stroke="#704FE6" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
+                                                {feat}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                {"secondarySection" in course && course.secondarySection && (
+                                    <div className="bg-[#EFF0F5] rounded-2xl p-6">
+                                        <h4 className="font-bold text-[#10141D] mb-4  text-[18px] leading-[126%] tracking-[-2%] font-helvetica">{course.secondarySection.label}</h4>
+                                        <ul className="grid grid-cols-1  gap-3">
+                                            {course.secondarySection.items.map((item, i) => (
+                                                <li key={i} className="flex items-center gap-2 text-[#2C2B2DB2]/70 text-[16px] leading-[140%] tracking-[-1%] font-helvetica">
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M16.6663 5L7.49967 14.1667L3.33301 10" stroke="#704FE6" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    </svg>
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-4 mb-10 border-b pb-10 border-[#E5E7EB] pt-8">

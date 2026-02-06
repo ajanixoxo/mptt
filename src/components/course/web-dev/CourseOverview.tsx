@@ -19,13 +19,13 @@ const CourseOverview = () => {
                             </h2>
                             <div className="space-y-3 text-[#646669] text-[16px] font-helvetica leading-relaxed">
                                 <p>
-                                    Embark on a transformative journey into the world of web development. This comprehensive course is designed to take you from a curious beginner to a proficient developer, capable of building complex, modern web applications from scratch.
+                                    Your first website, built from scratch. By the end, you&apos;ll have a live site in your portfolio and a much clearer idea if coding is your thing.
                                 </p>
                                 <p>
-                                    Our curriculum is meticulously crafted to cover the most relevant technologies in today's tech industry. You'll dive deep into HTML5, CSS3, JavaScript (ES6+), and modern frameworks like React and Next.js.
+                                    You&apos;ll build a complete business website. You choose the type: restaurant, gym, café, barbershop, or something else. Skills covered include HTML, CSS, JavaScript, and Git/GitHub. The result is a real portfolio piece you can use for college apps.
                                 </p>
                                 <p>
-                                    Beyond technical skills, we focus on industry best practices, collaboration tools like Git/GitHub, and project management methodologies used by top engineering teams globally.
+                                    This course is designed for complete beginners. You&apos;ll actually build something (not just follow tutorials), in a small cohort with real mentorship. No pressure, just exploration.
                                 </p>
                             </div>
                         </motion.div>
@@ -45,7 +45,7 @@ const CourseOverview = () => {
                                 {[
                                     { label: "Duration", value: "12 Weeks" },
                                     { label: "Commitment", value: "10-15 Hours/Week" },
-                                    { label: "Level", value: "Intermediate" },
+                                    { label: "Level", value: "Beginner" },
                                     { label: "Cost", value: "Fully Funded" }
                                 ].map((detail, idx) => (
                                     <div key={idx} className="flex justify-between items-center py-4 border-b border-[#D1D5DC] last:border-0">
