@@ -7,22 +7,22 @@ const featuresData = [
     {
         icon: "/v2-images/Calendar2.svg",
         items: [
-            { label: "Program dates & time", value: "March 15, 2026" },
-            { label: "Program dates & time", value: "Live sessions: Wed, 12–1 PM EST" }
+            { label: "START DATE", value: "March 15, 2026" },
+            { label: "LIVE SESSIONS", value: "Wed, 6:00 PM - 7:30 PM EST" }
         ],
         colSpan: "lg:col-span-2"
     },
     {
         icon: "/v2-images/Caution.svg",
         items: [
-            { label: "Application Deadline", value: "February 28, 2026" }
+            { label: "APPLICATION DEADLINE", value: "February 28, 2026" }
         ],
         colSpan: "lg:col-span-1"
     },
     {
         icon: "/v2-images/Location.svg",
         items: [
-            { label: "Location", value: "Fully Remote" }
+            { label: "LOCATION", value: "Remote" }
         ],
         colSpan: "lg:col-span-1"
     }

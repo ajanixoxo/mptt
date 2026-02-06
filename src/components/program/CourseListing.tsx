@@ -16,8 +16,8 @@ const courses = [
             "Get career support and interview preparation"
         ],
         duration: "12 weeks",
-        commitment: "10-15 hrs",
-        price: "100% Free",
+        commitment: "10 hrs",
+        price: "Free",
         link: "/courses/web-development"
     },
     {
@@ -30,39 +30,39 @@ const courses = [
             "Build a professional AI portfolio and prepare for technical interviews"
         ],
         duration: "12 weeks",
-        commitment: "12-18 hrs",
-        price: "100% Free",
+        commitment: "12 hrs",
+        price: "Free",
         badge: "Partnered by:",
         link: "/courses/ai-engineering"
     },
-    {
-        title: "Data Science",
-        description: "Transform raw data into actionable insights with advanced analytics.",
-        features: [
-            "Master data analysis and visualization techniques using Python and R",
-            "Build machine learning models to extract meaningful insights from complex datasets",
-            "Develop data-driven strategies to solve real-world business challenges",
-            "Create compelling data narratives and prepare for data science interviews"
-        ],
-        duration: "12 weeks",
-        commitment: "10-15 hrs",
-        price: "100% Free",
-        link: "/courses/data-science"
-    },
-    {
-        title: "Cybersecurity",
-        description: "Protect systems and networks from digital attacks and vulnerabilities.",
-        features: [
-            "Master network security fundamentals and defensive strategies",
-            "Learn ethical hacking techniques to identify and mitigate vulnerabilities",
-            "Develop risk management skills to protect sensitive information",
-            "Gain hands-on experience with security tools and incident response"
-        ],
-        duration: "12 weeks",
-        commitment: "12-15 hrs",
-        price: "100% Free",
-        link: "/courses/cybersecurity"
-    }
+    // {
+    //     title: "Data Science",
+    //     description: "Transform raw data into actionable insights with advanced analytics.",
+    //     features: [
+    //         "Master data analysis and visualization techniques using Python and R",
+    //         "Build machine learning models to extract meaningful insights from complex datasets",
+    //         "Develop data-driven strategies to solve real-world business challenges",
+    //         "Create compelling data narratives and prepare for data science interviews"
+    //     ],
+    //     duration: "12 weeks",
+    //     commitment: "10-15 hrs",
+    //     price: "100% Free",
+    //     link: "/courses/data-science"
+    // },
+    // {
+    //     title: "Cybersecurity",
+    //     description: "Protect systems and networks from digital attacks and vulnerabilities.",
+    //     features: [
+    //         "Master network security fundamentals and defensive strategies",
+    //         "Learn ethical hacking techniques to identify and mitigate vulnerabilities",
+    //         "Develop risk management skills to protect sensitive information",
+    //         "Gain hands-on experience with security tools and incident response"
+    //     ],
+    //     duration: "12 weeks",
+    //     commitment: "12-15 hrs",
+    //     price: "100% Free",
+    //     link: "/courses/cybersecurity"
+    // }
 ];
 
 const CourseListing = () => {
@@ -108,16 +108,16 @@ const CourseListing = () => {
 
                             <div className="grid md:grid-cols-3 gap-4 mb-10 border-b pb-10 border-[#E5E7EB] pt-8">
                                 <div>
-                                    <p className="text-gray-400 text-[14px]  font-helvetica tracking-[-1%] leading-[138%] mb-1">Program Length</p>
-                                    <p className="text-[#704FE6] font-bold text-[26px] leading-[126%] tracking-[-2%] font-helvetica">{course.duration}</p>
-                                </div>
-                                <div>
-                                    <p className="text-gray-400 text-[14px]  font-helvetica tracking-[-1%] leading-[138%] mb-1">Weekly Commitment</p>
-                                    <p className="text-[#704FE6] font-bold text-[26px] leading-[126%] tracking-[-2%] font-helvetica">{course.commitment}</p>
-                                </div>
-                                <div>
-                                    <p className="text-gray-400 text-[14px]  font-helvetica tracking-[-1%] leading-[138%] mb-1">No Cost</p>
+                                    <p className="text-gray-400 text-[14px]  font-helvetica tracking-[-1%] leading-[138%] mb-1">COST</p>
                                     <p className="text-[#704FE6] font-bold text-[26px] leading-[126%] tracking-[-2%] font-helvetica">{course.price}</p>
+                                </div>
+                                <div>
+                                    <p className="text-gray-400 text-[14px]  font-helvetica tracking-[-1%] leading-[138%] mb-1">COMMITMENT</p>
+                                    <p className="text-[#704FE6] font-bold text-[26px] leading-[126%] tracking-[-2%] font-helvetica">{course.commitment}/week</p>
+                                </div>
+                                <div>
+                                    <p className="text-gray-400 text-[14px]  font-helvetica tracking-[-1%] leading-[138%] mb-1">DURATION</p>
+                                    <p className="text-[#704FE6] font-bold text-[26px] leading-[126%] tracking-[-2%] font-helvetica">{course.duration}</p>
                                 </div>
                             </div>
 
