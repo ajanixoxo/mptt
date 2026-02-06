@@ -59,7 +59,7 @@ const HeroSection = () => {
           className=" p-1.5 pr-6 flex flex-col md:flex-row items-center gap-4 md:shadow-xl"
         >
           <div className="flex flex-col md:flex-row items-center gap-3 px-3">
-            <span className="text-sm font-medium text-white">Web Development Spring 2026 Applications Now Open</span>
+            <span className="text-sm font-medium text-white text-center">Spring 2026 Applications Now Open</span>
             <span className="text-[#99A1AF] text-xs flex items-center gap-1">
               <Clock size={12} />
               Closes in: 15d 8h 40m 22s
