@@ -155,11 +155,11 @@ const SuccessStories = () => {
                                     <p className="text-sm text-[#10141D] dark:text-gray-300 leading-relaxed line-clamp-4">
                                         {story.content}
                                     </p>
-                                    <button className="text-[#704FE6] text-xs font-semibold mt-2 hover:underline">See translation</button>
+                                    <button className="text-[#704FE6] text-xs font-semibold mt-2 hover:underline">See more</button>
                                 </div>
 
                                 {/* Reactions Count */}
-                                <div className="flex justify-between items-center text-xs text-gray-500 mb-2 border-b border-gray-200 dark:border-gray-800 pb-2">
+                                <div className="flex justify-between items-center text-xs text-gray-500 dark:border-gray-800">
                                     <div className="flex items-center gap-1">
                                         <div className="flex -space-x-1">
                                             <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center border border-white z-20">
@@ -178,7 +178,7 @@ const SuccessStories = () => {
                                 </div>
 
                                 {/* Action Buttons */}
-                                <div className="flex justify-between items-center pt-1">
+                                {/* <div className="flex justify-between items-center pt-1">
                                     <button className="flex items-center gap-2 px-2 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-500 transition-colors flex-1 justify-center">
                                         <ThumbsUp size={18} />
                                         <span className="text-sm font-semibold">Like</span>
@@ -195,7 +195,7 @@ const SuccessStories = () => {
                                         <Send size={18} />
                                         <span className="text-sm font-semibold">Send</span>
                                     </button>
-                                </div>
+                                </div> */}
                             </a>
                         </motion.div>
                     ))}

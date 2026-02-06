@@ -40,12 +40,7 @@ const HeroSection = () => {
     },
   });
 
-  const images = [
-    "/v2-images/hero1.png",
-    "/v2-images/hero2.jpg",
-    "/v2-images/hero3.png",
-    "/v2-images/hero4.png",
-  ];
+  const images = Array.from({ length: 17 }, (_, i) => `/carousel-images/carousel-${i + 1}.jpg`);
 
   return (
     <section className="relative w-full h-max-content bg-black text-white overflow-hidden  pb-12 px-4 sm:px-6 lg:px-14">
@@ -132,7 +127,7 @@ const HeroSection = () => {
                 >
                   {[...images, ...images].map((src, i) => (
                     <div key={`col1-${i}`} className="relative h-[300px] w-full rounded-2xl overflow-hidden">
-                      <img src={src} alt="Student" className="w-full h-full object-cover" />
+                      <img src={src} alt="MyPath2Tech program highlight" className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </motion.div>
@@ -147,7 +142,7 @@ const HeroSection = () => {
                 >
                   {[...images, ...images].map((src, i) => (
                     <div key={`col2-${i}`} className="relative h-[300px] w-full rounded-2xl overflow-hidden">
-                      <img src={src} alt="Student learning" className="w-full h-full object-cover" />
+                      <img src={src} alt="MyPath2Tech program highlight" className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </motion.div>
