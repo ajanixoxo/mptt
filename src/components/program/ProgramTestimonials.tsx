@@ -11,7 +11,7 @@ const testimonials = [
     role: "Software Engineer at Google",
     image: "https://placehold.co/100x100",
     quote:
-      "The program was intense but incredibly rewarding. I went from knowing basic HTML to building full-stack applications in just 12 weeks.",
+      "The program is intense but incredibly rewarding. I went from knowing basic HTML to building full-stack applications in just 12 weeks.",
     rating: 5,
   },
   {
