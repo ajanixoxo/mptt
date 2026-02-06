@@ -1,7 +1,6 @@
 "use client"
 import HeroSection from "@/components/HeroSection"
 import FindYourPlace from "@/components/FindYourPlace"
-import EventsSection from "@/components/EventsSection"
 import SponsorsSection from "@/components/SponsorsSection"
 import PathwaysSection from "@/components/PathwaySection"
 import TestimonialsSection from "@/components/TestimonialsSection"
@@ -20,7 +19,6 @@ export default function Home() {
      
         <HeroSection />
         <FindYourPlace />
-        <EventsSection />
         <PathwaysSection />
         <TestimonialsSection /> 
         <SponsorsSection />
