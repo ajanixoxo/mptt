@@ -6,6 +6,7 @@ import RealPaths from "@/components/about/RealPaths"
 import WhySection from "@/components/about/TheProblem"
 import WhatWeDo from "@/components/about/TheMission"
 import ImpactSection from "@/components/about/Vision"
+import VolunteerSection from "@/components/VolunteerSection"
 import SponsorsSection from "@/components/SponsorsSection"
 import TeamSection from "@/components/about/Team"
 import FoundedBy from "@/components/about/FoundedBy"
@@ -24,6 +25,7 @@ const About = () => {
           <WhySection />
           <WhatWeDo />
           <ImpactSection />
+          <VolunteerSection />
           <SponsorsSection />
           <TeamSection />
           <FoundedBy />
