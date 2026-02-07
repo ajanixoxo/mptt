@@ -17,23 +17,36 @@ const SponsorsSection = ({ showCalendar = false }: SponsorsSectionProps) => {
           </p>
         </div>
 
-        <div className="relative overflow-hidden">
-          {/* Left fade gradient */}
-          {/* <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#FEFBEA] dark:from-[#0A0A0B] to-transparent pointer-events-none" /> */}
-
+        <div className="relative overflow-hidden w-full">
           {/* Scrolling carousel */}
-          <div className=" flex items-center justify-center gap-8 py-4">
-            <div className="flex items-center justify-center p-4 rounded-xl min-w-[250px] hover:scale-105 transition-transform">
+          <div className="flex flex-wrap items-center justify-center gap-8 py-8 md:gap-12">
+            {/* Existing Sponsor (white_sponsor.jpg) */}
+            <div className="flex items-center justify-center p-4 rounded-xl hover:scale-105 transition-transform bg-white/5 border border-gray-100 dark:border-gray-800">
               <img
                 src="/white_sponsor.jpg"
-                alt=""
-                className="max-h-96  w-full lg:w-[70%] transition-all"
+                alt="Sponsor"
+                className="h-20 md:h-28 object-contain"
+              />
+            </div>
+
+            {/* IBM Logo */}
+            <div className="flex items-center justify-center p-4 rounded-xl hover:scale-105 transition-transform bg-white/5 border border-gray-100 dark:border-gray-800">
+              <img
+                src="/v2-images/IBM-Logo.png"
+                alt="IBM"
+                className="h-16 md:h-24 object-contain"
+              />
+            </div>
+
+            {/* Forage Logo */}
+            <div className="flex items-center justify-center p-4 rounded-xl hover:scale-105 transition-transform bg-white/5 border border-gray-100 dark:border-gray-800">
+              <img
+                src="/v2-images/forage.png"
+                alt="Forage"
+                className="h-16 md:h-24 object-contain"
               />
             </div>
           </div>
-
-          {/* Right fade gradient */}
-          {/* <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#FEFBEA] dark:from-[#0A0A0B]  to-transparent pointer-events-none" /> */}
         </div>
 
         {showCalendar && (
