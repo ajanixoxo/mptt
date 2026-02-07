@@ -64,7 +64,7 @@ const Navbar = () => {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 bg-white  py-3 md:px-6 ${scrolled ? "shadow-sm py-3" : ""
+        className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 bg-white  py-1 md:px-6 ${scrolled ? "shadow-sm " : ""
           }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}

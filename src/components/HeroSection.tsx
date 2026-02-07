@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
 import Button from "./Button";
+import Link from "next/link";
 
 const HeroSection = () => {
   // Animation variants
@@ -43,15 +44,15 @@ const HeroSection = () => {
   const images = Array.from({ length: 17 }, (_, i) => `/carousel-images/carousel-${i + 1}.jpg`);
 
   return (
-    <section className="relative w-full h-max-content bg-black text-white overflow-hidden  pb-12 px-4 sm:px-6 lg:px-14">
+    <section className="relative w-full min-h-screen bg-black text-white overflow-hidden  pb-12 px-4 sm:px-6 lg:px-14">
 
       {/* Radial Glows */}
       <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none " />
-          <div className="absolute  bottom-0 -right-0 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none translate-x-1/3 " />
+      <div className="absolute  bottom-0 -right-0 w-[350px] h-[350px] bg-[#F9C23A]/50 rounded-full blur-[136px] pointer-events-none translate-x-1/3 " />
 
 
       {/* Sticky Banner */}
-      <div className="flex w-screen -mx-4 sm:-mx-6 lg:-mx-14 pt-5 md:py-7 md:shadow-lg justify-center  lg:mb-20 sticky top-[50px] md:top-20 z-30">
+      <div className="flex w-screen -mx-4 sm:-mx-6 lg:-mx-14 pt-5 md:py-3 md:shadow-lg justify-center lg:mb-20 sticky top-[30px] md:top-[55px] z-30">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,23 +76,23 @@ const HeroSection = () => {
       </div>
 
       <div className="container  mx-auto ">
-        <div className="grid grid-cols-1 pt-20 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 pt-10 md:pt-0 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Left Column: Text Content */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col items-center text-center md:items-start  md:text-left gap-6 lg:gap-8 z-10"
+            className="flex flex-col items-center justify-start text-center md:items-start  md:text-left gap-6 lg:gap-4 z-10"
           >
-            <div className="space-y-2  leading-[110%]">
-              <motion.h1 variants={fadeIn} className="text-[55px]  lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%]">
+            <div className="text-[55px]  lg:text-[90px]">
+              <motion.h1 variants={fadeIn} className=" leading-[0.9] font-extrabold tracking-[-3%]">
                 LEARN IT.
               </motion.h1>
-              <motion.h1 variants={fadeIn} className="text-[55px]  lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%]">
+              <motion.h1 variants={fadeIn} className=" leading-[0.9] font-extrabold tracking-[-3%]">
                 BUILD IT.
               </motion.h1>
-              <motion.h1 variants={fadeIn} className="text-[55px]  lg:text-[96px] leading-[0.9] font-extrabold tracking-[-3%] text-[#F9C23A]">
+              <motion.h1 variants={fadeIn} className=" leading-[0.9] font-extrabold tracking-[-3%] text-[#F9C23A]">
                 LAUNCH IT.
               </motion.h1>
             </div>
@@ -101,12 +102,12 @@ const HeroSection = () => {
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button
+              <Link href="/courses"><Button
                 text="Explore Courses"
                 variant="secondary"
                 className="!border-white !text-[#10141D] !w-full sm:!w-auto justify-center font-bold !px-[20px] !py-[14px] w-[174px] h-[56px]"
                 icon={<ArrowRight size={18} />}
-              />
+              /></Link>
             </motion.div>
 
             <motion.p variants={fadeIn} className="text-xs text-[#99A1AF] tracking-[-2%] leading-[138%] mt-4">
