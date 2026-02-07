@@ -21,7 +21,7 @@ export default function Home() {
 
         <HeroSection />
         <SponsorsSection showCalendar={true} />
-        <FindYourPlace />
+        {/* <FindYourPlace /> */}
         <SuccessStories />
         <TestimonialsSection />
         <CTASection />

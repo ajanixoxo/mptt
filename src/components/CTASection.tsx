@@ -42,7 +42,7 @@ const CTASection = () => {
                             <Button
                                 text="Plan Your Path"
                                 variant="outline"
-                                onClick={() => window.location.href = "/path"}
+                                onClick={() => window.location.href = "/program"}
                                 className="!text-white !border-white hover:!bg-white/10 w-max !text-sm sm:!text-base whitespace-nowrap min-w-0"
                             />
                         </div>

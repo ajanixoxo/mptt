@@ -51,6 +51,7 @@ const Navbar = () => {
     { name: "For Students", path: "#" },
     { name: "About", path: "/about" },
     { name: "Program", path: "/program" },
+    { name: "Events", path: "/events" },
   ]
 
   const toggleDropdown = (e: React.MouseEvent, name: string) => {
