@@ -148,7 +148,7 @@ const LearningPath = () => {
                                         <path d="M7 12L10.5 15.5L17 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                Small cohort, real mentorship
+                                Small cohort, real guidance
                             </li>
                             <li className="flex items-start gap-3 text-[#646669] text-[16px] font-helvetica">
                                 <div className="flex-shrink-0 text-[#704FE6] mt-0.5">
